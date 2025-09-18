@@ -52,7 +52,7 @@ Imagina que ets un dissenyador web i fas una pàgina web per practicar amb **CSS
 ### Exemple d’estructura d’arxius
 
 ```text
-exercici-001/
+DAM1M04-Exercici000/
 ├── index.html
 ├── contacte.html
 └── estils.css
