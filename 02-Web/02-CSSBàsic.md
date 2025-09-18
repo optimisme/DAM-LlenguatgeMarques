@@ -229,3 +229,23 @@ p::after {
 ```
 
 **Exemple-007**: Obrir amb "Show preview" la pàgina "02-Web/exemple-007/index.html"
+
+## Manipular CSS al navegador
+
+Els navegador tenen eines de desenvolupament, que permeten manipular el codi HTML i el codi CSS.
+
+Això permet provar valors, per després aplicar-los al codi original.
+
+```text
+Menú del navegador > Més eines > Eines de desenvolupament
+```
+
+O amb les combinacions de tecles
+```text
+Ctrl + Shift + I (Windows i Linux)
+Command (⌘) + Option (⌥) + I (Mac)
+```
+
+<center>
+<img src="./assets/css-eines.png" style="width: 90%; max-width: 400px">
+</center>
