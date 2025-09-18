@@ -59,4 +59,4 @@ DAM1M04-Exercici000/
 ```
 ## Entrega
 
-Entrega l'exercici com un nou projecte a GitHub anomenat DAM1M04-Exercici000, i l'enllaç del repositori GitHub anterior a l'espai d'entrega del Moodle de l'assignatura
+Entrega l'exercici com un nou projecte a GitHub anomenat DAM1M04-Exercici001, i l'enllaç del repositori GitHub anterior a l'espai d'entrega del Moodle de l'assignatura
