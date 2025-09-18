@@ -247,5 +247,5 @@ Command (⌘) + Option (⌥) + I (Mac)
 ```
 
 <center>
-<img src="./assets/css-eines.png" style="width: 90%; max-width: 400px">
+<img src="./assets/css-eines.png" style="width: 90%; max-width: 600px">
 </center>
