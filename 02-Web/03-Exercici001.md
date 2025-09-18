@@ -56,3 +56,7 @@ exercici-001/
 ├── index.html
 ├── contacte.html
 └── estils.css
+```
+## Entrega
+
+Entrega l'exercici com un nou projecte a GitHub anomenat DAM1M04-Exercici000, i l'enllaç del repositori GitHub anterior a l'espai d'entrega del Moodle de l'assignatura
