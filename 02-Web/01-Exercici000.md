@@ -12,10 +12,7 @@ Imagina que ets un paleontòleg i fas una pàgina web sobre **animals prehistòr
    - Tirannosaure
    - Triceratops
    - Diplodocus
-4. Una **llista ordenada** (`<ol>`) amb tres passos per veure dinosaures a Internet:
-   1. Obrir el navegador
-   2. Escriure "Dinosaures" al cercador
-   3. Fer clic als enllaços
+4. Una **llista ordenada** (`<ol>`) amb tres enllaços cap a pàgines de dinosaures.
 5. Una **imatge** (`<img>`) amb un dinosaure (posa una imatge dins la carpeta `imatges/` i fes-la aparèixer amb `width="200"`).
 6. Un **enllaç extern** (`<a>`) que porti a la Viquipèdia dels dinosaures:  
    [https://ca.wikipedia.org/wiki/Dinosaures](https://ca.wikipedia.org/wiki/Dinosaures)  
