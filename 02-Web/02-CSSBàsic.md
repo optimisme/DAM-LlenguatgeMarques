@@ -238,7 +238,7 @@ p::after {
 
 **Exemple-007**: Obrir amb "Show preview" la pàgina "02-Web/exemple-007/index.html"
 
-## Manipular CSS al navegador
+## Manipular CSS al navegador
 
 Els navegador tenen eines de desenvolupament, que permeten manipular el codi HTML i el codi CSS.
 
