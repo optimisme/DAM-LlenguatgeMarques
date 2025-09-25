@@ -3,12 +3,37 @@
 [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)  
 Com es mostra l'element en el flux del document.
 
-- **block**: L’element ocupa tot l’ample disponible i comença en una línia nova.
-- **inline**: L’element ocupa només l’ample del seu contingut i no força salt de línia.
-- **inline-block**: Es col·loca en línia però permet alçada i amplada pròpies.
-- **none**: L’element desapareix del flux i no ocupa espai.
-- **flex**: Converteix l’element en un contenidor flexible.
-- **grid**: Converteix l’element en un contenidor de graella.
+- **block**: L’element ocupa tot l’ample disponible i comença en una línia nova.  
+- **inline**: L’element ocupa només l’ample del seu contingut i no força salt de línia.  
+- **inline-block**: Es col·loca en línia però permet alçada i amplada pròpies.  
+- **none**: L’element desapareix del flux i no ocupa espai.  
+- **flex**: Converteix l’element en un contenidor flexible.  
+- **grid**: Converteix l’element en un contenidor de graella.  
+
+---
+
+### Flexbox
+
+Propietats principals quan s’utilitza `display: flex`.
+
+- [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction): Direcció dels ítems (`row`, `row-reverse`, `column`, `column-reverse`).  
+- [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Alineació vertical dels ítems dins del contenidor (`flex-start`, `flex-end`, `center`, `stretch`, `baseline`).  
+- [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content): Alineació horitzontal dels ítems (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`).  
+- [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap): Controla si els ítems es col·loquen en una sola línia o poden fer salt (`nowrap`, `wrap`, `wrap-reverse`).  
+- [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Alineació vertical de les línies quan hi ha múltiples files (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`).  
+
+---
+
+### Grid
+
+Propietats principals quan s’utilitza `display: grid`.
+
+- [grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows): Defineix el nombre i mida de les files.  
+- [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns): Defineix el nombre i mida de les columnes.  
+- [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content): Alineació horitzontal de tota la graella dins del contenidor.  
+- [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Alineació vertical de les cel·les dins de cada fila.  
+- [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Alineació vertical de tota la graella dins del contenidor.  
+
 
 ---
 
