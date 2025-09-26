@@ -14,18 +14,18 @@ p {
   text-decoration: underline;
 }
 
-ol li {
+ol > li {
   color: rgb(0, 0, 255);
 }
 
-ol li:first-child {
+ol > li:first-child {
   color: rgb(255, 0, 0);
 }
 
-ol li:last-child {
+ol > li:last-child {
   color: rgb(0, 0, 0);
 }
 
-ol li:nth-child(2) {
+ol > li:nth-child(2) {
   color: rgb(194, 117, 44);
 }

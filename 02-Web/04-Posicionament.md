@@ -30,7 +30,7 @@ La propietat [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/displa
 - `inline-block` → barreja: es comporta com a línia però permet definir amplada i alçada.
 - `none` → l’element no es mostra (s’amaga de la pàgina).
 
-**Exemple-008**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-008/index.html"
+**Exemple-00**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-00/index.html"
 
 ---
 
@@ -46,9 +46,9 @@ La propietat [`position`](https://developer.mozilla.org/en-US/docs/Web/CSS/posit
 
 📌 Per moure elements posicionats fem servir les propietats: [`top`](https://developer.mozilla.org/en-US/docs/Web/CSS/top), [`left`](https://developer.mozilla.org/en-US/docs/Web/CSS/left), [`right`](https://developer.mozilla.org/en-US/docs/Web/CSS/right), [`bottom`](https://developer.mozilla.org/en-US/docs/Web/CSS/bottom).
 
-**Exemple-009**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-009/index.html"
+**Exemple-01**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-01/index.html"
 
-**Exemple-010**: Obrir amb "Show preview" la pàgina "02-Web/exemple-010/index.html"
+**Exemple-02**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-02/index.html"
 
 ---
 
@@ -61,7 +61,7 @@ D'aquesta tècnica se'n diu **"auto-center"**
 - Definim una amplada màxima amb [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width).
 - Fem servir [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin): auto; perquè es centri horitzontalment.
 
-**Exemple-011**: Obrir amb "Show preview" la pàgina "02-Web/exemple-011/index.html"
+**Exemple-03**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-03/index.html"
 
 ---
 
@@ -78,7 +78,7 @@ D'aquesta tècnica se'n diu **"auto-center"**
 
 [Documentació flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout)
 
-**Exemple-012**: Obrir amb "Show preview" la pàgina "02-Web/exemple-012/index.html"
+**Exemple-04**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-04/index.html"
 
 ---
 
@@ -94,7 +94,7 @@ D'aquesta tècnica se'n diu **"auto-center"**
 
 📌 Grid és ideal per dissenys complexos amb diverses files i columnes.
 
-**Exemple-013**: Obrir amb "Show preview" la pàgina "02-Web/exemple-013/index.html"
+**Exemple-05**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-05/index.html"
 
 ---
 
@@ -147,3 +147,4 @@ La propietat [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-inde
 - Usar `max-width` i `margin: auto;` per centrar contenidors.  
 - Tenir present la jerarquia: **block** i **inline** → **display** → **position** → **flex/grid**.
 
+**Exemple-06**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-06/index.html"
