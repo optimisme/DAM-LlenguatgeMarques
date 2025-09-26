@@ -1,0 +1,14 @@
+.autocenter {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.gradient-text {
+  background: conic-gradient(#ec8c86,#d78191,#c1759c,#8eabcb,#7cbddb,#91c6a8,#b4d48d,#dfc17e,#ec8c86);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 5em;
+  font-weight: bold;
+}

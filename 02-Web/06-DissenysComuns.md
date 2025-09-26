@@ -1,1 +1,0 @@
-# Dissenys comuns

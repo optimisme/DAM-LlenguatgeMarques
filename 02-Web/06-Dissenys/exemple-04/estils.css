@@ -1,0 +1,44 @@
+.autocenter {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.vintageBlock {
+  box-sizing: border-box;
+  padding: 32px;
+  width: 80%;
+}
+
+.vintageFrame {
+  background: linear-gradient(-15deg, #faf7e3, #d7ca99);
+  border-radius: 16px;
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
+  padding: 16px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.vintageFrame:hover {
+  box-shadow: 0px 10px 20px 4px rgba(0,0,0,0.30);
+  transform: rotate(0deg) scale(1.05);
+}
+
+.vintageImage { 
+  box-sizing: border-box;
+  filter: sepia(60%);
+  width: 100%;
+}
+
+.vintageText { 
+  box-sizing: border-box;
+  color: #646f8a;
+  display: inline-block;
+  font-family: "Architects Daughter";
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding-top: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

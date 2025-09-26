@@ -1,0 +1,43 @@
+.autocenter {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.polaroidBlock { 
+  box-sizing: border-box;
+  padding: 32px;
+  width: 80%;
+}
+
+.polaroidFrame { 
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
+  padding: 16px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.polaroidFrame:hover {
+  box-shadow: 0px 10px 20px 4px rgba(0,0,0,0.30);
+  transform: rotate(0deg) scale(1.05);
+}
+
+.polaroidImage { 
+  box-sizing: border-box;
+  filter: saturate(250%);
+  width: 100%;
+}
+
+.polaroidText { 
+  box-sizing: border-box;
+  color: #646f8a;
+  display: inline-block;
+  font-family: "Architects Daughter";
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding-top: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

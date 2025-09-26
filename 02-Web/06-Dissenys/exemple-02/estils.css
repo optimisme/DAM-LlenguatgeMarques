@@ -1,0 +1,19 @@
+.autocenter {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.picture70block { 
+  box-sizing: border-box;
+  padding: 16px;
+  width: 100%;
+}
+
+.picture70img { 
+  border-radius: 16px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20) , 0px 2px 17px 0px rgba(0,0,0,0.20);
+  box-sizing: border-box;
+  filter: saturate(150%);
+  width: 100%;
+}
