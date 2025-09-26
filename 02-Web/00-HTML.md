@@ -93,7 +93,7 @@ Per veure una pàgina web, necessitem un servidor.
 
 L'extensió **"Live Preview"** permet posar un servidor en funcionament de manera fàcil.
 
-Amb l'arxiu "02-Web/exemple-000/index.html", escollir la opció  "Show Preview"
+Amb l'arxiu "02-Web/01-HTML/exemple-000/index.html", escollir la opció  "Show Preview"
 
 <center>
 <img src="./assets/html-showpreview0.png" style="width: 90%; max-width: 400px">
@@ -117,7 +117,7 @@ L'arrel física del servidor és la del projecte
 ```
 La direcció de la pàgina dins del servidor:
 ```text
-./02-Web/exemple-000/index.html
+./02-Web/01-HTML/exemple-000/index.html
 ```
 A més, podem obrir la mateixa URL amb un navegador i veurem la mateixa pàgina:
 
@@ -273,7 +273,7 @@ En aquest cas l'element **img** té els atributs **src**, **alt** i **width** am
 
 **&lt;a&gt;**: enllaçar amb una altre pàgina web
 
-**Exemple-001**: Obrir amb "Show preview" la pàgina "02-Web/exemple-001/index.html"
+**Exemple-001**: Obrir amb "Show preview" la pàgina "02-Web/01-HTML/exemple-001/index.html"
 
 ## Llistes HTML
 
@@ -309,7 +309,7 @@ Cada element de la llista també s’escriu amb `<li>`.
 </ol>
 ```
 
-**Exemple-002**: Obrir amb "Show preview" la pàgina "02-Web/exemple-002/index.html"
+**Exemple-002**: Obrir amb "Show preview" la pàgina "02-Web/01-HTML/exemple-002/index.html"
 
 ## Enllaços HTML
 
@@ -348,4 +348,4 @@ L’element que s’utilitza és **`<a>`** (*anchor*).
 </a>
 ```
 
-**Exemple-003**: Obrir amb "Show preview" la pàgina "02-Web/exemple-003/index.html"
+**Exemple-003**: Obrir amb "Show preview" la pàgina "02-Web/01-HTML/exemple-003/index.html"

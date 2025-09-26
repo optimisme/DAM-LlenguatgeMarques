@@ -59,7 +59,7 @@ S’escriu en un arxiu .css separat i s’importa amb un element `<link>` dins d
 </head>
 ```
 
-**Exemple-004**: Obrir amb "Show preview" la pàgina "02-Web/exemple-004/.html"
+**Exemple-004**: Obrir amb "Show preview" la pàgina "02-Web/02-CSSBàsic/exemple-004/.html"
 
 <span style="color:#AA0000; font-weight: bold;">Important</span>: Moltes pàgines web, defineixen els estils combinant les tècniques anteriors:
 
@@ -140,7 +140,7 @@ Les diferències amb l'**id** són que:
 </p>
 ```
 
-**Exemple-005**: Obrir amb "Show preview" la pàgina "02-Web/exemple-005/index.html"
+**Exemple-005**: Obrir amb "Show preview" la pàgina "02-Web/02-CSSBàsic/exemple-005/index.html"
 
 ## Pseudo-classes CSS
 
@@ -168,7 +168,7 @@ Les **Pseudo-classes** són “estats especials” que serveixen per aplicar est
 - **:required** → un camp obligatori.
 - **:valid / :invalid** → segons si el valor del formulari és vàlid o no.
 
-**Exemple-006**: Obrir amb "Show preview" la pàgina "02-Web/exemple-006/index.html"
+**Exemple-006**: Obrir amb "Show preview" la pàgina "02-Web/02-CSSBàsic/exemple-006/index.html"
 
 ## Jerarquia de selectors combinats
 
@@ -236,7 +236,7 @@ p::after {
 <p>Aquest paràgraf tindrà símbols afegits.</p>
 ```
 
-**Exemple-007**: Obrir amb "Show preview" la pàgina "02-Web/exemple-007/index.html"
+**Exemple-007**: Obrir amb "Show preview" la pàgina "02-Web/02-CSSBàsic/exemple-007/index.html"
 
 ## Manipular CSS al navegador
 
