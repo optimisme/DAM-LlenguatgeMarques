@@ -5,6 +5,8 @@ Formularis (<form>) → input, textarea, select, label, atributs importants (nam
 
 Multimèdia → <audio>, <video>, <iframe>.
 
+Lottie Files → animacions vectorials.
+
 Semàntica HTML5 → <header>, <nav>, <article>, <section>, <aside>, <footer>.
 
 Accessibilitat bàsica (A11Y) → atributs alt, aria-*, jerarquia de títols.

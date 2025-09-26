@@ -4,7 +4,7 @@ Construir una mini-web d’empresa amb 3 pàgines HTML i un full d’estil comú
 
 La temàtica pot ser: “un gimnàs”, “una botiga de roba”, “una acadèmia”, etc.
 
-## Estructura del projecte
+## Estructura del projecte
 ```text
 exercici-002/
 ├── index.html
