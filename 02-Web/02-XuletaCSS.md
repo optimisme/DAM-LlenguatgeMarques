@@ -258,3 +258,54 @@ Propietats per dividir el contingut en columnes.
 - [column-rule-width](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width): Gruix de la línia entre columnes.  
 - [column-rule-color](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color): Color de la línia entre columnes.  
 - [column-span](https://developer.mozilla.org/en-US/docs/Web/CSS/column-span): Controla si un element ocupa més d’una columna.  
+
+---
+
+## Shadows
+
+Permeten afegir ombres a elements i text.
+
+- [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow): Ombra de la caixa de l’element (offset X, offset Y, difuminat, extensió, color).  
+- [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow): Ombra aplicada al text (offset X, offset Y, difuminat, color).  
+
+---
+
+## Transform
+
+Permet aplicar transformacions geomètriques als elements.
+
+- [transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform): Aplica transformacions com:  
+  - **translate(x, y)**: Mou l’element.  
+  - **rotate(angle)**: Gira l’element.  
+  - **scale(x, y)**: Escala l’element.  
+  - **skew(x-angle, y-angle)**: Deforma l’element.  
+  - **matrix()**: Defineix una transformació amb matriu.  
+
+- [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin): Punt de referència de la transformació (`center`, `top left`, valors percentuals o píxels).  
+
+- [transform-style](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style): Controla si els fills conserven el context 3D (`flat`, `preserve-3d`).  
+
+- [perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective): Profunditat de la perspectiva 3D.  
+
+- [perspective-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin): Punt d’origen de la perspectiva.  
+
+- [backface-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility): Controla si la cara posterior d’un element 3D és visible.  
+
+---
+
+## Filter
+
+Aplica efectes visuals similars als dels programes d’edició d’imatges.
+
+- [filter](https://developer.mozilla.org/en-US/docs/Web/CSS/filter): Efectes comuns:  
+  - **blur(px)**: Difumina l’element.  
+  - **brightness(%)**: Ajusta la brillantor.  
+  - **contrast(%)**: Ajusta el contrast.  
+  - **grayscale(%)**: Converteix a escala de grisos.  
+  - **invert(%)**: Inverteix colors.  
+  - **opacity(%)**: Controla la transparència.  
+  - **saturate(%)**: Ajusta la saturació.  
+  - **sepia(%)**: Dona un efecte sèpia.  
+  - **drop-shadow(x y blur color)**: Ombra amb més control que `box-shadow`.  
+
+---
