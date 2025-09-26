@@ -81,6 +81,20 @@ A la carpeta "./02-Web/Dissenys/exemple-03", a l'arxiu "index.html" escollir la 
 Les fotografies amb estil Vintage tenen un efecte de color antic.
 
 ```css
+.vintageBlock {
+  box-sizing: border-box;
+  padding: 32px;
+  width: 80%;
+}
+
+.vintageFrame {
+  background: linear-gradient(-15deg, #faf7e3, #d7ca99);
+  border-radius: 16px;
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
+  padding: 16px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease-in-out;
+}
 ```
 
 A la carpeta "./02-Web/Dissenys/exemple-04", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
