@@ -36,17 +36,21 @@ El menú ha de ser tipus **"sticky"** com el d'aquest vídeo:
 - Té una part inferior que es queda 'sticky'
 - Té un efecte *"Frozen glass"*
 
-Fixa't que hi ha seccions amb *autocenter* i altres que van de punta a punta de l'espai horitzontal. Respecte aquest disseny.
+**Tingues en compte**:
 
-- Fes un *autocenter* amb un màxim de **"1264px"** d'espai horitzontal.
+- Hi ha seccions amb *autocenter* i altres que van de punta a punta de l'espai horitzontal. Respecte aquest disseny.
 
-Fixa't que algunes seccions tenen un fons blanc i altres tenen diferents colors. Respecte aquest disseny.
+- Fes un *autocenter* global amb un màxim de **"1264px"** d'espai horitzontal.
 
-Fixa't que algunes imatges són arrodonides i tenen sombres, implementa-ho amb CSS, **no copiis les sombres de la imatge!**
+- Algunes seccions tenen un fons blanc i altres tenen diferents colors. Respecte aquest disseny.
 
-Manté els estils comuns, per reduir definicions d'estil
+- Algunes imatges són arrodonides i tenen sombres, implementa-ho amb CSS, **no copiis les sombres de la imatge!**
 
-Els enllaços han de mostrar el **cursor tipus mà**. A més, han de respectar l'estil **":hover"** també els que tenen forma de botó.
+- Manté els estils comuns, per reduir definicions d'estil
+
+- Fes servir l'element **&lt;video&gt;** pels arxius tipus **.mov**
+
+- Els enllaços han de mostrar el **cursor tipus mà**. A més, han de respectar l'estil **":hover"** també els que tenen forma de botó.
 
 Aquests són els enllaços:
 
