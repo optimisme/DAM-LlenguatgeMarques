@@ -1,0 +1,87 @@
+:root{
+  --nav-h: 64px;
+  --glass-bg: rgba(255,255,255,0.45);
+  --glass-bd: rgba(255,255,255,0.6);
+  --page-max: 980px;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  background: linear-gradient(180deg, #e6f0ff 0%, #f9fbff 40%, #ffffff 100%);
+}
+
+/* ===== NAV “FROZEN GLASS” ===== */
+.topnav{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 0 20px;
+  border-bottom: 1px solid var(--glass-bd);
+
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.topnav .brand{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.topnav .menu{
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.topnav .menu a{
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background-color 120ms ease, transform 80ms ease;
+}
+
+.topnav .menu a:hover{
+  background: rgba(255,255,255,0.55);
+  transform: translateY(-1px);
+}
+
+/* ===== HERO FLEX ===== */
+.hero{
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalment */
+  align-items: center;     /* centra horitzontalment */
+  text-align: center;
+  background:
+    radial-gradient(1200px 300px at 10% 0%, rgba(0,140,255,0.18), transparent 60%),
+    radial-gradient(800px 200px at 90% 0%, rgba(0,200,120,0.15), transparent 60%);
+  padding-top: 10px;
+}
+
+/* ===== CONTENIDOR AUTOCENTRAT ===== */
+.autocenter{
+  width: min(100% - 32px, var(--page-max));
+  margin: 0 auto;
+  line-height: 1.6;
+  padding: 24px 0 80px;
+}

@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.autocenter {
+    flex: 1; /* ocupa tot l'espai disponible abans del footer */
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+footer {
+    background: rgba(30, 30, 30, 0.95);
+    color: #eee;
+    padding: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* permet que s’adapti en pantalles petites */
+}
+
+.footerCol {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footerCol h3 {
+    border-bottom: 2px solid #66ccff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.footerCol ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerCol ul li {
+    margin: 6px 0;
+}
+
+.footerCol a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+.footerCol a:hover {
+    text-decoration: underline;
+}
+
+.footerBottom {
+    text-align: center;
+    font-size: 0.9em;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #444;
+    width: 100%;
+}

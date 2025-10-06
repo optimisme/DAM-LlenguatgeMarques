@@ -1,5 +1,33 @@
 # Dissenys comuns
 
+## Variables
+
+CSS permet posar variables. Aquestes poden tenir:
+
+- Àmbit global si es defineixen dins de **":root"**
+- Àmbit local si es defineixen dins d'una definició de selector específica.
+
+```css
+:root{ 
+  --nav-h: 64px;      /* àmbit global */
+  --page-max: 980px;  /* àmbit global */
+}
+```
+
+La definició de variables es pot posar dins de les definicions específiques, o de manera global dins de **":root"**
+
+Per fer servir els valors definits a les variables fem servir **"var(--nav-h);"**
+
+```css
+.topnav {
+  --horizontal-padding: 16px; /* àmbit local */
+
+  height: var(--nav-h);
+  padding-left: var(--horizontal-padding);
+  padding-right: var(--horizontal-padding);
+}
+```
+
 ## Autocenter
 
 Fer un espai central que tingui una amplada màxima i que es centri automàticament.
@@ -154,3 +182,25 @@ A la carpeta "./02-Web/Dissenys/exemple-10", a l'arxiu "index.html" escollir la 
 Per tal de fer **"llegible"** els texts sobreposats a les imatges, a vegades es posen en quadres de text.
 
 A la carpeta "./02-Web/Dissenys/exemple-11", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Menú frozenglass
+
+Al fer un menú superior, se li pot donar un efecte de **"vidre congelat"** per veure com els continguts passen per sota seu al fer scroll.
+
+A la carpeta "./02-Web/Dissenys/exemple-12", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Peu de pàgina
+
+Els peus de pàgina són la part inferior d’una pàgina on es posa informació addicional o repetida.
+
+A la carpeta "./02-Web/Dissenys/exemple-13", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Taules
+
+Les taules han de contenir dades **(no s'han de fer servir per posicionar)**. I es pot donar estil, per capçaleres, files o columnes.
+
+
+
+A la carpeta "./02-Web/Dissenys/exemple-14", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+
