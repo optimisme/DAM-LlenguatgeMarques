@@ -24,6 +24,8 @@ Entrega l'exercici com un nou repositori a GitHub anomenat DAM1M04-Exercici003, 
 
 ## Requeriments
 
+**IMPORTANT!** S'ha de fer servir **Flexbox**, **NO** es pot fer servir GRID.
+
 El menú ha de ser tipus **"sticky"** com el d'aquest vídeo:
 
 <center>
