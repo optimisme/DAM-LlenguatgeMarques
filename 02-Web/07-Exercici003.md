@@ -1,6 +1,6 @@
 # Exercici003: 
 
-Maqueta la pàgina de **"Pixelmator"** a partir del disseny gràfic adjunt al final d'aquest document.
+Maqueta la pàgina de **"Pixelmator"** a partir del disseny gràfic/imatge adjunt/a al final d'aquest document.
 
 ## Estructura del projecte
 ```text
@@ -11,6 +11,12 @@ exercici-003/
 
 - index.html → el codi HTML de la pàgina
 - estils.css → conté els estils de la pàgina
+
+## Entrega
+
+Entrega l'exercici com un nou repositori a GitHub anomenat DAM1M04-Exercici003, i l'enllaç del repositori GitHub anterior a l'espai d'entrega del Moodle de l'assignatura
+
+## Requeriments
 
 El menú ha de ser tipus **"sticky"** com el d'aquest vídeo:
 
