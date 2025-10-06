@@ -49,6 +49,8 @@ Aquests són els enllaços:
 - [See full list of adjustmens](https://support.pixelmator.com)
 - [See full specs](https://www.pixelmator.com/pro/tech-specs/)
 
+Aquesta la pàgina que s'ha d'implementar:
+
 <center>
 <img src="./assets/exerciciPixelmator.png" style="width: 90%; max-width: 700px">
 </center>
