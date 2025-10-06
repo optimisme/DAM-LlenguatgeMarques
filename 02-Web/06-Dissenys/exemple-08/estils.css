@@ -1,0 +1,43 @@
+body { 
+    background-color: #174197;
+    color: #ffffff;
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+.autocenterContainer {
+    max-width: 1264px;    /* amplada màxima */
+    margin: auto;         /* centra horitzontalment */
+    padding: 20px;
+}
+.boxesContainer {
+    --horizPadding: 16px;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-left: var(--horizPadding);
+    padding-right: var(--horizPadding);
+    width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
+}
+.boxesContainer > .box { 
+    align-items: center;
+    background-color: #3a5b9c;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+    width: 250px;
+    padding: 24px;
+}
+.boxesContainer > .box > p:first-child { 
+    font-size: 2em;
+    margin: 0;
+}
+.boxesContainer > .box > p:last-child { 
+    margin: 0;
+}

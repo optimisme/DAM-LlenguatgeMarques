@@ -1,0 +1,40 @@
+body { 
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+.pictureTextBox { 
+    align-items: center;
+    background: center / cover url("./imageMain.jpg");
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+    position: relative;
+}
+.pictureTextBox > div { 
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 25px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 80%;
+    padding: 16px;
+    position: absolute;
+}
+.pictureTextBox > div > h1 { 
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 0;
+    text-align: center;
+}
+.pictureTextBox > div > p { 
+    margin: 0;
+    margin-top: 16px;
+    text-align: justify;
+}

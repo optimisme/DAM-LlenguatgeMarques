@@ -1,0 +1,98 @@
+body { 
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+.autocenterContainer {
+    max-width: 1264px;    /* amplada màxima */
+    margin: auto;         /* centra horitzontalment */
+    padding: 20px;
+}
+.cardsContainer { 
+    --horizPadding: 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: var(--horizPadding);
+    padding-right: var(--horizPadding);
+    width: calc(100% - 2 * var(--horizPadding));
+}
+.card0 { 
+    border: solid 1px lightgray;
+    border-radius: 16px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 16px;
+    max-width: 275px;
+    min-width: 275px;
+    overflow: hidden;
+}
+.card0 > img { 
+    box-sizing: border-box;
+    width: 100%;
+}
+.card0 > div { 
+    box-sizing: border-box;
+    min-height: 200px;
+    padding: 16px;
+}
+.card0 > div > h1 { 
+    margin: 0;
+}
+.card1{ 
+    background: center / cover url("./imageHiking.jpg");
+    border: solid 1px lightgray;
+    border-radius: 16px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 16px;
+    max-width: 275px;
+    min-width: 275px;
+    overflow: hidden;
+}
+.card1 > div { 
+    backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    min-height: 200px;
+    padding: 16px;
+}
+.card1 > div > h1 {
+    margin: 0;
+}
+.card2 {
+    align-items: center;
+    border: solid 1px lightgray;
+    border-radius: 16px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 16px;
+    max-width: 275px;
+    min-width: 275px;
+    overflow: hidden;
+}
+.backImage {
+    background: center / cover url("./imageTrekking.jpg");
+    border-radius: 100%;
+    box-shadow: inset 0px 1px 15px 9px rgba(0,0,0,0.20);
+    box-sizing: border-box;
+    height: 150px;
+    margin: 16px;
+    overflow: hidden;
+    width: 150px;
+}
+.card2 > .contents {
+    box-sizing: border-box;
+    min-height: 200px;
+    padding: 16px;
+}
+.card2 > .contents > h1 { 
+    margin: 0;
+}

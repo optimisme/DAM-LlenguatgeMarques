@@ -1,0 +1,30 @@
+body { 
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+.pictureHeader { 
+    align-items: center;
+    background: center / cover url("./imageMain.jpg");
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+    position: relative;
+}
+.pictureHeader > h1 { 
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+}
+.pictureHeader > p { 
+    box-sizing: border-box;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 16px;
+    max-width: 80%;
+    text-align: center;
+}

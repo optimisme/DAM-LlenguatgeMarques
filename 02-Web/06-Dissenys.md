@@ -98,3 +98,59 @@ Les fotografies amb estil Vintage tenen un efecte de color antic.
 ```
 
 A la carpeta "./02-Web/Dissenys/exemple-04", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Retallar text amb ...
+
+Per tal de **"retallar un text amb ..."** cal definir el CSS amb:
+
+```css
+.truncate-single {
+    width: 250px;             /* amplada màxima */
+    white-space: nowrap;      /* no fer salts de línia */
+    overflow: hidden;         /* amaga el que sobrepassa */
+    text-overflow: ellipsis;  /* mostra ... al final */
+    border: 1px solid #ccc;
+    padding: 4px;
+}
+```
+
+> **Nota*: Encara no hi ha un estàndard CSS per fer un text multilinia amb "..." i no funciona amb firefox
+
+A la carpeta "./02-Web/Dissenys/exemple-05", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Text centrat amb subtítol
+
+L'exemple mostra un contenedor simple, amb un *títol* i un *subtítol* centrats.
+
+A la carpeta "./02-Web/Dissenys/exemple-06", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Imatge com a *Background*
+
+Habitualment, quan es divideix una secció amb dues parts, una conté una imatge però que es mostra com un ["background"](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image) enlloc de dins del seu propi element.
+
+A la carpeta "./02-Web/Dissenys/exemple-07", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Caixes o mòduls
+
+Organitzar la informació en caixes o mòduls, permet reutilitzar definicions CSS i organitzar visualment la informació.
+
+A la carpeta "./02-Web/Dissenys/exemple-08", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Targes o *Cards*
+
+Les targetes són una altra forma d'organitzar la informació. Sovint, amb sombrejat per separar-ne el contingut com si fós una tarja real.
+
+
+A la carpeta "./02-Web/Dissenys/exemple-09", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Títol amb imatge centrada de fons
+
+Sovint els títols tenen una imatge de fons, centrada al contingut.
+
+A la carpeta "./02-Web/Dissenys/exemple-10", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.
+
+## Imatge amb quadre de text
+
+Per tal de fer **"llegible"** els texts sobreposats a les imatges, a vegades es posen en quadres de text.
+
+A la carpeta "./02-Web/Dissenys/exemple-11", a l'arxiu "index.html" escollir la opció **"Show Preview"** per veure la pàgina web.

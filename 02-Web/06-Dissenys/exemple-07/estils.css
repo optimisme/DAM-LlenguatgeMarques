@@ -1,0 +1,46 @@
+body { 
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+.autocenterContainer {
+    max-width: 1264px;    /* amplada màxima */
+    margin: auto;         /* centra horitzontalment */
+    background: white;
+    padding: 20px;
+}
+.infoContainer { 
+    --horizPadding: 32px;
+
+    box-sizing: border-box;
+    padding-left: var(--horizPadding);
+    padding-right: var(--horizPadding);
+    width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
+}
+.infoContainer > .cutMask { 
+    /* Necessari per retallar l'arrodoniment 
+        del color de fons i la foto */
+    background-color: #c9c9c9;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+.infoContainer .textContainer { 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    width: 50%;
+}
+.infoContainer .textContainer > h1 { 
+    margin: 0;
+}
+.infoContainer .backImage { 
+    /* Definir la imatge de fons de la capa */
+    background: center / cover url("image.jpg");
+    box-sizing: border-box;
+    min-height: 250px;
+    width: 50%;
+}

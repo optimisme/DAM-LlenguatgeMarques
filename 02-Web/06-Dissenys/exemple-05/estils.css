@@ -1,0 +1,31 @@
+/* Retall per UNA SOLA LÍNIA */
+.truncateSingle {
+    width: 250px;             /* amplada màxima */
+    white-space: nowrap;      /* no fer salts de línia */
+    overflow: hidden;         /* amaga el que sobrepassa */
+    text-overflow: ellipsis;  /* mostra ... al final */
+    border: 1px solid #ccc;
+    padding: 4px;
+}
+
+/* Retall per MÚLTIPLES LÍNIES */
+/* No funciona en Firefox, per falta d'estàndard */
+.truncateMulti {
+    --lines: 3;
+    --lh: 1.4em;
+
+    width: 250px;
+    line-height: var(--lh);
+    max-height: calc(var(--lines) * var(--lh));
+    overflow: hidden;
+    position: relative;
+    padding-right: 1em; /* espai pels punts suspensius */
+    border: 1px solid #ccc;
+    padding: 4px;
+
+    /* WebKit browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lines);
+    text-overflow: ellipsis;
+}
