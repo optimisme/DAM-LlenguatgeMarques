@@ -1,14 +1,20 @@
 # Exercici003: 
 
-Maqueta la pàgina de **"Pixelmator"** a partir del disseny gràfic/imatge adjunt/a al final d'aquest document.
+Maqueta la pàgina de **"Pixelmator"** a partir del disseny *gràfic/imatge adjunt/a* al final d'aquest document.
+
+Fes servir els recursos que hi ha a l'arxiu *.zip* de la carpeta:
+
+*./02-Web/assets/exerciciPixelmator.zip*
 
 ## Estructura del projecte
 ```text
 exercici-003/
+├── imatges/
 ├── index.html
 └── estils.css
 ```
 
+- imatges/ → carpeta amb les imatges 
 - index.html → el codi HTML de la pàgina
 - estils.css → conté els estils de la pàgina
 
