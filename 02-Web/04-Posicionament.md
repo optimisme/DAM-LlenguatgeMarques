@@ -77,6 +77,8 @@ D'aquesta tècnica se'n diu **"auto-center"**
 📌 Flexbox és ideal per menús, barres de navegació i distribucions simples.
 
 [Documentació flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout)
+
+
 [Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 **Exemple-04**: Obrir amb "Show preview" la pàgina "02-Web/04-Posicionament/exemple-04/index.html"
