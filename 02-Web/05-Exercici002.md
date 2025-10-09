@@ -27,7 +27,8 @@ exercici-002/
 
 **Peu mínim:**
 
-- Bloc senzill al final de la pàgina.
+- Fent servir l'element **&lt;**footer**&gt;**
+- Bloc senzill al final de la pàgina
 - Pot contenir drets d’autor, correu de contacte o icones socials.
 - S’ha de repetir igual a totes les pàgines.
 
@@ -38,7 +39,7 @@ Pàgina principal amb la funció de presentar l'empresa i captar l'atenció.
 **Requisits de maquetació**
 
 - Contenidor centrat: max-width: 1100px; margin: auto;.
-Hero inicial amb títol, subtítol i botó cridaner (inline-block).
+- Hero destacat inicial amb títol, subtítol i botó cridaner (fes servir l'element **&lt;**button**&gt;**).
 - Secció de col·leccions: 3 blocs informatius (cartes amb títol, paràgraf i etiquetes curtes en span).
 - Banda de beneficis: horitzontal amb Flex (p. ex.: 
 - Enviament 48h · Canvis gratuïts · Pagament segur).
