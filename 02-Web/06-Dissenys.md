@@ -9,22 +9,22 @@ CSS permet posar variables. Aquestes poden tenir:
 
 ```css
 :root{ 
-  --nav-h: 64px;      /* àmbit global */
-  --page-max: 980px;  /* àmbit global */
+  --navH: 64px;      /* àmbit global */
+  --pageMax: 980px;  /* àmbit global */
 }
 ```
 
 La definició de variables es pot posar dins de les definicions específiques, o de manera global dins de **":root"**
 
-Per fer servir els valors definits a les variables fem servir **"var(--nav-h);"**
+Per fer servir els valors definits a les variables fem servir **"var(--navH);"**
 
 ```css
-.topnav {
-  --horizontal-padding: 16px; /* àmbit local */
+.infoContainer { 
+    --horizPadding: 32px; /* àmbit local */
 
-  height: var(--nav-h);
-  padding-left: var(--horizontal-padding);
-  padding-right: var(--horizontal-padding);
+    padding-left: var(--horizPadding);
+    padding-right: var(--horizPadding);
+    width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
 }
 ```
 
