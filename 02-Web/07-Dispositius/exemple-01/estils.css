@@ -1,0 +1,18 @@
+/* Base: mòbil (columnes apilades) */
+.row-to-col {
+  display: flex;
+  flex-direction: column;   /* stack */
+  gap: 1rem;
+}
+
+/* Desktop, a partir de 768px: disposem en fila */
+@media (min-width: 768px) {
+  .row-to-col {
+    flex-direction: row;    /* row */
+    align-items: center;    /* opcional */
+  }
+}
+
+/* Variants útils */
+.row-to-col .wrap { flex-wrap: wrap; }  /* permet saltar de línia en desktop */
+.row-to-col > * { flex: 1 1 0; }       /* repartiment d'ample */
