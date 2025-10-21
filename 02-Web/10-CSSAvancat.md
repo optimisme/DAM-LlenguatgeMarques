@@ -104,6 +104,58 @@ Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-00
 
 # Carousel CSS
 
+<center>
+<img src="./assets/cssadv-carrusel.png" style="width: 90%; max-width: 500px">
+</center>
+
 Exemple d'un carrousel fet únicament amb CSS, sense JavaScript.
 
 Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-01/index.html"
+
+## Com funciona el Carrusel CSS (sense JavaScript)
+
+### 1. Radio buttons amagats controlen l'estat
+
+```html
+<input type="radio" name="slide" id="slide1" checked>
+<input type="radio" name="slide" id="slide2">
+```
+
+- Tots comparteixen el mateix `name="slide"`, així només un pot estar `:checked` alhora
+- Estan amagats amb `display: none`
+
+### 2. Labels actuen com a botons
+
+```html
+<label for="slide2" class="nav-arrow next">›</label>
+<label class="dot" for="slide3"></label>
+```
+
+- Quan fas click a un `<label>`, automàticament marca el radio button corresponent (per l'atribut `for`)
+- És comportament natiu d'HTML!
+
+### 3. CSS reacciona al `:checked`
+
+```css
+#slide1:checked ~ .slides { transform: translateX(0%); }
+#slide2:checked ~ .slides { transform: translateX(-100%); }
+```
+
+- Quan `#slide2` està `:checked`, el selector `~` (sibling) troba `.slides` i aplica el `transform`
+- Això desplaça el contenidor de slides
+
+### Flux complet:
+
+```
+Click al dot/arrow 
+  → Label activa el radio button corresponent
+    → CSS detecta quin radio té :checked
+      → Aplica el transform adequat
+        → Les slides es mouen amb transition
+```
+
+### Conclusió
+
+És un patró clàssic de **"CSS State Machine"** - els radio buttons fan de "memòria" de quin slide és actiu, i CSS s'encarrega de la resta!
+
+Cap JavaScript necessari perquè tot usa funcionalitats natives del navegador.
