@@ -22,11 +22,25 @@ En CSS podem definir colors de diverses maneres. Cada format té avantatges sego
 | **Lluminositat** | Quantitat de llum          | `0%–100%` | `0%` = negre, `50%` = color pur, `100%` = blanc |
 | **Alfa (α)**     | Transparència              | `0–1`     | `0.3` = 30% opacitat                            |
 
+Un mateix color es pot expressar de diferents maneres:
+
+| Format                             | Exemple                          |
+| :--------------- | :--------------- |
+| **Nom de color**                             | `color: blue;`                          |
+| **Hexadecimal curt (3 dígits)**              | `color: #00f;`                          |
+| **Hexadecimal complet (6 dígits)**           | `color: #0000ff;`                       |
+| **Hexadecimal amb transparència (8 dígits)** | `color: #0000ff80;`                     |
+| **RGB**                                      | `color: rgb(0, 0, 255);`                |
+| **RGBA** (alpha = transparència)             | `color: rgba(0, 0, 255, 0.5);`          |
+| **RGB amb percentatges**                     | `color: rgb(0%, 0%, 100%);`             |
+| **HSL**                                      | `color: hsl(240, 100%, 50%);`           |
+| **HSLA** (alpha = transparència)             | `color: hsla(240, 100%, 50%, 0.5);`     |
+<br/>
+
 Aquestes eines ajuden a escollir els colors:
 
-[HSL](https://www.hslpicker.com/#c0ff33)
-
-[W3Schools colos](https://www.w3schools.com/colors/colors_hsl.asp)
+- [HSL](https://www.hslpicker.com/#c0ff33)
+- [W3Schools colos](https://www.w3schools.com/colors/colors_hsl.asp)
 
 ## Tipografia
 
@@ -83,6 +97,7 @@ A més de les fonts instal·lades al dispositiu, podem importar tipografies des 
 
 # Columnes
 
+// TODO
 
 # Carousel CSS
 
