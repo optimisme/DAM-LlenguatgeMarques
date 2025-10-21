@@ -38,7 +38,7 @@ Quan volem aplicar un estil especific segons una mida de pantalla, fem servir *@
 }
 ```
 
-Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/07-Dispositius/exemple-00/index.html"
+Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-00/index.html"
 
 ## Simulació al navegador
 
@@ -97,4 +97,25 @@ Sovint, adaptar a mòbil és tant senzill com canviar files per columnes, o afeg
 </div>
 ```
 
-Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/01-HTML/exemple-01/index.html"
+Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-01/index.html"
+
+## Marges i *autocenter*
+
+Vigila si fas servir *autocenter* que la versió mòbil no toqui els limits laterals de la pantalla:
+
+```css
+.autocenter {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 5px;
+}
+
+/* més marge a mòbil */
+@media (max-width: 768px) {
+  .autocenter {
+    padding: 0 25px;
+  }
+}
+```
+
+Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-02/index.html"
