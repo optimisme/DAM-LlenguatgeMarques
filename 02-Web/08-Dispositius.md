@@ -119,3 +119,38 @@ Vigila si fas servir *autocenter*, has de decidir si vols que a la versió mòbi
 ```
 
 Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-02/index.html"
+
+## Unitats fluïdes
+
+Per adaptar millor el disseny a diferents pantalles, en lloc de mides fixes (px), és recomanable fer servir unitats relatives o fluïdes.
+
+| Unitat | Depèn de… | Exemple | Ús recomanat |
+|:-------|:-----------|:--------|:-------------|
+| `%` | el contenidor pare | `width: 80%;` | amplades relatives |
+| `em` | la mida de la lletra del **pare** | `margin: 2em;` | espais interns i marges |
+| `rem` | la mida de la lletra de l’**arrel (html)** | `font-size: 1.2rem;` | tipografia coherent a tota la pàgina |
+| `vw`, `vh` | amplada / alçada de la **finestra del navegador** | `width: 100vw; height: 100vh;` | seccions a pantalla completa |
+| `vmin`, `vmax` | el valor més petit / gran de `vw` o `vh` | `font-size: 3vmin;` | tipografia fluïda amb relació de pantalla |
+| `clamp()` | combina un **mínim**, **preferit** i **màxim** | `font-size: clamp(1rem, 2vw, 2rem);` | textos i elements que creixen de forma suau |
+
+
+```css
+html {
+  font-size: 16px;  /* 1rem = 16px */
+}
+
+h1 {
+  /* Tipografia fluïda: mai més petita d’1.2rem, mai més gran de 2rem */
+  font-size: clamp(1.2rem, 4vw + 0.5rem, 2rem);
+}
+
+section {
+  width: min(90%, 800px); /* ocupa el 90% fins a un màxim de 800px */
+  margin: auto;
+  padding: 2rem;
+}
+
+p {
+  margin-bottom: 1.5em; /* depèn de la mida de la lletra del paràgraf */
+}
+```
