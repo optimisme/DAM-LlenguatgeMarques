@@ -62,13 +62,13 @@ p {
 Al parlar de tipografies cal tenir en compte les parts de les fonts:
 
 <center>
-<img src="./assets/adv-fontanatomy.png" style="width: 90%; max-width: 800px">
+<img src="./assets/cssadv-fontanatomy.png" style="width: 90%; max-width: 800px">
 </center>
 
 I que els objectes han de quedar alineats per la 'baseline':
 
 <center>
-<img src="./assets/adv-fontbaseline.png" style="width: 90%; max-width: 400px">
+<img src="./assets/cssadv-fontbaseline.png" style="width: 90%; max-width: 400px">
 </center>
 
 ### Fonts externes
