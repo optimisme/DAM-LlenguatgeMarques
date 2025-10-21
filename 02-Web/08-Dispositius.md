@@ -101,7 +101,7 @@ Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-0
 
 ## Marges i *autocenter*
 
-Vigila si fas servir *autocenter* que la versió mòbil no toqui els limits laterals de la pantalla:
+Vigila si fas servir *autocenter*, has de decidir si vols que a la versió mòbil toqui (o no) els limits laterals de la pantalla:
 
 ```css
 .autocenter {
