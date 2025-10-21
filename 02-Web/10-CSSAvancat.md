@@ -13,15 +13,6 @@ En CSS podem definir colors de diverses maneres. Cada format té avantatges sego
 | **HSL**          | `hsl(0, 100%, 50%)`        | Defineix el color per **to (hue)**, **saturació** i **lluminositat**. Més intuïtiu. |
 | **HSLA**         | `hsla(0, 100%, 50%, 0.5)`  | Igual que HSL, però amb **transparència**.                                          |
 
-### Colors per components
-
-| Component        | Significat                 | Rang      | Exemple                                         |
-| :--------------- | :------------------------- | :-------- | :---------------------------------------------- |
-| **Hue (to)**     | Posició al cercle cromàtic | `0–360°`  | `0=vermell`, `120=verd`, `240=blau`             |
-| **Saturació**    | Intensitat del color       | `0%–100%` | `0%` = grisos, `100%` = colors vius             |
-| **Lluminositat** | Quantitat de llum          | `0%–100%` | `0%` = negre, `50%` = color pur, `100%` = blanc |
-| **Alfa (α)**     | Transparència              | `0–1`     | `0.3` = 30% opacitat                            |
-
 Un mateix color es pot expressar de diferents maneres:
 
 | Format                             | Exemple                          |
@@ -35,6 +26,15 @@ Un mateix color es pot expressar de diferents maneres:
 | **RGB amb percentatges**                     | `color: rgb(0%, 0%, 100%);`             |
 | **HSL**                                      | `color: hsl(240, 100%, 50%);`           |
 | **HSLA** (alpha = transparència)             | `color: hsla(240, 100%, 50%, 0.5);`     |
+
+### Colors per components
+
+| Component        | Significat                 | Rang      | Exemple                                         |
+| :--------------- | :------------------------- | :-------- | :---------------------------------------------- |
+| **Hue (to)**     | Posició al cercle cromàtic | `0–360°`  | `0=vermell`, `120=verd`, `240=blau`             |
+| **Saturació**    | Intensitat del color       | `0%–100%` | `0%` = grisos, `100%` = colors vius             |
+| **Lluminositat** | Quantitat de llum          | `0%–100%` | `0%` = negre, `50%` = color pur, `100%` = blanc |
+| **Alfa (α)**     | Transparència              | `0–1`     | `0.3` = 30% opacitat                            |
 <br/>
 
 Aquestes eines ajuden a escollir els colors:
@@ -59,23 +59,9 @@ Permet millorar la llegibilitat i la personalitat visual d’una pàgina.
 | `text-transform` | `text-transform: uppercase;`               | Majúscules / minúscules automàtiques.                                   |
 | `text-align`     | `text-align: center;`                      | Alineació del text.                                                     |
 
-```css
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #222;
-}
+Aquesta eina permet definir propietats de les fonts CSS:
 
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-p {
-  margin-bottom: 1.2em;
-}
-```
+- [Font tool](https://html-css-js.com/css/generator/font/)
 
 Al parlar de tipografies cal tenir en compte les parts de les fonts:
 
@@ -89,16 +75,35 @@ I que els objectes han de quedar alineats per la 'baseline':
 <img src="./assets/cssadv-fontbaseline.png" style="width: 90%; max-width: 400px">
 </center>
 
-### Fonts externes
+### Google Fonts
 
-A més de les fonts instal·lades al dispositiu, podem importar tipografies des de serveis com **"Google Fonts"** o **"Adobe Fonts"**
+A més de les fonts instal·lades al dispositiu, podem importar tipografies des de serveis web.
 
-// TODO
+Enllaç a : **[Google Fonts](https://fonts.google.com)**
 
-# Columnes
+> **Nota:** Les fonts de **"Google Fonts"**, es poden fer servir i redistribuir però no vendre.
 
-// TODO
+Si vols fer servir una font de Google, la opció **"Get Embeded Code"** et dona les capçaleres HTML i el codi CSS que has d'incloure a la pàgina web.
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+```
+
+```css
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+```
+
+Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-00/index.html"
 
 # Carousel CSS
 
-// TODO
+Exemple d'un carrousel fet únicament amb CSS, sense JavaScript.
+
+Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-01/index.html"
