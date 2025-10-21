@@ -22,7 +22,11 @@ En CSS podem definir colors de diverses maneres. Cada format té avantatges sego
 | **Lluminositat** | Quantitat de llum          | `0%–100%` | `0%` = negre, `50%` = color pur, `100%` = blanc |
 | **Alfa (α)**     | Transparència              | `0–1`     | `0.3` = 30% opacitat                            |
 
-// TODO posar exemples
+Aquestes eines ajuden a escollir els colors:
+
+[HSL](https://www.hslpicker.com/#c0ff33)
+
+[W3Schools colos](https://www.w3schools.com/colors/colors_hsl.asp)
 
 ## Tipografia
 
