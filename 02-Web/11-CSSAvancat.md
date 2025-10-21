@@ -100,7 +100,7 @@ Si vols fer servir una font de Google, la opció **"Get Embeded Code"** et dona 
 }
 ```
 
-Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-00/index.html"
+Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-00/index.html"
 
 # Carousel CSS
 
@@ -110,7 +110,7 @@ Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-00
 
 Exemple d'un carrousel fet únicament amb CSS, sense JavaScript.
 
-Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-01/index.html"
+Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-01/index.html"
 
 ## Com funciona el Carrusel CSS (sense JavaScript)
 
@@ -145,8 +145,7 @@ Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/10-CSSAvancat/exemple-01
 - Això desplaça el contenidor de slides
 
 ### Flux complet:
-
-```
+```text
 Click al dot/arrow 
   → Label activa el radio button corresponent
     → CSS detecta quin radio té :checked
@@ -154,8 +153,64 @@ Click al dot/arrow
         → Les slides es mouen amb transition
 ```
 
-### Conclusió
+# Pestanyes CSS
 
-És un patró clàssic de **"CSS State Machine"** - els radio buttons fan de "memòria" de quin slide és actiu, i CSS s'encarrega de la resta!
+<center>
+<img src="./assets/cssadv-tabs.png" style="width: 90%; max-width: 500px">
+</center>
 
-Cap JavaScript necessari perquè tot usa funcionalitats natives del navegador.
+Exemple de pestanyes fet únicament amb CSS, sense JavaScript.
+
+Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
+
+## Com funcionen les pestanyes CSS (sense JavaScript)
+
+### 1. Radio buttons amagats controlen l’estat
+```html
+<input type="radio" name="tab" id="tab1" checked>
+<input type="radio" name="tab" id="tab2">
+<input type="radio" name="tab" id="tab3">
+<input type="radio" name="tab" id="tab4">
+```
+- Totes les pestanyes comparteixen el mateix name="tab", de manera que **només una pot estar activada (:checked)** alhora.
+- Estan amagades visualment amb display: none, però **mantenen el seu comportament intern**.
+
+### 2. Els <label> actuen com a botons de pestanya
+```html
+<label class="tab-button tab-button-1" for="tab1">🏠 Inici</label>
+<label class="tab-button tab-button-2" for="tab2">📊 Serveis</label>
+```
+
+- Cada <label> està associat a un radio button a través de l’atribut for.
+- Quan es fa clic en una pestanya, el radio corresponent passa a estar checked.
+- Això és funcionalitat nativa d’HTML, no cal cap JavaScript.
+
+### 3. El CSS reacciona al radio seleccionat (:checked)
+```css
+#tab1:checked ~ .content-1 { display: block; }
+#tab2:checked ~ .content-2 { display: block; }
+```
+
+- Quan un radio està seleccionat (:checked), el selector ~ (germà general) permet aplicar estils a altres elements del mateix nivell.
+- D’aquesta manera, **només es mostra el contingut associat** a la pestanya activa.
+- La resta de contingut roman ocult amb display: none.
+
+### 4. L’estil actiu de la pestanya també es controla amb CSS
+```css
+#tab1:checked ~ .tab-buttons .tab-button-1 {
+  color: #667eea;
+  background: white;
+  border-bottom-color: #667eea;
+}
+```
+- El mateix mecanisme (:checked ~) serveix per donar **estil visual a la pestanya activa**.
+- Canvia color, fons i la línia inferior per indicar quina pestanya està oberta.
+
+### Flux complet
+```text
+Clic sobre una pestanya (label)
+   → Activa el radio button corresponent (:checked)
+     → El CSS detecta quin radio està seleccionat
+       → Mostra el contingut associat i amaga la resta
+         → Aplica l’estil actiu a la pestanya seleccionada
+```

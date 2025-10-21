@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="estils.css">
+  <title>Pestanyes CSS Pures</title>
+</head>
+<body>
+  <div class="container">
+    <h1>📑 Sistema de Pestanyes</h1>
+
+    <div class="tabs">
+      <!-- Radio buttons for state management -->
+      <input type="radio" name="tab" id="tab1" checked>
+      <input type="radio" name="tab" id="tab2">
+      <input type="radio" name="tab" id="tab3">
+      <input type="radio" name="tab" id="tab4">
+
+      <!-- Tab buttons -->
+      <div class="tab-buttons">
+        <label class="tab-button tab-button-1" for="tab1">🏠 Inici</label>
+        <label class="tab-button tab-button-2" for="tab2">📊 Serveis</label>
+        <label class="tab-button tab-button-3" for="tab3">👥 Equip</label>
+        <label class="tab-button tab-button-4" for="tab4">📧 Contacte</label>
+      </div>
+
+      <!-- Tab content -->
+      <div class="tab-content content-1">
+        <h2>Benvingut/da!</h2>
+        <p>Aquesta és una demostració de pestanyes creades només amb HTML i CSS, sense cap línia de JavaScript.</p>
+        <p>El patró utilitza radio buttons amagats per gestionar l'estat i labels com a botons clicables.</p>
+        <div class="highlight">
+          <strong>💡 Consell:</strong> Aquest patró és perfecte per a pàgines estàtiques, landing pages o quan vols evitar dependències de JavaScript.
+        </div>
+      </div>
+
+      <div class="tab-content content-2">
+        <h2>Els nostres serveis</h2>
+        <p>Oferim una àmplia gamma de serveis per cobrir les teves necessitats:</p>
+        <ul>
+          <li><strong>Disseny web:</strong> Creació de llocs web moderns i responsius</li>
+          <li><strong>Desenvolupament:</strong> Solucions personalitzades amb les últimes tecnologies</li>
+          <li><strong>Consultoria:</strong> Assessorament expert per al teu projecte digital</li>
+          <li><strong>Manteniment:</strong> Suport continu i actualitzacions</li>
+        </ul>
+        <div class="highlight">
+          <strong>🚀 Avantatge:</strong> Totes les solucions optimitzades per al rendiment i l'accessibilitat.
+        </div>
+      </div>
+
+      <div class="tab-content content-3">
+        <h2>El nostre equip</h2>
+        <p>Som un equip de professionals apassionats per la tecnologia i el disseny web.</p>
+        <p>Amb més de 10 anys d'experiència combinada, hem treballat amb clients de tots els sectors, des de startups fins a grans empreses.</p>
+        <div class="highlight">
+          <strong>👨‍💻 Filosofia:</strong> Creiem en el codi net, el disseny intuïtiu i la comunicació transparent amb els nostres clients.
+        </div>
+      </div>
+
+      <div class="tab-content content-4">
+        <h2>Posa't en contacte</h2>
+        <p>Ens encantaria escoltar sobre el teu projecte i com podem ajudar-te.</p>
+        <ul>
+          <li>📧 Email: info@exemple.cat</li>
+          <li>📱 Telèfon: +34 123 456 789</li>
+          <li>📍 Ubicació: Barcelona, Catalunya</li>
+          <li>🕐 Horari: Dilluns a Divendres, 9:00 - 18:00</li>
+        </ul>
+        <div class="highlight">
+          <strong>✉️ Nota:</strong> Resposta garantida en menys de 24 hores laborables.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

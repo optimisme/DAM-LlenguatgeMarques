@@ -1,0 +1,132 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Hide radio buttons */
+.tabs input {
+    display: none;
+}
+
+/* Tabs wrapper */
+.tabs {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+
+/* Tab buttons */
+.tab-buttons {
+    display: flex;
+    background: #f5f5f5;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+    user-select: none;
+}
+
+.tab-button:hover {
+    background: #ebebeb;
+    color: #333;
+}
+
+/* Active tab styling */
+#tab1:checked ~ .tab-buttons .tab-button-1,
+#tab2:checked ~ .tab-buttons .tab-button-2,
+#tab3:checked ~ .tab-buttons .tab-button-3,
+#tab4:checked ~ .tab-buttons .tab-button-4 {
+    color: #667eea;
+    background: white;
+    border-bottom-color: #667eea;
+}
+
+/* Tab content container */
+.tab-content {
+    display: none;
+    padding: 2rem;
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(10px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+/* Show active content */
+#tab1:checked ~ .content-1,
+#tab2:checked ~ .content-2,
+#tab3:checked ~ .content-3,
+#tab4:checked ~ .content-4 {
+    display: block;
+}
+
+/* Content styling */
+.tab-content h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.tab-content p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.tab-content ul {
+    margin-left: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.highlight {
+    background: #f0f4ff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .tab-button {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    }
+
+    .tab-content {
+    padding: 1.5rem;
+    }
+}
