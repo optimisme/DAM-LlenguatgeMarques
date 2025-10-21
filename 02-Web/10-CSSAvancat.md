@@ -1,6 +1,7 @@
 # CSS Avançat
 
-## Colors i unitats
+## Colors i unitats
+
 En CSS podem definir colors de diverses maneres. Cada format té avantatges segons el context (compatibilitat, llegibilitat o control de transparència).
 
 | Format           | Exemple                    | Descripció                                                                          |
@@ -12,7 +13,7 @@ En CSS podem definir colors de diverses maneres. Cada format té avantatges sego
 | **HSL**          | `hsl(0, 100%, 50%)`        | Defineix el color per **to (hue)**, **saturació** i **lluminositat**. Més intuïtiu. |
 | **HSLA**         | `hsla(0, 100%, 50%, 0.5)`  | Igual que HSL, però amb **transparència**.                                          |
 
-### Explicació dels components
+### Colors per components
 
 | Component        | Significat                 | Rang      | Exemple                                         |
 | :--------------- | :------------------------- | :-------- | :---------------------------------------------- |
@@ -58,10 +59,16 @@ p {
 }
 ```
 
-Al parlar de tipografies cal tenir en compte:
+Al parlar de tipografies cal tenir en compte les parts de les fonts:
 
 <center>
-<img src="./assets/fontanatomy.png" style="width: 90%; max-width: 800px">
+<img src="./assets/adv-fontanatomy.png" style="width: 90%; max-width: 800px">
+</center>
+
+I que els objectes han de quedar alineats per la 'baseline':
+
+<center>
+<img src="./assets/adv-fontbaseline.png" style="width: 90%; max-width: 400px">
 </center>
 
 ### Fonts externes
