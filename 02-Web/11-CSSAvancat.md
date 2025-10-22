@@ -102,6 +102,28 @@ Si vols fer servir una font de Google, la opció **"Get Embeded Code"** et dona 
 
 Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-00/index.html"
 
+# Interactivitat amb CSS
+
+És possible canviar l’aparença d’un element (per exemple, el color d’una capsa) **sense utilitzar JavaScript, fent servir només HTML i CSS**.
+
+Es fa basant-nos en tres conceptes de CSS i HTML:
+
+1 - Inputs de tipus *"radio"* amagats (display: none)
+  - S’utilitzen per guardar un estat (quin botó està seleccionat).
+
+2 - Etiquetes `<label>` associades a cada radio
+  - En fer clic sobre un `<label>` amb **for="id"**, automàticament es selecciona el radio amb aquell id.
+
+3 - Selectores CSS avançats (:checked i ~)
+  - Permeten detectar quin radio està actiu i aplicar estils a altres elements del document.
+
+<br/>
+<center>
+<video src="./assets/cssadv-change.mov" width="300" controls></video>
+</center>
+
+Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-01/index.html"
+
 # Carousel CSS
 
 <center>
@@ -110,7 +132,7 @@ Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-00
 
 Exemple d'un carrousel fet únicament amb CSS, sense JavaScript.
 
-Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-01/index.html"
+Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
 
 ## Com funciona el Carrusel CSS (sense JavaScript)
 
@@ -161,7 +183,7 @@ Click al dot/arrow
 
 Exemple de pestanyes fet únicament amb CSS, sense JavaScript.
 
-Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
+Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-03/index.html"
 
 ## Com funcionen les pestanyes CSS (sense JavaScript)
 

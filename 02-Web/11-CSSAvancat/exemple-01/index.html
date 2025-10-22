@@ -1,58 +1,81 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="estils.css">
-  <title>Carrusel CSS Pur</title>
+  <title>Canvi de classe amb dos botons (estil macOS)</title>
+  <style>
+    /* Amaguem els radios */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* Estil base de la capsa */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightgray;
+      border-radius: 10px;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    /* Quan es selecciona el primer radio */
+    #toggle0:checked ~ .box {
+      background-color: lightgreen;
+      transform: rotate(-5deg);
+    }
+
+    /* Quan es selecciona el segon radio */
+    #toggle1:checked ~ .box {
+      background-color: lightcoral;
+      transform: rotate(5deg);
+    }
+
+    /* Els labels actuen com a botons */
+    label {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: linear-gradient(to bottom, #f0f0f0, #cfcfcf);
+      color: #222;
+      border: 1px solid #aaa;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 5px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      transition: background 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+
+    /* Efecte de prement (hover o click) */
+    label:hover {
+      background: linear-gradient(to bottom, #e0e0e0, #bdbdbd);
+    }
+    label:active {
+      background: linear-gradient(to bottom, #98b3e0, #bfcde8);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Quan el botó està seleccionat (radio checked) */
+    input#toggle0:checked + label[for="toggle0"],
+    input#toggle1:checked + label[for="toggle1"] {
+      background: linear-gradient(to bottom, #6aa0ff, #3d7bff);
+      color: white;
+      border-color: #2f64cc;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Carrusel d'Imatges</h1>
+  <!-- Dos radios amagats amb el mateix "name" -->
+  <input type="radio" name="toggle" id="toggle0">
+  <label for="toggle0">Color verd</label>
 
-    <div class="carousel">
-      <!-- Radio buttons for state management -->
-      <input type="radio" name="slide" id="slide1" checked>
-      <input type="radio" name="slide" id="slide2">
-      <input type="radio" name="slide" id="slide3">
-      <input type="radio" name="slide" id="slide4">
+  <input type="radio" name="toggle" id="toggle1" checked>
+  <label for="toggle1">Color vermell</label>
 
-      <!-- Slides -->
-      <div class="slides">
-        <div class="slide">
-          <div>Primera Diapositiva 🎨</div>
-        </div>
-        <div class="slide">
-          <div>Segona Diapositiva 🚀</div>
-        </div>
-        <div class="slide">
-          <div>Tercera Diapositiva 🌟</div>
-        </div>
-        <div class="slide">
-          <div>Quarta Diapositiva ✨</div>
-        </div>
-      </div>
-
-      <!-- Previous arrows (one for each state) -->
-      <!-- No prev arrow per slide 1 (és la primera) -->
-      <label for="slide1" class="nav-arrow prev arrow-prev-2">‹</label>
-      <label for="slide2" class="nav-arrow prev arrow-prev-3">‹</label>
-      <label for="slide3" class="nav-arrow prev arrow-prev-4">‹</label>
-
-      <!-- Next arrows (one for each state) -->
-      <label for="slide2" class="nav-arrow next arrow-next-1">›</label>
-      <label for="slide3" class="nav-arrow next arrow-next-2">›</label>
-      <label for="slide4" class="nav-arrow next arrow-next-3">›</label>
-      <!-- No next arrow per slide 4 (és l'última) -->
-
-      <!-- Navigation dots -->
-      <div class="dots">
-        <label class="dot" for="slide1"></label>
-        <label class="dot" for="slide2"></label>
-        <label class="dot" for="slide3"></label>
-        <label class="dot" for="slide4"></label>
-      </div>
-    </div>
-  </div>
+  <!-- Element al qual li canvia l'estil -->
+  <div class="box"></div>
 </body>
 </html>
