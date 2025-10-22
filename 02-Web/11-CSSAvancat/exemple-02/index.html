@@ -1,58 +1,22 @@
 <!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="estils.css">
-  <title>Carrusel CSS Pur</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estils.css">
+    <title>Dos toggles</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Carrusel d'Imatges</h1>
-
-    <div class="carousel">
-      <!-- Radio buttons for state management -->
-      <input type="radio" name="slide" id="slide1" checked>
-      <input type="radio" name="slide" id="slide2">
-      <input type="radio" name="slide" id="slide3">
-      <input type="radio" name="slide" id="slide4">
-
-      <!-- Slides -->
-      <div class="slides">
-        <div class="slide">
-          <div>Primera Diapositiva 🎨</div>
-        </div>
-        <div class="slide">
-          <div>Segona Diapositiva 🚀</div>
-        </div>
-        <div class="slide">
-          <div>Tercera Diapositiva 🌟</div>
-        </div>
-        <div class="slide">
-          <div>Quarta Diapositiva ✨</div>
-        </div>
-      </div>
-
-      <!-- Previous arrows (one for each state) -->
-      <!-- No prev arrow per slide 1 (és la primera) -->
-      <label for="slide1" class="nav-arrow prev arrow-prev-2">‹</label>
-      <label for="slide2" class="nav-arrow prev arrow-prev-3">‹</label>
-      <label for="slide3" class="nav-arrow prev arrow-prev-4">‹</label>
-
-      <!-- Next arrows (one for each state) -->
-      <label for="slide2" class="nav-arrow next arrow-next-1">›</label>
-      <label for="slide3" class="nav-arrow next arrow-next-2">›</label>
-      <label for="slide4" class="nav-arrow next arrow-next-3">›</label>
-      <!-- No next arrow per slide 4 (és l'última) -->
-
-      <!-- Navigation dots -->
-      <div class="dots">
-        <label class="dot" for="slide1"></label>
-        <label class="dot" for="slide2"></label>
-        <label class="dot" for="slide3"></label>
-        <label class="dot" for="slide4"></label>
-      </div>
-    </div>
-  </div>
+  <!-- Toggle 1 -->
+  <label class="toggle" for="wifi">
+    <input class="toggle-input" type="checkbox" id="wifi">
+    <span class="toggle-switch"></span>
+    <span>Wi-Fi</span>
+  </label>
+  <!-- Toggle 2 -->
+  <label class="toggle" for="bt">
+    <input class="toggle-input" type="checkbox" id="bt" checked>
+    <span class="toggle-switch"></span>
+    <span>Bluetooth</span>
+  </label>
 </body>
 </html>

@@ -124,6 +124,23 @@ Es fa basant-nos en tres conceptes de CSS i HTML:
 
 Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-01/index.html"
 
+# Botó alternador *(toggle)*
+
+Una segona manera d'associar un `<label>` i un `<input>`és posant l'input dins del label. Així ja no cal el *"for"*
+
+```html
+<label><input type="checkbox"> Wi-Fi</label>
+```
+
+<br/>
+<center>
+<video src="./assets/cssadv-toggles.mov" width="300" controls></video>
+</center>
+
+Gràcies els canvis d'estat CSS, sense JavaScript es poden implementar alternadors *(toggle)*
+
+Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
+
 # Carousel CSS
 
 <center>
@@ -132,7 +149,7 @@ Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-01
 
 Exemple d'un carrousel fet únicament amb CSS, sense JavaScript.
 
-Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
+Exemple-04: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-04/index.html"
 
 ## Com funciona el Carrusel CSS (sense JavaScript)
 
@@ -183,7 +200,7 @@ Click al dot/arrow
 
 Exemple de pestanyes fet únicament amb CSS, sense JavaScript.
 
-Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-03/index.html"
+Exemple-05: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-05/index.html"
 
 ## Com funcionen les pestanyes CSS (sense JavaScript)
 
