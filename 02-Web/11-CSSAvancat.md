@@ -141,6 +141,15 @@ Gràcies els canvis d'estat CSS, sense JavaScript es poden implementar alternado
 
 Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-02/index.html"
 
+# Capgirar *(flip)* targes
+
+<br/>
+<center>
+<video src="./assets/cssadv-flipcards.mov" width="300" controls></video>
+</center>
+
+Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-03/index.html"
+
 # Carousel CSS
 
 <center>
