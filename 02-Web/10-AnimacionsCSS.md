@@ -122,6 +122,6 @@ Això vol dir que l’animació no depèn del temps, sinó d’un esdeveniment o
 - L’**entrada o sortida d’un element** de la pantalla (view).
 - O fins i tot l’activació d’un **":target"** (quan un element és seleccionat via un enllaç amb #id).
 
-L'exemlpe 04 mostra una animació que es activa en funció del desplaçament de **"scroll"** de la pàgina.
+L'exemlpe 04 mostra animacions que s'activen en funció del desplaçament de **"scroll"** de la pàgina.
 
 Exemple-04: Obrir amb "Show preview" la pàgina "02-Web/10-Animacions/exemple-04/index.html"
