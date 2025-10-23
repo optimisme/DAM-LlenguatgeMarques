@@ -124,4 +124,6 @@ Això vol dir que l’animació no depèn del temps, sinó d’un esdeveniment o
 
 L'exemlpe 04 mostra animacions que s'activen en funció del desplaçament de **"scroll"** de la pàgina.
 
+> **Nota:** l'exemple 04 també mostra com fer una 'fallbackNote', és a dir un avís si el navegador no suporta aquesta funcionalitat amb **"@supports not (animation-timeline: view())"**
+
 Exemple-04: Obrir amb "Show preview" la pàgina "02-Web/10-Animacions/exemple-04/index.html"
