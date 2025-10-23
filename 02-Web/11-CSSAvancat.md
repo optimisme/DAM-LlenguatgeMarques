@@ -122,6 +122,14 @@ Es fa basant-nos en tres conceptes de CSS i HTML:
 <video src="./assets/cssadv-change.mov" width="300" controls></video>
 </center>
 
+La diferència entre els `<input>`de tipus *"radio"* i *"checkbox"* és que:
+
+- Els *"radio"* s’exclouen entre ells (només un pot estar seleccionat) 
+- Els *"checkbox"* permeten seleccionar múltiples opcions alhora.
+
+Per aquest motiu, els *"radio"* pertanyen a un grup que es defineix amb l’atribut **name**.
+
+<br/>
 1 - Definit l'HTML de manera que:
     - Hi ha un `<label>`, amb l'atribut *"for"* fent referència a un radio.
     - Hi ha un `<input type="radio" id="radioX" name="radioGroup">`, amb el mateix *"name"* per agrupar tots els *"input"* que s'han d'excloure entre ells.
