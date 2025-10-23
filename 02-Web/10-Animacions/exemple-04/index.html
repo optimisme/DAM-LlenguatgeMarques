@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scroll-driven animation (Pure CSS)</title>
+<style>
+:root { 
+  --box: 100px; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(#fff, #eef2f7);
+}
+
+/* Contingut abans per tenir scroll */
+.spacerTop {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #666;
+}
+
+/* Secció d'animació - es mou amb el flux de la pàgina */
+.stage {
+  position: relative;
+  min-height: 150vh;
+  padding: 40vh 0;
+}
+
+.row {
+  position: relative; /* flueix amb la pàgina */
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.instruction {
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.track {
+  position: relative;
+  width: min(90vw, 800px);
+  height: var(--box);
+  outline: 2px dashed #ccc;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.6);
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  width: var(--box);
+  height: var(--box);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.box.blue { 
+  background: royalblue; 
+  left: 0; 
+}
+
+.box.green { 
+  background: mediumseagreen; 
+  right: 0; 
+}
+
+/* Animacions amb keyframes */
+@keyframes moveToRight {
+  from { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  to { 
+    transform: translateX(calc(min(90vw, 800px) - var(--box))) rotate(360deg); 
+  }
+}
+
+@keyframes moveToLeft {
+  from { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  to { 
+    transform: translateX(calc(-1 * (min(90vw, 800px) - var(--box)))) rotate(-360deg); 
+  }
+}
+
+/* SCROLL-DRIVEN ANIMATIONS (Safari 26+, Chrome 115+) */
+@supports (animation-timeline: view()) {
+  .box.blue {
+    animation: moveToRight linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+  }
+
+  .box.green {
+    animation: moveToLeft linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+  }
+  
+  .fallbackNote {
+    display: none;
+  }
+}
+
+/* FALLBACK per navegadors antics (només CSS) */
+@supports not (animation-timeline: view()) { 
+  .fallbackNote {
+    display: block;
+    text-align: center;
+    color: #c00;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 4px;
+  }
+}
+
+/* Contingut després per tenir scroll */
+.spacerBottom {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #666;
+}
+</style>
+</head>
+<body>
+
+<div class="spacerTop">
+  ⬇️ Fes scroll cap avall
+</div>
+
+<div class="stage">
+  <div class="row">
+    <p class="instruction">Observa com es mouen les caixes mentre fas scroll!</p>
+    <div class="track">
+      <div class="box blue" aria-label="Quadre blau"></div>
+      <div class="box green" aria-label="Quadre verd"></div>
+    </div>
+    <p class="fallbackNote">
+      ⚠️ El teu navegador no suporta scroll-driven animations.<br>
+      Actualitza a Safari 26+, Chrome 115+ o Firefox 116+ per veure l'animació completa.
+    </p>
+  </div>
+</div>
+
+<div class="spacerBottom">
+  ⬆️ Torna a pujar
+</div>
+
+</body>
+</html>
