@@ -1,4 +1,4 @@
-# Disponsitius
+# Mobils
 
 Les pàgines web s'han d'adaptar a diferents dispositius. Algunes tècniques amb *"Flex"* ens ajuden (com *wrap*), però no són suficients.
 
@@ -38,7 +38,7 @@ Quan volem aplicar un estil especific segons una mida de pantalla, fem servir *@
 }
 ```
 
-Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-00/index.html"
+Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/08-Mòbils/exemple-00/index.html"
 
 ## Simulació al navegador
 
@@ -97,7 +97,7 @@ Sovint, adaptar a mòbil és tant senzill com canviar files per columnes, o afeg
 </div>
 ```
 
-Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-01/index.html"
+Exemple-01: Obrir amb "Show preview" la pàgina "02-Web/08-Mòbils/exemple-01/index.html"
 
 ## Marges i *autocenter*
 
@@ -118,7 +118,7 @@ Vigila si fas servir *autocenter*, has de decidir si vols que a la versió mòbi
 }
 ```
 
-Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/08-Dispositius/exemple-02/index.html"
+Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/08-Mòbils/exemple-02/index.html"
 
 ## Unitats fluïdes
 
