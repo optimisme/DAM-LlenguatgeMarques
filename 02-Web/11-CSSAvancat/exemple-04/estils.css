@@ -61,7 +61,7 @@ h1 {
 #slide4:checked ~ .slides { transform: translateX(-300%); }
 
 /* Navigation arrows */
-.nav-arrow {
+.navArrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -78,9 +78,10 @@ h1 {
     font-weight: bold;
     transition: background 0.3s;
     z-index: 10;
+    padding-bottom: 4px;
 }
 
-.nav-arrow:hover {
+.navArrow:hover {
     background: rgba(0,0,0,.7);
 }
 
@@ -89,18 +90,18 @@ h1 {
 
 /* Show correct arrows for each slide */
 /* Slide 1: només next (no prev perquè és la primera) */
-#slide1:checked ~ .arrow-next-1 { display: flex; }
+#slide1:checked ~ .arrowNext1 { display: flex; }
 
 /* Slide 2: prev i next */
-#slide2:checked ~ .arrow-prev-2,
-#slide2:checked ~ .arrow-next-2 { display: flex; }
+#slide2:checked ~ .arrowPrev2,
+#slide2:checked ~ .arrowNext2 { display: flex; }
 
 /* Slide 3: prev i next */
-#slide3:checked ~ .arrow-prev-3,
-#slide3:checked ~ .arrow-next-3 { display: flex; }
+#slide3:checked ~ .arrowPrev3,
+#slide3:checked ~ .arrowNext3 { display: flex; }
 
 /* Slide 4: només prev (no next perquè és l'última) */
-#slide4:checked ~ .arrow-prev-4 { display: flex; }
+#slide4:checked ~ .arrowPrev4 { display: flex; }
 
 /* Navigation dots */
 .dots {
@@ -141,7 +142,7 @@ h1 {
     font-size: 1.25rem;
     }
     
-    .nav-arrow {
+    .navArrow {
     width: 40px;
     height: 40px;
     font-size: 20px;

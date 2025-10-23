@@ -28,12 +28,12 @@ input[type="checkbox"] {
     font-weight: 600;
     color: #333;
 }
-/* Input ocult reutilitzable */
-.toggle-inpu t{
+/* Input ocult */
+.toggle > .hidden{
     display: none;
 }
-/* Interruptor reutilitzable (aspecte metall gris → blau) */
-.toggle-switch{
+/* Interruptor "toggle" */
+.toggle > .indicator{
     position: relative;
     width: var(--w);
     height: var(--h);
@@ -44,10 +44,12 @@ input[type="checkbox"] {
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
     transition: background 0.25s ease-in-out, border 0.25s ease-in-out;
 }
-.toggle-switch:hover{
+.toggle > .indicator:hover{
     background: linear-gradient(to bottom, #ccc, #999);
 }
-.toggle-switch::after{
+
+/* Cercle indicador */
+.toggle > .indicator::after{
     content: "";
     position: absolute;
     top: var(--pad);
@@ -59,11 +61,12 @@ input[type="checkbox"] {
     box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     transition: transform 0.25s ease-in-out, background 0.25s;
 }
-/* Estat ON (reutilitzable) */
-.toggle-input:checked + .toggle-switch{
-    background: linear-gradient(to bottom, #3d7bff, #0053d6);
-    border-color: #0044bb;
+
+/* Estat ON */
+.toggle:has(> .hidden:checked) > .indicator{
+  background: linear-gradient(to bottom, #3d7bff, #0053d6);
+  border-color: #0044bb;
 }
-.toggle-input:checked + .toggle-switch::after{
-    transform: translateX(calc(var(--w) - var(--knob) - var(--pad)*2));
+.toggle:has(> .hidden:checked) > .indicator::after{
+  transform: translateX(calc(var(--w) - var(--knob) - var(--pad)*2));
 }

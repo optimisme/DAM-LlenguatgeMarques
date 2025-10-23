@@ -6,7 +6,11 @@
   <style>
     /* Amaguem els botons de tipus radio per fer servir només els <label> visuals */
     input[type="radio"] {
-      display: none;
+      display: inherit;
+    }
+
+    .row {
+      display: flex
     }
 
     /* Els <label> actuen com a botons visuals */
@@ -39,8 +43,8 @@
     }
 
     /* Estil aplicat al <label> quan el seu radio està seleccionat (:checked) */
-    input#radio0:checked + label[for="radio0"],
-    input#radio1:checked + label[for="radio1"] {
+    body:has(#radio0:checked) label[for="radio0"],
+    body:has(#radio1:checked) label[for="radio1"] {
       background: linear-gradient(to bottom, #3d7bff, #0053d6);
       color: white;
       border-color: #0044bb;
@@ -60,13 +64,13 @@
     }
 
     /* Estil aplicat a .box quan es selecciona el radio0 */
-    #radio0:checked ~ .box {
+    body:has(#radio0:checked) .box {
       background-color: #3ad13a; /* verd intens */
       transform: rotate(-5deg);
     }
 
     /* Estil aplicat a .box quan es selecciona el radio1 */
-    #radio1:checked ~ .box {
+    body:has(#radio1:checked) .box {
       background-color: #ff3b30; /* vermell intens */
       transform: rotate(5deg);
     }
@@ -74,11 +78,15 @@
 </head>
 <body>
   <!-- Dos inputs radio amagats amb el mateix "name", perquè només un pugui estar seleccionat -->
-  <input type="radio" name="toggle" id="radio0">
-  <label for="radio0">Color verd</label>
+  <div class="row">
+    <label for="radio0">Color verd</label>
+    <input type="radio" name="radioGroup" id="radio0">
+  </div>
 
-  <input type="radio" name="toggle" id="radio1" checked>
-  <label for="radio1">Color vermell</label>
+  <div class="row">
+    <label for="radio1">Color vermell</label>
+    <input type="radio" name="radioGroup" id="radio1" checked>
+  </div>
 
   <!-- Element visual que canvia d'estil segons quin radio està seleccionat -->
   <div class="box"></div>

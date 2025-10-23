@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="estils.css">
-    <title>Targues Polaroid amb revers sèpia (versió simplificada)</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="estils.css" />
+    <title>Targetes Polaroid amb revers sèpia</title>
   </head>
-<body>
-  <!-- Toggles per a cada targeta -->
-  <input type="checkbox" id="flip1">
-  <input type="checkbox" id="flip2">
+  <body>
+    <div class="gallery">
+      <!-- Targeta 1 -->
+      <label class="cardwrap">
+        <input type="checkbox" class="flip" id="flip1" />
+        <div class="card">
+          <div class="front frontCard1">
+            <div class="polaroid">
+              <div class="photo"></div>
+              <div class="caption">Anvers</div>
+            </div>
+          </div>
+          <div class="back backCard1">
+            <div class="polaroid">
+              <div class="photo"></div>
+              <div class="caption">Revers</div>
+            </div>
+          </div>
+        </div>
+      </label>
 
-  <div class="gallery">
-    <!-- Targeta 1 -->
-    <label for="flip1">
-      <div class="card">
-        <div class="front card1-front">
-          <div class="polaroid">
-            <div class="photo"></div>
-            <div class="caption">Anvers</div>
+      <!-- Targeta 2 -->
+      <label class="cardwrap">
+        <input type="checkbox" class="flip" id="flip2" />
+        <div class="card">
+          <div class="front frontCard2">
+            <div class="polaroid">
+              <div class="photo"></div>
+              <div class="caption">Anvers</div>
+            </div>
+          </div>
+          <div class="back backCard2">
+            <div class="polaroid">
+              <div class="photo"></div>
+              <div class="caption">Revers</div>
+            </div>
           </div>
         </div>
-        <div class="back card1-back">
-          <div class="polaroid">
-            <div class="photo"></div>
-            <div class="caption">Revers</div>
-          </div>
-        </div>
-      </div>
-    </label>
-
-    <!-- Targeta 2 -->
-    <label for="flip2">
-      <div class="card">
-        <div class="front card2-front">
-          <div class="polaroid">
-            <div class="photo"></div>
-            <div class="caption">Anvers</div>
-          </div>
-        </div>
-        <div class="back card2-back">
-          <div class="polaroid">
-            <div class="photo"></div>
-            <div class="caption">Revers</div>
-          </div>
-        </div>
-      </div>
-    </label>
-  </div>
-</body>
+      </label>
+    </div>
+  </body>
 </html>

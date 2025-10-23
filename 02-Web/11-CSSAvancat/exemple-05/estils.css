@@ -33,13 +33,13 @@ h1 {
 }
 
 /* Tab buttons */
-.tab-buttons {
+.tabButtons {
     display: flex;
     background: #f5f5f5;
     border-bottom: 2px solid #e0e0e0;
 }
 
-.tab-button {
+.tabButton {
     flex: 1;
     padding: 1rem 1.5rem;
     text-align: center;
@@ -51,16 +51,16 @@ h1 {
     user-select: none;
 }
 
-.tab-button:hover {
+.tabButton:hover {
     background: #ebebeb;
     color: #333;
 }
 
 /* Active tab styling */
-#tab1:checked ~ .tab-buttons .tab-button-1,
-#tab2:checked ~ .tab-buttons .tab-button-2,
-#tab3:checked ~ .tab-buttons .tab-button-3,
-#tab4:checked ~ .tab-buttons .tab-button-4 {
+#tab1:checked ~ .tabButtons .tabButton1,
+#tab2:checked ~ .tabButtons .tabButton2,
+#tab3:checked ~ .tabButtons .tabButton3,
+#tab4:checked ~ .tabButtons .tabButton4 {
     color: #667eea;
     background: white;
     border-bottom-color: #667eea;
@@ -121,7 +121,7 @@ h1 {
 
 /* Responsive */
 @media (max-width: 640px) {
-    .tab-button {
+    .tabButton {
     padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
     }
