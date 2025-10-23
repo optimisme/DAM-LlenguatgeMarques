@@ -1,66 +1,53 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="UTF-8">
-<title>Principal</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(to bottom, #a7e5fd, #E0F6FF);
-  }
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemple d'animació CSS</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
 
-  .ball {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: red;
-    animation: bounceAndSpin 3s infinite;
-  }
+      h1 {
+        margin-bottom: 30px;
+      }
 
-  @keyframes bounceAndSpin {
-    0% {
-      transform: translateY(0) rotate(0deg) scale(1);
-      background-color: #ff0000;
-      border-radius: 50%;
-    }
-    
-    20% {
-      transform: translateX(-200px) rotate(90deg) scale(1.2);
-      background-color: #00857c;
-      border-radius: 50%;
-    }
-    
-    40% {
-      transform: translateY(200px) rotate(180deg) scale(1);
-      background-color: #ffd500;
-      border-radius: 30%;
-    }
-    
-    60% {
-      transform: translateX(200px) rotate(270deg) scale(0.8);
-      background-color: #b200d6;
-      border-radius: 50%;
-    }
-    
-    80% {
-      transform: translateY(-200px) rotate(360deg) scale(1);
-      background-color: #0022ff;
-      border-radius: 50%;
-    }
+      /* ─── ELEMENT ANIMAT ─── */
+      .cercle {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        border-radius: 50%;
+        /* Assignem l’animació */
+        animation: pulsar 2s ease-in-out infinite;
+      }
 
-    100% {
-      transform: translateY(0) rotate(360deg) scale(1);
-      background-color: #0022ff;
-      border-radius: 50%;
-    }
-  }
-</style>
-</head>
-<body>
-  <div class="ball"></div>
-</body>
+      /* ─── DEFINICIÓ DE L’ANIMACIÓ ─── */
+      @keyframes pulsar {
+        0% {
+          transform: scale(1);
+          background-color: #3498db;
+        }
+        50% {
+          transform: scale(1.5);
+          background-color: #e74c3c;
+        }
+        100% {
+          transform: scale(1);
+          background-color: #3498db;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exemple d'animació</h1>
+    <div class="cercle"></div>
+  </body>
 </html>

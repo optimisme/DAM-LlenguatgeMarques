@@ -85,9 +85,11 @@ Les animacions permeten definir una seqüència de canvis mitjançant fotogrames
 }
 ```
 
-Es exemples 02 i 03 mostren diferents tipus d'animacions definides amb *keyframes*.
+A l'exemple 02 defineix els *"keyframes"* d'una animació anomenada **"pulsar"** i s'aplica a la classe **".cercle"**
 
 Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/10-Animacions/exemple-02/index.html"
+
+A l'exemple 03 defineix els *"keyframes"* d'una animació anomenada **"bounceAndSpin"** i s'aplica a la classe **".ball"**
 
 Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/10-Animacions/exemple-03/index.html"
 
@@ -122,8 +124,17 @@ Això vol dir que l’animació no depèn del temps, sinó d’un esdeveniment o
 - L’**entrada o sortida d’un element** de la pantalla (view).
 - O fins i tot l’activació d’un **":target"** (quan un element és seleccionat via un enllaç amb #id).
 
-L'exemlpe 04 mostra animacions que s'activen en funció del desplaçament de **"scroll"** de la pàgina.
+L'exemlpe 04 mostra animacions que s'activen en funció del desplaçament de **"scroll"** de la pàgina gràcies a **"animation-timeline: view();"**
 
-> **Nota:** l'exemple 04 també mostra com fer una 'fallbackNote', és a dir un avís si el navegador no suporta aquesta funcionalitat amb **"@supports not (animation-timeline: view())"**
+```css
+/* aplicar l'animació "moveToRight" amb scroll */
+.box.blue {
+  animation: moveToRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 100%;
+}
+```
 
 Exemple-04: Obrir amb "Show preview" la pàgina "02-Web/10-Animacions/exemple-04/index.html"
+
+> **Nota:** l'exemple 04 també mostra com fer una 'fallbackNote', és a dir un avís si el navegador no suporta aquesta funcionalitat amb **"@supports not (animation-timeline: view())"**

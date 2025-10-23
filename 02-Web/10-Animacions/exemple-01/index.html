@@ -2,52 +2,152 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
   <head>
     <meta charset="UTF-8" />
-    <title>Exemple d'animació CSS</title>
+    <title>Exemples de transicions CSS</title>
     <style>
+      :root {
+        --box-w: 100px;
+        --box-h: 100px;
+        --gap: 24px;
+      }
+
       body {
         font-family: system-ui, sans-serif;
-        background: #f4f4f4;
+        background: #fafafa;
+        margin: 0;
+        padding: 40px;
         color: #222;
+      }
+
+      h1 { margin: 0 0 20px; }
+
+      /* Contenidor amb flex-wrap */
+      .grid {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        flex-wrap: wrap;
+        gap: var(--gap);
+      }
+
+      /* Targeta (columna) */
+      .card {
+        display: flex;
         flex-direction: column;
+        width: 220px;
       }
 
-      h1 {
-        margin-bottom: 30px;
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.05rem;
+        color: #333;
       }
 
-      /* ─── ELEMENT ANIMAT ─── */
-      .cercle {
-        width: 100px;
-        height: 100px;
-        background-color: #3498db;
-        border-radius: 50%;
-        /* Assignem l’animació */
-        animation: pulsar 2s ease-in-out infinite;
+      /* Quadre base */
+      .box {
+        width: var(--box-w);
+        height: var(--box-h);
+        background: #3498db;
+        transition: all 0.6s ease;
       }
 
-      /* ─── DEFINICIÓ DE L’ANIMACIÓ ─── */
-      @keyframes pulsar {
-        0% {
-          transform: scale(1);
-          background-color: #3498db;
-        }
-        50% {
-          transform: scale(1.5);
-          background-color: #e74c3c;
-        }
-        100% {
-          transform: scale(1);
-          background-color: #3498db;
-        }
+      /* 1) Color */
+      .box.color {
+        background-color: #e74c3c;
+        transition: background-color 0.8s ease;
+      }
+      .box.color:hover {
+        background-color: #2ecc71;
+      }
+
+      /* 2) Mida */
+      .box.mida {
+        background-color: #9b59b6;
+        transition: width 0.8s ease, height 0.8s ease;
+      }
+      .box.mida:hover {
+        width: 160px;
+        height: 160px;
+      }
+
+      /* 3) Posició (fem servir transform per no desmuntar el layout) */
+      .box.posicio {
+        background-color: #f1c40f;
+        transition: transform 0.8s ease-in-out;
+      }
+      .box.posicio:hover {
+        transform: translateX(80px);
+      }
+
+      /* 4) Opacitat */
+      .box.opacitat {
+        background-color: #1abc9c;
+        opacity: 1;
+        transition: opacity 0.8s ease;
+      }
+      .box.opacitat:hover {
+        opacity: 0.3;
+      }
+
+      /* 5) Transform (rotació + escala) */
+      .box.transform {
+        background-color: #e67e22;
+        transition: transform 0.8s ease-in-out;
+      }
+      .box.transform:hover {
+        transform: rotate(20deg) scale(1.2);
+      }
+
+      /* 6) Múltiples propietats */
+      .box.multi {
+        background-color: #2c3e50;
+        color: white;
+        display: grid;
+        place-items: center;
+        transition: background-color 0.8s, width 0.8s, transform 0.8s;
+      }
+      .card:hover .box.multi {
+        background-color: #16a085;
+        width: 160px;
+        transform: rotate(-10deg);
+      }
+
+      /* Opcional: que no es mogui tot visualment en canviar mida */
+      .card .box {
+        will-change: transform, opacity, width, height, background-color;
       }
     </style>
   </head>
   <body>
-    <h1>Exemple d'animació</h1>
-    <div class="cercle"></div>
+    <h1>Exemples de transicions amb CSS</h1>
+
+    <section class="grid">
+      <article class="card">
+        <h2>1. Canvi de color</h2>
+        <div class="box color"></div>
+      </article>
+
+      <article class="card">
+        <h2>2. Canvi de mida</h2>
+        <div class="box mida"></div>
+      </article>
+
+      <article class="card">
+        <h2>3. Canvi de posició</h2>
+        <div class="box posicio"></div>
+      </article>
+
+      <article class="card">
+        <h2>4. Canvi d’opacitat</h2>
+        <div class="box opacitat"></div>
+      </article>
+
+      <article class="card">
+        <h2>5. Canvi amb transform</h2>
+        <div class="box transform"></div>
+      </article>
+
+      <article class="card">
+        <h2>6. Múltiples propietats</h2>
+        <div class="box multi">Hover</div>
+      </article>
+    </section>
   </body>
 </html>
