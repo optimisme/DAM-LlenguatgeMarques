@@ -122,6 +122,8 @@ i per fer-la servir, es fa servir un `<span>` amb un o més noms d'icona:
 
 Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-00/index.html"
 
+> **Nota**: Altres tipografies d'icones populars són: [Font Awesome](https://fontawesome.com), [Flaticon](https://www.flaticon.es)
+
 # Interactivitat amb CSS
 
 És possible canviar l’aparença d’un element (per exemple, el color d’una capsa) **sense utilitzar JavaScript, fent servir només HTML i CSS**.
