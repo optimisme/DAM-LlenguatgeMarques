@@ -100,6 +100,26 @@ Si vols fer servir una font de Google, la opció **"Get Embeded Code"** et dona 
 }
 ```
 
+### Material icons
+
+**Material icons** és una font d'icones, consulta la llista a la seva pàgina web:
+
+[Web Material Icons](https://fonts.google.com/icons?selected=Material+Symbols+Outlined:home:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%231f1f1f)
+
+Per importar-la cal posar aquest `<link>` al `<header>`:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+```
+
+i per fer-la servir, es fa servir un `<span>` amb un o més noms d'icona:
+
+```html
+<span class="material-symbols-outlined">smart_toy</span>
+<br/>
+<span class="material-symbols-outlined">menu balance</span>
+```
+
 Exemple-00: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-00/index.html"
 
 # Interactivitat amb CSS
