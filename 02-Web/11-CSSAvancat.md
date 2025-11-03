@@ -336,3 +336,12 @@ Clic sobre una pestanya (label)
        → Mostra el contingut associat i amaga la resta
          → Aplica l’estil actiu a la pestanya seleccionada
 ```
+
+## Iniciar i aturar animacions CSS
+
+<center>
+<img src="./assets/cssadv-gatcoet.png" style="width: 90%; max-width: 500px">
+</center>
+<br/>
+
+Exemple-06: Obrir amb "Show preview" la pàgina "02-Web/11-CSSAvancat/exemple-06/index.html"
