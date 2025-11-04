@@ -57,10 +57,10 @@ h1 {
 }
 
 /* Active tab styling */
-#tab1:checked ~ .tabButtons .tabButton1,
-#tab2:checked ~ .tabButtons .tabButton2,
-#tab3:checked ~ .tabButtons .tabButton3,
-#tab4:checked ~ .tabButtons .tabButton4 {
+body:has(#tab1:checked) .tabButtons .tabButton1,
+body:has(#tab2:checked) .tabButtons .tabButton2,
+body:has(#tab3:checked) .tabButtons .tabButton3,
+body:has(#tab4:checked) .tabButtons .tabButton4 {
     color: #667eea;
     background: white;
     border-bottom-color: #667eea;
@@ -85,10 +85,10 @@ h1 {
 }
 
 /* Show active content */
-#tab1:checked ~ .content-1,
-#tab2:checked ~ .content-2,
-#tab3:checked ~ .content-3,
-#tab4:checked ~ .content-4 {
+body:has(#tab1:checked) .content-1,
+body:has(#tab2:checked) .content-2,
+body:has(#tab3:checked) .content-3,
+body:has(#tab4:checked) .content-4 {
     display: block;
 }
 

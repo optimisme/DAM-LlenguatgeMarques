@@ -55,10 +55,10 @@ h1 {
 .slide:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
 
 /* Slide positioning based on checked radio */
-#slide1:checked ~ .slides { transform: translateX(0%); }
-#slide2:checked ~ .slides { transform: translateX(-100%); }
-#slide3:checked ~ .slides { transform: translateX(-200%); }
-#slide4:checked ~ .slides { transform: translateX(-300%); }
+body:has(#slide1:checked) .slides { transform: translateX(0%); }
+body:has(#slide2:checked) .slides { transform: translateX(-100%); }
+body:has(#slide3:checked) .slides { transform: translateX(-200%); }
+body:has(#slide4:checked) .slides { transform: translateX(-300%); }
 
 /* Navigation arrows */
 .navArrow {
@@ -90,18 +90,18 @@ h1 {
 
 /* Show correct arrows for each slide */
 /* Slide 1: només next (no prev perquè és la primera) */
-#slide1:checked ~ .arrowNext1 { display: flex; }
+body:has(#slide1:checked) .arrowNext1 { display: flex; }
 
 /* Slide 2: prev i next */
-#slide2:checked ~ .arrowPrev2,
-#slide2:checked ~ .arrowNext2 { display: flex; }
+body:has(#slide2:checked) .arrowPrev2,
+body:has(#slide2:checked) .arrowNext2 { display: flex; }
 
 /* Slide 3: prev i next */
-#slide3:checked ~ .arrowPrev3,
-#slide3:checked ~ .arrowNext3 { display: flex; }
+body:has(#slide3:checked) .arrowPrev3,
+body:has(#slide3:checked) .arrowNext3 { display: flex; }
 
 /* Slide 4: només prev (no next perquè és l'última) */
-#slide4:checked ~ .arrowPrev4 { display: flex; }
+body:has(#slide4:checked) .arrowPrev4 { display: flex; }
 
 /* Navigation dots */
 .dots {
@@ -127,10 +127,10 @@ h1 {
 }
 
 /* Active dot styling */
-#slide1:checked ~ .dots label:nth-child(1),
-#slide2:checked ~ .dots label:nth-child(2),
-#slide3:checked ~ .dots label:nth-child(3),
-#slide4:checked ~ .dots label:nth-child(4) {
+body:has(#slide1:checked) .dots label:nth-child(1),
+body:has(#slide2:checked) .dots label:nth-child(2),
+body:has(#slide3:checked) .dots label:nth-child(3),
+body:has(#slide4:checked) .dots label:nth-child(4) {
     background: white;
     transform: scale(1.3);
 }

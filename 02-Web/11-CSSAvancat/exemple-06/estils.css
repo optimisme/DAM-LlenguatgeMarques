@@ -89,7 +89,7 @@ body {
 }
 
 /* Pausa amb Interruptor "Toggle" */
-body:has(#pause-orbit:checked) .orbit {
+#pauseOrbit:checked .orbit {
     animation-play-state: running;
 }
 
@@ -186,17 +186,17 @@ body:has(#pause-orbit:checked) .orbit {
 
 /* Estat ON */
 /* Pausar l’òrbita */
-body:has(#pause-orbit:checked) .orbit {
+body:has(#pauseOrbit:checked) .orbit {
   animation-play-state: running;
 }
 
 /* Canviar color global del toggle quan està actiu */
-body:has(#pause-orbit:checked) .indicator {
+body:has(#pauseOrbit:checked) .indicator {
   background: linear-gradient(to bottom, #3d7bff, #0053d6);
   border-color: #0044bb;
 }
 
-body:has(#pause-orbit:checked) .indicator::after {
+body:has(#pauseOrbit:checked) .indicator::after {
   transform: translateX(calc(var(--w) - var(--knob) - var(--pad)*2));
 }
 
