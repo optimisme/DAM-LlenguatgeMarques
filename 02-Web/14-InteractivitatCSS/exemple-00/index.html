@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvi de classe amb dos botons (estil macOS millorats)</title>
+  <style>
+    /* Amaguem els botons de tipus radio per fer servir només els <label> visuals */
+    input[type="radio"] {
+      display: inherit;
+    }
+
+    .row {
+      display: flex
+    }
+
+    /* Els <label> actuen com a botons visuals */
+    label {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: linear-gradient(to bottom, #ddd, #aaa); /* gris metàl·lic */
+      color: #222;
+      border: 1px solid #666;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      transition: all 0.2s ease-in-out;
+      user-select: none;
+    }
+
+    /* Efectes quan el ratolí passa per sobre o es prem */
+    label:hover {
+      background: linear-gradient(to bottom, #ccc, #999);
+    }
+    label:active {
+      background: linear-gradient(to bottom, #3d7bff, #0053d6); /* blau intens */
+      color: white;
+      border-color: #0044bb;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Estil aplicat al <label> quan el seu radio està seleccionat (:checked) */
+    body:has(#radio0:checked) label[for="radio0"],
+    body:has(#radio1:checked) label[for="radio1"] {
+      background: linear-gradient(to bottom, #3d7bff, #0053d6);
+      color: white;
+      border-color: #0044bb;
+      box-shadow: 0 0 6px rgba(0, 98, 255, 0.7),
+                  inset 0 2px 5px rgba(255,255,255,0.3);
+    }
+
+    /* Estil base de la capsa que canvia segons el radio seleccionat */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #d0d0d0;
+      border-radius: 10px;
+      transition: 0.3s;
+      margin-top: 15px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    /* Estil aplicat a .box quan es selecciona el radio0 */
+    body:has(#radio0:checked) .box {
+      background-color: #3ad13a; /* verd intens */
+      transform: rotate(-5deg);
+    }
+
+    /* Estil aplicat a .box quan es selecciona el radio1 */
+    body:has(#radio1:checked) .box {
+      background-color: #ff3b30; /* vermell intens */
+      transform: rotate(5deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Dos inputs radio amagats amb el mateix "name", perquè només un pugui estar seleccionat -->
+  <div class="row">
+    <label for="radio0">Color verd</label>
+    <input type="radio" name="radioGroup" id="radio0">
+  </div>
+
+  <div class="row">
+    <label for="radio1">Color vermell</label>
+    <input type="radio" name="radioGroup" id="radio1" checked>
+  </div>
+
+  <!-- Element visual que canvia d'estil segons quin radio està seleccionat -->
+  <div class="box"></div>
+</body>
+</html>

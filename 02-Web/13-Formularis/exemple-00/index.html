@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estils.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estils.css">
+    <title>Formulari amb label flotant</title>
+</head>
+<body>
+
+    <form class="formulari">
+
+        <!-- Input per defecte -->
+        <input type="text" class="camp" id="res" placeholder="Input per defecte">
+
+        <!-- Primera part: label normal -->
+        <div class="camp">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" placeholder="Escriu el teu nom">
+        </div>
+
+        <!-- Segona part: label flotant -->
+        <div class="camp">
+            <label class="floating" for="nom">Ciutat</label>
+            <input type="text" id="nom" name="nom" placeholder=" ">
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>

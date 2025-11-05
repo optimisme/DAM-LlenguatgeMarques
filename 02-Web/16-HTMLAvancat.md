@@ -1,5 +1,4 @@
 
-Formularis (`<`form`>`) → input, textarea, select, label, atributs importants (name, value, placeholder, required, etc.).
 
 Multimèdia → `<`audio`>`, `<`video`>`, `<`iframe`>`.
 

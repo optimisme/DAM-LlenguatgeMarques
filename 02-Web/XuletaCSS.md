@@ -1,7 +1,6 @@
-## Display
+## Visibilitat
 
-[display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)  
-Com es mostra l'element en el flux del document.
+[display](https://developer.mozilla.org/en-US/docs/Web/CSS/display): Com es mostra l'element en el flux del document.
 
 - **block**: L’element ocupa tot l’ample disponible i comença en una línia nova.  
 - **inline**: L’element ocupa només l’ample del seu contingut i no força salt de línia.  
@@ -10,19 +9,26 @@ Com es mostra l'element en el flux del document.
 - **flex**: Converteix l’element en un contenidor flexible.  
 - **grid**: Converteix l’element en un contenidor de graella.  
 
----
+[visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility):  Si es mostre o amaga l'element.
+  - **visible**: L’element es mostra normalment.  
+  - **hidden**: L’element ocupa espai però no es veu.  
+  - **collapse**: Per taules, oculta files/columnes sense deixar espai.  
+
+[opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity): Defineix la transparència de l’element (valor entre 0 i 1).  
+  - **0**: Completament transparent.  
+  - **1**: Completament opac.  
+
+## Posicionament
 
 ### Flexbox
 
 Propietats principals quan s’utilitza `display: flex`.
 
 - [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction): Direcció dels ítems (`row`, `row-reverse`, `column`, `column-reverse`).  
-- [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Alineació vertical dels ítems dins del contenidor (`flex-start`, `flex-end`, `center`, `stretch`, `baseline`).  
+- [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Alineació dels ítems dins del contenidor (`flex-start`, `flex-end`, `center`, `stretch`, `baseline`).  
 - [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content): Alineació horitzontal dels ítems (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`).  
 - [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap): Controla si els ítems es col·loquen en una sola línia o poden fer salt (`nowrap`, `wrap`, `wrap-reverse`).  
-- [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Alineació vertical de les línies quan hi ha múltiples files (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`).  
-
----
+- [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Alineació de les línies quan hi ha múltiples files (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`).  
 
 ### Grid
 
@@ -33,9 +39,6 @@ Propietats principals quan s’utilitza `display: grid`.
 - [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content): Alineació horitzontal de tota la graella dins del contenidor.  
 - [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Alineació vertical de les cel·les dins de cada fila.  
 - [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Alineació vertical de tota la graella dins del contenidor.  
-
-
----
 
 ## Position & Layering
 
@@ -61,13 +64,9 @@ Propietats per controlar la posició i l’ordre dels elements.
 - [clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear):  
   Indica per quin costat no es poden col·locar elements flotants (`left`, `right`, `both`).  
 
+## Margin, Border, Border-radius i Padding
 
----
-
-## Margin
-
-[margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)  
-Espai buit exterior que separa l'element dels elements veïns.
+[margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin): Espai buit exterior que separa l'element dels elements veïns.
 
 - **margin-top**: Espai superior.
 - **margin-right**: Espai a la dreta.
@@ -76,12 +75,7 @@ Espai buit exterior que separa l'element dels elements veïns.
 - **margin**: Shorthand per establir tots els marges a la vegada.
 - **auto**: Valor especial, sovint per centrar elements horitzontalment.
 
----
-
-## Border
-
-[border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)  
-Línia que envolta l’element entre el `padding` i el `margin`.
+[border](https://developer.mozilla.org/en-US/docs/Web/CSS/border): Línia que envolta l’element entre el `padding` i el `margin`.
 
 - **border-width**: Gruix de la línia.
 - **border-style**: Estil de la línia (`solid`, `dashed`, `dotted`, etc.).
@@ -90,12 +84,7 @@ Línia que envolta l’element entre el `padding` i el `margin`.
 - **border-top / border-right / border-bottom / border-left**: Control individual de cada costat.
 - **border-radius**: Arrodoneix les cantonades.
 
----
-
-## Border-radius
-
-[border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)  
-Arrodoneix les cantonades de l’element.
+[border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius): Arrodoneix les cantonades de l’element.
 
 - **Valor únic**: Totes les cantonades iguals.
 - **Dos valors**: Primer (top-left i bottom-right), segon (top-right i bottom-left).
@@ -103,12 +92,7 @@ Arrodoneix les cantonades de l’element.
 - **Quatre valors**: En ordre (top-left, top-right, bottom-right, bottom-left).
 - **%**: Permet fer cercles o el·lipses quan el valor és la meitat de l’ample i l’altura.
 
----
-
-## Padding
-
-[padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)  
-Espai interior entre el contingut de l’element i el seu `border`.
+[padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding): Espai interior entre el contingut de l’element i el seu `border`.
 
 - **padding-top**: Espai superior.
 - **padding-right**: Espai a la dreta.
@@ -116,14 +100,11 @@ Espai interior entre el contingut de l’element i el seu `border`.
 - **padding-left**: Espai a l’esquerra.
 - **padding**: Shorthand per establir tots els valors a la vegada.
 
----
-
 ## Size
 
 Propietats per controlar la mida dels elements.
 
-- [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing):  
-  Com es calcula l’ample i l’altura de l’element.  
+- [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing): Com es calcula l’ample i l’altura de l’element.  
   - **content-box**: Només inclou el contingut.  
   - **border-box**: Inclou contingut + `padding` + `border`.
 
@@ -134,12 +115,9 @@ Propietats per controlar la mida dels elements.
 - [min-height](https://developer.mozilla.org/en-US/docs/Web/CSS/min-height): Altura mínima.  
 - [max-height](https://developer.mozilla.org/en-US/docs/Web/CSS/max-height): Altura màxima.  
 
----
-
 ## Overflow
 
-[overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)  
-Controla què passa quan el contingut sobrepassa la mida definida de l’element.
+[overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow): Controla què passa quan el contingut sobrepassa la mida definida de l’element.
 
 - **visible**: El contingut que sobrepassa és visible.
 - **hidden**: El contingut que sobrepassa queda amagat.
@@ -149,8 +127,6 @@ Controla què passa quan el contingut sobrepassa la mida definida de l’element
 - [overflow-x](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x): Controla el desbordament horitzontal.  
 - [overflow-y](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y): Controla el desbordament vertical.  
 
----
-
 ## Shadows
 
 Permeten afegir ombres a elements i text.
@@ -158,12 +134,9 @@ Permeten afegir ombres a elements i text.
 - [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow): Ombra de la caixa de l’element.  
 - [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow): Ombra del text.  
 
----
-
 ## Background
 
-[background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)  
-Defineix el fons d’un element.
+[background](https://developer.mozilla.org/en-US/docs/Web/CSS/background): Defineix el fons d’un element.
 
 - **background-color**: Color de fons.  
 - **linear-gradient()**: Degradat lineal.  
@@ -175,35 +148,15 @@ Defineix el fons d’un element.
 - **background-attachment**: Com es desplaça la imatge (`scroll`, `fixed`, `local`).  
 - **background**: Shorthand per establir diverses propietats alhora.  
 
-## Opacity
-
-Controla la visibilitat i la transparència dels elements.
-
-- [visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility):  
-  - **visible**: L’element es mostra normalment.  
-  - **hidden**: L’element ocupa espai però no es veu.  
-  - **collapse**: Per taules, oculta files/columnes sense deixar espai.  
-
-- [opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity):  
-  Defineix la transparència de l’element (valor entre 0 i 1).  
-  - **0**: Completament transparent.  
-  - **1**: Completament opac.  
-
----
-
 ## Cursor
 
 Controla el cursor i la interacció amb l’element.
 
-- [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor):  
-  Canvia l’aspecte del cursor (ex. `default`, `pointer`, `text`, `move`, `wait`, etc.).  
+- [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor): Aspecte del cursor (ex. `default`, `pointer`, `text`, `move`, `wait`, etc.).  
 
-- [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events):  
-  Controla si l’element pot rebre esdeveniments del ratolí.  
+- [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events): Si l’element pot rebre esdeveniments del ratolí.  
   - **auto**: Comportament normal.  
   - **none**: L’element ignora els esdeveniments.  
-
----
 
 ## Typography
 
@@ -218,16 +171,11 @@ Propietats per definir l’aparença del text.
 - [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform): Transformació (`uppercase`, `lowercase`, `capitalize`).  
 - [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration): Decoració (`underline`, `line-through`, `overline`).  
 
----
-
 ## Text-shadows
 
 Permeten afegir ombres al text.
 
-- [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow):  
-  Defineix una o més ombres al text (posició X, posició Y, difuminat i color).  
-
----
+- [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow): Defineix una o més ombres al text (posició X, posició Y, difuminat i color).  
 
 ## Paragraph
 
@@ -245,8 +193,6 @@ Propietats que afecten el comportament i format del paràgraf.
 - [white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space): Controla com s’interpreten espais i salts de línia.  
 - [writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode): Orientació del text (`horizontal-tb`, `vertical-rl`, `vertical-lr`).  
 
----
-
 ## Columns
 
 Propietats per dividir el contingut en columnes.
@@ -259,16 +205,12 @@ Propietats per dividir el contingut en columnes.
 - [column-rule-color](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color): Color de la línia entre columnes.  
 - [column-span](https://developer.mozilla.org/en-US/docs/Web/CSS/column-span): Controla si un element ocupa més d’una columna.  
 
----
-
 ## Shadows
 
 Permeten afegir ombres a elements i text.
 
 - [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow): Ombra de la caixa de l’element (offset X, offset Y, difuminat, extensió, color).  
 - [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow): Ombra aplicada al text (offset X, offset Y, difuminat, color).  
-
----
 
 ## Transform
 
@@ -290,8 +232,6 @@ Permet aplicar transformacions geomètriques als elements.
 - [perspective-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin): Punt d’origen de la perspectiva.  
 
 - [backface-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility): Controla si la cara posterior d’un element 3D és visible.  
-
----
 
 ## Filter
 

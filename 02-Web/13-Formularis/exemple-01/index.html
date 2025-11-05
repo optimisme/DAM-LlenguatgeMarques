@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estils.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <title>Formulari amb validacions</title>
+</head>
+<body>
+
+<form class="formulari">
+
+  <div class="camp">
+    <input type="text" id="nom" name="nom" placeholder=" " required>
+    <label class="floating" for="nom">Nom complet</label>
+    <span class="avís">El nom és obligatori.</span>
+  </div>
+
+  <div class="camp">
+    <input type="password" id="clau" name="clau" placeholder=" " required minlength="6">
+    <label class="floating" for="clau">Contrasenya</label>
+    <span class="avís">La contrasenya ha de tenir almenys 6 caràcters.</span>
+  </div>
+
+  <div class="camp">
+    <input type="email" id="correu" name="correu" placeholder=" " required>
+    <label class="floating" for="correu">Correu electrònic</label>
+    <span class="avís">Introdueix un correu vàlid.</span>
+  </div>
+
+  <div class="camp">
+    <input type="number" id="edat" name="edat" placeholder=" " min="0" max="120" required>
+    <label class="floating" for="edat">Edat</label>
+    <span class="avís">L’edat ha d’estar entre 0 i 120 anys.</span>
+  </div>
+
+  <div class="camp">
+    <input type="text" id="special" name="special"
+           placeholder=" "
+           pattern="[A-Za-zÀ-ÿ\s]{3,20}"
+           title="Nom entre 3 i 20 caràcters, només lletres"
+           required>
+    <label class="floating" for="special">Nom d'usuari</label>
+    <span class="avís">Nom entre 3 i 20 lletres (sense números ni símbols).</span>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

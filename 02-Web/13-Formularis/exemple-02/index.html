@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estils.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <title>Formulari amb checkbox i radio</title>
+</head>
+<body>
+
+<form class="formulari">
+
+  <h2>Informació bàsica</h2>
+
+  <h3>Aficions</h3>
+  <div class="grup">
+    <label><input type="checkbox" name="aficions" value="musica"> 🎵 Música</label>
+    <label><input type="checkbox" name="aficions" value="esport"> ⚽ Esport</label>
+    <label><input type="checkbox" name="aficions" value="lectura"> 📚 Lectura</label>
+  </div>
+
+  <h3>Nivell d’estudis</h3>
+  <div class="grup">
+    <label><input type="radio" name="estudis" value="eso" required> ESO</label>
+    <label><input type="radio" name="estudis" value="batxillerat"> Batxillerat</label>
+    <label><input type="radio" name="estudis" value="fp"> Formació Professional</label>
+    <label><input type="radio" name="estudis" value="universitat"> Universitat</label>
+  </div>
+
+  <h3>Torn de classe</h3>
+  <div class="grup">
+    <label><input type="radio" name="torn" value="mati" required> Matí</label>
+    <label><input type="radio" name="torn" value="tarda"> Tarda</label>
+    <label><input type="radio" name="torn" value="vespre"> Vespre</label>
+  </div>
+
+  <button type="submit">Enviar</button>
+
+</form>
+
+</body>
+</html>
