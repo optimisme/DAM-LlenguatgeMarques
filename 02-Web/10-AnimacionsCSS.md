@@ -28,6 +28,7 @@ No canvien la durada total, però sí el ritme del moviment.
 <center>
 <img src="./assets/anims-functions.png" style="width: 90%; max-width: 700px">
 </center>
+<br/>
 
 L'exemple-00 mostra una animació comparant les diferents funcions "timing-function" disponibles.
 
