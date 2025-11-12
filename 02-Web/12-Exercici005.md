@@ -65,7 +65,7 @@ Contingut mínim:
 - **Escala tipogràfica** (rem-based) i exemples d’accessibilitat (contrast, mida mínima).
 - **Material Icons**:
     - Mostrari amb diferents mides i pesos variables (opsz, wght, FILL), indicant a la llegenda què canvia.
-    - Botons i links amb icona + text, amb transició d’estat hover/focus.
+    - Botons i links amb icona + text, amb transició d’estat hover.
 - **Colors**: taula curta amb el mateix color expressat en HEX, RGB, HSL i una versió amb alpha.
 
 ## Requeriments generals
