@@ -6,20 +6,20 @@
 
 /* === Cos general === */
 body {
-  font-family: "Open Sans", sans-serif;
+  align-items: center;
   background: #f2f2f2;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: "Open Sans", sans-serif;
   height: 100vh;
+  justify-content: center;
 }
 
 /* === Formulari === */
 form.formulari {
   background: white;
-  padding: 30px 40px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px 40px;
   width: 300px;
 }
 
@@ -30,12 +30,12 @@ form.formulari {
 
 /* === Inputs === */
 .camp input {
-  padding: 10px;
   border: 2px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  width: calc(100% - 24px);
+  padding: 10px;
   transition: border-color 0.3s ease;
+  width: calc(100% - 24px);
 }
 
 .camp input:focus {
@@ -47,12 +47,12 @@ form.formulari {
 .floating {
   background-color: white;
   color: #81888f !important;
-  position: absolute !important;
-  top: 10px;
-  left: 12px;
   font-size: 16px;
+  left: 12px;
   padding: 0 4px;
   pointer-events: none;
+  position: absolute !important;
+  top: 10px;
   transition: all 0.3s ease;
 }
 
@@ -60,20 +60,20 @@ form.formulari {
 .camp:has(input:focus) .floating,
 .camp input:not(:placeholder-shown) + .floating {
   color: var(--colorPrincipal) !important;
-  top: -8px;
   font-size: 12px;
+  top: -8px;
 }
 
 /* === Missatges d'error === */
 .avís {
-  position: absolute;
   bottom: -18px;
-  left: 4px;
-  font-size: 12px;
   color: var(--colorError);
+  font-size: 12px;
+  left: 4px;
   opacity: 0;
-  transition: opacity 0.4s ease;
   pointer-events: none;
+  position: absolute;
+  transition: opacity 0.4s ease;
 }
 
 /* Mostra el missatge quan el camp és invàlid */
@@ -84,15 +84,15 @@ form.formulari {
 
 /* === Botó === */
 button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
   background: var(--colorPrincipal);
-  color: white;
   border: none;
   border-radius: 6px;
+  color: white;
   cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 button:hover {

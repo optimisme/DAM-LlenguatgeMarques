@@ -10,50 +10,51 @@
     }
 
     body {
-      margin: 0;
-      font-family: sans-serif;
       background: #fafafa;
+      font-family: sans-serif;
+      margin: 0;
     }
 
     /* Barra fixa superior */
     .barra-fixed {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      padding: 15px;
       background-color: darkred;
       color: white;
       font-weight: bold;
+      left: 0;
+      padding: 15px;
+      position: fixed;
       text-align: center;
+      top: 0;
+      width: 100%;
       z-index: 1000;
     }
 
     /* Contenidor general: marge superior per no quedar tapat per la barra fixed */
     .contenidor {
-      margin-top: 90px;
-      padding: 12px;
-      max-width: 900px;
       margin-inline: auto;
+      margin-top: 90px;
+      max-width: 900px;
+      padding: 12px;
     }
 
     /* Caixes de contingut buides (només per fer scroll i veure el comportament) */
     .caixa {
-      height: 200px;
-      margin: 16px 0;
       background-color: #e0e0e0;
       border: 1px solid #999;
       border-radius: 6px;
+      height: 200px;
+      margin: 16px 0;
     }
 
     /* Capçaleres sticky de secció */
     .sticky-separator {
-      position: sticky;
-      top: var(--sticky-offset);
+      border-radius: 4px;
+      font-weight: bold;
       height: 25px;               /* demanat: alt de 25px */
       line-height: 25px;          /* centra el text verticalment */
       padding: 0 10px;
-      font-weight: bold;
-      border-radius: 4px;
+      position: sticky;
+      top: var(--sticky-offset);
       z-index: 5;                 /* per sobre de les caixes */
     }
 

@@ -9,12 +9,12 @@
         }
 
         .caixa {
-            width: 150px;
+            color: white;
+            font-weight: bold;
             height: 100px;
             margin: 10px;
             padding: 10px;
-            color: white;
-            font-weight: bold;
+            width: 150px;
         }
 
         /* Position: static (per defecte) */
@@ -26,25 +26,25 @@
         /* Position: relative (mou la caixa respecte posició original) */
         .relative {
             background-color: seagreen;
+            left: 40px;
             position: relative;
             top: 20px;
-            left: 40px;
         }
 
         /* Position: absolute (respecte al contenidor posicionat) */
         .contenidor {
-            position: relative; /* el punt de referència pels absoluts */
             background-color: lightgray;
             height: 250px;
             margin-top: 20px;
             padding: 10px;
+            position: relative; /* el punt de referència pels absoluts */
         }
 
         .absolute {
             background-color: tomato;
             position: absolute;
-            top: 20px;
             right: 20px;
+            top: 20px;
         }
     </style>
 </head>

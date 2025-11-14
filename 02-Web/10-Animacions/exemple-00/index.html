@@ -15,13 +15,13 @@
         --graph-line: #8b0000;
         --dot: #ff0000;
       }
-      html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+      html, body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       header { padding: 16px 20px 8px; }
       h1 { margin: 0 0 6px 0; font-size: 18px; }
       p { margin: 0; color: var(--muted); }
-      .toolbar { display: flex; justify-content: flex-end; gap: 10px; align-items: center; padding: 8px 20px 14px; }
-      button { background: #f5f5f5; color: var(--text); border: 1px solid #aaa; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
-      button:disabled { opacity: 0.5; cursor: default; }
+      .toolbar { align-items: center; display: flex; gap: 10px; justify-content: flex-end; padding: 8px 20px 14px; }
+      button { background: #f5f5f5; border: 1px solid #aaa; border-radius: 8px; color: var(--text); cursor: pointer; padding: 8px 12px; }
+      button:disabled { cursor: default; opacity: 0.5; }
 
       /* columns: label | example | graph (més estreta encara) */
       .grid { display: grid; grid-template-columns: 220px 1fr 0.26fr; gap: 14px; padding: 0 20px 16px; }
@@ -31,12 +31,12 @@
       .label code { color: #333; }
 
       /* Pista: sense arrodonits ni relleu/borde negre */
-      .track { position: relative; height: 56px; background: var(--track); border: none; border-radius: 0; }
-      .block { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 26px; height: 26px; background: var(--box); border: 1px solid #003; border-radius: 4px; z-index: 10; }
+      .track { background: var(--track); border: none; border-radius: 0; height: 56px; position: relative; }
+      .block { background: var(--box); border: 1px solid #003; border-radius: 4px; height: 26px; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 26px; z-index: 10; }
 
       .gwrap { position: relative; }
-      canvas.graph { width: 100%; aspect-ratio: 1 / 1; display: block; background: #fff; border: 1px solid var(--border); border-radius: 6px; max-width: 75px; }
-      .legend { font-size: 12px; color: #000; margin-top: 4px; }
+      canvas.graph { aspect-ratio: 1 / 1; background: #fff; border: 1px solid var(--border); border-radius: 6px; display: block; max-width: 75px; width: 100%; }
+      .legend { color: #000; font-size: 12px; margin-top: 4px; }
     </style> 
   </head>
   <body>

@@ -5,39 +5,42 @@
        <title>Exemple 014 — z-index amb opacitat</title>
        <style>
            body {
+               background: #f2f2f2;
                font-family: sans-serif;
                margin: 40px;
-               background: #f2f2f2;
            }
 
            .caixa {
+               align-items: center;
+               border-radius: 8px;
+               color: white;
+               display: flex;
+               font-weight: bold;
+               height: 150px;
+               justify-content: center;
+               opacity: 0.8; /* transparència per veure la superposició */
                position: absolute; /* necessari perquè funcioni z-index */
                width: 150px;
-               height: 150px;
-               color: white;
-               font-weight: bold;
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               border-radius: 8px;
-               opacity: 0.8; /* transparència per veure la superposició */
            }
 
            .vermella {
                background: red;
-               top: 40px; left: 40px;
+               left: 40px;
+               top: 40px;
                z-index: 1; /* més al fons */
            }
 
            .blava {
                background: blue;
-               top: 80px; left: 80px;
+               left: 80px;
+               top: 80px;
                z-index: 2; /* al mig */
            }
 
            .verda {
                background: green;
-               top: 120px; left: 120px;
+               left: 120px;
+               top: 120px;
                z-index: 3; /* per sobre de totes */
            }
        </style>

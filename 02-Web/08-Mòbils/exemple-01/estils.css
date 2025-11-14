@@ -8,8 +8,8 @@
 /* Desktop, a partir de 768px: disposem en fila */
 @media (min-width: 768px) {
   .row-to-col {
-    flex-direction: row;    /* row */
     align-items: center;    /* opcional */
+    flex-direction: row;    /* row */
   }
 }
 

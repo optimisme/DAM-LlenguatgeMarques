@@ -1,11 +1,11 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
-    padding: 2rem 1rem;
+    font-family: system-ui, -apple-system, sans-serif;
     min-height: 100vh;
+    padding: 2rem 1rem;
 }
 
 .container {
@@ -40,14 +40,14 @@ h1 {
 }
 
 .tabButton {
+    border-bottom: 3px solid transparent;
+    color: #666;
+    cursor: pointer;
     flex: 1;
+    font-weight: 500;
     padding: 1rem 1.5rem;
     text-align: center;
-    cursor: pointer;
-    font-weight: 500;
-    color: #666;
     transition: all 0.3s;
-    border-bottom: 3px solid transparent;
     user-select: none;
 }
 
@@ -61,16 +61,16 @@ body:has(#tab1:checked) .tabButtons .tabButton1,
 body:has(#tab2:checked) .tabButtons .tabButton2,
 body:has(#tab3:checked) .tabButtons .tabButton3,
 body:has(#tab4:checked) .tabButtons .tabButton4 {
-    color: #667eea;
     background: white;
     border-bottom-color: #667eea;
+    color: #667eea;
 }
 
 /* Tab content container */
 .tab-content {
+    animation: fadeIn 0.4s ease-in;
     display: none;
     padding: 2rem;
-    animation: fadeIn 0.4s ease-in;
 }
 
 @keyframes fadeIn {
@@ -100,30 +100,30 @@ body:has(#tab4:checked) .content-4 {
 }
 
 .tab-content p {
-    line-height: 1.6;
     color: #555;
+    line-height: 1.6;
     margin-bottom: 1rem;
 }
 
 .tab-content ul {
-    margin-left: 1.5rem;
-    line-height: 1.8;
     color: #555;
+    line-height: 1.8;
+    margin-left: 1.5rem;
 }
 
 .highlight {
     background: #f0f4ff;
-    padding: 1rem;
-    border-radius: 8px;
     border-left: 4px solid #667eea;
+    border-radius: 8px;
     margin-top: 1rem;
+    padding: 1rem;
 }
 
 /* Responsive */
 @media (max-width: 640px) {
     .tabButton {
-    padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
+    padding: 0.75rem 0.5rem;
     }
 
     .tab-content {

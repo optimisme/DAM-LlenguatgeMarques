@@ -5,14 +5,14 @@
     <title>Exemple d'animació CSS</title>
     <style>
       body {
-        font-family: system-ui, sans-serif;
+        align-items: center;
         background: #f4f4f4;
         color: #222;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
         flex-direction: column;
+        font-family: system-ui, sans-serif;
+        height: 100vh;
+        justify-content: center;
       }
 
       h1 {
@@ -21,27 +21,27 @@
 
       /* ─── ELEMENT ANIMAT ─── */
       .cercle {
-        width: 100px;
-        height: 100px;
+        animation: pulsar 2s ease-in-out infinite;
         background-color: #3498db;
         border-radius: 50%;
-        /* Assignem l’animació */
-        animation: pulsar 2s ease-in-out infinite;
+        height: 100px;
+        /* Assignem l'animació */
+        width: 100px;
       }
 
       /* ─── DEFINICIÓ DE L’ANIMACIÓ ─── */
       @keyframes pulsar {
         0% {
-          transform: scale(1);
           background-color: #3498db;
+          transform: scale(1);
         }
         50% {
-          transform: scale(1.5);
           background-color: #e74c3c;
+          transform: scale(1.5);
         }
         100% {
-          transform: scale(1);
           background-color: #3498db;
+          transform: scale(1);
         }
       }
     </style>

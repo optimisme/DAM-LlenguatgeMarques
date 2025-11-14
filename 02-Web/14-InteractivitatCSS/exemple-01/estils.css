@@ -7,21 +7,21 @@
 }
 /* Layout de demo */
 body{
-    font-family: system-ui, sans-serif;
-    min-height: 100vh;
+    background: #f5f5f5;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    font-family: system-ui, sans-serif;
     gap: 8px;
-    background: #f5f5f5;
+    justify-content: flex-start;
+    min-height: 100vh;
 }
 /* Amaguem els botons de tipus radio per fer servir només els <label> visuals */
 input[type="checkbox"] {
     display: none;
 }
 .toggle{
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
     gap: 10px;
 }
 .toggle > span {
@@ -34,15 +34,15 @@ input[type="checkbox"] {
 }
 /* Interruptor "toggle" */
 .toggle > .indicator{
-    position: relative;
-    width: var(--w);
-    height: var(--h);
     background: linear-gradient(to bottom, #ddd, #aaa);
     border: 1px solid #666;
     border-radius: 999px;
-    cursor: pointer;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    height: var(--h);
+    position: relative;
     transition: background 0.25s ease-in-out, border 0.25s ease-in-out;
+    width: var(--w);
 }
 .toggle > .indicator:hover{
     background: linear-gradient(to bottom, #ccc, #999);
@@ -50,16 +50,16 @@ input[type="checkbox"] {
 
 /* Cercle indicador */
 .toggle > .indicator::after{
-    content: "";
-    position: absolute;
-    top: var(--pad);
-    left: var(--pad);
-    width: var(--knob);
-    height: var(--knob);
     background: #fff;
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    content: "";
+    height: var(--knob);
+    left: var(--pad);
+    position: absolute;
+    top: var(--pad);
     transition: transform 0.25s ease-in-out, background 0.25s;
+    width: var(--knob);
 }
 
 /* Estat ON */

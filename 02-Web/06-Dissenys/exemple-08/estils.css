@@ -1,4 +1,4 @@
-body { 
+body {
     background-color: #174197;
     color: #ffffff;
     font-family: "Open Sans";
@@ -6,8 +6,8 @@ body {
     padding: 0;
 }
 .autocenterContainer {
-    max-width: 1264px;    /* amplada màxima */
     margin: auto;         /* centra horitzontalment */
+    max-width: 1264px;    /* amplada màxima */
     padding: 20px;
 }
 .boxesContainer {
@@ -16,13 +16,13 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 16px;
+    justify-content: flex-start;
     padding-left: var(--horizPadding);
     padding-right: var(--horizPadding);
     width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
 }
-.boxesContainer > .box { 
+.boxesContainer > .box {
     align-items: center;
     background-color: #3a5b9c;
     border-radius: 16px;
@@ -31,8 +31,8 @@ body {
     flex-direction: column;
     height: 200px;
     justify-content: space-between;
-    width: 250px;
     padding: 24px;
+    width: 250px;
 }
 .boxesContainer > .box > p:first-child { 
     font-size: 2em;
