@@ -1,4 +1,8 @@
 
+Enllaços especials: mail i telèfon
+
+Incrustar "Google Maps"
+
 
 Multimèdia → `<`audio`>`, `<`video`>`, `<`iframe`>`.
 
