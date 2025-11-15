@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Eina CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <main class="main-controls">
+            <h2>CSS Styles</h2>
+            <div class="css-sections">
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/display.svg" alt="Display" class="icon">
+                        <span>Display</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" id="display-example">
+                            <div class="mini-outer">
+                                <div class="mini-item item-1" style="display: block;">1</div>
+                                <div class="mini-item item-2" style="display: block;">2</div>
+                                <div class="mini-item item-3" style="display: block;">3</div>
+                            </div>
+                            <div class="mini-description">Each item takes full width and starts on new line</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" class="property-link">display:</a>
+                            <span class="property-value" id="display-value">block</span>
+                            <div class="property-buttons">
+                                <button class="property-btn display-btn" data-display="initial" title="Initial, removes this property">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn display-btn" data-display="block" title="Display block, starts on a new line and takes up all width">
+                                    <img src="images/icons/displayBlock.svg" alt="Display block">
+                                </button>
+                                <button class="property-btn display-btn" data-display="inline" title="Display inline, flows with text">
+                                    <img src="images/icons/displayInline.svg" alt="Display inline">
+                                </button>
+                                <button class="property-btn display-btn" data-display="inline-block" title="Display inline-block, flows with text but can have width/height">
+                                    <img src="images/icons/displayInlineBlock.svg" alt="Display inline-block">
+                                </button>
+                                <button class="property-btn display-btn" data-display="flex" title="Display flex, enables flexbox layout">
+                                    <img src="images/icons/displayFlex.svg" alt="Display flex">
+                                </button>
+                                <button class="property-btn display-btn" data-display="contents" title="Display contents, makes the container disappear">
+                                    <img src="images/icons/displayContents.svg" alt="Display contents">
+                                </button>
+                                <button class="property-btn display-btn" data-display="none" title="Display none, hides the element">
+                                    <img src="images/icons/displayNone.svg" alt="Display none">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Flex options -->
+                        <div id="flex-options">
+                            <div class="example-container" id="flex-direction-example">
+                                <div class="mini-outer" style="display: flex; flex-direction: row;">
+                                    <div class="mini-item item-1">1</div>
+                                    <div class="mini-item item-2">2</div>
+                                    <div class="mini-item item-3">3</div>
+                                </div>
+                                <div class="mini-description">Items arranged horizontally from left to right</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction" target="_blank" class="property-link">flex-direction:</a>
+                                <span class="property-value" id="flex-direction-value">row</span>
+                                <div class="property-buttons">
+                                    <button class="property-btn flex-direction-btn" data-direction="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn flex-direction-btn" data-direction="row" title="Row">
+                                        <img src="images/icons/directionRow.svg" alt="Row">
+                                    </button>
+                                    <button class="property-btn flex-direction-btn" data-direction="column" title="Column">
+                                        <img src="images/icons/directionColumn.svg" alt="Column">
+                                    </button>
+                                    <button class="property-btn flex-direction-btn" data-direction="row-reverse" title="Row reverse">
+                                        <img src="images/icons/directionRowReverse.svg" alt="Row reverse">
+                                    </button>
+                                    <button class="property-btn flex-direction-btn" data-direction="column-reverse" title="Column reverse">
+                                        <img src="images/icons/directionColumnReverse.svg" alt="Column reverse">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="example-container" id="align-items-example">
+                                <div class="mini-outer" style="display: flex; flex-direction: row; align-items: start; min-height: 80px;">
+                                    <div class="mini-item item-1" style="padding: 4px 8px;">1</div>
+                                    <div class="mini-item item-2" style="padding: 8px;">2</div>
+                                    <div class="mini-item item-3" style="padding: 12px 8px;">3</div>
+                                </div>
+                                <div class="mini-description">Items aligned to the start of the cross axis</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank" class="property-link">align-items:</a>
+                                <span class="property-value" id="align-items-value">start</span>
+                                <div class="property-buttons align-items-buttons">
+                                    <button class="property-btn align-items-btn" data-align="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn align-items-btn" data-align="start" title="Start">
+                                        <img src="images/icons/alignRowStart.svg" alt="Start" class="align-icon">
+                                    </button>
+                                    <button class="property-btn align-items-btn" data-align="center" title="Center">
+                                        <img src="images/icons/alignRowCenter.svg" alt="Center" class="align-icon">
+                                    </button>
+                                    <button class="property-btn align-items-btn" data-align="end" title="End">
+                                        <img src="images/icons/alignRowEnd.svg" alt="End" class="align-icon">
+                                    </button>
+                                    <button class="property-btn align-items-btn" data-align="stretch" title="Stretch">
+                                        <img src="images/icons/alignRowStretch.svg" alt="Stretch" class="align-icon">
+                                    </button>
+                                    <button class="property-btn align-items-btn" data-align="baseline" title="Baseline">
+                                        <img src="images/icons/alignRowBaseline.svg" alt="Baseline" class="align-icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="example-container" id="justify-content-example-row">
+                                <div class="mini-outer" style="display: flex; flex-direction: row; justify-content: start;">
+                                    <div class="mini-item item-1">1</div>
+                                    <div class="mini-item item-2">2</div>
+                                    <div class="mini-item item-3">3</div>
+                                </div>
+                                <div class="mini-description">Horizontal (row): Items packed at the start of the main axis</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" class="property-link">justify-content (row):</a>
+                                <span class="property-value" id="justify-content-row-value">start</span>
+                                <div class="property-buttons justify-content-row-buttons">
+                                    <button class="property-btn justify-content-row-btn" data-justify="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="start" title="Start">
+                                        <img src="images/icons/justifyRowStart.svg" alt="Start" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="center" title="Center">
+                                        <img src="images/icons/justifyRowCenter.svg" alt="Center" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="end" title="End">
+                                        <img src="images/icons/justifyRowEnd.svg" alt="End" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="space-between" title="Space between">
+                                        <img src="images/icons/justifyRowBetween.svg" alt="Space between" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="space-around" title="Space around">
+                                        <img src="images/icons/justifyRowAround.svg" alt="Space around" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-row-btn" data-justify="space-evenly" title="Space evenly">
+                                        <img src="images/icons/justifyRowEvenly.svg" alt="Space evenly" class="justify-icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="example-container" id="justify-content-example-column" style="height: 250px;">
+                                <div class="mini-outer" style="display: flex; flex-direction: column; justify-content: start; height: 195px;">
+                                    <div class="mini-item item-1">1</div>
+                                    <div class="mini-item item-2">2</div>
+                                    <div class="mini-item item-3">3</div>
+                                </div>
+                                <div class="mini-description">Vertical (column): Items packed at the start of the main axis</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" class="property-link">justify-content (column):</a>
+                                <span class="property-value" id="justify-content-column-value">start</span>
+                                <div class="property-buttons justify-content-column-buttons">
+                                    <button class="property-btn justify-content-column-btn" data-justify="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="start" title="Start">
+                                        <img src="images/icons/justifyColumnStart.svg" alt="Start" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="center" title="Center">
+                                        <img src="images/icons/justifyColumnCenter.svg" alt="Center" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="end" title="End">
+                                        <img src="images/icons/justifyColumnEnd.svg" alt="End" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="space-between" title="Space between">
+                                        <img src="images/icons/justifyColumnBetween.svg" alt="Space between" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="space-around" title="Space around">
+                                        <img src="images/icons/justifyColumnAround.svg" alt="Space around" class="justify-icon">
+                                    </button>
+                                    <button class="property-btn justify-content-column-btn" data-justify="space-evenly" title="Space evenly">
+                                        <img src="images/icons/justifyColumnEvenly.svg" alt="Space evenly" class="justify-icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="example-container" id="flex-wrap-example">
+                                <div class="mini-outer" style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 150px;">
+                                    <div class="mini-item item-1">1</div>
+                                    <div class="mini-item item-2">2</div>
+                                    <div class="mini-item item-3">3</div>
+                                    <div class="mini-item item-1">4</div>
+                                    <div class="mini-item item-2">5</div>
+                                    <div class="mini-item item-3">6</div>
+                                </div>
+                                <div class="mini-description">Items forced into single line (may overflow)</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap" target="_blank" class="property-link">flex-wrap:</a>
+                                <span class="property-value" id="flex-wrap-value">nowrap</span>
+                                <div class="property-buttons">
+                                    <button class="property-btn flex-wrap-btn" data-wrap="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn flex-wrap-btn" data-wrap="nowrap" title="No wrap">
+                                        <img src="images/icons/wrapRowNowrap.svg" alt="No wrap" class="wrap-icon">
+                                    </button>
+                                    <button class="property-btn flex-wrap-btn" data-wrap="wrap" title="Wrap">
+                                        <img src="images/icons/wrapRowWrap.svg" alt="Wrap" class="wrap-icon">
+                                    </button>
+                                    <button class="property-btn flex-wrap-btn" data-wrap="wrap-reverse" title="Wrap reverse">
+                                        <img src="images/icons/wrapRowWrapReverse.svg" alt="Wrap reverse" class="wrap-icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="example-container" id="align-content-example">
+                                <div class="mini-outer" style="display: flex; flex-direction: row; flex-wrap: wrap; align-content: start; width: 150px; min-height: 100px;">
+                                    <div class="mini-item item-1">1</div>
+                                    <div class="mini-item item-2">2</div>
+                                    <div class="mini-item item-3">3</div>
+                                    <div class="mini-item item-1">4</div>
+                                    <div class="mini-item item-2">5</div>
+                                    <div class="mini-item item-3">6</div>
+                                </div>
+                                <div class="mini-description">Lines packed at the start of the container</div>
+                            </div>
+
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content" target="_blank" class="property-link">align-content:</a>
+                                <span class="property-value" id="align-content-value">start</span>
+                                <div class="property-buttons align-content-buttons">
+                                    <button class="property-btn align-content-btn" data-align-content="initial" title="Initial">
+                                        <img src="images/icons/initial.svg" alt="Initial">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="start" title="Start">
+                                        <img src="images/icons/contentRowStart.svg" alt="Start" class="align-content-icon">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="center" title="Center">
+                                        <img src="images/icons/contentRowCenter.svg" alt="Center" class="align-content-icon">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="end" title="End">
+                                        <img src="images/icons/contentRowEnd.svg" alt="End" class="align-content-icon">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="stretch" title="Stretch">
+                                        <img src="images/icons/contentRowStretch.svg" alt="Stretch" class="align-content-icon">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="space-between" title="Space between">
+                                        <img src="images/icons/contentRowBetween.svg" alt="Space between" class="align-content-icon">
+                                    </button>
+                                    <button class="property-btn align-content-btn" data-align-content="space-around" title="Space around">
+                                        <img src="images/icons/contentRowAround.svg" alt="Space around" class="align-content-icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/margin.svg" alt="Box Model" class="icon">
+                        <span>Box Model (Margin, Border, Padding)</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" id="boxmodel-example" style="height: 420px;">
+                            <canvas id="boxmodel-canvas" width="800" height="400" style="width: 100%; height: 380px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
+                            <div class="mini-description" id="boxmodel-description">Chrome DevTools Box Model Visualization</div>
+                        </div>
+
+                        <div class="boxmodel-controls">
+                            <div class="boxmodel-column">
+                                <h4>Margin</h4>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank" class="property-link">margin:</a>
+                                    <img src="images/icons/marginAll.svg" alt="" class="property-icon">
+                                    <input type="text" id="margin-input" class="property-input" placeholder="Ex: 10px, auto" value="10px">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top" target="_blank" class="property-link">margin-top:</a>
+                                    <img src="images/icons/marginTop.svg" alt="" class="property-icon">
+                                    <input type="text" id="margin-top-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right" target="_blank" class="property-link">margin-right:</a>
+                                    <img src="images/icons/marginRight.svg" alt="" class="property-icon">
+                                    <input type="text" id="margin-right-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom" target="_blank" class="property-link">margin-bottom:</a>
+                                    <img src="images/icons/marginBottom.svg" alt="" class="property-icon">
+                                    <input type="text" id="margin-bottom-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left" target="_blank" class="property-link">margin-left:</a>
+                                    <img src="images/icons/marginLeft.svg" alt="" class="property-icon">
+                                    <input type="text" id="margin-left-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+
+                                <h4 style="margin-top: 15px;">Padding</h4>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" target="_blank" class="property-link">padding:</a>
+                                    <img src="images/icons/paddingAll.svg" alt="" class="property-icon">
+                                    <input type="text" id="padding-input" class="property-input" placeholder="Ex: 10px" value="10px">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top" target="_blank" class="property-link">padding-top:</a>
+                                    <img src="images/icons/paddingTop.svg" alt="" class="property-icon">
+                                    <input type="text" id="padding-top-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right" target="_blank" class="property-link">padding-right:</a>
+                                    <img src="images/icons/paddingRight.svg" alt="" class="property-icon">
+                                    <input type="text" id="padding-right-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom" target="_blank" class="property-link">padding-bottom:</a>
+                                    <img src="images/icons/paddingBottom.svg" alt="" class="property-icon">
+                                    <input type="text" id="padding-bottom-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left" target="_blank" class="property-link">padding-left:</a>
+                                    <img src="images/icons/paddingLeft.svg" alt="" class="property-icon">
+                                    <input type="text" id="padding-left-input" class="property-input" placeholder="Ex: 10px" value="">
+                                </div>
+                            </div>
+
+                            <div class="boxmodel-column">
+                                <h4>Border</h4>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-width" target="_blank" class="property-link">border-width:</a>
+                                    <img src="images/icons/borderAll.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-width-input" class="property-input" placeholder="Ex: 2px" value="3px">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width" target="_blank" class="property-link">border-top-width:</a>
+                                    <img src="images/icons/borderTop.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-top-width-input" class="property-input" placeholder="Ex: 2px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width" target="_blank" class="property-link">border-right-width:</a>
+                                    <img src="images/icons/borderRight.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-right-width-input" class="property-input" placeholder="Ex: 2px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width" target="_blank" class="property-link">border-bottom-width:</a>
+                                    <img src="images/icons/borderBottom.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-bottom-width-input" class="property-input" placeholder="Ex: 2px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width" target="_blank" class="property-link">border-left-width:</a>
+                                    <img src="images/icons/borderLeft.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-left-width-input" class="property-input" placeholder="Ex: 2px" value="">
+                                </div>
+
+                                <h4 style="margin-top: 15px;">Border Radius</h4>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" target="_blank" class="property-link">border-radius:</a>
+                                    <img src="images/icons/borderRadiusAll.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-radius-input" class="property-input" placeholder="Ex: 5px" value="5px">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius" target="_blank" class="property-link">border-top-left-radius:</a>
+                                    <img src="images/icons/borderRadiusTopLeft.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-top-left-radius-input" class="property-input" placeholder="Ex: 5px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-right-radius" target="_blank" class="property-link">border-top-right-radius:</a>
+                                    <img src="images/icons/borderRadiusTopRight.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-top-right-radius-input" class="property-input" placeholder="Ex: 5px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius" target="_blank" class="property-link">border-bottom-right-radius:</a>
+                                    <img src="images/icons/borderRadiusBottomRight.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-bottom-right-radius-input" class="property-input" placeholder="Ex: 5px" value="">
+                                </div>
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius" target="_blank" class="property-link">border-bottom-left-radius:</a>
+                                    <img src="images/icons/borderRadiusBottomLeft.svg" alt="" class="property-icon">
+                                    <input type="text" id="border-bottom-left-radius-input" class="property-input" placeholder="Ex: 5px" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/size.svg" alt="Size" class="icon">
+                        <span>Size</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" id="size-example" style="height: 320px;">
+                            <canvas id="size-canvas" width="800" height="300" style="width: 100%; height: 280px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
+                            <div class="mini-description" id="size-description">Box sizing visualization</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank" class="property-link">box-sizing:</a>
+                            <span class="property-value" id="box-sizing-value">content-box</span>
+                            <div class="property-buttons">
+                                <button class="property-btn box-sizing-btn" data-box-sizing="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn box-sizing-btn selected" data-box-sizing="content-box" title="Content box">
+                                    <img src="images/icons/sizingContent.svg" alt="Content box">
+                                </button>
+                                <button class="property-btn box-sizing-btn" data-box-sizing="border-box" title="Border box">
+                                    <img src="images/icons/sizingBorder.svg" alt="Border box">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width" target="_blank" class="property-link">width:</a>
+                            <img src="images/icons/sizeWidth.svg" alt="" class="property-icon">
+                            <input type="text" id="width-input" class="property-input" placeholder="Ex: 150px, 50%, calc(50% - 16px)" value="150px">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width" target="_blank" class="property-link">min-width:</a>
+                            <img src="images/icons/sizeMinWidth.svg" alt="" class="property-icon">
+                            <input type="text" id="min-width-input" class="property-input" placeholder="Ex: 100px" value="">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width" target="_blank" class="property-link">max-width:</a>
+                            <img src="images/icons/sizeMaxWidth.svg" alt="" class="property-icon">
+                            <input type="text" id="max-width-input" class="property-input" placeholder="Ex: 200px" value="">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height" target="_blank" class="property-link">height:</a>
+                            <img src="images/icons/sizeHeight.svg" alt="" class="property-icon">
+                            <input type="text" id="height-input" class="property-input" placeholder="Ex: 100px, 50%, calc(50% - 16px)" value="100px">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height" target="_blank" class="property-link">min-height:</a>
+                            <img src="images/icons/sizeMinHeight.svg" alt="" class="property-icon">
+                            <input type="text" id="min-height-input" class="property-input" placeholder="Ex: 80px" value="">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height" target="_blank" class="property-link">max-height:</a>
+                            <img src="images/icons/sizeMaxHeight.svg" alt="" class="property-icon">
+                            <input type="text" id="max-height-input" class="property-input" placeholder="Ex: 150px" value="">
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/overflow.svg" alt="Overflow" class="icon">
+                        <span>Overflow</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" id="overflow-example" style="height: 220px;">
+                            <div class="mini-description">Content overflows container (150x100px box with 200px text)</div>
+                            <div class="mini-outer" style="height: 145px; padding: 0;">
+                                <div id="overflow-demo-box" style="width: 150px; height: 100px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow: visible;">
+                                    <div style="width: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold; line-height: 1.4;">
+                                        This content is wider (200px) than the container (150px) to demonstrate overflow behavior. The text continues on multiple lines to show both horizontal and vertical overflow. You can scroll, hide, or show the overflowing content using the buttons below. This helps visualize how CSS overflow property works in practice.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank" class="property-link">overflow:</a>
+                            <span class="property-value" id="overflow-value">visible</span>
+                            <div class="property-buttons">
+                                <button class="property-btn overflow-btn" data-overflow="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn overflow-btn selected" data-overflow="visible" title="Visible">
+                                    <img src="images/icons/overflowVisible.svg" alt="Visible">
+                                </button>
+                                <button class="property-btn overflow-btn" data-overflow="hidden" title="Hidden">
+                                    <img src="images/icons/overflowHidden.svg" alt="Hidden">
+                                </button>
+                                <button class="property-btn overflow-btn" data-overflow="scroll" title="Scroll">
+                                    <img src="images/icons/overflowScroll.svg" alt="Scroll">
+                                </button>
+                                <button class="property-btn overflow-btn" data-overflow="auto" title="Auto">
+                                    <img src="images/icons/overflowAuto.svg" alt="Auto">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="example-container" id="overflow-x-example" style="height: 220px;">
+                            <div class="mini-description">Horizontal overflow (150x100px box with 200px wide content)</div>
+                            <div class="mini-outer" style="height: 145px; padding: 0;">
+                                <div id="overflow-x-demo-box" style="width: 150px; height: 100px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow-x: visible;">
+                                    <div style="width: 200px; background: linear-gradient(135deg, #2196f3 0%, #4fc3f7 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold;">
+                                        Wide content (200px) demonstrates horizontal overflow-x behavior.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x" target="_blank" class="property-link">overflow-x:</a>
+                            <span class="property-value" id="overflow-x-value">visible</span>
+                            <div class="property-buttons">
+                                <button class="property-btn overflow-x-btn" data-overflow-x="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn overflow-x-btn selected" data-overflow-x="visible" title="Visible">
+                                    <img src="images/icons/overflowVisible.svg" alt="Visible">
+                                </button>
+                                <button class="property-btn overflow-x-btn" data-overflow-x="hidden" title="Hidden">
+                                    <img src="images/icons/overflowHidden.svg" alt="Hidden">
+                                </button>
+                                <button class="property-btn overflow-x-btn" data-overflow-x="scroll" title="Scroll">
+                                    <img src="images/icons/overflowScroll.svg" alt="Scroll">
+                                </button>
+                                <button class="property-btn overflow-x-btn" data-overflow-x="auto" title="Auto">
+                                    <img src="images/icons/overflowAuto.svg" alt="Auto">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="example-container" id="overflow-y-example" style="height: 220px;">
+                            <div class="mini-description">Vertical overflow (150x80px box with tall content)</div>
+                            <div class="mini-outer" style="height: 145px; padding: 0;">
+                                <div id="overflow-y-demo-box" style="width: 150px; height: 80px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow-y: visible;">
+                                    <div style="background: linear-gradient(135deg, #00bfa5 0%, #00e676 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold;">
+                                        Tall content demonstrates vertical overflow-y behavior. This text is intentionally long to create vertical overflow in the container.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y" target="_blank" class="property-link">overflow-y:</a>
+                            <span class="property-value" id="overflow-y-value">visible</span>
+                            <div class="property-buttons">
+                                <button class="property-btn overflow-y-btn" data-overflow-y="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn overflow-y-btn selected" data-overflow-y="visible" title="Visible">
+                                    <img src="images/icons/overflowVisible.svg" alt="Visible">
+                                </button>
+                                <button class="property-btn overflow-y-btn" data-overflow-y="hidden" title="Hidden">
+                                    <img src="images/icons/overflowHidden.svg" alt="Hidden">
+                                </button>
+                                <button class="property-btn overflow-y-btn" data-overflow-y="scroll" title="Scroll">
+                                    <img src="images/icons/overflowScroll.svg" alt="Scroll">
+                                </button>
+                                <button class="property-btn overflow-y-btn" data-overflow-y="auto" title="Auto">
+                                    <img src="images/icons/overflowAuto.svg" alt="Auto">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/shadows.svg" alt="Shadows" class="icon">
+                        <span>Shadows</span>
+                    </summary>
+                    <div class="section-content">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <!-- Box Shadow Column -->
+                            <div class="shadow-column">
+                                <h4 style="font-size: 0.9em; color: #2c3e50; margin: 0 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">Box Shadow</h4>
+
+                                <div class="example-container" style="height: 180px;">
+                                    <div class="mini-description">White box with box-shadow</div>
+                                    <div class="mini-outer" style="height: 105px; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                                        <div id="box-shadow-demo" style="width: 100px; height: 70px; background: white; border-radius: 8px; box-shadow: 0px 5px 10px 0px #000000; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2c3e50; font-size: 0.8em;">
+                                            Box
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" target="_blank" class="property-link">box-shadow:</a>
+                                    <span class="property-value" id="box-shadow-value">0px 5px 10px 0px #000000</span>
+                                </div>
+
+                                <div style="margin-top: 10px;">
+                                    <div class="property-row">
+                                        <label for="bs-horizontal" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Horizontal:</label>
+                                        <input type="range" id="bs-horizontal" min="-25" max="25" value="0" style="flex: 1;">
+                                        <span id="bs-horizontal-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">0px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="bs-vertical" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Vertical:</label>
+                                        <input type="range" id="bs-vertical" min="-25" max="25" value="5" style="flex: 1;">
+                                        <span id="bs-vertical-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">5px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="bs-blur" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Blur:</label>
+                                        <input type="range" id="bs-blur" min="0" max="25" value="10" style="flex: 1;">
+                                        <span id="bs-blur-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">10px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="bs-spread" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Spread:</label>
+                                        <input type="range" id="bs-spread" min="-25" max="25" value="0" style="flex: 1;">
+                                        <span id="bs-spread-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">0px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="bs-color" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Color:</label>
+                                        <input type="color" id="bs-color" value="#000000" style="width: 40px; height: 25px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;">
+                                        <span id="bs-color-value" style="margin-left: 8px; font-size: 0.75em; font-family: 'Courier New', monospace; color: #3498db;">#000000</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label style="width: 90px; font-size: 0.75em; color: #2c3e50;">Inset:</label>
+                                        <div style="display: flex; gap: 3px;">
+                                            <button class="property-btn bs-set-btn" data-set="inset" title="Toggle inset/outset">
+                                                <img src="images/icons/initial.svg" alt="Inset">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text Shadow Column -->
+                            <div class="shadow-column">
+                                <h4 style="font-size: 0.9em; color: #2c3e50; margin: 0 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">Text Shadow</h4>
+
+                                <div class="example-container" style="height: 180px;">
+                                    <div class="mini-description">Text with text-shadow</div>
+                                    <div class="mini-outer" style="height: 105px; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                                        <div id="text-shadow-demo" style="font-size: 1.8em; font-weight: bold; color: #2c3e50; text-shadow: 0px 5px 10px #000000;">
+                                            Shadow
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-row">
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow" target="_blank" class="property-link">text-shadow:</a>
+                                    <span class="property-value" id="text-shadow-value">0px 5px 10px #000000</span>
+                                </div>
+
+                                <div style="margin-top: 10px;">
+                                    <div class="property-row">
+                                        <label for="ts-horizontal" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Horizontal:</label>
+                                        <input type="range" id="ts-horizontal" min="-25" max="25" value="0" style="flex: 1;">
+                                        <span id="ts-horizontal-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">0px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="ts-vertical" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Vertical:</label>
+                                        <input type="range" id="ts-vertical" min="-25" max="25" value="5" style="flex: 1;">
+                                        <span id="ts-vertical-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">5px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="ts-blur" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Blur:</label>
+                                        <input type="range" id="ts-blur" min="0" max="25" value="10" style="flex: 1;">
+                                        <span id="ts-blur-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">10px</span>
+                                    </div>
+
+                                    <div class="property-row">
+                                        <label for="ts-color" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Color:</label>
+                                        <input type="color" id="ts-color" value="#000000" style="width: 40px; height: 25px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;">
+                                        <span id="ts-color-value" style="margin-left: 8px; font-size: 0.75em; font-family: 'Courier New', monospace; color: #3498db;">#000000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/backgrounds.svg" alt="Background" class="icon">
+                        <span>Background</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" style="height: 220px;">
+                            <div class="mini-description">Background demonstration box</div>
+                            <div class="mini-outer" style="height: 145px; padding: 0;">
+                                <div id="background-demo-box" style="width: 100%; height: 100%; padding: 20px; border: 10px solid rgba(52, 152, 219, 0.3); background-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 2em; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                                    DEMO
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color" target="_blank" class="property-link">background-color:</a>
+                            <input type="color" id="bg-color" value="#3498db" style="width: 40px; height: 25px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;">
+                            <span id="bg-color-value" style="margin-left: 8px; font-size: 0.75em; font-family: 'Courier New', monospace; color: #3498db;">#3498db</span>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background" target="_blank" class="property-link">background:</a>
+                            <input type="text" id="background-input" class="property-input" placeholder='Ex: center / cover url("./images/image0.jpg")' value="">
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip" target="_blank" class="property-link">background-clip:</a>
+                            <span class="property-value" id="background-clip-value">border-box</span>
+                            <div class="property-buttons">
+                                <button class="property-btn bg-clip-btn" data-clip="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn bg-clip-btn selected" data-clip="border-box" title="Border box">
+                                    <img src="images/icons/sizingBorder.svg" alt="Border box">
+                                </button>
+                                <button class="property-btn bg-clip-btn" data-clip="padding-box" title="Padding box">
+                                    <img src="images/icons/paddingAll.svg" alt="Padding box">
+                                </button>
+                                <button class="property-btn bg-clip-btn" data-clip="content-box" title="Content box">
+                                    <img src="images/icons/sizingContent.svg" alt="Content box">
+                                </button>
+                                <button class="property-btn bg-clip-btn" data-clip="text" title="Text">
+                                    <img src="images/icons/shadows.svg" alt="Text">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 10px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; font-size: 0.75em; color: #555;">
+                            <strong>Examples:</strong><br>
+                            • <code>center / cover url("./images/image0.jpg")</code><br>
+                            • <code>left / contain url("./images/image1.jpg")</code><br>
+                            • <code>content-box radial-gradient(green, skyblue)</code><br>
+                            • <code>linear-gradient(45deg, #667eea, #764ba2)</code>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/opacity.svg" alt="Opacity" class="icon">
+                        <span>Opacity</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container">
+                            <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 20px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0); background-size: 20px 20px; background-position: 0 0, 10px 10px;">
+                                <div id="opacity-demo" style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2em; font-weight: bold; opacity: 0.5; visibility: visible;">
+                                    Demo
+                                </div>
+                            </div>
+                            <div class="mini-description">Element with adjustable visibility and opacity</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility" target="_blank" class="property-link">visibility:</a>
+                            <span class="property-value" id="visibility-value">visible</span>
+                            <div class="property-buttons">
+                                <button class="property-btn visibility-btn" data-visibility="initial" title="Initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                                <button class="property-btn visibility-btn" data-visibility="visible" title="Visible">
+                                    <img src="images/icons/visibilityVisible.svg" alt="Visible">
+                                </button>
+                                <button class="property-btn visibility-btn" data-visibility="hidden" title="Hidden">
+                                    <img src="images/icons/visibilityHidden.svg" alt="Hidden">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity" target="_blank" class="property-link">opacity:</a>
+                            <span class="property-value" id="opacity-value">0.5</span>
+                            <div class="property-buttons">
+                                <button class="property-btn opacity-reset-btn" title="Reset to initial">
+                                    <img src="images/icons/initial.svg" alt="Initial">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="property-row">
+                            <label for="opacity-slider" style="width: 90px; font-size: 0.75em; color: #2c3e50;">Opacity:</label>
+                            <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="0.5" style="flex: 1;">
+                            <span id="opacity-slider-value" style="width: 35px; text-align: right; font-size: 0.75em; font-family: 'Courier New', monospace;">0.5</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/transform.svg" alt="Transforms" class="icon">
+                        <span>Transforms</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" style="min-height: 280px;">
+                            <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 40px; background: #f0f0f0; min-height: 200px;">
+                                <div id="transform-demo" style="width: 100px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1em; font-weight: bold;">
+                                    Demo
+                                </div>
+                            </div>
+                            <div class="mini-description">Element with multiple transforms applied</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank" class="property-link">transform:</a>
+                            <span class="property-value" id="transform-value">none</span>
+                        </div>
+
+                        <!-- Transform List Container -->
+                        <div id="transform-list-container" style="margin-top: 15px;">
+                            <h4 style="font-size: 0.85em; color: #2c3e50; margin: 0 0 10px 0;">Transform List:</h4>
+                            <div id="transform-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px;">
+                                <!-- Transform items will be added here dynamically -->
+                            </div>
+                            <button id="add-transform-btn" class="property-btn" title="Add new transform" style="width: 100%; padding: 10px 16px; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;">
+                                <img src="images/icons/iconAdd.svg" alt="Add" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;"> Add Transform
+                            </button>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/transition.svg" alt="Transitions" class="icon">
+                        <span>Transitions</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" style="min-height: 200px;">
+                            <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 30px; background: #f0f0f0; min-height: 120px;">
+                                <div id="transition-demo" style="width: 100px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1em; font-weight: bold; cursor: pointer;">
+                                    Hover Me
+                                </div>
+                            </div>
+                            <div class="mini-description">Hover over the box to see transitions in action</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" class="property-link">transition:</a>
+                            <span class="property-value" id="transition-value">none</span>
+                        </div>
+
+                        <!-- Transition List Container -->
+                        <div id="transition-list-container" style="margin-top: 15px;">
+                            <h4 style="font-size: 0.85em; color: #2c3e50; margin: 0 0 10px 0;">Transition List:</h4>
+                            <div id="transition-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px;">
+                                <!-- Transition items will be added here dynamically -->
+                            </div>
+                            <button id="add-transition-btn" class="property-btn" title="Add new transition" style="width: 100%; padding: 10px 16px; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;">
+                                <img src="images/icons/iconAdd.svg" alt="Add" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;"> Add Transition
+                            </button>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/filter.svg" alt="Filters" class="icon">
+                        <span>Filters</span>
+                    </summary>
+                    <div class="section-content">
+                        <div class="example-container" style="min-height: 220px;">
+                            <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 30px; background: #f0f0f0; min-height: 140px;">
+                                <img id="filter-demo" src="images/image0.jpg" alt="Filter Demo" style="width: 150px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                            </div>
+                            <div class="mini-description">Image with adjustable CSS filters</div>
+                        </div>
+
+                        <div class="property-row">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" class="property-link">filter:</a>
+                            <span class="property-value" id="filter-value">none</span>
+                        </div>
+
+                        <!-- Filter List Container -->
+                        <div id="filter-list-container" style="margin-top: 15px;">
+                            <h4 style="font-size: 0.85em; color: #2c3e50; margin: 0 0 10px 0;">Filter List:</h4>
+                            <div id="filter-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px;">
+                                <!-- Filter items will be added here dynamically -->
+                            </div>
+                            <button id="add-filter-btn" class="property-btn" title="Add new filter" style="width: 100%; padding: 10px 16px; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;">
+                                <img src="images/icons/iconAdd.svg" alt="Add" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;"> Add Filter
+                            </button>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/cursor.svg" alt="Cursor" class="icon">
+                        <span>Cursor</span>
+                    </summary>
+                    <div class="section-content">
+                        Demo content for Cursor properties
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/textShadows.svg" alt="Text Shadows" class="icon">
+                        <span>Text Shadows</span>
+                    </summary>
+                    <div class="section-content">
+                        Demo content for Text Shadows properties
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/typography.svg" alt="Typography" class="icon">
+                        <span>Typography</span>
+                    </summary>
+                    <div class="section-content">
+                        Demo content for Typography properties
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/paragraph.svg" alt="Paragraph" class="icon">
+                        <span>Paragraph</span>
+                    </summary>
+                    <div class="section-content">
+                        Demo content for Paragraph properties
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>
+                        <img src="images/icons/paragraphColumns.svg" alt="Paragraph Columns" class="icon">
+                        <span>Paragraph Columns</span>
+                    </summary>
+                    <div class="section-content">
+                        Demo content for Paragraph Columns properties
+                    </div>
+                </details>
+            </div>
+        </main>
+    </div>
+</body>
+</html> 

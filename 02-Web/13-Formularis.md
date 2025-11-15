@@ -184,3 +184,9 @@ Cada opció es defineix dins amb `<option>`.
 - **disabled**: Fa que l’opció no sigui seleccionable
 
 Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/13-Formularis/exemple-03/index.html"
+
+### 📝 Colorpicker
+
+### 📝 Slider
+
+###  Date
