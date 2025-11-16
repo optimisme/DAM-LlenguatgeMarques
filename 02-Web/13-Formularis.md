@@ -61,7 +61,12 @@ L'usuari ha d'escriure un text, es pot definir el tipus de text per fer comprova
 <input type="text" name="nom" placeholder="Nom complet">
 <input type="password" name="clau" placeholder="Contrasenya">
 <input type="email" name="correu" placeholder="exemple@correu.com">
+<input type="tel" name="telefon" placeholder="+34640908070">
+<input type="search" name="cerca" placeholder="Buscar ...">
+<input type="file" name="document">
+<input type="file" name="imatges" accept=".png, .jpg, .jpeg" multiple>
 <input type="number" name="edat" min="0" max="120">
+<input type="number" name="edat" min="0" max="120" step="5">
 ```
 
 Per tipus complexes, es pot definir el patró que valida si el text és vàlid. Es fa amb patrons **regex**
@@ -130,7 +135,7 @@ Exemple-02: Obrir amb "Show preview" la pàgina "02-Web/13-Formularis/exemple-02
 - **reset** neteja tots els camps
 - **button** botó genèric (pot executar codi JavaScript)
 
-## Elements complexes
+## Elements especials
 
 ### 📝 textarea
 
@@ -185,8 +190,62 @@ Cada opció es defineix dins amb `<option>`.
 
 Exemple-03: Obrir amb "Show preview" la pàgina "02-Web/13-Formularis/exemple-03/index.html"
 
-### 📝 Colorpicker
+### 📅 Elements de Calendari
 
-### 📝 Slider
+📅 type="date", per escollir dates d'un calendari
+```html
+<input type="date" name="naixement">
+```
 
-###  Date
+🕒 type="datetime-local", per escollir data i hora
+```html
+<input type="date" name="naixement">
+```
+
+⏰ type="time", per escollir una hora
+```html
+<input type="time" name="hora">
+```
+
+### 🎨 Selector de colors
+
+Proporciona un selector visual per triar un color en format hexadecimal.
+```html
+<input type="color" name="color_preferit">
+```
+
+### 🔢 Slider
+
+Mostra un control lliscant per seleccionar valors dins d’un rang.
+```html
+<input type="range" name="volum" min="0" max="100" value="50">
+```
+
+### 📄 Suggeriments de text
+
+Crea una llista de suggeriments que apareixen mentre s’escriu.
+```html
+<input list="ciutats" name="ciutat">
+<datalist id="ciutats">
+    <option value="Barcelona">
+    <option value="Girona">
+    <option value="Tarragona">
+</datalist>
+```
+
+### 🟩🟩 Barra de progrés
+
+Mostra una barra per indicar el progrés d’una tasca.
+```html
+<progress value="30" max="100"></progress>
+```
+
+### 📊 Indicador de nivell
+
+Mostra un indicador visual d’un valor dins d’un rang.
+```html
+<meter value="0.6" min="0" max="1"></meter>
+<meter value="45"
+       min="0" max="100"
+       low="30" high="70" optimum="90"></meter>
+```

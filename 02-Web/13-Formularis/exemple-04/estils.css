@@ -1,0 +1,270 @@
+:root {
+  --colorPrincipal: #1976d2;
+  --colorPrincipalHover: #125da3;
+  --colorText: #333;
+}
+
+body {
+  align-items: flex-start;
+  background: #f2f2f2;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+/* Form container */
+form.formulari {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 40px;
+  width: 360px;
+}
+
+/* Field wrapper */
+.camp {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Text-like inputs (email, tel, search, number, date/time, etc.) */
+.camp input[list],
+.camp input[type="date"],
+.camp input[type="datetime-local"],
+.camp input[type="email"],
+.camp input[type="month"],
+.camp input[type="number"],
+.camp input[type="search"],
+.camp input[type="tel"],
+.camp input[type="text"],
+.camp input[type="time"],
+.camp input[type="week"] {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  padding: 10px 12px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+/* Textarea and select */
+.camp select,
+.camp textarea {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  padding: 10px 12px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.camp textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Focus state for inputs, textarea and select */
+.camp input[list]:focus,
+.camp input[type="date"]:focus,
+.camp input[type="datetime-local"]:focus,
+.camp input[type="email"]:focus,
+.camp input[type="month"]:focus,
+.camp input[type="number"]:focus,
+.camp input[type="search"]:focus,
+.camp input[type="tel"]:focus,
+.camp input[type="text"]:focus,
+.camp input[type="time"]:focus,
+.camp input[type="week"]:focus,
+.camp select:focus,
+.camp textarea:focus {
+  border-color: var(--colorPrincipal);
+  outline: none;
+}
+
+/* Floating label */
+.floating {
+  background: white;
+  color: #81888f;
+  font-size: 16px;
+  left: 14px;
+  padding: 0 4px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Floating behavior for textarea and text-like inputs (placeholder=" ") */
+.camp:has(input[list]:focus) .floating,
+.camp:has(input[type="email"]:focus) .floating,
+.camp:has(input[type="number"]:focus) .floating,
+.camp:has(input[type="search"]:focus) .floating,
+.camp:has(input[type="tel"]:focus) .floating,
+.camp:has(input[type="text"]:focus) .floating,
+.camp:has(textarea:focus) .floating,
+.camp input[list]:not(:placeholder-shown) + .floating,
+.camp input[type="email"]:not(:placeholder-shown) + .floating,
+.camp input[type="number"]:not(:placeholder-shown) + .floating,
+.camp input[type="search"]:not(:placeholder-shown) + .floating,
+.camp input[type="tel"]:not(:placeholder-shown) + .floating,
+.camp input[type="text"]:not(:placeholder-shown) + .floating,
+.camp textarea:not(:placeholder-shown) + .floating {
+  color: var(--colorPrincipal);
+  font-size: 12px;
+  top: -10px;
+}
+
+/* Fixed floating label (for selects, range, date/time, file, color, etc.) */
+.fixedLabel {
+  color: var(--colorPrincipal);
+  font-size: 12px;
+  left: -5px;
+}
+
+/* Labels for file and color as traditional labels (not floating) */
+.camp input[type="color"] + .floating,
+.camp input[type="file"] + .floating {
+  background: none;
+  color: var(--colorText);
+  display: block;
+  font-size: 14px;
+  left: auto;
+  margin-bottom: 6px;
+  padding: 0;
+  position: static;
+  top: auto;
+}
+
+/* Select arrow decoration (single select) */
+.camp select:not([multiple]) {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #888 50%),
+    linear-gradient(135deg, #888 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px),
+    calc(100% - 30px) 0;
+  background-repeat: no-repeat;
+  background-size: 6px 6px, 6px 6px, 1px 100%;
+  padding-right: 36px;
+}
+
+/* Multiple select */
+.camp select[multiple] {
+  height: auto;
+  padding-right: 10px;
+}
+
+/* Help text */
+.ajuda {
+  color: #666;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* File input */
+.camp input[type="file"] {
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Color input */
+.camp input[type="color"] {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 36px;
+  margin-top: 6px;
+  padding: 0;
+  width: 60px;
+}
+
+/* Range sliders */
+.camp input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+/* Track (WebKit) */
+.camp input[type="range"]::-webkit-slider-runnable-track {
+  background: #ccc;
+  border-radius: 3px;
+  height: 6px;
+}
+
+/* Thumb (WebKit) */
+.camp input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--colorPrincipal);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  margin-top: -6px;
+  transition: background 0.2s ease;
+  width: 18px;
+}
+
+.camp input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--colorPrincipalHover);
+}
+
+/* Track (Firefox) */
+.camp input[type="range"]::-moz-range-track {
+  background: #ccc;
+  border-radius: 3px;
+  height: 6px;
+}
+
+/* Thumb (Firefox) */
+.camp input[type="range"]::-moz-range-thumb {
+  background: var(--colorPrincipal);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+}
+
+/* Progress bar */
+progress {
+  height: 16px;
+  width: 100%;
+}
+
+/* Meter */
+meter {
+  height: 16px;
+  width: 100%;
+}
+
+/* Button */
+button {
+  background: var(--colorPrincipal);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--colorPrincipalHover);
+}
