@@ -10,126 +10,196 @@
 </head>
 <body>
 
-    <form class="formulari">
+<form class="formulari">
 
-    <h3>📅 Inputs habituals</h3>
+  <h3>📅 Inputs habituals</h3>
 
-    <div class="camp">
-        <input type="email" id="correu" name="correu" placeholder=" " required>
-        <label class="floating" for="correu">Correu electrònic</label>
-    </div>
+  <!-- Exemple REGEX -->
+  <div class="camp">
+    <label class="fixedLabel" for="usuari">Nom d'usuari (Regex)</label>
+    <input
+      type="text"
+      id="usuari"
+      name="usuari"
+      placeholder=" "
+      required
+      pattern="^[A-Za-z0-9]{3,12}$"
+      title="Entre 3 i 12 caràcters, només lletres i números."
+    >
+    <p class="error">Entre 3 i 12 caràcters, només lletres i números.</p>
+  </div>
 
-    <div class="camp">
-        <input type="tel" id="telefon" name="telefon" placeholder=" ">
-        <label class="floating" for="telefon">Telèfon</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="correu">Correu electrònic</label>
+    <input
+      type="email"
+      id="correu"
+      name="correu"
+      placeholder=" "
+      required
+    >
+    <p class="error">Introdueix un correu vàlid (exemple: nom@domini.com).</p>
+  </div>
 
-    <div class="camp">
-        <input type="search" id="cerca" name="cerca" placeholder=" ">
-        <label class="floating" for="cerca">Cerca</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="telefon">Telèfon</label>
+    <input
+      type="tel"
+      id="telefon"
+      name="telefon"
+      placeholder=" "
+      required
+      pattern="^[0-9]{9}$"
+      title="Introdueix 9 dígits sense espais."
+    >
+    <p class="error">El telèfon ha de tenir exactament 9 dígits.</p>
+  </div>
 
-    <div class="camp">
-        <label class="fixedLabel" for="document">Pujar document</label>
-        <input type="file" id="document" name="document">
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="cerca">Cerca</label>
+    <input type="search" id="cerca" name="cerca" placeholder=" ">
+  </div>
 
-    <div class="camp">
-        <label class="fixedLabel" for="imatges">Pujar imatges PNG/JPG</label>
-        <input type="file" id="imatges" name="imatges" accept=".png, .jpg, .jpeg" multiple>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="document">Pujar document</label>
+    <input type="file" id="document" name="document">
+  </div>
 
-    <div class="camp">
-        <input type="number" id="edat" name="edat" min="0" max="120" placeholder=" ">
-        <label class="floating" for="edat">Edat (0–120)</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="imatges">Pujar imatges PNG/JPG</label>
+    <input
+      type="file"
+      id="imatges"
+      name="imatges"
+      accept=".png, .jpg, .jpeg"
+      multiple
+    >
+    <p class="ajuda">Només s’accepten fitxers PNG o JPG.</p>
+  </div>
 
-    <div class="camp">
-        <input type="number" id="edatStep" name="edatStep" min="0" max="120" step="5" placeholder=" ">
-        <label class="floating" for="edatStep">Edat (salts de 5)</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="edat">Edat (0–120)</label>
+    <input
+      type="number"
+      id="edat"
+      name="edat"
+      min="0"
+      max="120"
+      placeholder=" "
+      required
+    >
+    <p class="error">Introdueix una edat entre 0 i 120.</p>
+  </div>
 
-    <!-- 📅 Elements de calendari -->
-    <h3>📅 Elements de Calendari</h3>
+  <div class="camp">
+    <label class="fixedLabel" for="edatStep">Edat (salts de 5)</label>
+    <input
+      type="number"
+      id="edatStep"
+      name="edatStep"
+      min="0"
+      max="120"
+      step="5"
+      placeholder=" "
+    >
+  </div>
 
-    <div class="camp">
-        <input type="date" id="naixement" name="naixement">
-        <label class="floating fixed" for="naixement">Data de naixement</label>
-    </div>
+  <!-- 📅 Elements de calendari -->
+  <h3>📅 Elements de Calendari</h3>
 
-    <div class="camp">
-        <input type="datetime-local" id="cita" name="cita">
-        <label class="floating fixed" for="cita">Data i hora</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="naixement">Data de naixement</label>
+    <input type="date" id="naixement" name="naixement">
+  </div>
 
-    <div class="camp">
-        <input type="month" id="mes" name="mes">
-        <label class="floating fixed" for="mes">Mes</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="cita">Data i hora</label>
+    <input type="datetime-local" id="cita" name="cita">
+  </div>
 
-    <div class="camp">
-        <input type="week" id="setmana" name="setmana">
-        <label class="floating fixed" for="setmana">Setmana</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="mes">Mes</label>
+    <input type="month" id="mes" name="mes">
+  </div>
 
-    <div class="camp">
-        <input type="time" id="hora" name="hora">
-        <label class="floating fixed" for="hora">Hora</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="setmana">Setmana</label>
+    <input type="week" id="setmana" name="setmana">
+  </div>
 
-    <!-- 🎨 Selector color -->
-    <h3>🎨 Selector de color</h3>
+  <div class="camp">
+    <label class="fixedLabel" for="hora">Hora</label>
+    <input type="time" id="hora" name="hora">
+  </div>
 
-    <div class="camp">
-        <label class="fixedLabel" for="color_preferit">Color preferit<br/></label>
-        <input type="color" id="color_preferit" name="color_preferit">
-    </div>
+  <!-- 🎨 Selector color -->
+  <h3>🎨 Selector de color</h3>
 
-    <!-- 🔢 Slider -->
-    <h3>🔢 Slider</h3>
+  <div class="camp">
+    <label class="fixedLabel" for="color_preferit">Color preferit<br/></label>
+    <input type="color" id="color_preferit" name="color_preferit">
+  </div>
 
-    <div class="camp">
-        <input type="range" id="volum" name="volum" min="0" max="100" value="50">
-        <label class="floating fixed" for="volum">Volum</label>
-    </div>
+  <!-- 🔢 Slider -->
+  <h3>🔢 Slider</h3>
 
-    <div class="camp">
-        <input type="range" id="volum" name="bass" min="0" max="100" value="50" step="20">
-        <label class="floating fixed" for="bass">Bass (salts de 20)</label>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="volum">Volum</label>
+    <input
+      type="range"
+      id="volum"
+      name="volum"
+      min="0"
+      max="100"
+      value="50"
+    >
+  </div>
 
-    <!-- 📄 Suggeriments -->
-    <h3>📄 Suggeriments de text</h3>
+  <div class="camp">
+    <label class="fixedLabel" for="bass">Bass (salts de 20)</label>
+    <input
+      type="range"
+      id="bass"
+      name="bass"
+      min="0"
+      max="100"
+      value="50"
+      step="20"
+    >
+  </div>
 
-    <div class="camp">
-        <input list="ciutats" id="ciutat" name="ciutat" placeholder=" ">
-        <label class="floating" for="ciutat">Ciutat</label>
+  <!-- 📄 Suggeriments -->
+  <h3>📄 Suggeriments de text</h3>
 
-        <datalist id="ciutats">
-            <option value="Barcelona">
-            <option value="Girona">
-            <option value="Tarragona">
-            <option value="Lleida">
-        </datalist>
-    </div>
+  <div class="camp">
+    <label class="fixedLabel" for="ciutat">Ciutat</label>
+    <input list="ciutats" id="ciutat" name="ciutat" placeholder=" ">
 
-    <!-- 🟩 Progrés -->
-    <h3>🟩 Barra de progrés</h3>
+    <datalist id="ciutats">
+      <option value="Barcelona">
+      <option value="Girona">
+      <option value="Tarragona">
+      <option value="Lleida">
+    </datalist>
+  </div>
 
-    <div class="camp">
-        <progress value="30" max="100" style="width:100%; height:20px;"></progress>
-    </div>
+  <!-- 🟩 Barra de progrés -->
+  <h3>🟩 Barra de progrés</h3>
 
-    <!-- 📊 Indicador de nivell -->
-    <h3>📊 Indicador de nivell</h3>
+  <div class="camp">
+    <progress value="30" max="100" style="width:100%; height:20px;"></progress>
+  </div>
 
-    <div class="camp">
-        <meter value="0.6" min="0" max="1" style="width:100%; height:20px;"></meter>
-    </div>
+  <!-- 📊 Indicador de nivell -->
+  <h3>📊 Indicador de nivell</h3>
 
-    <div class="camp">
-        <meter value="45" min="0" max="100" low="30" high="70" optimum="90" style="width:100%; height:20px;"></meter>
-    </div>
+  <div class="camp">
+    <meter value="0.6" min="0" max="1" style="width:100%; height:20px;"></meter>
+  </div>
+
+  <div class="camp">
+    <meter value="45" min="0" max="100" low="30" high="70" optimum="90" style="width:100%; height:20px;"></meter>
+  </div>
 
   <button type="submit">Enviar</button>
 

@@ -249,3 +249,7 @@ Mostra un indicador visual d’un valor dins d’un rang.
        min="0" max="100"
        low="30" high="70" optimum="90"></meter>
 ```
+
+L'exemple 04 mostra una varietat d'entrades per formularis, i validació per CSS:
+
+Exemple-04: Obrir amb "Show preview" la pàgina "02-Web/13-Formularis/exemple-04/index.html"

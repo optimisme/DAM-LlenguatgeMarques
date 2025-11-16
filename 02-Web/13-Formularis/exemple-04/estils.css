@@ -89,58 +89,11 @@ form.formulari {
   outline: none;
 }
 
-/* Floating label */
-.floating {
-  background: white;
-  color: #81888f;
-  font-size: 16px;
-  left: 14px;
-  padding: 0 4px;
-  pointer-events: none;
-  position: absolute;
-  top: 10px;
-  transition: all 0.3s ease;
-}
-
-/* Floating behavior for textarea and text-like inputs (placeholder=" ") */
-.camp:has(input[list]:focus) .floating,
-.camp:has(input[type="email"]:focus) .floating,
-.camp:has(input[type="number"]:focus) .floating,
-.camp:has(input[type="search"]:focus) .floating,
-.camp:has(input[type="tel"]:focus) .floating,
-.camp:has(input[type="text"]:focus) .floating,
-.camp:has(textarea:focus) .floating,
-.camp input[list]:not(:placeholder-shown) + .floating,
-.camp input[type="email"]:not(:placeholder-shown) + .floating,
-.camp input[type="number"]:not(:placeholder-shown) + .floating,
-.camp input[type="search"]:not(:placeholder-shown) + .floating,
-.camp input[type="tel"]:not(:placeholder-shown) + .floating,
-.camp input[type="text"]:not(:placeholder-shown) + .floating,
-.camp textarea:not(:placeholder-shown) + .floating {
-  color: var(--colorPrincipal);
-  font-size: 12px;
-  top: -10px;
-}
-
-/* Fixed floating label (for selects, range, date/time, file, color, etc.) */
+/* Fixed label */
 .fixedLabel {
   color: var(--colorPrincipal);
   font-size: 12px;
   left: -5px;
-}
-
-/* Labels for file and color as traditional labels (not floating) */
-.camp input[type="color"] + .floating,
-.camp input[type="file"] + .floating {
-  background: none;
-  color: var(--colorText);
-  display: block;
-  font-size: 14px;
-  left: auto;
-  margin-bottom: 6px;
-  padding: 0;
-  position: static;
-  top: auto;
 }
 
 /* Select arrow decoration (single select) */
@@ -172,6 +125,20 @@ form.formulari {
   margin-top: 6px;
 }
 
+/* Error text (validació HTML5) */
+.error {
+  color: #d00;
+  display: none;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Mostrar error només quan l'input és invàlid,
+   no està buit (sense placeholder) i no té el focus */
+.camp input:invalid:not(:placeholder-shown):not(:focus) + .error {
+  display: block;
+}
+
 /* File input */
 .camp input[type="file"] {
   border: none;
@@ -194,6 +161,7 @@ form.formulari {
 /* Range sliders */
 .camp input[type="range"] {
   -webkit-appearance: none;
+  appearance: none;
   background: transparent;
   margin-bottom: 8px;
   margin-top: 24px;
