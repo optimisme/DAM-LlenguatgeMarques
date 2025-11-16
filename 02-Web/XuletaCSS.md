@@ -1,3 +1,7 @@
+# Xuleta CSS
+
+Les propietats d'aquesta "xuleta" es poden provar amb la **"Eina CSS"**
+
 ## Visibilitat
 
 [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display): Com es mostra l'element en el flux del document.

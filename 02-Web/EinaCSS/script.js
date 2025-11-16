@@ -99,6 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTransformControls();
     setupTransitionControls();
     setupFilterControls();
+    setupCursorControls();
+    setupTypographyControls();
+    setupParagraphControls();
+    setupParagraphColumnsControls();
 });
 
 function setupPropertyButtons() {
@@ -273,9 +277,9 @@ function createMiniExample(description = '') {
     return `
         ${description ? `<div class="mini-description">${description}</div>` : ''}
         <div class="mini-outer">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
         </div>
     `;
 }
@@ -298,7 +302,7 @@ function showDisplayExample(displayValue) {
     if (displayValue === 'none') {
         container.innerHTML = `
             <div class="mini-outer" style="display: flex;">
-                <div class="mini-item item-2" style="display: block;">2</div>
+                <div class="mini-item item-2" style="display: block;">B</div>
             </div>
             <div class="mini-description">${descriptions[displayValue]}</div>
         `;
@@ -321,9 +325,9 @@ function showDisplayExample(displayValue) {
     // Create the HTML structure
     container.innerHTML = `
         <div class="mini-outer">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
         </div>
         <div class="mini-description">${descriptions[displayValue]}</div>
     `;
@@ -379,9 +383,9 @@ function showFlexDirectionExample(direction) {
     // Create a unique example for each direction
     container.innerHTML = `
         <div class="mini-outer" style="display: flex; flex-direction: ${actualDirection};">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
         </div>
         <div class="mini-description">${descriptions[direction]}</div>
     `;
@@ -431,9 +435,9 @@ function showJustifyContentRowExample(justify) {
 
     containerRow.innerHTML = `
         <div class="mini-outer" style="display: flex; flex-direction: row; justify-content: ${actualJustify};">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
         </div>
         <div class="mini-description">Horizontal (row): ${descriptions[justify]}</div>
     `;
@@ -457,9 +461,9 @@ function showJustifyContentColumnExample(justify) {
 
     containerColumn.innerHTML = `
         <div class="mini-outer" style="display: flex; flex-direction: column; justify-content: ${actualJustify}; height: 195px;">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
         </div>
         <div class="mini-description">Vertical (column): ${descriptions[justify]}</div>
     `;
@@ -482,12 +486,12 @@ function showFlexWrapExample(wrap) {
 
     container.innerHTML = `
         <div class="mini-outer" style="display: flex; flex-direction: ${currentFlexDirection}; flex-wrap: ${actualWrap}; ${sizeStyle}">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
-            <div class="mini-item item-1">4</div>
-            <div class="mini-item item-2">5</div>
-            <div class="mini-item item-3">6</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
+            <div class="mini-item item-4">D</div>
+            <div class="mini-item item-5">E</div>
+            <div class="mini-item item-6">F</div>
         </div>
         <div class="mini-description">${descriptions[wrap]}</div>
     `;
@@ -513,12 +517,12 @@ function showAlignContentExample(alignContent) {
 
     container.innerHTML = `
         <div class="mini-outer" style="display: flex; flex-direction: ${currentFlexDirection}; flex-wrap: wrap; align-content: ${actualAlignContent}; ${sizeStyle}">
-            <div class="mini-item item-1">1</div>
-            <div class="mini-item item-2">2</div>
-            <div class="mini-item item-3">3</div>
-            <div class="mini-item item-1">4</div>
-            <div class="mini-item item-2">5</div>
-            <div class="mini-item item-3">6</div>
+            <div class="mini-item item-1">A</div>
+            <div class="mini-item item-2">B</div>
+            <div class="mini-item item-3">C</div>
+            <div class="mini-item item-4">D</div>
+            <div class="mini-item item-5">E</div>
+            <div class="mini-item item-6">F</div>
         </div>
         <div class="mini-description">${descriptions[alignContent]}</div>
     `;
@@ -609,7 +613,7 @@ function setupBoxModelInputs() {
     const inputs = [
         'margin-input', 'margin-top-input', 'margin-right-input', 'margin-bottom-input', 'margin-left-input',
         'padding-input', 'padding-top-input', 'padding-right-input', 'padding-bottom-input', 'padding-left-input',
-        'border-width-input', 'border-top-width-input', 'border-right-width-input', 'border-bottom-width-input', 'border-left-width-input',
+        'border-input', 'border-top-input', 'border-right-input', 'border-bottom-input', 'border-left-input',
         'border-radius-input', 'border-top-left-radius-input', 'border-top-right-radius-input',
         'border-bottom-right-radius-input', 'border-bottom-left-radius-input'
     ].map(id => document.getElementById(id));
@@ -695,14 +699,62 @@ function showBoxModel() {
         document.getElementById('padding-left-input').value.trim()
     );
 
-    // Get border values
+    // Function to parse border declaration (e.g., "5px solid black" -> {width: "5px", style: "solid", color: "black"})
+    function parseBorder(borderValue) {
+        if (!borderValue) return {width: '', style: '', color: ''};
+
+        // Match width (number + unit)
+        const widthMatch = borderValue.match(/(\d+(?:\.\d+)?(?:px|em|rem|%)?)/);
+        const width = widthMatch ? widthMatch[1] : '';
+
+        // Match style (solid, dashed, dotted, double, etc.)
+        const styleMatch = borderValue.match(/\b(solid|dashed|dotted|double|groove|ridge|inset|outset|none|hidden)\b/i);
+        const style = styleMatch ? styleMatch[1].toLowerCase() : 'solid';
+
+        // Match color (named colors, hex, rgb, etc.)
+        const colorMatch = borderValue.match(/\b(#[0-9a-f]{3,6}|rgb\([^)]+\)|rgba\([^)]+\)|[a-z]+)\s*$/i);
+        const color = colorMatch ? colorMatch[1] : '#000000';
+
+        return {width, style, color};
+    }
+
+    // Get border values from inputs
+    const borderInput = document.getElementById('border-input').value.trim();
+    const borderTopInput = document.getElementById('border-top-input').value.trim();
+    const borderRightInput = document.getElementById('border-right-input').value.trim();
+    const borderBottomInput = document.getElementById('border-bottom-input').value.trim();
+    const borderLeftInput = document.getElementById('border-left-input').value.trim();
+
+    // Parse border declarations
+    const borderAll = parseBorder(borderInput);
+    const borderTop = parseBorder(borderTopInput);
+    const borderRight = parseBorder(borderRightInput);
+    const borderBottom = parseBorder(borderBottomInput);
+    const borderLeft = parseBorder(borderLeftInput);
+
+    // Get border width values for box model calculation
     const borderVals = parseShorthand(
-        document.getElementById('border-width-input').value.trim(),
-        document.getElementById('border-top-width-input').value.trim(),
-        document.getElementById('border-right-width-input').value.trim(),
-        document.getElementById('border-bottom-width-input').value.trim(),
-        document.getElementById('border-left-width-input').value.trim()
+        borderAll.width,
+        borderTop.width || borderTopInput,
+        borderRight.width || borderRightInput,
+        borderBottom.width || borderBottomInput,
+        borderLeft.width || borderLeftInput
     );
+
+    // Get border styles and colors
+    const borderStyles = {
+        top: borderTop.style || borderAll.style || 'solid',
+        right: borderRight.style || borderAll.style || 'solid',
+        bottom: borderBottom.style || borderAll.style || 'solid',
+        left: borderLeft.style || borderAll.style || 'solid'
+    };
+
+    const borderColors = {
+        top: borderTop.color || borderAll.color || '#000000',
+        right: borderRight.color || borderAll.color || '#000000',
+        bottom: borderBottom.color || borderAll.color || '#000000',
+        left: borderLeft.color || borderAll.color || '#000000'
+    };
 
     // Get border-radius values
     const radiusVals = parseShorthand(
@@ -743,10 +795,10 @@ function showBoxModel() {
     };
 
     // Draw visualization
-    drawBoxModel(margin, border, padding, radius);
+    drawBoxModel(margin, border, padding, radius, borderStyles, borderColors);
 }
 
-function drawBoxModel(margin, border, padding, radius) {
+function drawBoxModel(margin, border, padding, radius, borderStyles, borderColors) {
     const canvas = document.getElementById('boxmodel-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -832,7 +884,7 @@ function drawBoxModel(margin, border, padding, radius) {
     ctx.fillStyle = COLORS.margin;
     ctx.fillRect(marginBox.x, marginBox.y, marginBox.width, marginBox.height);
 
-    // Draw border box (will contain border + padding + content)
+    // Draw border box background (will be covered by padding, but needed for border area)
     ctx.fillStyle = COLORS.border;
     roundRect(ctx, borderBox.x, borderBox.y, borderBox.width, borderBox.height, radius);
     ctx.fill();
@@ -841,6 +893,132 @@ function drawBoxModel(margin, border, padding, radius) {
     ctx.fillStyle = COLORS.padding;
     roundRect(ctx, paddingBox.x, paddingBox.y, paddingBox.width, paddingBox.height, radius);
     ctx.fill();
+
+    // Draw actual border lines with colors and styles
+    if (borderStyles && borderColors) {
+        // Helper to set line dash for border style
+        function setLineStyle(style) {
+            switch(style) {
+                case 'dashed':
+                    return [10, 5];
+                case 'dotted':
+                    return [2, 3];
+                case 'solid':
+                default:
+                    return [];
+            }
+        }
+
+        // Helper to draw a border line (single or double)
+        function drawBorderLine(side, x1, y1, x2, y2, width, style, color) {
+            ctx.strokeStyle = color;
+            ctx.setLineDash(setLineStyle(style));
+
+            if (style === 'double' && width >= 3) {
+                // Draw double border as two lines with a gap
+                const lineWidth = Math.max(1, Math.floor(width / 3));
+                const gap = width - (lineWidth * 2);
+
+                ctx.lineWidth = lineWidth;
+
+                // First line (outer)
+                ctx.beginPath();
+                if (side === 'top') {
+                    ctx.moveTo(x1, borderBox.y + lineWidth / 2);
+                    ctx.lineTo(x2, borderBox.y + lineWidth / 2);
+                } else if (side === 'bottom') {
+                    ctx.moveTo(x1, borderBox.y + borderBox.height - lineWidth / 2);
+                    ctx.lineTo(x2, borderBox.y + borderBox.height - lineWidth / 2);
+                } else if (side === 'left') {
+                    ctx.moveTo(borderBox.x + lineWidth / 2, y1);
+                    ctx.lineTo(borderBox.x + lineWidth / 2, y2);
+                } else if (side === 'right') {
+                    ctx.moveTo(borderBox.x + borderBox.width - lineWidth / 2, y1);
+                    ctx.lineTo(borderBox.x + borderBox.width - lineWidth / 2, y2);
+                }
+                ctx.stroke();
+
+                // Second line (inner)
+                ctx.beginPath();
+                if (side === 'top') {
+                    ctx.moveTo(x1, borderBox.y + lineWidth + gap + lineWidth / 2);
+                    ctx.lineTo(x2, borderBox.y + lineWidth + gap + lineWidth / 2);
+                } else if (side === 'bottom') {
+                    ctx.moveTo(x1, borderBox.y + borderBox.height - lineWidth - gap - lineWidth / 2);
+                    ctx.lineTo(x2, borderBox.y + borderBox.height - lineWidth - gap - lineWidth / 2);
+                } else if (side === 'left') {
+                    ctx.moveTo(borderBox.x + lineWidth + gap + lineWidth / 2, y1);
+                    ctx.lineTo(borderBox.x + lineWidth + gap + lineWidth / 2, y2);
+                } else if (side === 'right') {
+                    ctx.moveTo(borderBox.x + borderBox.width - lineWidth - gap - lineWidth / 2, y1);
+                    ctx.lineTo(borderBox.x + borderBox.width - lineWidth - gap - lineWidth / 2, y2);
+                }
+                ctx.stroke();
+            } else {
+                // Single line for all other styles
+                ctx.lineWidth = width;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+            }
+        }
+
+        // Draw top border
+        if (border.top > 0) {
+            drawBorderLine('top',
+                borderBox.x + radius.topLeft,
+                borderBox.y + border.top / 2,
+                borderBox.x + borderBox.width - radius.topRight,
+                borderBox.y + border.top / 2,
+                border.top,
+                borderStyles.top,
+                borderColors.top
+            );
+        }
+
+        // Draw right border
+        if (border.right > 0) {
+            drawBorderLine('right',
+                borderBox.x + borderBox.width - border.right / 2,
+                borderBox.y + radius.topRight,
+                borderBox.x + borderBox.width - border.right / 2,
+                borderBox.y + borderBox.height - radius.bottomRight,
+                border.right,
+                borderStyles.right,
+                borderColors.right
+            );
+        }
+
+        // Draw bottom border
+        if (border.bottom > 0) {
+            drawBorderLine('bottom',
+                borderBox.x + radius.bottomLeft,
+                borderBox.y + borderBox.height - border.bottom / 2,
+                borderBox.x + borderBox.width - radius.bottomRight,
+                borderBox.y + borderBox.height - border.bottom / 2,
+                border.bottom,
+                borderStyles.bottom,
+                borderColors.bottom
+            );
+        }
+
+        // Draw left border
+        if (border.left > 0) {
+            drawBorderLine('left',
+                borderBox.x + border.left / 2,
+                borderBox.y + radius.topLeft,
+                borderBox.x + border.left / 2,
+                borderBox.y + borderBox.height - radius.bottomLeft,
+                border.left,
+                borderStyles.left,
+                borderColors.left
+            );
+        }
+
+        // Reset line dash
+        ctx.setLineDash([]);
+    }
 
     // Draw content
     ctx.fillStyle = COLORS.content;
@@ -1480,140 +1658,451 @@ function setupOverflowButtons() {
 
 // Shadow controls handlers
 function setupShadowControls() {
-    // Box Shadow Controls
-    const bsHorizontalSlider = document.getElementById('bs-horizontal');
-    const bsVerticalSlider = document.getElementById('bs-vertical');
-    const bsBlurSlider = document.getElementById('bs-blur');
-    const bsSpreadSlider = document.getElementById('bs-spread');
-    const bsColorPicker = document.getElementById('bs-color');
-    const bsSetButtons = document.querySelectorAll('.bs-set-btn');
-
-    const bsHorizontalValue = document.getElementById('bs-horizontal-value');
-    const bsVerticalValue = document.getElementById('bs-vertical-value');
-    const bsBlurValue = document.getElementById('bs-blur-value');
-    const bsSpreadValue = document.getElementById('bs-spread-value');
-    const bsColorValue = document.getElementById('bs-color-value');
-    const boxShadowValue = document.getElementById('box-shadow-value');
     const boxShadowDemo = document.getElementById('box-shadow-demo');
+    const boxShadowValue = document.getElementById('box-shadow-value');
+    const addBoxShadowBtn = document.getElementById('add-box-shadow-btn');
+    const boxShadowList = document.getElementById('box-shadow-list');
 
-    let bsCurrentSet = 'outset'; // Default is outset (no keyword, normal shadow)
-
-    function updateBoxShadow() {
-        const h = bsHorizontalSlider.value;
-        const v = bsVerticalSlider.value;
-        const b = bsBlurSlider.value;
-        const s = bsSpreadSlider.value;
-        const c = bsColorPicker.value;
-
-        // Update value displays
-        bsHorizontalValue.textContent = `${h}px`;
-        bsVerticalValue.textContent = `${v}px`;
-        bsBlurValue.textContent = `${b}px`;
-        bsSpreadValue.textContent = `${s}px`;
-        bsColorValue.textContent = c;
-
-        // Build shadow string with optional inset keyword
-        const insetKeyword = bsCurrentSet === 'inset' ? 'inset ' : '';
-        const shadowStr = `${insetKeyword}${h}px ${v}px ${b}px ${s}px ${c}`;
-
-        // Update the shadow value display
-        boxShadowValue.textContent = shadowStr;
-
-        // Apply shadow to demo box
-        boxShadowDemo.style.boxShadow = shadowStr;
-    }
-
-    // Box Shadow slider event listeners
-    if (bsHorizontalSlider) {
-        bsHorizontalSlider.addEventListener('input', updateBoxShadow);
-    }
-    if (bsVerticalSlider) {
-        bsVerticalSlider.addEventListener('input', updateBoxShadow);
-    }
-    if (bsBlurSlider) {
-        bsBlurSlider.addEventListener('input', updateBoxShadow);
-    }
-    if (bsSpreadSlider) {
-        bsSpreadSlider.addEventListener('input', updateBoxShadow);
-    }
-    if (bsColorPicker) {
-        bsColorPicker.addEventListener('input', updateBoxShadow);
-    }
-
-    // Box Shadow set button event listener (toggle button)
-    bsSetButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-
-            // Toggle between inset and outset
-            if (button.classList.contains('selected')) {
-                // Currently inset, switch to outset
-                button.classList.remove('selected');
-                bsCurrentSet = 'outset';
-            } else {
-                // Currently outset, switch to inset
-                button.classList.add('selected');
-                bsCurrentSet = 'inset';
-            }
-
-            updateBoxShadow();
-        });
-    });
-
-    // Initial box shadow update
-    updateBoxShadow();
-
-    // Text Shadow Controls
-    const tsHorizontalSlider = document.getElementById('ts-horizontal');
-    const tsVerticalSlider = document.getElementById('ts-vertical');
-    const tsBlurSlider = document.getElementById('ts-blur');
-    const tsColorPicker = document.getElementById('ts-color');
-
-    const tsHorizontalValue = document.getElementById('ts-horizontal-value');
-    const tsVerticalValue = document.getElementById('ts-vertical-value');
-    const tsBlurValue = document.getElementById('ts-blur-value');
-    const tsColorValue = document.getElementById('ts-color-value');
-    const textShadowValue = document.getElementById('text-shadow-value');
     const textShadowDemo = document.getElementById('text-shadow-demo');
+    const textShadowValue = document.getElementById('text-shadow-value');
+    const addTextShadowBtn = document.getElementById('add-text-shadow-btn');
+    const textShadowList = document.getElementById('text-shadow-list');
 
-    function updateTextShadow() {
-        const h = tsHorizontalSlider.value;
-        const v = tsVerticalSlider.value;
-        const b = tsBlurSlider.value;
-        const c = tsColorPicker.value;
+    let boxShadows = [];
+    let textShadows = [];
+    let boxShadowIdCounter = 0;
+    let textShadowIdCounter = 0;
 
-        // Update value displays
-        tsHorizontalValue.textContent = `${h}px`;
-        tsVerticalValue.textContent = `${v}px`;
-        tsBlurValue.textContent = `${b}px`;
-        tsColorValue.textContent = c;
-
-        // Build shadow string (text-shadow syntax: offset-x offset-y blur-radius color)
-        const shadowStr = `${h}px ${v}px ${b}px ${c}`;
-
-        // Update the shadow value display
-        textShadowValue.textContent = shadowStr;
-
-        // Apply shadow to demo text
-        textShadowDemo.style.textShadow = shadowStr;
+    function updateBoxShadowDisplay() {
+        if (boxShadows.length === 0) {
+            boxShadowValue.textContent = 'none';
+            if (boxShadowDemo) {
+                boxShadowDemo.style.boxShadow = '';
+            }
+        } else {
+            const shadowString = boxShadows.map(s => s.value).join(', ');
+            boxShadowValue.textContent = shadowString;
+            if (boxShadowDemo) {
+                boxShadowDemo.style.boxShadow = shadowString;
+            }
+        }
     }
 
-    // Text Shadow slider event listeners
-    if (tsHorizontalSlider) {
-        tsHorizontalSlider.addEventListener('input', updateTextShadow);
-    }
-    if (tsVerticalSlider) {
-        tsVerticalSlider.addEventListener('input', updateTextShadow);
-    }
-    if (tsBlurSlider) {
-        tsBlurSlider.addEventListener('input', updateTextShadow);
-    }
-    if (tsColorPicker) {
-        tsColorPicker.addEventListener('input', updateTextShadow);
+    function updateTextShadowDisplay() {
+        if (textShadows.length === 0) {
+            textShadowValue.textContent = 'none';
+            if (textShadowDemo) {
+                textShadowDemo.style.textShadow = '';
+            }
+        } else {
+            const shadowString = textShadows.map(s => s.value).join(', ');
+            textShadowValue.textContent = shadowString;
+            if (textShadowDemo) {
+                textShadowDemo.style.textShadow = shadowString;
+            }
+        }
     }
 
-    // Initial text shadow update
-    updateTextShadow();
+    function createBoxShadowItem() {
+        const id = boxShadowIdCounter++;
+        // First shadow: grey (180,180,180), second: blue (125,240,240), third: green (125,240,125)
+        let defaultColor = '#7df0f0'; // blue for 4th+ shadows
+        if (boxShadowIdCounter === 1) defaultColor = '#b4b4b4'; // grey
+        else if (boxShadowIdCounter === 2) defaultColor = '#7df0f0'; // blue
+        else if (boxShadowIdCounter === 3) defaultColor = '#7df07d'; // green
+
+        // Horizontal offsets: 0 for first, 10 for second, -10 for third, 0 for rest
+        let defaultHorizontal = 0;
+        if (boxShadowIdCounter === 2) defaultHorizontal = 10;
+        else if (boxShadowIdCounter === 3) defaultHorizontal = -10;
+
+        const shadowObj = {
+            id: id,
+            horizontal: defaultHorizontal,
+            vertical: 5,
+            blur: 10,
+            spread: 0,
+            color: defaultColor,
+            inset: false,
+            value: '',
+            element: null
+        };
+
+        function generateValue() {
+            const insetKeyword = shadowObj.inset ? 'inset ' : '';
+            return `${insetKeyword}${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${shadowObj.spread}px ${shadowObj.color}`;
+        }
+
+        shadowObj.value = generateValue();
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'box-shadow-item';
+        itemDiv.dataset.shadowId = id;
+        itemDiv.style.cssText = 'background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px;';
+
+        const headerDiv = document.createElement('div');
+        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;';
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = 'Shadow';
+        titleSpan.style.cssText = 'font-weight: 500; font-size: 0.75em; color: #2c3e50;';
+        headerDiv.appendChild(titleSpan);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'property-btn';
+        deleteBtn.title = 'Remove shadow';
+        deleteBtn.style.cssText = 'padding: 3px 6px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7em;';
+        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">';
+        deleteBtn.addEventListener('click', () => {
+            const index = boxShadows.findIndex(s => s.id === id);
+            if (index !== -1) {
+                boxShadows[index].element.remove();
+                boxShadows.splice(index, 1);
+                updateBoxShadowDisplay();
+            }
+        });
+        headerDiv.appendChild(deleteBtn);
+        itemDiv.appendChild(headerDiv);
+
+        const paramsDiv = document.createElement('div');
+        paramsDiv.style.cssText = 'display: flex; flex-direction: column; gap: 6px;';
+
+        // Horizontal
+        const hRow = document.createElement('div');
+        hRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const hLabel = document.createElement('label');
+        hLabel.textContent = 'H:';
+        hLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        hRow.appendChild(hLabel);
+        const hSlider = document.createElement('input');
+        hSlider.type = 'range';
+        hSlider.min = '-25';
+        hSlider.max = '25';
+        hSlider.value = shadowObj.horizontal;
+        hSlider.style.cssText = 'flex: 1;';
+        const hValue = document.createElement('span');
+        hValue.textContent = shadowObj.horizontal + 'px';
+        hValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        hSlider.addEventListener('input', (e) => {
+            shadowObj.horizontal = parseFloat(e.target.value);
+            hValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        hRow.appendChild(hSlider);
+        hRow.appendChild(hValue);
+        paramsDiv.appendChild(hRow);
+
+        // Vertical
+        const vRow = document.createElement('div');
+        vRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const vLabel = document.createElement('label');
+        vLabel.textContent = 'V:';
+        vLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        vRow.appendChild(vLabel);
+        const vSlider = document.createElement('input');
+        vSlider.type = 'range';
+        vSlider.min = '-25';
+        vSlider.max = '25';
+        vSlider.value = shadowObj.vertical;
+        vSlider.style.cssText = 'flex: 1;';
+        const vValue = document.createElement('span');
+        vValue.textContent = shadowObj.vertical + 'px';
+        vValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        vSlider.addEventListener('input', (e) => {
+            shadowObj.vertical = parseFloat(e.target.value);
+            vValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        vRow.appendChild(vSlider);
+        vRow.appendChild(vValue);
+        paramsDiv.appendChild(vRow);
+
+        // Blur
+        const bRow = document.createElement('div');
+        bRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const bLabel = document.createElement('label');
+        bLabel.textContent = 'B:';
+        bLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        bRow.appendChild(bLabel);
+        const bSlider = document.createElement('input');
+        bSlider.type = 'range';
+        bSlider.min = '0';
+        bSlider.max = '25';
+        bSlider.value = shadowObj.blur;
+        bSlider.style.cssText = 'flex: 1;';
+        const bValue = document.createElement('span');
+        bValue.textContent = shadowObj.blur + 'px';
+        bValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        bSlider.addEventListener('input', (e) => {
+            shadowObj.blur = parseFloat(e.target.value);
+            bValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        bRow.appendChild(bSlider);
+        bRow.appendChild(bValue);
+        paramsDiv.appendChild(bRow);
+
+        // Spread
+        const sRow = document.createElement('div');
+        sRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const sLabel = document.createElement('label');
+        sLabel.textContent = 'S:';
+        sLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        sRow.appendChild(sLabel);
+        const sSlider = document.createElement('input');
+        sSlider.type = 'range';
+        sSlider.min = '-25';
+        sSlider.max = '25';
+        sSlider.value = shadowObj.spread;
+        sSlider.style.cssText = 'flex: 1;';
+        const sValue = document.createElement('span');
+        sValue.textContent = shadowObj.spread + 'px';
+        sValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        sSlider.addEventListener('input', (e) => {
+            shadowObj.spread = parseFloat(e.target.value);
+            sValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        sRow.appendChild(sSlider);
+        sRow.appendChild(sValue);
+        paramsDiv.appendChild(sRow);
+
+        // Color & Inset
+        const cRow = document.createElement('div');
+        cRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const cLabel = document.createElement('label');
+        cLabel.textContent = 'C:';
+        cLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        cRow.appendChild(cLabel);
+        const cPicker = document.createElement('input');
+        cPicker.type = 'color';
+        cPicker.value = shadowObj.color;
+        cPicker.style.cssText = 'width: 30px; height: 20px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;';
+        cPicker.addEventListener('input', (e) => {
+            shadowObj.color = e.target.value;
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        cRow.appendChild(cPicker);
+
+        const insetBtn = document.createElement('button');
+        insetBtn.className = 'property-btn';
+        insetBtn.title = 'Toggle inset';
+        insetBtn.style.cssText = 'margin-left: auto; padding: 3px 8px; font-size: 0.65em; background: #6c757d; color: white; border: none; border-radius: 3px; cursor: pointer;';
+        insetBtn.textContent = 'Inset';
+        insetBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            shadowObj.inset = !shadowObj.inset;
+            insetBtn.style.background = shadowObj.inset ? '#28a745' : '#6c757d';
+            shadowObj.value = generateValue();
+            updateBoxShadowDisplay();
+        });
+        cRow.appendChild(insetBtn);
+        paramsDiv.appendChild(cRow);
+
+        itemDiv.appendChild(paramsDiv);
+        shadowObj.element = itemDiv;
+        return shadowObj;
+    }
+
+    function createTextShadowItem() {
+        const id = textShadowIdCounter++;
+        // First shadow: grey (180,180,180), second: blue (125,240,240), third: green (125,240,125)
+        let defaultColor = '#7df0f0'; // blue for 4th+ shadows
+        if (textShadowIdCounter === 1) defaultColor = '#b4b4b4'; // grey
+        else if (textShadowIdCounter === 2) defaultColor = '#7df0f0'; // blue
+        else if (textShadowIdCounter === 3) defaultColor = '#7df07d'; // green
+
+        // Horizontal offsets: 0 for first, 10 for second, -10 for third, 0 for rest
+        let defaultHorizontal = 0;
+        if (textShadowIdCounter === 2) defaultHorizontal = 10;
+        else if (textShadowIdCounter === 3) defaultHorizontal = -10;
+
+        const shadowObj = {
+            id: id,
+            horizontal: defaultHorizontal,
+            vertical: 5,
+            blur: 10,
+            color: defaultColor,
+            value: '',
+            element: null
+        };
+
+        function generateValue() {
+            return `${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${shadowObj.color}`;
+        }
+
+        shadowObj.value = generateValue();
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'text-shadow-item';
+        itemDiv.dataset.shadowId = id;
+        itemDiv.style.cssText = 'background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px;';
+
+        const headerDiv = document.createElement('div');
+        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;';
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = 'Shadow';
+        titleSpan.style.cssText = 'font-weight: 500; font-size: 0.75em; color: #2c3e50;';
+        headerDiv.appendChild(titleSpan);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'property-btn';
+        deleteBtn.title = 'Remove shadow';
+        deleteBtn.style.cssText = 'padding: 3px 6px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7em;';
+        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">';
+        deleteBtn.addEventListener('click', () => {
+            const index = textShadows.findIndex(s => s.id === id);
+            if (index !== -1) {
+                textShadows[index].element.remove();
+                textShadows.splice(index, 1);
+                updateTextShadowDisplay();
+            }
+        });
+        headerDiv.appendChild(deleteBtn);
+        itemDiv.appendChild(headerDiv);
+
+        const paramsDiv = document.createElement('div');
+        paramsDiv.style.cssText = 'display: flex; flex-direction: column; gap: 6px;';
+
+        // Horizontal
+        const hRow = document.createElement('div');
+        hRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const hLabel = document.createElement('label');
+        hLabel.textContent = 'H:';
+        hLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        hRow.appendChild(hLabel);
+        const hSlider = document.createElement('input');
+        hSlider.type = 'range';
+        hSlider.min = '-25';
+        hSlider.max = '25';
+        hSlider.value = shadowObj.horizontal;
+        hSlider.style.cssText = 'flex: 1;';
+        const hValue = document.createElement('span');
+        hValue.textContent = shadowObj.horizontal + 'px';
+        hValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        hSlider.addEventListener('input', (e) => {
+            shadowObj.horizontal = parseFloat(e.target.value);
+            hValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateTextShadowDisplay();
+        });
+        hRow.appendChild(hSlider);
+        hRow.appendChild(hValue);
+        paramsDiv.appendChild(hRow);
+
+        // Vertical
+        const vRow = document.createElement('div');
+        vRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const vLabel = document.createElement('label');
+        vLabel.textContent = 'V:';
+        vLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        vRow.appendChild(vLabel);
+        const vSlider = document.createElement('input');
+        vSlider.type = 'range';
+        vSlider.min = '-25';
+        vSlider.max = '25';
+        vSlider.value = shadowObj.vertical;
+        vSlider.style.cssText = 'flex: 1;';
+        const vValue = document.createElement('span');
+        vValue.textContent = shadowObj.vertical + 'px';
+        vValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        vSlider.addEventListener('input', (e) => {
+            shadowObj.vertical = parseFloat(e.target.value);
+            vValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateTextShadowDisplay();
+        });
+        vRow.appendChild(vSlider);
+        vRow.appendChild(vValue);
+        paramsDiv.appendChild(vRow);
+
+        // Blur
+        const bRow = document.createElement('div');
+        bRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const bLabel = document.createElement('label');
+        bLabel.textContent = 'B:';
+        bLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        bRow.appendChild(bLabel);
+        const bSlider = document.createElement('input');
+        bSlider.type = 'range';
+        bSlider.min = '0';
+        bSlider.max = '25';
+        bSlider.value = shadowObj.blur;
+        bSlider.style.cssText = 'flex: 1;';
+        const bValue = document.createElement('span');
+        bValue.textContent = shadowObj.blur + 'px';
+        bValue.style.cssText = 'width: 30px; text-align: right; font-size: 0.65em; font-family: "Courier New", monospace;';
+        bSlider.addEventListener('input', (e) => {
+            shadowObj.blur = parseFloat(e.target.value);
+            bValue.textContent = e.target.value + 'px';
+            shadowObj.value = generateValue();
+            updateTextShadowDisplay();
+        });
+        bRow.appendChild(bSlider);
+        bRow.appendChild(bValue);
+        paramsDiv.appendChild(bRow);
+
+        // Color
+        const cRow = document.createElement('div');
+        cRow.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+        const cLabel = document.createElement('label');
+        cLabel.textContent = 'C:';
+        cLabel.style.cssText = 'width: 20px; font-size: 0.65em; color: #2c3e50;';
+        cRow.appendChild(cLabel);
+        const cPicker = document.createElement('input');
+        cPicker.type = 'color';
+        cPicker.value = shadowObj.color;
+        cPicker.style.cssText = 'width: 30px; height: 20px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;';
+        cPicker.addEventListener('input', (e) => {
+            shadowObj.color = e.target.value;
+            shadowObj.value = generateValue();
+            updateTextShadowDisplay();
+        });
+        cRow.appendChild(cPicker);
+        paramsDiv.appendChild(cRow);
+
+        itemDiv.appendChild(paramsDiv);
+        shadowObj.element = itemDiv;
+        return shadowObj;
+    }
+
+    // Event listeners
+    if (addBoxShadowBtn) {
+        addBoxShadowBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const newShadow = createBoxShadowItem();
+            boxShadows.push(newShadow);
+            boxShadowList.appendChild(newShadow.element);
+            updateBoxShadowDisplay();
+        });
+    }
+
+    if (addTextShadowBtn) {
+        addTextShadowBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const newShadow = createTextShadowItem();
+            textShadows.push(newShadow);
+            textShadowList.appendChild(newShadow.element);
+            updateTextShadowDisplay();
+        });
+    }
+
+    // Initialize with one shadow of each type
+    const initialBoxShadow = createBoxShadowItem();
+    boxShadows.push(initialBoxShadow);
+    boxShadowList.appendChild(initialBoxShadow.element);
+    updateBoxShadowDisplay();
+
+    const initialTextShadow = createTextShadowItem();
+    textShadows.push(initialTextShadow);
+    textShadowList.appendChild(initialTextShadow.element);
+    updateTextShadowDisplay();
 }
 
 // Background controls handlers
@@ -1621,11 +2110,14 @@ function setupBackgroundControls() {
     const bgColorPicker = document.getElementById('bg-color');
     const bgColorValue = document.getElementById('bg-color-value');
     const backgroundInput = document.getElementById('background-input');
+    const backgroundValue = document.getElementById('background-value');
+    const backgroundInitialBtn = document.getElementById('background-initial-btn');
     const bgClipButtons = document.querySelectorAll('.bg-clip-btn');
     const bgClipValue = document.getElementById('background-clip-value');
     const demoBox = document.getElementById('background-demo-box');
 
     let currentBgClip = 'border-box';
+    let isBackgroundInitial = true;
 
     function updateBackground() {
         if (!demoBox) return;
@@ -1639,13 +2131,26 @@ function setupBackgroundControls() {
         }
 
         // Apply background
-        if (bgValue) {
+        if (isBackgroundInitial || bgValue === 'initial') {
+            // Set to initial (use background-color)
+            demoBox.style.background = '';
+            demoBox.style.backgroundColor = bgColor;
+            if (backgroundValue) {
+                backgroundValue.textContent = 'initial';
+            }
+        } else if (bgValue) {
             // If background input has a value, use it (overrides background-color)
             demoBox.style.background = bgValue;
+            if (backgroundValue) {
+                backgroundValue.textContent = bgValue;
+            }
         } else {
             // Otherwise use background-color
             demoBox.style.background = '';
             demoBox.style.backgroundColor = bgColor;
+            if (backgroundValue) {
+                backgroundValue.textContent = '';
+            }
         }
 
         // Apply background-clip
@@ -1663,6 +2168,34 @@ function setupBackgroundControls() {
         }
     }
 
+    // Background initial button
+    if (backgroundInitialBtn) {
+        backgroundInitialBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isBackgroundInitial = !isBackgroundInitial;
+
+            if (isBackgroundInitial) {
+                backgroundInitialBtn.classList.add('selected');
+                backgroundInput.disabled = true;
+                backgroundInput.value = 'initial';
+                if (backgroundValue) {
+                    backgroundValue.textContent = 'initial';
+                }
+                updateBackground();
+            } else {
+                backgroundInitialBtn.classList.remove('selected');
+                backgroundInput.disabled = false;
+                // Set default value if input is empty
+                const defaultValue = 'center / cover url("./images/image0.jpg")';
+                backgroundInput.value = defaultValue;
+                if (backgroundValue) {
+                    backgroundValue.textContent = defaultValue;
+                }
+                updateBackground();
+            }
+        });
+    }
+
     // Background color picker
     if (bgColorPicker) {
         bgColorPicker.addEventListener('input', updateBackground);
@@ -1670,7 +2203,15 @@ function setupBackgroundControls() {
 
     // Background input
     if (backgroundInput) {
-        backgroundInput.addEventListener('input', updateBackground);
+        backgroundInput.addEventListener('input', () => {
+            if (!isBackgroundInitial) {
+                const value = backgroundInput.value.trim();
+                if (backgroundValue) {
+                    backgroundValue.textContent = value || '';
+                }
+                updateBackground();
+            }
+        });
         backgroundInput.addEventListener('blur', updateBackground);
     }
 
@@ -1961,37 +2502,104 @@ function setupTransformControls() {
         const paramsDiv = document.createElement('div');
         paramsDiv.style.cssText = 'display: flex; flex-direction: column; gap: 8px;';
 
-        config.params.forEach(param => {
-            const paramRow = document.createElement('div');
-            paramRow.style.cssText = 'display: flex; align-items: center; gap: 8px;';
+        if (type === 'rotate3d') {
+            // For rotate3d, show x,y,z checkboxes in one row, then angle slider below
+            const xyzRow = document.createElement('div');
+            xyzRow.style.cssText = 'display: flex; align-items: center; gap: 12px;';
 
-            const label = document.createElement('label');
-            label.textContent = param.label + ':';
-            label.style.cssText = 'width: 60px; font-size: 0.75em; color: #2c3e50;';
-            paramRow.appendChild(label);
+            // Filter only x,y,z params (not angle)
+            const xyzParams = config.params.filter(p => p.name !== 'angle');
+            xyzParams.forEach(param => {
+                const checkboxContainer = document.createElement('label');
+                checkboxContainer.style.cssText = 'display: flex; align-items: center; gap: 4px; font-size: 0.75em; color: #2c3e50; cursor: pointer;';
 
-            const slider = document.createElement('input');
-            slider.type = 'range';
-            slider.min = param.min;
-            slider.max = param.max;
-            slider.step = param.step || 1;
-            slider.value = param.default;
-            slider.style.cssText = 'flex: 1;';
-            slider.addEventListener('input', (e) => {
-                transformObj.params[param.name] = parseFloat(e.target.value);
-                valueSpan.textContent = e.target.value + (param.unit || '');
-                transformObj.value = config.generate(transformObj.params);
-                updateTransformDisplay();
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = param.default === 1;
+                checkbox.style.cssText = 'cursor: pointer;';
+                checkbox.addEventListener('change', (e) => {
+                    transformObj.params[param.name] = e.target.checked ? 1 : 0;
+                    transformObj.value = config.generate(transformObj.params);
+                    updateTransformDisplay();
+                });
+                checkboxContainer.appendChild(checkbox);
+
+                const labelText = document.createElement('span');
+                labelText.textContent = param.label;
+                checkboxContainer.appendChild(labelText);
+
+                xyzRow.appendChild(checkboxContainer);
             });
-            paramRow.appendChild(slider);
 
-            const valueSpan = document.createElement('span');
-            valueSpan.textContent = param.default + (param.unit || '');
-            valueSpan.style.cssText = 'width: 50px; text-align: right; font-size: 0.75em; font-family: "Courier New", monospace;';
-            paramRow.appendChild(valueSpan);
+            paramsDiv.appendChild(xyzRow);
 
-            paramsDiv.appendChild(paramRow);
-        });
+            // Add angle slider below
+            const angleParam = config.params.find(p => p.name === 'angle');
+            if (angleParam) {
+                const paramRow = document.createElement('div');
+                paramRow.style.cssText = 'display: flex; align-items: center; gap: 8px;';
+
+                const label = document.createElement('label');
+                label.textContent = angleParam.label + ':';
+                label.style.cssText = 'width: 60px; font-size: 0.75em; color: #2c3e50;';
+                paramRow.appendChild(label);
+
+                const slider = document.createElement('input');
+                slider.type = 'range';
+                slider.min = angleParam.min;
+                slider.max = angleParam.max;
+                slider.step = angleParam.step || 1;
+                slider.value = angleParam.default;
+                slider.style.cssText = 'flex: 1;';
+                slider.addEventListener('input', (e) => {
+                    transformObj.params[angleParam.name] = parseFloat(e.target.value);
+                    valueSpan.textContent = e.target.value + (angleParam.unit || '');
+                    transformObj.value = config.generate(transformObj.params);
+                    updateTransformDisplay();
+                });
+                paramRow.appendChild(slider);
+
+                const valueSpan = document.createElement('span');
+                valueSpan.textContent = angleParam.default + (angleParam.unit || '');
+                valueSpan.style.cssText = 'width: 50px; text-align: right; font-size: 0.75em; font-family: "Courier New", monospace;';
+                paramRow.appendChild(valueSpan);
+
+                paramsDiv.appendChild(paramRow);
+            }
+        } else {
+            // For other transforms, use sliders as before
+            config.params.forEach(param => {
+                const paramRow = document.createElement('div');
+                paramRow.style.cssText = 'display: flex; align-items: center; gap: 8px;';
+
+                const label = document.createElement('label');
+                label.textContent = param.label + ':';
+                label.style.cssText = 'width: 60px; font-size: 0.75em; color: #2c3e50;';
+                paramRow.appendChild(label);
+
+                const slider = document.createElement('input');
+                slider.type = 'range';
+                slider.min = param.min;
+                slider.max = param.max;
+                slider.step = param.step || 1;
+                slider.value = param.default;
+                slider.style.cssText = 'flex: 1;';
+                slider.addEventListener('input', (e) => {
+                    transformObj.params[param.name] = parseFloat(e.target.value);
+                    valueSpan.textContent = e.target.value + (param.unit || '');
+                    transformObj.value = config.generate(transformObj.params);
+                    updateTransformDisplay();
+                });
+                paramRow.appendChild(slider);
+
+                const valueSpan = document.createElement('span');
+                valueSpan.textContent = param.default + (param.unit || '');
+                valueSpan.style.cssText = 'width: 50px; text-align: right; font-size: 0.75em; font-family: "Courier New", monospace;';
+                paramRow.appendChild(valueSpan);
+
+                paramsDiv.appendChild(paramRow);
+            });
+        }
 
         itemDiv.appendChild(paramsDiv);
         transformObj.element = itemDiv;
@@ -2555,6 +3163,335 @@ function setupFilterControls() {
     addFilter();
 }
 
+// Cursor controls handlers
+function setupCursorControls() {
+    const cursorGrid = document.getElementById('cursor-grid');
+    const cursorDemoBox = document.getElementById('cursor-demo-box');
+    const cursorValue = document.getElementById('cursor-value');
+
+    const cursorTypes = [
+        'auto', 'default', 'none', 'pointer', 'context-menu', 'help',
+        'progress', 'wait', 'cell', 'crosshair', 'text', 'vertical-text',
+        'alias', 'copy', 'move', 'no-drop', 'not-allowed', 'grab', 'grabbing',
+        'all-scroll', 'col-resize', 'row-resize', 'n-resize', 'e-resize',
+        's-resize', 'w-resize', 'ne-resize', 'nw-resize', 'se-resize',
+        'sw-resize', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize',
+        'zoom-in', 'zoom-out'
+    ];
+
+    let selectedBox = null;
+
+    function createCursorBox(cursorType) {
+        const box = document.createElement('div');
+        box.dataset.cursor = cursorType;
+        box.textContent = cursorType;
+        box.style.cssText = `
+            height: 50px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: ${cursorType};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: #2c3e50;
+            transition: all 0.2s;
+            position: relative;
+            text-align: center;
+            padding: 4px;
+        `;
+
+        // Handle click to select cursor
+        box.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // Update selected state
+            if (selectedBox) {
+                selectedBox.style.background = '#f8f9fa';
+                selectedBox.style.borderColor = '#dee2e6';
+            }
+            box.style.background = '#e3f2fd';
+            box.style.borderColor = '#2196F3';
+            selectedBox = box;
+
+            // Update demo box and value
+            if (cursorDemoBox) {
+                cursorDemoBox.style.cursor = cursorType;
+                cursorDemoBox.innerHTML = `
+                    <div>Hover to see</div>
+                    <div style="font-weight: 700; font-size: 1.1em; margin: 5px 0;">"${cursorType}"</div>
+                    <div>cursor</div>
+                `;
+            }
+            if (cursorValue) {
+                cursorValue.textContent = cursorType;
+            }
+        });
+
+        return box;
+    }
+
+    // Create all cursor boxes
+    if (cursorGrid) {
+        cursorTypes.forEach(cursorType => {
+            const box = createCursorBox(cursorType);
+            cursorGrid.appendChild(box);
+
+            // Select 'pointer' by default
+            if (cursorType === 'pointer') {
+                box.style.background = '#e3f2fd';
+                box.style.borderColor = '#2196F3';
+                selectedBox = box;
+                // Initialize demo box with pointer
+                if (cursorDemoBox) {
+                    cursorDemoBox.style.cursor = 'pointer';
+                    cursorDemoBox.innerHTML = `
+                        <div>Hover to see</div>
+                        <div style="font-weight: 700; font-size: 1.1em; margin: 5px 0;">"pointer"</div>
+                        <div>cursor</div>
+                    `;
+                }
+                if (cursorValue) {
+                    cursorValue.textContent = 'pointer';
+                }
+            }
+        });
+    }
+}
+
+// Typography controls handlers
+function setupTypographyControls() {
+    const typographyDemo = document.getElementById('typography-demo');
+    const fontFamilySelect = document.getElementById('font-family-select');
+    const fontFamilyValue = document.getElementById('font-family-value');
+    const fontWeightSelect = document.getElementById('font-weight-select');
+    const fontWeightValue = document.getElementById('font-weight-value');
+    const fontSizeInput = document.getElementById('font-size-input');
+    const fontSizeValue = document.getElementById('font-size-value');
+    const fontSizeInitialBtn = document.getElementById('font-size-initial-btn');
+    const textColorPicker = document.getElementById('text-color-picker');
+    const textColorValue = document.getElementById('text-color-value');
+    const textColorInitialBtn = document.getElementById('text-color-initial-btn');
+
+    let isFontSizeInitial = true;
+    let isTextColorInitial = false;
+
+    // Font Family
+    if (fontFamilySelect) {
+        fontFamilySelect.addEventListener('change', () => {
+            const value = fontFamilySelect.value;
+            if (typographyDemo) {
+                if (value === 'initial') {
+                    typographyDemo.style.fontFamily = '';
+                } else {
+                    typographyDemo.style.fontFamily = value;
+                }
+            }
+            if (fontFamilyValue) {
+                fontFamilyValue.textContent = value;
+            }
+        });
+    }
+
+    // Font Weight
+    if (fontWeightSelect) {
+        fontWeightSelect.addEventListener('change', () => {
+            const value = fontWeightSelect.value;
+            if (typographyDemo) {
+                if (value === 'initial') {
+                    typographyDemo.style.fontWeight = '';
+                } else {
+                    typographyDemo.style.fontWeight = value;
+                }
+            }
+            if (fontWeightValue) {
+                fontWeightValue.textContent = value;
+            }
+        });
+    }
+
+    // Font Size
+    if (fontSizeInput) {
+        fontSizeInput.addEventListener('input', () => {
+            if (!isFontSizeInitial && typographyDemo) {
+                const value = fontSizeInput.value.trim();
+                typographyDemo.style.fontSize = value || '16px';
+                if (fontSizeValue) {
+                    fontSizeValue.textContent = value || '16px';
+                }
+            }
+        });
+    }
+
+    if (fontSizeInitialBtn) {
+        fontSizeInitialBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isFontSizeInitial = !isFontSizeInitial;
+
+            if (isFontSizeInitial) {
+                fontSizeInitialBtn.classList.add('selected');
+                fontSizeInput.disabled = true;
+                fontSizeInput.value = 'initial';
+                if (typographyDemo) {
+                    typographyDemo.style.fontSize = '';
+                }
+                if (fontSizeValue) {
+                    fontSizeValue.textContent = 'initial';
+                }
+            } else {
+                fontSizeInitialBtn.classList.remove('selected');
+                fontSizeInput.disabled = false;
+                fontSizeInput.value = '16px';
+                const value = '16px';
+                if (typographyDemo) {
+                    typographyDemo.style.fontSize = value;
+                }
+                if (fontSizeValue) {
+                    fontSizeValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Text Color
+    if (textColorPicker) {
+        textColorPicker.addEventListener('input', () => {
+            if (!isTextColorInitial && typographyDemo) {
+                const value = textColorPicker.value;
+                typographyDemo.style.color = value;
+                if (textColorValue) {
+                    textColorValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (textColorInitialBtn) {
+        textColorInitialBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isTextColorInitial = !isTextColorInitial;
+
+            if (isTextColorInitial) {
+                textColorInitialBtn.classList.add('selected');
+                textColorPicker.disabled = true;
+                if (typographyDemo) {
+                    typographyDemo.style.color = '';
+                }
+                if (textColorValue) {
+                    textColorValue.textContent = 'initial';
+                }
+            } else {
+                textColorInitialBtn.classList.remove('selected');
+                textColorPicker.disabled = false;
+                const value = textColorPicker.value;
+                if (typographyDemo) {
+                    typographyDemo.style.color = value;
+                }
+                if (textColorValue) {
+                    textColorValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Text Align
+    const textAlignButtons = document.querySelectorAll('.text-align-btn');
+    const textAlignValue = document.getElementById('text-align-value');
+    textAlignButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const align = btn.dataset.align;
+
+            textAlignButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (typographyDemo) {
+                if (align === 'initial') {
+                    typographyDemo.style.textAlign = '';
+                } else {
+                    typographyDemo.style.textAlign = align;
+                }
+            }
+            if (textAlignValue) {
+                textAlignValue.textContent = align;
+            }
+        });
+    });
+
+    // Font Style
+    const fontStyleButtons = document.querySelectorAll('.font-style-btn');
+    const fontStyleValue = document.getElementById('font-style-value');
+    fontStyleButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const style = btn.dataset.style;
+
+            fontStyleButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (typographyDemo) {
+                if (style === 'initial') {
+                    typographyDemo.style.fontStyle = '';
+                } else {
+                    typographyDemo.style.fontStyle = style;
+                }
+            }
+            if (fontStyleValue) {
+                fontStyleValue.textContent = style;
+            }
+        });
+    });
+
+    // Text Transform
+    const textTransformButtons = document.querySelectorAll('.text-transform-btn');
+    const textTransformValue = document.getElementById('text-transform-value');
+    textTransformButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const transform = btn.dataset.transform;
+
+            textTransformButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (typographyDemo) {
+                if (transform === 'initial') {
+                    typographyDemo.style.textTransform = '';
+                } else {
+                    typographyDemo.style.textTransform = transform;
+                }
+            }
+            if (textTransformValue) {
+                textTransformValue.textContent = transform;
+            }
+        });
+    });
+
+    // Text Decoration
+    const textDecorationButtons = document.querySelectorAll('.text-decoration-btn');
+    const textDecorationValue = document.getElementById('text-decoration-value');
+    textDecorationButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const decoration = btn.dataset.decoration;
+
+            textDecorationButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (typographyDemo) {
+                if (decoration === 'initial') {
+                    typographyDemo.style.textDecoration = '';
+                } else {
+                    typographyDemo.style.textDecoration = decoration;
+                }
+            }
+            if (textDecorationValue) {
+                textDecorationValue.textContent = decoration;
+            }
+        });
+    });
+}
+
 function oldShowMarginExample() {
     const container = document.getElementById('margin-example');
     const marginInput = document.getElementById('margin-input');
@@ -2848,6 +3785,599 @@ function oldShowMarginExample() {
         ctx.rotate(-Math.PI / 2);
         ctx.fillText(finalRight, 0, 0);
         ctx.restore();
+    }
+}
+
+function setupParagraphControls() {
+    const paragraphDemo = document.getElementById('paragraph-demo');
+
+    // User Select
+    const userSelectSelect = document.getElementById('user-select-select');
+    const userSelectValue = document.getElementById('user-select-value');
+
+    if (userSelectSelect) {
+        userSelectSelect.addEventListener('change', () => {
+            const value = userSelectSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.userSelect = '';
+                } else {
+                    paragraphDemo.style.userSelect = value;
+                }
+            }
+            if (userSelectValue) {
+                userSelectValue.textContent = value;
+            }
+        });
+    }
+
+    // Letter Spacing
+    const letterSpacingInput = document.getElementById('letter-spacing-input');
+    const letterSpacingValue = document.getElementById('letter-spacing-value');
+    const letterSpacingInitialBtn = document.getElementById('letter-spacing-initial-btn');
+    let isLetterSpacingInitial = true;
+
+    if (letterSpacingInput) {
+        letterSpacingInput.addEventListener('input', () => {
+            const value = letterSpacingInput.value.trim();
+            if (paragraphDemo && !isLetterSpacingInitial) {
+                paragraphDemo.style.letterSpacing = value;
+            }
+            if (letterSpacingValue) {
+                letterSpacingValue.textContent = value;
+            }
+        });
+    }
+
+    if (letterSpacingInitialBtn) {
+        letterSpacingInitialBtn.addEventListener('click', () => {
+            isLetterSpacingInitial = !isLetterSpacingInitial;
+
+            if (isLetterSpacingInitial) {
+                letterSpacingInitialBtn.classList.add('selected');
+                if (letterSpacingInput) {
+                    letterSpacingInput.disabled = true;
+                    letterSpacingInput.value = 'initial';
+                }
+                if (paragraphDemo) paragraphDemo.style.letterSpacing = '';
+                if (letterSpacingValue) letterSpacingValue.textContent = 'initial';
+            } else {
+                letterSpacingInitialBtn.classList.remove('selected');
+                if (letterSpacingInput) {
+                    letterSpacingInput.disabled = false;
+                    letterSpacingInput.value = '2px';
+                    const value = '2px';
+                    if (paragraphDemo) paragraphDemo.style.letterSpacing = value;
+                    if (letterSpacingValue) letterSpacingValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Word Spacing
+    const wordSpacingInput = document.getElementById('word-spacing-input');
+    const wordSpacingValue = document.getElementById('word-spacing-value');
+    const wordSpacingInitialBtn = document.getElementById('word-spacing-initial-btn');
+    let isWordSpacingInitial = true;
+
+    if (wordSpacingInput) {
+        wordSpacingInput.addEventListener('input', () => {
+            const value = wordSpacingInput.value.trim();
+            if (paragraphDemo && !isWordSpacingInitial) {
+                paragraphDemo.style.wordSpacing = value;
+            }
+            if (wordSpacingValue) {
+                wordSpacingValue.textContent = value;
+            }
+        });
+    }
+
+    if (wordSpacingInitialBtn) {
+        wordSpacingInitialBtn.addEventListener('click', () => {
+            isWordSpacingInitial = !isWordSpacingInitial;
+
+            if (isWordSpacingInitial) {
+                wordSpacingInitialBtn.classList.add('selected');
+                if (wordSpacingInput) {
+                    wordSpacingInput.disabled = true;
+                    wordSpacingInput.value = 'initial';
+                }
+                if (paragraphDemo) paragraphDemo.style.wordSpacing = '';
+                if (wordSpacingValue) wordSpacingValue.textContent = 'initial';
+            } else {
+                wordSpacingInitialBtn.classList.remove('selected');
+                if (wordSpacingInput) {
+                    wordSpacingInput.disabled = false;
+                    wordSpacingInput.value = '5px';
+                    const value = '5px';
+                    if (paragraphDemo) paragraphDemo.style.wordSpacing = value;
+                    if (wordSpacingValue) wordSpacingValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Line Height
+    const lineHeightInput = document.getElementById('line-height-input');
+    const lineHeightValue = document.getElementById('line-height-value');
+    const lineHeightInitialBtn = document.getElementById('line-height-initial-btn');
+    let isLineHeightInitial = true;
+
+    if (lineHeightInput) {
+        lineHeightInput.addEventListener('input', () => {
+            const value = lineHeightInput.value.trim();
+            if (paragraphDemo && !isLineHeightInitial) {
+                paragraphDemo.style.lineHeight = value;
+            }
+            if (lineHeightValue) {
+                lineHeightValue.textContent = value;
+            }
+        });
+    }
+
+    if (lineHeightInitialBtn) {
+        lineHeightInitialBtn.addEventListener('click', () => {
+            isLineHeightInitial = !isLineHeightInitial;
+
+            if (isLineHeightInitial) {
+                lineHeightInitialBtn.classList.add('selected');
+                if (lineHeightInput) {
+                    lineHeightInput.disabled = true;
+                    lineHeightInput.value = 'initial';
+                }
+                if (paragraphDemo) paragraphDemo.style.lineHeight = '';
+                if (lineHeightValue) lineHeightValue.textContent = 'initial';
+            } else {
+                lineHeightInitialBtn.classList.remove('selected');
+                if (lineHeightInput) {
+                    lineHeightInput.disabled = false;
+                    lineHeightInput.value = '1.5';
+                    const value = '1.5';
+                    if (paragraphDemo) paragraphDemo.style.lineHeight = value;
+                    if (lineHeightValue) lineHeightValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Direction
+    const directionSelect = document.getElementById('direction-select');
+    const directionValue = document.getElementById('direction-value');
+
+    if (directionSelect) {
+        directionSelect.addEventListener('change', () => {
+            const value = directionSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.direction = '';
+                } else {
+                    paragraphDemo.style.direction = value;
+                }
+            }
+            if (directionValue) {
+                directionValue.textContent = value;
+            }
+        });
+    }
+
+    // Text Indent
+    const textIndentInput = document.getElementById('text-indent-input');
+    const textIndentValue = document.getElementById('text-indent-value');
+    const textIndentInitialBtn = document.getElementById('text-indent-initial-btn');
+    let isTextIndentInitial = true;
+
+    if (textIndentInput) {
+        textIndentInput.addEventListener('input', () => {
+            const value = textIndentInput.value.trim();
+            if (paragraphDemo && !isTextIndentInitial) {
+                paragraphDemo.style.textIndent = value;
+            }
+            if (textIndentValue) {
+                textIndentValue.textContent = value;
+            }
+        });
+    }
+
+    if (textIndentInitialBtn) {
+        textIndentInitialBtn.addEventListener('click', () => {
+            isTextIndentInitial = !isTextIndentInitial;
+
+            if (isTextIndentInitial) {
+                textIndentInitialBtn.classList.add('selected');
+                if (textIndentInput) {
+                    textIndentInput.disabled = true;
+                    textIndentInput.value = 'initial';
+                }
+                if (paragraphDemo) paragraphDemo.style.textIndent = '';
+                if (textIndentValue) textIndentValue.textContent = 'initial';
+            } else {
+                textIndentInitialBtn.classList.remove('selected');
+                if (textIndentInput) {
+                    textIndentInput.disabled = false;
+                    textIndentInput.value = '20px';
+                    const value = '20px';
+                    if (paragraphDemo) paragraphDemo.style.textIndent = value;
+                    if (textIndentValue) textIndentValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Text Overflow
+    const textOverflowSelect = document.getElementById('text-overflow-select');
+    const textOverflowValue = document.getElementById('text-overflow-value');
+
+    if (textOverflowSelect) {
+        textOverflowSelect.addEventListener('change', () => {
+            const value = textOverflowSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.textOverflow = '';
+                } else {
+                    paragraphDemo.style.textOverflow = value;
+                }
+            }
+            if (textOverflowValue) {
+                textOverflowValue.textContent = value;
+            }
+        });
+    }
+
+    // Word Break
+    const wordBreakSelect = document.getElementById('word-break-select');
+    const wordBreakValue = document.getElementById('word-break-value');
+
+    if (wordBreakSelect) {
+        wordBreakSelect.addEventListener('change', () => {
+            const value = wordBreakSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.wordBreak = '';
+                } else {
+                    paragraphDemo.style.wordBreak = value;
+                }
+            }
+            if (wordBreakValue) {
+                wordBreakValue.textContent = value;
+            }
+        });
+    }
+
+    // Overflow Wrap
+    const overflowWrapSelect = document.getElementById('overflow-wrap-select');
+    const overflowWrapValue = document.getElementById('overflow-wrap-value');
+
+    if (overflowWrapSelect) {
+        overflowWrapSelect.addEventListener('change', () => {
+            const value = overflowWrapSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.overflowWrap = '';
+                } else {
+                    paragraphDemo.style.overflowWrap = value;
+                }
+            }
+            if (overflowWrapValue) {
+                overflowWrapValue.textContent = value;
+            }
+        });
+    }
+
+    // White Space
+    const whiteSpaceSelect = document.getElementById('white-space-select');
+    const whiteSpaceValue = document.getElementById('white-space-value');
+
+    if (whiteSpaceSelect) {
+        whiteSpaceSelect.addEventListener('change', () => {
+            const value = whiteSpaceSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.whiteSpace = '';
+                } else {
+                    paragraphDemo.style.whiteSpace = value;
+                }
+            }
+            if (whiteSpaceValue) {
+                whiteSpaceValue.textContent = value;
+            }
+        });
+    }
+
+    // Writing Mode
+    const writingModeSelect = document.getElementById('writing-mode-select');
+    const writingModeValue = document.getElementById('writing-mode-value');
+
+    if (writingModeSelect) {
+        writingModeSelect.addEventListener('change', () => {
+            const value = writingModeSelect.value;
+            if (paragraphDemo) {
+                if (value === 'initial') {
+                    paragraphDemo.style.writingMode = '';
+                } else {
+                    paragraphDemo.style.writingMode = value;
+                }
+            }
+            if (writingModeValue) {
+                writingModeValue.textContent = value;
+            }
+        });
+    }
+}
+
+// Paragraph Columns controls handlers
+function setupParagraphColumnsControls() {
+    const columnsDemo = document.getElementById('columns-demo');
+
+    // Column Count
+    const columnCountInput = document.getElementById('column-count-input');
+    const columnCountValue = document.getElementById('column-count-value');
+    const columnCountInitialBtn = document.getElementById('column-count-initial-btn');
+    let isColumnCountInitial = true;
+
+    if (columnCountInput) {
+        columnCountInput.addEventListener('input', () => {
+            if (!isColumnCountInitial) {
+                const value = columnCountInput.value;
+                if (columnsDemo) {
+                    columnsDemo.style.columnCount = value;
+                }
+                if (columnCountValue) {
+                    columnCountValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (columnCountInitialBtn) {
+        columnCountInitialBtn.addEventListener('click', () => {
+            isColumnCountInitial = !isColumnCountInitial;
+
+            if (isColumnCountInitial) {
+                columnCountInitialBtn.classList.add('selected');
+                if (columnCountInput) {
+                    columnCountInput.disabled = true;
+                    columnCountInput.value = '0';
+                }
+                if (columnsDemo) columnsDemo.style.columnCount = '';
+                if (columnCountValue) columnCountValue.textContent = 'initial';
+            } else {
+                columnCountInitialBtn.classList.remove('selected');
+                if (columnCountInput) {
+                    columnCountInput.disabled = false;
+                    columnCountInput.value = '2';
+                    const value = '2';
+                    if (columnsDemo) columnsDemo.style.columnCount = value;
+                    if (columnCountValue) columnCountValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Column Width
+    const columnWidthInput = document.getElementById('column-width-input');
+    const columnWidthValue = document.getElementById('column-width-value');
+    const columnWidthInitialBtn = document.getElementById('column-width-initial-btn');
+    let isColumnWidthInitial = true;
+
+    if (columnWidthInput) {
+        columnWidthInput.addEventListener('input', () => {
+            if (!isColumnWidthInitial) {
+                const value = columnWidthInput.value.trim();
+                if (columnsDemo) {
+                    columnsDemo.style.columnWidth = value;
+                }
+                if (columnWidthValue) {
+                    columnWidthValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (columnWidthInitialBtn) {
+        columnWidthInitialBtn.addEventListener('click', () => {
+            isColumnWidthInitial = !isColumnWidthInitial;
+
+            if (isColumnWidthInitial) {
+                columnWidthInitialBtn.classList.add('selected');
+                if (columnWidthInput) {
+                    columnWidthInput.disabled = true;
+                    columnWidthInput.value = 'initial';
+                }
+                if (columnsDemo) columnsDemo.style.columnWidth = '';
+                if (columnWidthValue) columnWidthValue.textContent = 'initial';
+            } else {
+                columnWidthInitialBtn.classList.remove('selected');
+                if (columnWidthInput) {
+                    columnWidthInput.disabled = false;
+                    columnWidthInput.value = '150px';
+                    const value = '150px';
+                    if (columnsDemo) columnsDemo.style.columnWidth = value;
+                    if (columnWidthValue) columnWidthValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Column Gap
+    const columnGapInput = document.getElementById('column-gap-input');
+    const columnGapValue = document.getElementById('column-gap-value');
+    const columnGapInitialBtn = document.getElementById('column-gap-initial-btn');
+    let isColumnGapInitial = true;
+
+    if (columnGapInput) {
+        columnGapInput.addEventListener('input', () => {
+            if (!isColumnGapInitial) {
+                const value = columnGapInput.value.trim();
+                if (columnsDemo) {
+                    columnsDemo.style.columnGap = value;
+                }
+                if (columnGapValue) {
+                    columnGapValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (columnGapInitialBtn) {
+        columnGapInitialBtn.addEventListener('click', () => {
+            isColumnGapInitial = !isColumnGapInitial;
+
+            if (isColumnGapInitial) {
+                columnGapInitialBtn.classList.add('selected');
+                if (columnGapInput) {
+                    columnGapInput.disabled = true;
+                    columnGapInput.value = 'initial';
+                }
+                if (columnsDemo) columnsDemo.style.columnGap = '';
+                if (columnGapValue) columnGapValue.textContent = 'initial';
+            } else {
+                columnGapInitialBtn.classList.remove('selected');
+                if (columnGapInput) {
+                    columnGapInput.disabled = false;
+                    columnGapInput.value = '20px';
+                    const value = '20px';
+                    if (columnsDemo) columnsDemo.style.columnGap = value;
+                    if (columnGapValue) columnGapValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Column Rule Style
+    const columnRuleStyleButtons = document.querySelectorAll('.column-rule-style-btn');
+    const columnRuleStyleValue = document.getElementById('column-rule-style-value');
+
+    columnRuleStyleButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const ruleStyle = button.dataset.ruleStyle;
+
+            // Update selected state
+            columnRuleStyleButtons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+
+            // Update value display
+            if (columnRuleStyleValue) {
+                columnRuleStyleValue.textContent = ruleStyle;
+            }
+
+            // Apply style
+            if (columnsDemo) {
+                if (ruleStyle === 'initial') {
+                    columnsDemo.style.columnRuleStyle = '';
+                } else {
+                    columnsDemo.style.columnRuleStyle = ruleStyle;
+                }
+            }
+        });
+    });
+
+    // Column Rule Width
+    const columnRuleWidthInput = document.getElementById('column-rule-width-input');
+    const columnRuleWidthValue = document.getElementById('column-rule-width-value');
+    const columnRuleWidthInitialBtn = document.getElementById('column-rule-width-initial-btn');
+    let isColumnRuleWidthInitial = true;
+
+    if (columnRuleWidthInput) {
+        columnRuleWidthInput.addEventListener('input', () => {
+            if (!isColumnRuleWidthInitial) {
+                const value = columnRuleWidthInput.value.trim();
+                if (columnsDemo) {
+                    columnsDemo.style.columnRuleWidth = value;
+                }
+                if (columnRuleWidthValue) {
+                    columnRuleWidthValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (columnRuleWidthInitialBtn) {
+        columnRuleWidthInitialBtn.addEventListener('click', () => {
+            isColumnRuleWidthInitial = !isColumnRuleWidthInitial;
+
+            if (isColumnRuleWidthInitial) {
+                columnRuleWidthInitialBtn.classList.add('selected');
+                if (columnRuleWidthInput) {
+                    columnRuleWidthInput.disabled = true;
+                    columnRuleWidthInput.value = 'initial';
+                }
+                if (columnsDemo) columnsDemo.style.columnRuleWidth = '';
+                if (columnRuleWidthValue) columnRuleWidthValue.textContent = 'initial';
+            } else {
+                columnRuleWidthInitialBtn.classList.remove('selected');
+                if (columnRuleWidthInput) {
+                    columnRuleWidthInput.disabled = false;
+                    columnRuleWidthInput.value = '5px';
+                    const value = '5px';
+                    if (columnsDemo) columnsDemo.style.columnRuleWidth = value;
+                    if (columnRuleWidthValue) columnRuleWidthValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Column Rule Color
+    const columnRuleColorPicker = document.getElementById('column-rule-color-picker');
+    const columnRuleColorValue = document.getElementById('column-rule-color-value');
+    const columnRuleColorInitialBtn = document.getElementById('column-rule-color-initial-btn');
+    let isColumnRuleColorInitial = true;
+
+    if (columnRuleColorPicker) {
+        columnRuleColorPicker.addEventListener('input', () => {
+            if (!isColumnRuleColorInitial) {
+                const value = columnRuleColorPicker.value;
+                if (columnsDemo) {
+                    columnsDemo.style.columnRuleColor = value;
+                }
+                if (columnRuleColorValue) {
+                    columnRuleColorValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    if (columnRuleColorInitialBtn) {
+        columnRuleColorInitialBtn.addEventListener('click', () => {
+            isColumnRuleColorInitial = !isColumnRuleColorInitial;
+
+            if (isColumnRuleColorInitial) {
+                columnRuleColorInitialBtn.classList.add('selected');
+                if (columnRuleColorPicker) {
+                    columnRuleColorPicker.disabled = true;
+                }
+                if (columnsDemo) columnsDemo.style.columnRuleColor = '';
+                if (columnRuleColorValue) columnRuleColorValue.textContent = 'initial';
+            } else {
+                columnRuleColorInitialBtn.classList.remove('selected');
+                if (columnRuleColorPicker) {
+                    columnRuleColorPicker.disabled = false;
+                    const value = columnRuleColorPicker.value;
+                    if (columnsDemo) columnsDemo.style.columnRuleColor = value;
+                    if (columnRuleColorValue) columnRuleColorValue.textContent = value;
+                }
+            }
+        });
+    }
+
+    // Column Span
+    const columnSpanSelect = document.getElementById('column-span-select');
+    const columnSpanValue = document.getElementById('column-span-value');
+
+    if (columnSpanSelect) {
+        columnSpanSelect.addEventListener('change', () => {
+            const value = columnSpanSelect.value;
+            if (columnsDemo) {
+                if (value === 'initial') {
+                    columnsDemo.style.columnSpan = '';
+                } else {
+                    columnsDemo.style.columnSpan = value;
+                }
+            }
+            if (columnSpanValue) {
+                columnSpanValue.textContent = value;
+            }
+        });
     }
 }
 
