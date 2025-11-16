@@ -154,7 +154,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('display-value').textContent = displayValue;
+            document.getElementById('display-value').textContent = displayValue + ';';
 
             // Show display example
             showDisplayExample(displayValue);
@@ -178,7 +178,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('flex-direction-value').textContent = direction;
+            document.getElementById('flex-direction-value').textContent = direction + ';';
 
             // Update icons based on direction
             if (direction !== 'initial') {
@@ -201,7 +201,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('align-items-value').textContent = btn.dataset.align;
+            document.getElementById('align-items-value').textContent = btn.dataset.align + ';';
 
             showAlignItemsExample(btn.dataset.align);
         });
@@ -217,7 +217,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('justify-content-row-value').textContent = btn.dataset.justify;
+            document.getElementById('justify-content-row-value').textContent = btn.dataset.justify + ';';
 
             showJustifyContentRowExample(btn.dataset.justify);
         });
@@ -233,7 +233,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('justify-content-column-value').textContent = btn.dataset.justify;
+            document.getElementById('justify-content-column-value').textContent = btn.dataset.justify + ';';
 
             showJustifyContentColumnExample(btn.dataset.justify);
         });
@@ -249,7 +249,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('flex-wrap-value').textContent = btn.dataset.wrap;
+            document.getElementById('flex-wrap-value').textContent = btn.dataset.wrap + ';';
 
             showFlexWrapExample(btn.dataset.wrap);
         });
@@ -265,7 +265,7 @@ function setupFlexButtons() {
             btn.classList.add('selected');
 
             // Update value display
-            document.getElementById('align-content-value').textContent = btn.dataset.alignContent;
+            document.getElementById('align-content-value').textContent = btn.dataset.alignContent + ';';
 
             showAlignContentExample(btn.dataset.alignContent);
         });
@@ -1142,7 +1142,7 @@ function setupSizeInputs() {
             // Update value display
             const valueDisplay = document.getElementById('box-sizing-value');
             if (valueDisplay) {
-                valueDisplay.textContent = boxSizing;
+                valueDisplay.textContent = boxSizing + ';';
             }
 
             updateSize();
@@ -1593,7 +1593,20 @@ function setupOverflowButtons() {
 
             // Update value display
             if (overflowValue) {
-                overflowValue.textContent = overflow;
+                overflowValue.textContent = overflow + ';';
+            }
+
+            // Update description
+            const overflowDescription = document.getElementById('overflow-description');
+            if (overflowDescription) {
+                const descriptions = {
+                    'initial': 'Default overflow behavior',
+                    'visible': 'Content overflows the container',
+                    'hidden': 'Clips overflow content',
+                    'scroll': 'Adds scrollbars always',
+                    'auto': 'Adds scrollbars when needed'
+                };
+                overflowDescription.textContent = descriptions[overflow] || '';
             }
 
             // Apply overflow style
@@ -1619,7 +1632,20 @@ function setupOverflowButtons() {
 
             // Update value display
             if (overflowXValue) {
-                overflowXValue.textContent = overflowX;
+                overflowXValue.textContent = overflowX + ';';
+            }
+
+            // Update description
+            const overflowXDescription = document.getElementById('overflow-x-description');
+            if (overflowXDescription) {
+                const descriptions = {
+                    'initial': 'Default horizontal overflow behavior',
+                    'visible': 'Content overflows horizontally',
+                    'hidden': 'Clips horizontal overflow',
+                    'scroll': 'Adds horizontal scrollbar always',
+                    'auto': 'Adds horizontal scrollbar when needed'
+                };
+                overflowXDescription.textContent = descriptions[overflowX] || '';
             }
 
             // Apply overflow-x style
@@ -1645,7 +1671,20 @@ function setupOverflowButtons() {
 
             // Update value display
             if (overflowYValue) {
-                overflowYValue.textContent = overflowY;
+                overflowYValue.textContent = overflowY + ';';
+            }
+
+            // Update description
+            const overflowYDescription = document.getElementById('overflow-y-description');
+            if (overflowYDescription) {
+                const descriptions = {
+                    'initial': 'Default vertical overflow behavior',
+                    'visible': 'Content overflows vertically',
+                    'hidden': 'Clips vertical overflow',
+                    'scroll': 'Adds vertical scrollbar always',
+                    'auto': 'Adds vertical scrollbar when needed'
+                };
+                overflowYDescription.textContent = descriptions[overflowY] || '';
             }
 
             // Apply overflow-y style
@@ -1675,13 +1714,13 @@ function setupShadowControls() {
 
     function updateBoxShadowDisplay() {
         if (boxShadows.length === 0) {
-            boxShadowValue.textContent = 'none';
+            boxShadowValue.textContent = 'none;';
             if (boxShadowDemo) {
                 boxShadowDemo.style.boxShadow = '';
             }
         } else {
             const shadowString = boxShadows.map(s => s.value).join(', ');
-            boxShadowValue.textContent = shadowString;
+            boxShadowValue.textContent = shadowString + ';';
             if (boxShadowDemo) {
                 boxShadowDemo.style.boxShadow = shadowString;
             }
@@ -1690,13 +1729,13 @@ function setupShadowControls() {
 
     function updateTextShadowDisplay() {
         if (textShadows.length === 0) {
-            textShadowValue.textContent = 'none';
+            textShadowValue.textContent = 'none;';
             if (textShadowDemo) {
                 textShadowDemo.style.textShadow = '';
             }
         } else {
             const shadowString = textShadows.map(s => s.value).join(', ');
-            textShadowValue.textContent = shadowString;
+            textShadowValue.textContent = shadowString + ';';
             if (textShadowDemo) {
                 textShadowDemo.style.textShadow = shadowString;
             }
@@ -2127,7 +2166,7 @@ function setupBackgroundControls() {
 
         // Update color value display
         if (bgColorValue) {
-            bgColorValue.textContent = bgColor;
+            bgColorValue.textContent = bgColor + ';';
         }
 
         // Apply background
@@ -2136,13 +2175,13 @@ function setupBackgroundControls() {
             demoBox.style.background = '';
             demoBox.style.backgroundColor = bgColor;
             if (backgroundValue) {
-                backgroundValue.textContent = 'initial';
+                backgroundValue.textContent = 'initial;';
             }
         } else if (bgValue) {
             // If background input has a value, use it (overrides background-color)
             demoBox.style.background = bgValue;
             if (backgroundValue) {
-                backgroundValue.textContent = bgValue;
+                backgroundValue.textContent = bgValue + ';';
             }
         } else {
             // Otherwise use background-color
@@ -2179,7 +2218,7 @@ function setupBackgroundControls() {
                 backgroundInput.disabled = true;
                 backgroundInput.value = 'initial';
                 if (backgroundValue) {
-                    backgroundValue.textContent = 'initial';
+                    backgroundValue.textContent = 'initial;';
                 }
                 updateBackground();
             } else {
@@ -2189,7 +2228,7 @@ function setupBackgroundControls() {
                 const defaultValue = 'center / cover url("./images/image0.jpg")';
                 backgroundInput.value = defaultValue;
                 if (backgroundValue) {
-                    backgroundValue.textContent = defaultValue;
+                    backgroundValue.textContent = defaultValue + ';';
                 }
                 updateBackground();
             }
@@ -2207,7 +2246,7 @@ function setupBackgroundControls() {
             if (!isBackgroundInitial) {
                 const value = backgroundInput.value.trim();
                 if (backgroundValue) {
-                    backgroundValue.textContent = value || '';
+                    backgroundValue.textContent = (value ? value + ';' : '');
                 }
                 updateBackground();
             }
@@ -2227,11 +2266,24 @@ function setupBackgroundControls() {
 
             // Update value display
             if (bgClipValue) {
-                bgClipValue.textContent = clip;
+                bgClipValue.textContent = clip + ';';
             }
 
             // Update current clip
             currentBgClip = clip;
+
+            // Update description
+            const bgClipDescription = document.getElementById('bg-clip-description');
+            if (bgClipDescription) {
+                const descriptions = {
+                    'initial': 'Default value (border-box)',
+                    'border-box': 'Background extends to outer edge of border',
+                    'padding-box': 'Background extends to outer edge of padding',
+                    'content-box': 'Background only within content area',
+                    'text': 'Background clipped to text (transparent text)'
+                };
+                bgClipDescription.textContent = descriptions[clip] || 'Background demonstration box';
+            }
 
             updateBackground();
         });
@@ -2265,7 +2317,7 @@ function setupOpacityControls() {
 
                 // Update value display
                 if (visibilityValue) {
-                    visibilityValue.textContent = visibility;
+                    visibilityValue.textContent = visibility + ';';
                 }
 
                 // Apply to demo
@@ -2285,12 +2337,12 @@ function setupOpacityControls() {
 
                 // Update slider value display
                 if (opacitySliderValue) {
-                    opacitySliderValue.textContent = value;
+                    opacitySliderValue.textContent = value + ';';
                 }
 
                 // Update opacity value display
                 if (opacityValue) {
-                    opacityValue.textContent = value;
+                    opacityValue.textContent = value + ';';
                 }
 
                 // Apply to demo
@@ -2321,10 +2373,10 @@ function setupOpacityControls() {
                 // Update to slider value
                 const value = opacitySlider.value;
                 if (opacitySliderValue) {
-                    opacitySliderValue.textContent = value;
+                    opacitySliderValue.textContent = value + ';';
                 }
                 if (opacityValue) {
-                    opacityValue.textContent = value;
+                    opacityValue.textContent = value + ';';
                 }
                 if (opacityDemo) {
                     opacityDemo.style.opacity = value;
@@ -2343,7 +2395,7 @@ function setupOpacityControls() {
 
                 // Reset to initial
                 if (opacityValue) {
-                    opacityValue.textContent = 'initial';
+                    opacityValue.textContent = 'initial;';
                 }
                 if (opacityDemo) {
                     opacityDemo.style.opacity = '';
@@ -2404,13 +2456,13 @@ function setupTransformControls() {
 
     function updateTransformDisplay() {
         if (transforms.length === 0) {
-            transformValue.textContent = 'none';
+            transformValue.textContent = 'none;';
             if (transformDemo) {
                 transformDemo.style.transform = '';
             }
         } else {
             const transformString = transforms.map(t => t.value).join(' ');
-            transformValue.textContent = transformString;
+            transformValue.textContent = transformString + ';';
             if (transformDemo) {
                 transformDemo.style.transform = transformString;
             }
@@ -2671,13 +2723,13 @@ function setupTransitionControls() {
 
     function updateTransitionDisplay() {
         if (transitions.length === 0) {
-            transitionValue.textContent = 'none';
+            transitionValue.textContent = 'none;';
             if (transitionDemo) {
                 transitionDemo.style.transition = '';
             }
         } else {
             const transitionString = transitions.map(t => t.value).join(', ');
-            transitionValue.textContent = transitionString;
+            transitionValue.textContent = transitionString + ';';
             if (transitionDemo) {
                 transitionDemo.style.transition = transitionString;
             }
@@ -2981,13 +3033,13 @@ function setupFilterControls() {
 
     function updateFilterDisplay() {
         if (filters.length === 0) {
-            filterValue.textContent = 'none';
+            filterValue.textContent = 'none;';
             if (filterDemo) {
                 filterDemo.style.filter = '';
             }
         } else {
             const filterString = filters.map(f => f.filterValue).join(' ');
-            filterValue.textContent = filterString;
+            filterValue.textContent = filterString + ';';
             if (filterDemo) {
                 filterDemo.style.filter = filterString;
             }
@@ -3225,7 +3277,7 @@ function setupCursorControls() {
                 `;
             }
             if (cursorValue) {
-                cursorValue.textContent = cursorType;
+                cursorValue.textContent = cursorType + ';';
             }
         });
 
@@ -3253,7 +3305,7 @@ function setupCursorControls() {
                     `;
                 }
                 if (cursorValue) {
-                    cursorValue.textContent = 'pointer';
+                    cursorValue.textContent = 'pointer;';
                 }
             }
         });
@@ -3289,7 +3341,9 @@ function setupTypographyControls() {
                 }
             }
             if (fontFamilyValue) {
-                fontFamilyValue.textContent = value;
+                // Add quotes if font family has spaces (two or more words)
+                const displayValue = value.includes(' ') && value !== 'initial' ? `"${value}"` : value;
+                fontFamilyValue.textContent = displayValue + ';';
             }
         });
     }
@@ -3306,7 +3360,7 @@ function setupTypographyControls() {
                 }
             }
             if (fontWeightValue) {
-                fontWeightValue.textContent = value;
+                fontWeightValue.textContent = value + ';';
             }
         });
     }
@@ -3318,7 +3372,7 @@ function setupTypographyControls() {
                 const value = fontSizeInput.value.trim();
                 typographyDemo.style.fontSize = value || '16px';
                 if (fontSizeValue) {
-                    fontSizeValue.textContent = value || '16px';
+                    fontSizeValue.textContent = (value || '16px') + ';';
                 }
             }
         });
@@ -3337,7 +3391,7 @@ function setupTypographyControls() {
                     typographyDemo.style.fontSize = '';
                 }
                 if (fontSizeValue) {
-                    fontSizeValue.textContent = 'initial';
+                    fontSizeValue.textContent = 'initial;';
                 }
             } else {
                 fontSizeInitialBtn.classList.remove('selected');
@@ -3348,7 +3402,7 @@ function setupTypographyControls() {
                     typographyDemo.style.fontSize = value;
                 }
                 if (fontSizeValue) {
-                    fontSizeValue.textContent = value;
+                    fontSizeValue.textContent = value + ';';
                 }
             }
         });
@@ -3361,7 +3415,7 @@ function setupTypographyControls() {
                 const value = textColorPicker.value;
                 typographyDemo.style.color = value;
                 if (textColorValue) {
-                    textColorValue.textContent = value;
+                    textColorValue.textContent = value + ';';
                 }
             }
         });
@@ -3379,7 +3433,7 @@ function setupTypographyControls() {
                     typographyDemo.style.color = '';
                 }
                 if (textColorValue) {
-                    textColorValue.textContent = 'initial';
+                    textColorValue.textContent = 'initial;';
                 }
             } else {
                 textColorInitialBtn.classList.remove('selected');
@@ -3389,7 +3443,7 @@ function setupTypographyControls() {
                     typographyDemo.style.color = value;
                 }
                 if (textColorValue) {
-                    textColorValue.textContent = value;
+                    textColorValue.textContent = value + ';';
                 }
             }
         });
@@ -3414,7 +3468,7 @@ function setupTypographyControls() {
                 }
             }
             if (textAlignValue) {
-                textAlignValue.textContent = align;
+                textAlignValue.textContent = align + ';';
             }
         });
     });
@@ -3438,7 +3492,7 @@ function setupTypographyControls() {
                 }
             }
             if (fontStyleValue) {
-                fontStyleValue.textContent = style;
+                fontStyleValue.textContent = style + ';';
             }
         });
     });
@@ -3462,7 +3516,7 @@ function setupTypographyControls() {
                 }
             }
             if (textTransformValue) {
-                textTransformValue.textContent = transform;
+                textTransformValue.textContent = transform + ';';
             }
         });
     });
@@ -3486,7 +3540,7 @@ function setupTypographyControls() {
                 }
             }
             if (textDecorationValue) {
-                textDecorationValue.textContent = decoration;
+                textDecorationValue.textContent = decoration + ';';
             }
         });
     });
@@ -3806,7 +3860,7 @@ function setupParagraphControls() {
                 }
             }
             if (userSelectValue) {
-                userSelectValue.textContent = value;
+                userSelectValue.textContent = value + ';';
             }
         });
     }
@@ -3824,7 +3878,7 @@ function setupParagraphControls() {
                 paragraphDemo.style.letterSpacing = value;
             }
             if (letterSpacingValue) {
-                letterSpacingValue.textContent = value;
+                letterSpacingValue.textContent = value + ';';
             }
         });
     }
@@ -3840,7 +3894,7 @@ function setupParagraphControls() {
                     letterSpacingInput.value = 'initial';
                 }
                 if (paragraphDemo) paragraphDemo.style.letterSpacing = '';
-                if (letterSpacingValue) letterSpacingValue.textContent = 'initial';
+                if (letterSpacingValue) letterSpacingValue.textContent = 'initial;';
             } else {
                 letterSpacingInitialBtn.classList.remove('selected');
                 if (letterSpacingInput) {
@@ -3848,7 +3902,7 @@ function setupParagraphControls() {
                     letterSpacingInput.value = '2px';
                     const value = '2px';
                     if (paragraphDemo) paragraphDemo.style.letterSpacing = value;
-                    if (letterSpacingValue) letterSpacingValue.textContent = value;
+                    if (letterSpacingValue) letterSpacingValue.textContent = value + ';';
                 }
             }
         });
@@ -3867,7 +3921,7 @@ function setupParagraphControls() {
                 paragraphDemo.style.wordSpacing = value;
             }
             if (wordSpacingValue) {
-                wordSpacingValue.textContent = value;
+                wordSpacingValue.textContent = value + ';';
             }
         });
     }
@@ -3883,7 +3937,7 @@ function setupParagraphControls() {
                     wordSpacingInput.value = 'initial';
                 }
                 if (paragraphDemo) paragraphDemo.style.wordSpacing = '';
-                if (wordSpacingValue) wordSpacingValue.textContent = 'initial';
+                if (wordSpacingValue) wordSpacingValue.textContent = 'initial;';
             } else {
                 wordSpacingInitialBtn.classList.remove('selected');
                 if (wordSpacingInput) {
@@ -3891,7 +3945,7 @@ function setupParagraphControls() {
                     wordSpacingInput.value = '5px';
                     const value = '5px';
                     if (paragraphDemo) paragraphDemo.style.wordSpacing = value;
-                    if (wordSpacingValue) wordSpacingValue.textContent = value;
+                    if (wordSpacingValue) wordSpacingValue.textContent = value + ';';
                 }
             }
         });
@@ -3910,7 +3964,7 @@ function setupParagraphControls() {
                 paragraphDemo.style.lineHeight = value;
             }
             if (lineHeightValue) {
-                lineHeightValue.textContent = value;
+                lineHeightValue.textContent = value + ';';
             }
         });
     }
@@ -3926,7 +3980,7 @@ function setupParagraphControls() {
                     lineHeightInput.value = 'initial';
                 }
                 if (paragraphDemo) paragraphDemo.style.lineHeight = '';
-                if (lineHeightValue) lineHeightValue.textContent = 'initial';
+                if (lineHeightValue) lineHeightValue.textContent = 'initial;';
             } else {
                 lineHeightInitialBtn.classList.remove('selected');
                 if (lineHeightInput) {
@@ -3934,7 +3988,7 @@ function setupParagraphControls() {
                     lineHeightInput.value = '1.5';
                     const value = '1.5';
                     if (paragraphDemo) paragraphDemo.style.lineHeight = value;
-                    if (lineHeightValue) lineHeightValue.textContent = value;
+                    if (lineHeightValue) lineHeightValue.textContent = value + ';';
                 }
             }
         });
@@ -3955,7 +4009,7 @@ function setupParagraphControls() {
                 }
             }
             if (directionValue) {
-                directionValue.textContent = value;
+                directionValue.textContent = value + ';';
             }
         });
     }
@@ -3973,7 +4027,7 @@ function setupParagraphControls() {
                 paragraphDemo.style.textIndent = value;
             }
             if (textIndentValue) {
-                textIndentValue.textContent = value;
+                textIndentValue.textContent = value + ';';
             }
         });
     }
@@ -3989,7 +4043,7 @@ function setupParagraphControls() {
                     textIndentInput.value = 'initial';
                 }
                 if (paragraphDemo) paragraphDemo.style.textIndent = '';
-                if (textIndentValue) textIndentValue.textContent = 'initial';
+                if (textIndentValue) textIndentValue.textContent = 'initial;';
             } else {
                 textIndentInitialBtn.classList.remove('selected');
                 if (textIndentInput) {
@@ -3997,7 +4051,7 @@ function setupParagraphControls() {
                     textIndentInput.value = '20px';
                     const value = '20px';
                     if (paragraphDemo) paragraphDemo.style.textIndent = value;
-                    if (textIndentValue) textIndentValue.textContent = value;
+                    if (textIndentValue) textIndentValue.textContent = value + ';';
                 }
             }
         });
@@ -4018,7 +4072,7 @@ function setupParagraphControls() {
                 }
             }
             if (textOverflowValue) {
-                textOverflowValue.textContent = value;
+                textOverflowValue.textContent = value + ';';
             }
         });
     }
@@ -4038,7 +4092,7 @@ function setupParagraphControls() {
                 }
             }
             if (wordBreakValue) {
-                wordBreakValue.textContent = value;
+                wordBreakValue.textContent = value + ';';
             }
         });
     }
@@ -4058,7 +4112,7 @@ function setupParagraphControls() {
                 }
             }
             if (overflowWrapValue) {
-                overflowWrapValue.textContent = value;
+                overflowWrapValue.textContent = value + ';';
             }
         });
     }
@@ -4078,7 +4132,7 @@ function setupParagraphControls() {
                 }
             }
             if (whiteSpaceValue) {
-                whiteSpaceValue.textContent = value;
+                whiteSpaceValue.textContent = value + ';';
             }
         });
     }
@@ -4098,7 +4152,7 @@ function setupParagraphControls() {
                 }
             }
             if (writingModeValue) {
-                writingModeValue.textContent = value;
+                writingModeValue.textContent = value + ';';
             }
         });
     }
@@ -4122,7 +4176,7 @@ function setupParagraphColumnsControls() {
                     columnsDemo.style.columnCount = value;
                 }
                 if (columnCountValue) {
-                    columnCountValue.textContent = value;
+                    columnCountValue.textContent = value + ';';
                 }
             }
         });
@@ -4139,7 +4193,7 @@ function setupParagraphColumnsControls() {
                     columnCountInput.value = '0';
                 }
                 if (columnsDemo) columnsDemo.style.columnCount = '';
-                if (columnCountValue) columnCountValue.textContent = 'initial';
+                if (columnCountValue) columnCountValue.textContent = 'initial;';
             } else {
                 columnCountInitialBtn.classList.remove('selected');
                 if (columnCountInput) {
@@ -4147,7 +4201,7 @@ function setupParagraphColumnsControls() {
                     columnCountInput.value = '2';
                     const value = '2';
                     if (columnsDemo) columnsDemo.style.columnCount = value;
-                    if (columnCountValue) columnCountValue.textContent = value;
+                    if (columnCountValue) columnCountValue.textContent = value + ';';
                 }
             }
         });
@@ -4167,7 +4221,7 @@ function setupParagraphColumnsControls() {
                     columnsDemo.style.columnWidth = value;
                 }
                 if (columnWidthValue) {
-                    columnWidthValue.textContent = value;
+                    columnWidthValue.textContent = value + ';';
                 }
             }
         });
@@ -4184,7 +4238,7 @@ function setupParagraphColumnsControls() {
                     columnWidthInput.value = 'initial';
                 }
                 if (columnsDemo) columnsDemo.style.columnWidth = '';
-                if (columnWidthValue) columnWidthValue.textContent = 'initial';
+                if (columnWidthValue) columnWidthValue.textContent = 'initial;';
             } else {
                 columnWidthInitialBtn.classList.remove('selected');
                 if (columnWidthInput) {
@@ -4192,7 +4246,7 @@ function setupParagraphColumnsControls() {
                     columnWidthInput.value = '150px';
                     const value = '150px';
                     if (columnsDemo) columnsDemo.style.columnWidth = value;
-                    if (columnWidthValue) columnWidthValue.textContent = value;
+                    if (columnWidthValue) columnWidthValue.textContent = value + ';';
                 }
             }
         });
@@ -4212,7 +4266,7 @@ function setupParagraphColumnsControls() {
                     columnsDemo.style.columnGap = value;
                 }
                 if (columnGapValue) {
-                    columnGapValue.textContent = value;
+                    columnGapValue.textContent = value + ';';
                 }
             }
         });
@@ -4229,15 +4283,15 @@ function setupParagraphColumnsControls() {
                     columnGapInput.value = 'initial';
                 }
                 if (columnsDemo) columnsDemo.style.columnGap = '';
-                if (columnGapValue) columnGapValue.textContent = 'initial';
+                if (columnGapValue) columnGapValue.textContent = 'initial;';
             } else {
                 columnGapInitialBtn.classList.remove('selected');
                 if (columnGapInput) {
                     columnGapInput.disabled = false;
-                    columnGapInput.value = '20px';
-                    const value = '20px';
+                    columnGapInput.value = '50px';
+                    const value = '50px';
                     if (columnsDemo) columnsDemo.style.columnGap = value;
-                    if (columnGapValue) columnGapValue.textContent = value;
+                    if (columnGapValue) columnGapValue.textContent = value + ';';
                 }
             }
         });
@@ -4258,7 +4312,7 @@ function setupParagraphColumnsControls() {
 
             // Update value display
             if (columnRuleStyleValue) {
-                columnRuleStyleValue.textContent = ruleStyle;
+                columnRuleStyleValue.textContent = ruleStyle + ';';
             }
 
             // Apply style
@@ -4286,7 +4340,7 @@ function setupParagraphColumnsControls() {
                     columnsDemo.style.columnRuleWidth = value;
                 }
                 if (columnRuleWidthValue) {
-                    columnRuleWidthValue.textContent = value;
+                    columnRuleWidthValue.textContent = value + ';';
                 }
             }
         });
@@ -4303,7 +4357,7 @@ function setupParagraphColumnsControls() {
                     columnRuleWidthInput.value = 'initial';
                 }
                 if (columnsDemo) columnsDemo.style.columnRuleWidth = '';
-                if (columnRuleWidthValue) columnRuleWidthValue.textContent = 'initial';
+                if (columnRuleWidthValue) columnRuleWidthValue.textContent = 'initial;';
             } else {
                 columnRuleWidthInitialBtn.classList.remove('selected');
                 if (columnRuleWidthInput) {
@@ -4311,7 +4365,7 @@ function setupParagraphColumnsControls() {
                     columnRuleWidthInput.value = '5px';
                     const value = '5px';
                     if (columnsDemo) columnsDemo.style.columnRuleWidth = value;
-                    if (columnRuleWidthValue) columnRuleWidthValue.textContent = value;
+                    if (columnRuleWidthValue) columnRuleWidthValue.textContent = value + ';';
                 }
             }
         });
@@ -4331,7 +4385,7 @@ function setupParagraphColumnsControls() {
                     columnsDemo.style.columnRuleColor = value;
                 }
                 if (columnRuleColorValue) {
-                    columnRuleColorValue.textContent = value;
+                    columnRuleColorValue.textContent = value + ';';
                 }
             }
         });
@@ -4347,14 +4401,14 @@ function setupParagraphColumnsControls() {
                     columnRuleColorPicker.disabled = true;
                 }
                 if (columnsDemo) columnsDemo.style.columnRuleColor = '';
-                if (columnRuleColorValue) columnRuleColorValue.textContent = 'initial';
+                if (columnRuleColorValue) columnRuleColorValue.textContent = 'initial;';
             } else {
                 columnRuleColorInitialBtn.classList.remove('selected');
                 if (columnRuleColorPicker) {
                     columnRuleColorPicker.disabled = false;
                     const value = columnRuleColorPicker.value;
                     if (columnsDemo) columnsDemo.style.columnRuleColor = value;
-                    if (columnRuleColorValue) columnRuleColorValue.textContent = value;
+                    if (columnRuleColorValue) columnRuleColorValue.textContent = value + ';';
                 }
             }
         });
@@ -4375,7 +4429,7 @@ function setupParagraphColumnsControls() {
                 }
             }
             if (columnSpanValue) {
-                columnSpanValue.textContent = value;
+                columnSpanValue.textContent = value + ';';
             }
         });
     }

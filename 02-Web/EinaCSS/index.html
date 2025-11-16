@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>CSS Tools</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -28,7 +31,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" class="property-link">display:</a>
-                            <span class="property-value" id="display-value">block</span>
+                            <span class="property-value" id="display-value">block;</span>
                             <div class="property-buttons">
                                 <button class="property-btn display-btn selected" data-display="initial" title="Initial, removes this property">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -70,7 +73,7 @@
                                     <span style="font-family: 'Courier New', monospace; font-size: 1em; color: #2c3e50; font-weight: 500;">display: flex;</span>
                                     <div class="property-row" style="margin-bottom: 0;">
                                         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction" target="_blank" class="property-link">flex-direction:</a>
-                                        <span class="property-value" id="flex-direction-value">row</span>
+                                        <span class="property-value" id="flex-direction-value">row;</span>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -106,7 +109,7 @@
                                     <span style="font-family: 'Courier New', monospace; font-size: 1em; color: #2c3e50; font-weight: 500;">display: flex;</span>
                                     <div class="property-row" style="margin-bottom: 0;">
                                         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank" class="property-link">align-items:</a>
-                                        <span class="property-value" id="align-items-value">start</span>
+                                        <span class="property-value" id="align-items-value">start;</span>
                                     </div>
                                 </div>
                                 <div class="property-buttons align-items-buttons">
@@ -146,7 +149,7 @@
                                     <span style="font-family: 'Courier New', monospace; font-size: 1em; color: #2c3e50; font-weight: 500;">flex-direction: row;</span>
                                     <div class="property-row" style="margin-bottom: 0;">
                                         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" class="property-link">justify-content:</a>
-                                        <span class="property-value" id="justify-content-row-value">start</span>
+                                        <span class="property-value" id="justify-content-row-value">start;</span>
                                     </div>
                                 </div>
                                 <div class="property-buttons justify-content-row-buttons">
@@ -189,7 +192,7 @@
                                     <span style="font-family: 'Courier New', monospace; font-size: 1em; color: #2c3e50; font-weight: 500;">flex-direction: column;</span>
                                     <div class="property-row" style="margin-bottom: 0;">
                                         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" class="property-link">justify-content:</a>
-                                        <span class="property-value" id="justify-content-column-value">start</span>
+                                        <span class="property-value" id="justify-content-column-value">start;</span>
                                     </div>
                                 </div>
                                 <div class="property-buttons justify-content-column-buttons">
@@ -232,7 +235,7 @@
                             <div class="property-row">
                                 <span style="font-family: 'Courier New', monospace; font-size: 1em; color: #2c3e50; font-weight: 500;">display: flex;</span>
                                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap" target="_blank" class="property-link">flex-wrap:</a>
-                                <span class="property-value" id="flex-wrap-value">nowrap</span>
+                                <span class="property-value" id="flex-wrap-value">nowrap;</span>
                                 <div class="property-buttons">
                                     <button class="property-btn flex-wrap-btn selected" data-wrap="initial" title="Initial">
                                         <img src="images/icons/initial.svg" alt="Initial">
@@ -263,7 +266,7 @@
 
                             <div class="property-row">
                                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content" target="_blank" class="property-link">align-content:</a>
-                                <span class="property-value" id="align-content-value">start</span>
+                                <span class="property-value" id="align-content-value">start;</span>
                                 <div class="property-buttons align-content-buttons">
                                     <button class="property-btn align-content-btn selected" data-align-content="initial" title="Initial">
                                         <img src="images/icons/initial.svg" alt="Initial">
@@ -425,14 +428,14 @@
                         <span>Size</span>
                     </summary>
                     <div class="section-content">
-                        <div class="example-container" id="size-example" style="height: 320px;">
-                            <canvas id="size-canvas" width="800" height="300" style="width: 100%; height: 280px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
+                        <div class="example-container" id="size-example" style="height: 350px;">
+                            <canvas id="size-canvas" width="800" height="300" style="width: 100%; height: 310px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
                             <div class="mini-description" id="size-description">Box sizing visualization</div>
                         </div>
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank" class="property-link">box-sizing:</a>
-                            <span class="property-value" id="box-sizing-value">content-box</span>
+                            <span class="property-value" id="box-sizing-value">content-box;</span>
                             <div class="property-buttons">
                                 <button class="property-btn box-sizing-btn selected" data-box-sizing="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -491,7 +494,6 @@
                     </summary>
                     <div class="section-content">
                         <div class="example-container" id="overflow-example" style="height: 220px;">
-                            <div class="mini-description">Content overflows container (150x100px box with 200px text)</div>
                             <div class="mini-outer" style="height: 145px; padding: 0;">
                                 <div id="overflow-demo-box" style="width: 150px; height: 100px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow: visible;">
                                     <div style="width: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold; line-height: 1.4;">
@@ -499,11 +501,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="mini-description" id="overflow-description">Default overflow behavior</div>
                         </div>
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank" class="property-link">overflow:</a>
-                            <span class="property-value" id="overflow-value">visible</span>
+                            <span class="property-value" id="overflow-value">visible;</span>
                             <div class="property-buttons">
                                 <button class="property-btn overflow-btn selected" data-overflow="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -524,7 +527,6 @@
                         </div>
 
                         <div class="example-container" id="overflow-x-example" style="height: 220px;">
-                            <div class="mini-description">Horizontal overflow (150x100px box with 200px wide content)</div>
                             <div class="mini-outer" style="height: 145px; padding: 0;">
                                 <div id="overflow-x-demo-box" style="width: 150px; height: 100px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow-x: visible;">
                                     <div style="width: 200px; background: linear-gradient(135deg, #2196f3 0%, #4fc3f7 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold;">
@@ -532,11 +534,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="mini-description" id="overflow-x-description">Default horizontal overflow behavior</div>
                         </div>
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x" target="_blank" class="property-link">overflow-x:</a>
-                            <span class="property-value" id="overflow-x-value">visible</span>
+                            <span class="property-value" id="overflow-x-value">visible;</span>
                             <div class="property-buttons">
                                 <button class="property-btn overflow-x-btn selected" data-overflow-x="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -557,7 +560,6 @@
                         </div>
 
                         <div class="example-container" id="overflow-y-example" style="height: 220px;">
-                            <div class="mini-description">Vertical overflow (150x80px box with tall content)</div>
                             <div class="mini-outer" style="height: 145px; padding: 0;">
                                 <div id="overflow-y-demo-box" style="width: 150px; height: 80px; margin: 10px auto; border: 2px solid #2c3e50; padding: 8px; background: #fff; overflow-y: visible;">
                                     <div style="background: linear-gradient(135deg, #00bfa5 0%, #00e676 100%); color: white; padding: 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold;">
@@ -565,11 +567,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="mini-description" id="overflow-y-description">Default vertical overflow behavior</div>
                         </div>
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y" target="_blank" class="property-link">overflow-y:</a>
-                            <span class="property-value" id="overflow-y-value">visible</span>
+                            <span class="property-value" id="overflow-y-value">visible;</span>
                             <div class="property-buttons">
                                 <button class="property-btn overflow-y-btn selected" data-overflow-y="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -613,7 +616,7 @@
 
                                 <div class="property-row">
                                     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" target="_blank" class="property-link">box-shadow:</a>
-                                    <span class="property-value" id="box-shadow-value">none</span>
+                                    <span class="property-value" id="box-shadow-value">none;</span>
                                 </div>
 
                                 <div id="box-shadow-list-container" style="margin-top: 15px;">
@@ -642,7 +645,7 @@
 
                                 <div class="property-row">
                                     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow" target="_blank" class="property-link">text-shadow:</a>
-                                    <span class="property-value" id="text-shadow-value">none</span>
+                                    <span class="property-value" id="text-shadow-value">none;</span>
                                 </div>
 
                                 <div id="text-shadow-list-container" style="margin-top: 15px;">
@@ -666,12 +669,12 @@
                     </summary>
                     <div class="section-content">
                         <div class="example-container" style="height: 220px;">
-                            <div class="mini-description">Background demonstration box</div>
                             <div class="mini-outer" style="height: 145px; padding: 0;">
-                                <div id="background-demo-box" style="width: 100%; height: 100%; padding: 20px; border: 10px solid rgba(52, 152, 219, 0.3); background-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 2em; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                                <div id="background-demo-box" style="width: 100%; height: 100%; padding: 20px; border: 10px solid rgba(52, 152, 219, 0.3); background-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 4em; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                                     DEMO
                                 </div>
                             </div>
+                            <div class="mini-description" id="bg-clip-description">Background demonstration box</div>
                         </div>
 
                         <div class="property-row">
@@ -682,7 +685,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background" target="_blank" class="property-link">background:</a>
-                            <span class="property-value" id="background-value">initial</span>
+                            <span class="property-value" id="background-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="background-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -693,7 +696,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip" target="_blank" class="property-link">background-clip:</a>
-                            <span class="property-value" id="background-clip-value">border-box</span>
+                            <span class="property-value" id="background-clip-value">border-box;</span>
                             <div class="property-buttons">
                                 <button class="property-btn bg-clip-btn selected" data-clip="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -708,7 +711,7 @@
                                     <img src="images/icons/sizingContent.svg" alt="Content box">
                                 </button>
                                 <button class="property-btn bg-clip-btn" data-clip="text" title="Text">
-                                    <img src="images/icons/shadows.svg" alt="Text">
+                                    <img src="images/icons/typography.svg" alt="Text">
                                 </button>
                             </div>
                         </div>
@@ -740,7 +743,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility" target="_blank" class="property-link">visibility:</a>
-                            <span class="property-value" id="visibility-value">visible</span>
+                            <span class="property-value" id="visibility-value">visible;</span>
                             <div class="property-buttons">
                                 <button class="property-btn visibility-btn selected" data-visibility="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -756,7 +759,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity" target="_blank" class="property-link">opacity:</a>
-                            <span class="property-value" id="opacity-value">0.5</span>
+                            <span class="property-value" id="opacity-value">0.5;</span>
                             <div class="property-buttons">
                                 <button class="property-btn opacity-reset-btn" title="Reset to initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -789,7 +792,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank" class="property-link">transform:</a>
-                            <span class="property-value" id="transform-value">none</span>
+                            <span class="property-value" id="transform-value">none;</span>
                         </div>
 
                         <!-- Transform List Container -->
@@ -822,7 +825,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" class="property-link">transition:</a>
-                            <span class="property-value" id="transition-value">none</span>
+                            <span class="property-value" id="transition-value">none;</span>
                         </div>
 
                         <!-- Transition List Container -->
@@ -853,7 +856,7 @@
 
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" class="property-link">filter:</a>
-                            <span class="property-value" id="filter-value">none</span>
+                            <span class="property-value" id="filter-value">none;</span>
                         </div>
 
                         <!-- Filter List Container -->
@@ -877,7 +880,7 @@
                     <div class="section-content">
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" target="_blank" class="property-link">cursor:</a>
-                            <span class="property-value" id="cursor-value">pointer</span>
+                            <span class="property-value" id="cursor-value">pointer;</span>
                         </div>
 
                         <div style="display: flex; gap: 15px; margin-top: 15px;">
@@ -916,7 +919,7 @@
                         <!-- Font Family -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family" target="_blank" class="property-link">font-family:</a>
-                            <span class="property-value" id="font-family-value">Arial</span>
+                            <span class="property-value" id="font-family-value">Arial;</span>
                             <select id="font-family-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="Arial" selected>Arial</option>
@@ -936,7 +939,7 @@
                         <!-- Font Weight -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight" target="_blank" class="property-link">font-weight:</a>
-                            <span class="property-value" id="font-weight-value">normal</span>
+                            <span class="property-value" id="font-weight-value">normal;</span>
                             <select id="font-weight-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="100">100</option>
@@ -954,7 +957,7 @@
                         <!-- Font Size -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size" target="_blank" class="property-link">font-size:</a>
-                            <span class="property-value" id="font-size-value">initial</span>
+                            <span class="property-value" id="font-size-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="font-size-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -966,7 +969,7 @@
                         <!-- Color -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color" target="_blank" class="property-link">color:</a>
-                            <span class="property-value" id="text-color-value">#000000</span>
+                            <span class="property-value" id="text-color-value">#000000;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="text-color-initial-btn" class="property-btn" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -978,7 +981,7 @@
                         <!-- Text Align -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align" target="_blank" class="property-link">text-align:</a>
-                            <span class="property-value" id="text-align-value">left</span>
+                            <span class="property-value" id="text-align-value">left;</span>
                             <div class="property-buttons">
                                 <button class="property-btn text-align-btn selected" data-align="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1001,7 +1004,7 @@
                         <!-- Font Style -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-style" target="_blank" class="property-link">font-style:</a>
-                            <span class="property-value" id="font-style-value">normal</span>
+                            <span class="property-value" id="font-style-value">normal;</span>
                             <div class="property-buttons">
                                 <button class="property-btn font-style-btn selected" data-style="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1021,7 +1024,7 @@
                         <!-- Text Transform -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform" target="_blank" class="property-link">text-transform:</a>
-                            <span class="property-value" id="text-transform-value">none</span>
+                            <span class="property-value" id="text-transform-value">none;</span>
                             <div class="property-buttons">
                                 <button class="property-btn text-transform-btn selected" data-transform="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1047,7 +1050,7 @@
                         <!-- Text Decoration -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration" target="_blank" class="property-link">text-decoration:</a>
-                            <span class="property-value" id="text-decoration-value">none</span>
+                            <span class="property-value" id="text-decoration-value">none;</span>
                             <div class="property-buttons">
                                 <button class="property-btn text-decoration-btn selected" data-decoration="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1087,7 +1090,7 @@
                         <!-- User Select -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/user-select" target="_blank" class="property-link">user-select:</a>
-                            <span class="property-value" id="user-select-value">auto</span>
+                            <span class="property-value" id="user-select-value">auto;</span>
                             <select id="user-select-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="auto" selected>auto</option>
@@ -1101,7 +1104,7 @@
                         <!-- Letter Spacing -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing" target="_blank" class="property-link">letter-spacing:</a>
-                            <span class="property-value" id="letter-spacing-value">initial</span>
+                            <span class="property-value" id="letter-spacing-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="letter-spacing-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1113,7 +1116,7 @@
                         <!-- Word Spacing -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing" target="_blank" class="property-link">word-spacing:</a>
-                            <span class="property-value" id="word-spacing-value">initial</span>
+                            <span class="property-value" id="word-spacing-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="word-spacing-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1125,7 +1128,7 @@
                         <!-- Line Height -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height" target="_blank" class="property-link">line-height:</a>
-                            <span class="property-value" id="line-height-value">initial</span>
+                            <span class="property-value" id="line-height-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="line-height-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1137,7 +1140,7 @@
                         <!-- Direction -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/direction" target="_blank" class="property-link">direction:</a>
-                            <span class="property-value" id="direction-value">ltr</span>
+                            <span class="property-value" id="direction-value">ltr;</span>
                             <select id="direction-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="ltr" selected>ltr</option>
@@ -1148,7 +1151,7 @@
                         <!-- Text Indent -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent" target="_blank" class="property-link">text-indent:</a>
-                            <span class="property-value" id="text-indent-value">initial</span>
+                            <span class="property-value" id="text-indent-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="text-indent-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1160,7 +1163,7 @@
                         <!-- Text Overflow -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank" class="property-link">text-overflow:</a>
-                            <span class="property-value" id="text-overflow-value">clip</span>
+                            <span class="property-value" id="text-overflow-value">clip;</span>
                             <select id="text-overflow-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="clip" selected>clip</option>
@@ -1171,7 +1174,7 @@
                         <!-- Word Break -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-break" target="_blank" class="property-link">word-break:</a>
-                            <span class="property-value" id="word-break-value">normal</span>
+                            <span class="property-value" id="word-break-value">normal;</span>
                             <select id="word-break-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="normal" selected>normal</option>
@@ -1184,7 +1187,7 @@
                         <!-- Overflow Wrap -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap" target="_blank" class="property-link">overflow-wrap:</a>
-                            <span class="property-value" id="overflow-wrap-value">normal</span>
+                            <span class="property-value" id="overflow-wrap-value">normal;</span>
                             <select id="overflow-wrap-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="normal" selected>normal</option>
@@ -1195,7 +1198,7 @@
                         <!-- White Space -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space" target="_blank" class="property-link">white-space:</a>
-                            <span class="property-value" id="white-space-value">normal</span>
+                            <span class="property-value" id="white-space-value">normal;</span>
                             <select id="white-space-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="normal" selected>normal</option>
@@ -1209,7 +1212,7 @@
                         <!-- Writing Mode -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank" class="property-link">writing-mode:</a>
-                            <span class="property-value" id="writing-mode-value">horizontal-tb</span>
+                            <span class="property-value" id="writing-mode-value">horizontal-tb;</span>
                             <select id="writing-mode-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="horizontal-tb" selected>horizontal-tb</option>
@@ -1238,7 +1241,7 @@
                         <!-- Column Count -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-count" target="_blank" class="property-link">column-count:</a>
-                            <span class="property-value" id="column-count-value">initial</span>
+                            <span class="property-value" id="column-count-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="column-count-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1250,7 +1253,7 @@
                         <!-- Column Width -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-width" target="_blank" class="property-link">column-width:</a>
-                            <span class="property-value" id="column-width-value">initial</span>
+                            <span class="property-value" id="column-width-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="column-width-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1262,7 +1265,7 @@
                         <!-- Column Gap -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap" target="_blank" class="property-link">column-gap:</a>
-                            <span class="property-value" id="column-gap-value">initial</span>
+                            <span class="property-value" id="column-gap-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="column-gap-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1274,7 +1277,7 @@
                         <!-- Column Rule Style -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-style" target="_blank" class="property-link">column-rule-style:</a>
-                            <span class="property-value" id="column-rule-style-value">initial</span>
+                            <span class="property-value" id="column-rule-style-value">initial;</span>
                             <div class="property-buttons">
                                 <button class="property-btn column-rule-style-btn selected" data-rule-style="initial" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1297,7 +1300,7 @@
                         <!-- Column Rule Width -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width" target="_blank" class="property-link">column-rule-width:</a>
-                            <span class="property-value" id="column-rule-width-value">initial</span>
+                            <span class="property-value" id="column-rule-width-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="column-rule-width-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1309,7 +1312,7 @@
                         <!-- Column Rule Color -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color" target="_blank" class="property-link">column-rule-color:</a>
-                            <span class="property-value" id="column-rule-color-value">initial</span>
+                            <span class="property-value" id="column-rule-color-value">initial;</span>
                             <div style="display: flex; gap: 6px; margin-left: auto; align-items: center; width: 50%;">
                                 <button id="column-rule-color-initial-btn" class="property-btn selected" title="Initial">
                                     <img src="images/icons/initial.svg" alt="Initial">
@@ -1321,7 +1324,7 @@
                         <!-- Column Span -->
                         <div class="property-row">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-span" target="_blank" class="property-link">column-span:</a>
-                            <span class="property-value" id="column-span-value">none</span>
+                            <span class="property-value" id="column-span-value">none;</span>
                             <select id="column-span-select" style="width: 50%; padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; background: white; cursor: pointer; margin-left: auto;">
                                 <option value="initial">initial</option>
                                 <option value="none" selected>none</option>
