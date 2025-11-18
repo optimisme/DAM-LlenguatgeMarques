@@ -1,4 +1,4 @@
-# Xuleta CSS
+# Xuleta CSS
 
 Les propietats d'aquesta "xuleta" es poden provar amb la **"Eina CSS"**
 
