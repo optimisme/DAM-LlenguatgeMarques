@@ -80,16 +80,9 @@ Cada pàgina ha de tenir un id al `<body>`:
 
 ### 1️⃣ Botó alternador (toggle)
 
-Basat en un `input type="checkbox"` **amagat**, + `<label>`:
+En mode escriptori la pàgina ha de tenir un menú "sticky" normal amb "flex".
 
-- Estat OFF i ON
-- Canvi de color i posició del knob
-- Animació/transition
-- Ús del selector:
-
-```css
-#pagina-interaccio:has(#wifi:checked) .toggle { … }
-```
+En mode mòbil el menú ha de ser l'icone de les 3/4 barres horitzontals, associat a un "checkbox" ocult que quan es clica mostra i amaga el menú estil mòbil de manera animada.
 
 ### 2️⃣ Pestanyes CSS (tabs)
 
