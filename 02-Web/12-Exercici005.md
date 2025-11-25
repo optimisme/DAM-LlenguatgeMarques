@@ -1,4 +1,4 @@
-# Exercici005: 
+# Exercici005:  
 
 Maqueta un mini-lloc web de 3 pàgines que demostri, a cada vista, els conceptes de la teoria: Transicions, Animacions, Tipografia (Google Fonts) i Material Icons.
 
