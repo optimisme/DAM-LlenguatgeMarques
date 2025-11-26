@@ -1,0 +1,88 @@
+:root {
+    --colorPrincipal: #1976d2; 
+    --colorPrincipalHover: #125da3; 
+}
+
+/* === Cos general === */
+body {
+    align-items: center;
+    background: #f2f2f2;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+    justify-content: center;
+}
+
+/* === Formulari === */
+form.formulari {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    width: 300px;
+}
+
+.camp {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* === Botó === */
+button {
+    background: var(--colorPrincipal);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: var(--colorPrincipalHover);
+}
+
+/* === Primera part (label normal) === */
+.camp label {
+    color: #333;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.camp input[type="text"] {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+    width: calc(100% - 24px);
+}
+
+.camp input[type="text"]:focus {
+    border-color: var(--colorPrincipal);
+    outline: none;
+}
+
+/* === Segona part: Label flotant === */
+.floating {
+  background-color: white;
+  color: #81888f !important;
+  font-size: 16px;
+  left: 12px;
+  padding: 0 4px;
+  pointer-events: none;
+  position: absolute !important;
+  top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Quan el camp té focus o text escrit */
+.camp:has(input[type="text"]:focus) .floating {
+  color: var(--colorPrincipal) !important;
+  font-size: 12px;
+  top: -8px;
+}

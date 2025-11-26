@@ -1,0 +1,23 @@
+/* Estils que només s'apliquen a "Escriptori" */
+@media (min-width: 768px) {
+  body {
+    background: #48a4ffff; 
+  }
+
+  p {
+    font-size: 1.125rem;
+    max-width: 700px;
+  }
+}
+
+/* Estils que només s'apliquen a "Mòbil" */
+@media (max-width: 768px) {
+  body {
+    background: #a2ff17ff;
+  }
+
+  p {
+    font-size: 1.125rem;
+    max-width: 700px;
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemple d'animació CSS</title>
+    <style>
+      body {
+        align-items: center;
+        background: #f4f4f4;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        height: 100vh;
+        justify-content: center;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      /* ─── ELEMENT ANIMAT ─── */
+      .cercle {
+        animation: pulsar 2s ease-in-out infinite;
+        background-color: #3498db;
+        border-radius: 50%;
+        height: 100px;
+        /* Assignem l'animació */
+        width: 100px;
+      }
+
+      /* ─── DEFINICIÓ DE L’ANIMACIÓ ─── */
+      @keyframes pulsar {
+        0% {
+          background-color: #3498db;
+          transform: scale(1);
+        }
+        50% {
+          background-color: #e74c3c;
+          transform: scale(1.5);
+        }
+        100% {
+          background-color: #3498db;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exemple d'animació</h1>
+    <div class="cercle"></div>
+  </body>
+</html>

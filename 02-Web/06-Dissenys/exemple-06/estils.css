@@ -1,15 +1,15 @@
-body { 
+body {
     font-family: "Open Sans";
     margin: 0;
     padding: 0;
 }
 .autocenterContainer {
-    max-width: 800px;     /* amplada màxima */
-    margin: auto;         /* centra horitzontalment */
     background: white;
+    margin: auto;         /* centra horitzontalment */
+    max-width: 800px;     /* amplada màxima */
     padding: 20px;
 }
-.titleContainer { 
+.titleContainer {
     align-items: center;
     display: flex;
     flex-direction: column;

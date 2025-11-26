@@ -1,0 +1,120 @@
+/* ─── FONS ─── */
+body {
+  align-items: center;
+  background: linear-gradient(135deg, #e9f0ff, #eef2f7);
+  display: flex;
+  font-family: system-ui, sans-serif;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ─── CONTENIDOR ─── */
+.gallery {
+  display: flex;
+  gap: 40px;
+  perspective: 1000px;
+}
+
+/* Cada targeta és un label contenidor (clickable) */
+.cardwrap {
+  display: block;
+  cursor: pointer;
+}
+
+/* ─── TOGGLE AMAGAT ─── */
+.flip {
+  display: none;
+}
+
+/* ─── TARGETA ─── */
+.card {
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  will-change: transform;
+  width: 240px;
+}
+
+/* Cara frontal i posterior */
+.front,
+.back {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* ─── ESTIL POLAROID ─── */
+.polaroid {
+  background: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 16px 16px 40px;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+}
+
+/* Revers amb degradat sèpia */
+.back .polaroid {
+  background: linear-gradient(-15deg, #faf7e3, #d7ca99);
+}
+
+/* Foto i llegenda */
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.caption {
+  bottom: 12px;
+  color: #333;
+  font-weight: 600;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+/* Gradients específics per cada foto (noms renombrats) */
+.frontCard1 .photo {
+  background: linear-gradient(135deg, #3d7bff, #0053d6);
+}
+.backCard1 .photo {
+  background: linear-gradient(135deg, #ff914a, #ff4a62);
+}
+
+.frontCard2 .photo {
+  background: linear-gradient(135deg, #ffcc33, #ffaa00);
+}
+.backCard2 .photo {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+/* ─── EFECTE HOVER ─── */
+.cardwrap:hover .card {
+  transform: scale(1.03) rotateZ(-1deg);
+}
+.cardwrap:hover .polaroid {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+}
+
+/* ─── GIR DE LA TARGETA (GENÈRIC amb :has) ─── */
+.cardwrap:has(.flip:checked) .card {
+  transform: rotateY(180deg);
+}
+
+/* Mantenir l'efecte hover quan està girada */
+.cardwrap:has(.flip:checked):hover .card {
+  transform: rotateY(180deg) scale(1.03) rotateZ(-1deg);
+}

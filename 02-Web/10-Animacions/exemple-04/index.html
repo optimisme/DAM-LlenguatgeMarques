@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scroll-driven animation (Pure CSS)</title>
+<style>
+:root { 
+  --box: 100px; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(#fff, #eef2f7);
+}
+
+/* Contingut abans per tenir scroll */
+.spacerTop {
+  align-items: center;
+  color: #666;
+  display: flex;
+  font-size: 1.3rem;
+  height: 50vh;
+  justify-content: center;
+}
+
+/* Secció d'animació - es mou amb el flux de la pàgina */
+.stage {
+  min-height: 150vh;
+  padding: 40vh 0;
+  position: relative;
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 40vh;
+  position: relative; /* flueix amb la pàgina */
+}
+
+.instruction {
+  color: #555;
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+}
+
+.track {
+  background: rgba(255,255,255,0.6);
+  border-radius: 8px;
+  height: var(--box);
+  outline: 2px dashed #ccc;
+  position: relative;
+  width: min(90vw, 800px);
+}
+
+.box {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  height: var(--box);
+  position: absolute;
+  top: 0;
+  width: var(--box);
+}
+
+.box.blue { 
+  background: royalblue; 
+  left: 0; 
+}
+
+.box.green { 
+  background: mediumseagreen; 
+  right: 0; 
+}
+
+/* Animacions amb keyframes */
+@keyframes moveToRight {
+  from { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  to { 
+    transform: translateX(calc(min(90vw, 800px) - var(--box))) rotate(360deg); 
+  }
+}
+
+@keyframes moveToLeft {
+  from { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  to { 
+    transform: translateX(calc(-1 * (min(90vw, 800px) - var(--box)))) rotate(-360deg); 
+  }
+}
+
+/* SCROLL-DRIVEN ANIMATIONS (Safari 26+, Chrome 115+) */
+@supports (animation-timeline: view()) {
+  .box.blue {
+    animation: moveToRight linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+  }
+
+  .box.green {
+    animation: moveToLeft linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+  }
+  
+  .fallbackNote {
+    display: none;
+  }
+}
+
+/* FALLBACK per navegadors antics (només CSS) */
+@supports not (animation-timeline: view()) {
+  .fallbackNote {
+    background: rgba(255,255,255,0.9);
+    border-radius: 4px;
+    color: #c00;
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* Contingut després per tenir scroll */
+.spacerBottom {
+  align-items: center;
+  color: #666;
+  display: flex;
+  font-size: 1.3rem;
+  height: 50vh;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+
+<div class="spacerTop">
+  ⬇️ Fes scroll cap avall
+</div>
+
+<div class="stage">
+  <div class="row">
+    <p class="instruction">Observa com es mouen les caixes mentre fas scroll!</p>
+    <div class="track">
+      <div class="box blue" aria-label="Quadre blau"></div>
+      <div class="box green" aria-label="Quadre verd"></div>
+    </div>
+    <p class="fallbackNote">
+      Codi que es mostra quan un navegador no suporta "scroll-driven animations".<br>
+      Aquí hi hauria d'haver una imatge o text equivalent a l'animació
+    </p>
+  </div>
+</div>
+
+<div class="spacerBottom">
+  ⬆️ Torna a pujar
+</div>
+
+</body>
+</html>

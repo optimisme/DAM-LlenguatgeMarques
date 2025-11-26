@@ -1,0 +1,79 @@
+:root {
+  --colorPrincipal: #1976d2;
+  --colorPrincipalHover: #125da3;
+  --colorError: #d32f2f;
+}
+
+/* === Cos general === */
+body {
+  align-items: center;
+  background: #f2f2f2;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+
+/* === Formulari === */
+form.formulari {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px 40px;
+  width: 320px;
+}
+
+h2, h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* === Checkbox i Radio === */
+.grup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.grup label {
+  align-items: center;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  gap: 6px;
+}
+
+/* estil base per checkbox i radio */
+.grup input[type="checkbox"],
+.grup input[type="radio"] {
+  accent-color: var(--colorPrincipal);
+  cursor: pointer;
+  height: 18px;
+  transition: transform 0.2s ease;
+  width: 18px;
+}
+
+/* petita animació */
+.grup input[type="checkbox"]:active,
+.grup input[type="radio"]:active {
+  transform: scale(1.2);
+}
+
+/* === Botó === */
+button {
+  background: var(--colorPrincipal);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--colorPrincipalHover);
+}

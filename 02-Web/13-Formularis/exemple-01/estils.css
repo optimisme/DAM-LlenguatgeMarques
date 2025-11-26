@@ -1,0 +1,100 @@
+:root {
+  --colorPrincipal: #1976d2;
+  --colorPrincipalHover: #125da3;
+  --colorError: #d32f2f;
+}
+
+/* === Cos general === */
+body {
+  align-items: center;
+  background: #f2f2f2;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+
+/* === Formulari === */
+form.formulari {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px 40px;
+  width: 300px;
+}
+
+.camp {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* === Inputs === */
+.camp input {
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+  width: calc(100% - 24px);
+}
+
+.camp input:focus {
+  border-color: var(--colorPrincipal);
+  outline: none;
+}
+
+/* === Labels flotants === */
+.floating {
+  background-color: white;
+  color: #81888f !important;
+  font-size: 16px;
+  left: 12px;
+  padding: 0 4px;
+  pointer-events: none;
+  position: absolute !important;
+  top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Quan el camp té focus o text */
+.camp:has(input:focus) .floating,
+.camp input:not(:placeholder-shown) + .floating {
+  color: var(--colorPrincipal) !important;
+  font-size: 12px;
+  top: -8px;
+}
+
+/* === Missatges d'error === */
+.avís {
+  bottom: -18px;
+  color: var(--colorError);
+  font-size: 12px;
+  left: 4px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.4s ease;
+}
+
+/* Mostra el missatge quan el camp és invàlid */
+.camp input:invalid:focus ~ .avís,
+.camp input:invalid:not(:placeholder-shown) ~ .avís {
+  opacity: 1;
+}
+
+/* === Botó === */
+button {
+  background: var(--colorPrincipal);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--colorPrincipalHover);
+}

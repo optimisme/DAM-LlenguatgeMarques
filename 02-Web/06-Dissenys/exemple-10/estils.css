@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
 }
-.pictureHeader { 
+.pictureHeader {
     align-items: center;
     background: center / cover url("./imageMain.jpg");
     box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
     margin: 0;
     text-align: center;
 }
-.pictureHeader > p { 
+.pictureHeader > p {
     box-sizing: border-box;
     color: #ffffff;
     font-size: 1.5em;

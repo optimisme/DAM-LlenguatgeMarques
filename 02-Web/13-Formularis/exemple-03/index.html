@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple Textarea i Select</title>
+  <link rel="stylesheet" href="estils.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<form class="formulari">
+
+  <div class="camp">
+    <textarea id="comentaris" name="comentaris" placeholder=" " rows="4" required></textarea>
+    <label class="floating" for="comentaris">Comentaris</label>
+    </div>
+
+    <div class="camp">
+    <select id="provincia" name="provincia" required>
+        <option value="" disabled selected hidden>Selecciona una província</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="girona">Girona</option>
+        <option value="lleida">Lleida</option>
+        <option value="tarragona">Tarragona</option>
+    </select>
+    <label class="floating fixed" for="provincia">Província</label>
+    </div>
+
+    <div class="camp">
+    <select id="aficionsMulti" name="aficionsMulti" multiple required size="5">
+        <option value="musica">🎵 Música</option>
+        <option value="esport">⚽ Esport</option>
+        <option value="lectura">📚 Lectura</option>
+        <option value="videojocs">🎮 Videojocs</option>
+        <option value="cinema">🎬 Cinema</option>
+    </select>
+    <label class="floating fixed" for="aficionsMulti">Aficions (Ctrl o Cmd per múltiples)</label>
+    <p class="ajuda">Mantén premut Ctrl (Windows) o Cmd (Mac) per seleccionar diverses opcions.</p>
+    </div>
+
+
+  <button type="submit">Enviar</button>
+
+</form>
+
+</body>
+</html>

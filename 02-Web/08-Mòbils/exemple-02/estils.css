@@ -1,0 +1,12 @@
+.autocenter {
+  margin: auto;
+  max-width: 800px;
+  padding: 0 5px;
+}
+
+/* més marge a mòbil */
+@media (max-width: 768px) {
+  .autocenter {
+    padding: 0 25px;
+  }
+}

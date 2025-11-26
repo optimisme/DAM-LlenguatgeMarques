@@ -7,34 +7,34 @@
     :root { --box: 70px; }
 
     body {
+      background: #fafafa;
       font-family: system-ui, sans-serif;
       margin: 20px;
-      background: #fafafa;
     }
     h1, h2 { margin: 16px 0 8px; }
     .nota { color: #555; margin: 0 0 12px; }
 
     /* Estil general de contenidors de prova */
     .demo {
+      background: white;
       border: 1px solid #ddd;
       border-radius: 8px;
-      background: white;
-      padding: 10px;
       margin: 14px 0 28px;
+      padding: 10px;
     }
 
     /* CAIXES (items) de mostra */
     .item {
-      width: var(--box);
-      height: var(--box);
+      align-items: center;
+      background: #e3f2fd; /* blau suau */
+      border: 1px solid #00000022;
       border-radius: 6px;
       color: #222;
-      font-weight: 700;
       display: flex;
-      align-items: center;
+      font-weight: 700;
+      height: var(--box);
       justify-content: center;
-      border: 1px solid #00000022;
-      background: #e3f2fd; /* blau suau */
+      width: var(--box);
     }
     .item:nth-child(2) { background: #c8e6c9; } /* verd suau */
     .item:nth-child(3) { background: #ffe0b2; } /* taronja suau */
@@ -50,20 +50,20 @@
 
     /* 2) Direcció columna */
     .flex-col {
+      border: 1px dashed #ddd;
       display: flex;
       flex-direction: column; /* col·loca els ítems en columna */
       gap: 10px;
       height: calc(var(--box) * 4 + 40px); /* alçada per veure l'alineació vertical */
-      border: 1px dashed #ddd;
       padding: 10px;
     }
 
     /* 3) Wrap (retorn de línia) */
     .flex-wrap {
+      border: 1px dashed #ddd;
       display: flex;
       flex-wrap: wrap;        /* permet saltar de línia */
       gap: 10px;
-      border: 1px dashed #ddd;
       padding: 10px;
       width: 330px;           /* ample reduït per forçar el wrap */
     }
@@ -79,11 +79,11 @@
 
     /* 5) Alineació transversal (eix secundari) en fila → vertical */
     .ai {
+      border: 1px dashed #ddd;
       display: flex;
       gap: 10px;
-      border: 1px dashed #ddd;
-      padding: 10px;
       height: 120px; /* alçada per veure diferències d'alineació */
+      padding: 10px;
     }
     .ai.start   { align-items: flex-start; }
     .ai.center  { align-items: center; }
@@ -93,9 +93,9 @@
 
     /* 6) flex-grow / shrink / basis */
     .grow {
+      border: 1px dashed #ddd;
       display: flex;
       gap: 10px;
-      border: 1px dashed #ddd;
       padding: 10px;
     }
     .g1  { flex: 1 1 0; }     /* creix 1 part */
@@ -104,12 +104,12 @@
 
     /* 7) align-self i order per ítems individuals */
     .self {
-      display: flex;
       align-items: center;     /* alineació base */
-      gap: 10px;
       border: 1px dashed #ddd;
-      padding: 10px;
+      display: flex;
+      gap: 10px;
       height: 140px;
+      padding: 10px;
     }
     .self .a-start  { align-self: flex-start; } /* sobreescriu l'alineació del contenidor */
     .self .a-end    { align-self: flex-end;   }

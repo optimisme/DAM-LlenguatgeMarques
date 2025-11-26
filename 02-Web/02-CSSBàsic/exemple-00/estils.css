@@ -27,14 +27,14 @@ p {
 
 /* Selector per id (únic per element) */
 #titol {
-  text-decoration: underline;
   font-size: 28px;
+  text-decoration: underline;
 }
 
 /* Un toc per als enllaços, per veure que l'external també aplica */
 a {
-  text-decoration: none;
   border-bottom: 1px dotted #333;
+  text-decoration: none;
 }
 a:hover {
   border-bottom-style: solid;

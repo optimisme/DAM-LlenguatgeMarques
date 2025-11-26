@@ -1,0 +1,153 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #111;
+    color: #eee;
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Hide radio buttons */
+.carousel input {
+    display: none;
+}
+
+/* Carousel wrapper */
+.carousel {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slides container */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    align-items: center;
+    display: flex;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    justify-content: center;
+    min-height: 400px;
+    min-width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Slide backgrounds */
+.slide:nth-child(1) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.slide:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.slide:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.slide:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+/* Slide positioning based on checked radio */
+body:has(#slide1:checked) .slides { transform: translateX(0%); }
+body:has(#slide2:checked) .slides { transform: translateX(-100%); }
+body:has(#slide3:checked) .slides { transform: translateX(-200%); }
+body:has(#slide4:checked) .slides { transform: translateX(-300%); }
+
+/* Navigation arrows */
+.navArrow {
+    align-items: center;
+    background: rgba(0,0,0,.5);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hide by default */
+    font-size: 24px;
+    font-weight: bold;
+    height: 48px;
+    justify-content: center;
+    padding-bottom: 4px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.3s;
+    width: 48px;
+    z-index: 10;
+}
+
+.navArrow:hover {
+    background: rgba(0,0,0,.7);
+}
+
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+/* Show correct arrows for each slide */
+/* Slide 1: només next (no prev perquè és la primera) */
+body:has(#slide1:checked) .arrowNext1 { display: flex; }
+
+/* Slide 2: prev i next */
+body:has(#slide2:checked) .arrowPrev2,
+body:has(#slide2:checked) .arrowNext2 { display: flex; }
+
+/* Slide 3: prev i next */
+body:has(#slide3:checked) .arrowPrev3,
+body:has(#slide3:checked) .arrowNext3 { display: flex; }
+
+/* Slide 4: només prev (no next perquè és l'última) */
+body:has(#slide4:checked) .arrowPrev4 { display: flex; }
+
+/* Navigation dots */
+.dots {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding-bottom: 5px;
+}
+
+.dot {
+    background: rgba(255,255,255,.3);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    transition: all 0.3s;
+    width: 12px;
+}
+
+.dot:hover {
+    background: rgba(255,255,255,.6);
+    transform: scale(1.2);
+}
+
+/* Active dot styling */
+body:has(#slide1:checked) .dots label:nth-child(1),
+body:has(#slide2:checked) .dots label:nth-child(2),
+body:has(#slide3:checked) .dots label:nth-child(3),
+body:has(#slide4:checked) .dots label:nth-child(4) {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .slide {
+    font-size: 1.25rem;
+    min-height: 300px;
+    }
+
+    .navArrow {
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    }
+
+    .prev { left: 0.5rem; }
+    .next { right: 0.5rem; }
+}

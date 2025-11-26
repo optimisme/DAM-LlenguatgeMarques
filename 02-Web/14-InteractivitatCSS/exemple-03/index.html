@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="estils.css">
+  <title>Carrusel CSS Pur</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Carrusel d'Imatges</h1>
+
+    <div class="carousel">
+      <!-- Radio buttons for state management -->
+      <input type="radio" name="slide" id="slide1" checked>
+      <input type="radio" name="slide" id="slide2">
+      <input type="radio" name="slide" id="slide3">
+      <input type="radio" name="slide" id="slide4">
+
+      <!-- Slides -->
+      <div class="slides">
+        <div class="slide">
+          <div>Primera Diapositiva 🎨</div>
+        </div>
+        <div class="slide">
+          <div>Segona Diapositiva 🚀</div>
+        </div>
+        <div class="slide">
+          <div>Tercera Diapositiva 🌟</div>
+        </div>
+        <div class="slide">
+          <div>Quarta Diapositiva ✨</div>
+        </div>
+      </div>
+
+      <!-- Previous arrows (one for each state) -->
+      <!-- No prev arrow per slide 1 (és la primera) -->
+      <label for="slide1" class="navArrow prev arrowPrev2">‹</label>
+      <label for="slide2" class="navArrow prev arrowPrev3">‹</label>
+      <label for="slide3" class="navArrow prev arrowPrev4">‹</label>
+
+      <!-- Next arrows (one for each state) -->
+      <label for="slide2" class="navArrow next arrowNext1">›</label>
+      <label for="slide3" class="navArrow next arrowNext2">›</label>
+      <label for="slide4" class="navArrow next arrowNext3">›</label>
+      <!-- No next arrow per slide 4 (és l'última) -->
+
+      <!-- Navigation dots -->
+      <div class="dots">
+        <label class="dot" for="slide1"></label>
+        <label class="dot" for="slide2"></label>
+        <label class="dot" for="slide3"></label>
+        <label class="dot" for="slide4"></label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
