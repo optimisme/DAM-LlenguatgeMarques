@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" href="estils.css">
+        <title>HTML Avançat</title>
+        <!-- Lottie library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    </head>
+    <body>
+        <br/><br/>
+        <h2>Exemple &lt;iframe&gt; YouTube:</h2>
+        <iframe width="400" height="300" 
+            src="https://www.youtube.com/embed/BQqAT0R_sfw?si=ljVuiQ_QIEL5JptX" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
+
+        <br/><br/>
+        <h2>Exemple &lt;iframe&gt; Google Maps:</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7658.709477934014!2d2.073759476804995!3d41.35557547130394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4995cdcf4979d%3A0xf7993c3566e6151f!2sInstitut%20Esteve%20Terradas!5e1!3m2!1sca!2ses!4v1764343861333!5m2!1sca!2ses" 
+            width="400" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <br/><br/>
+        <h2>Exemple "Lottie Animation":</h2>
+        <div id="lottie-container" class="lottie"></div>
+        <script>
+        // Load Lottie animation
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-container'), // HTML element
+            renderer: 'svg',        // or 'canvas' / 'html'
+            loop: true,             // play in loop
+            autoplay: true,         // start automatically
+            path: 'running-cat.json'   // path to your Lottie .json file
+        });
+        </script>
+
+    </body>
+</html>

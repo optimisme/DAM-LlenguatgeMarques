@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="estils.css">
+    <title>HTML Avançat</title>
+</head>
+<body>
+    <h2>Exemple SVG:</h2>
+
+    <svg width="200" height="200">
+        <a href="https://www.google.com" target="_blank">
+
+            <!-- ESTRELLA DE 16 PUNTES -->
+            <polygon 
+                points="
+                    100,40
+                    111.7,63.1
+                    133.1,55.3
+                    123.8,78.4
+                    146.8,87.2
+                    123.8,95.9
+                    133.1,119
+                    111.7,111.2
+                    100,134
+                    88.2,111.2
+                    66.8,119
+                    76.1,95.9
+                    53.1,87.2
+                    76.1,78.4
+                    66.8,55.3
+                    88.2,63.1
+                "
+                fill="lightblue"
+                stroke="blue"
+                stroke-width="3"
+                style="cursor:pointer;"
+            />
+
+            <!-- CERCLE INTERIOR -->
+            <circle class="clickable"
+                cx="100" cy="90" r="25"
+            />
+
+            <!-- TEXT DINS DEL CERCLE -->
+            <text 
+                x="100" y="95"
+                text-anchor="middle"
+                font-size="18"
+                font-family="sans-serif"
+                fill="#222"
+                pointer-events="none">
+                Clica'm
+            </text>
+
+        </a>
+    </svg>
+
+</body>
+</html>

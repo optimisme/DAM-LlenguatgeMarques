@@ -1,0 +1,33 @@
+
+body {
+  background: linear-gradient(180deg, #e6f0ff 0%, #f9fbff 40%, #ffffff 100%);
+  color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  padding: 50px;
+}
+
+.clickable {
+  fill: lightblue;
+  stroke: blue;
+  stroke-width: 2;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.clickable:hover {
+  fill: orange;
+  transform: scale(1.1);
+  transform-box: fill-box;   /* important for SVG */
+  transform-origin: center;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.2); }
+}
+
+.clickable {
+  animation: pulse 0.8s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}

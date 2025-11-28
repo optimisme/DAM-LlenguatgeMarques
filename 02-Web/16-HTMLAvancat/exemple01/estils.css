@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(180deg, #e6f0ff 0%, #f9fbff 40%, #ffffff 100%);
+  color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  padding: 50px;
+}
+
+.lottie {
+  display: inline-block;
+  height:300px; 
+  margin:auto;
+  width:400px; 
+}
