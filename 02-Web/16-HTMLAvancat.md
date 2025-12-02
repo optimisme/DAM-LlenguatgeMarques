@@ -121,9 +121,11 @@ circle {
 
 > **Nota:** Els SVG es poden carregar d'arxius *.svg* com una imatge amb un element `<img>` però aleshores no són interactius ni animats.
 
-### 🔗 Referència per aprendre SVG
+### 🔗 Referència de SVG
 
 [W3Schools – SVG Tutorial](https://www.w3schools.com/graphics/svg_intro.asp)
+
+[Glaxnimate](https://glaxnimate.org/es/), editor SVG amb animacions
 
 ### Lottie Animation
 
