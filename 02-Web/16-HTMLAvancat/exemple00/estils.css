@@ -15,9 +15,14 @@ svg {
   fill: #e3f2fd;
   stroke: #1565c0;
   stroke-width: 2.5;
-  transition: fill 0.25s ease, stroke 0.25s ease, transform 0.25s ease;
+  transition: all 0.25s ease, stroke 0.25s ease, transform 0.25s ease;
   transform-box: fill-box;
   transform-origin: center;
+}
+
+/* Element tipus 'polygon' amb class 'clickable' */
+polygon.clickable {
+  filter: drop-shadow(0 0 4px rgba(21, 101, 192, 0.5));
 }
 
 /* Quan qualsevol element del grup rep hover → tots canvien */
@@ -25,7 +30,6 @@ svg {
   fill: #ffcc80;
   stroke: #ef6c00;
   transform: scale(1.06);
-  filter: drop-shadow(0 0 6px rgba(239, 108, 0, 0.7));
 }
 
 /* Pul·lació subtil */
