@@ -127,7 +127,14 @@ circle {
 
 [Glaxnimate](https://glaxnimate.org/es/), editor SVG amb animacions
 
-Per instal·lar a Ubuntu:
+Per instal·lar a Ubuntu, primer cal *"Flatpak"*:
+```bash
+sudo apt install flatpak
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo reboot now   # reinicia l'ordinador perquè Flatpak s'integri bé
+```
+
+Un cop *"Flatpak"* està disponible:
 ```bash
 flatpak install flathub org.mattbas.Glaxnimate
 flatpak run org.mattbas.Glaxnimate
