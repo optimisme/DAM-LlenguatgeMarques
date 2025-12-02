@@ -19,7 +19,7 @@ svg {
 /* Estil base */
 .clickable {
   fill: #e3f2fd;
-  stroke: #1565c0;
+  stroke: #d4ca05;
   stroke-width: 2.5;
   transition: all 0.25s ease, stroke 0.25s ease, transform 0.25s ease;
   transform-box: fill-box;
@@ -28,7 +28,7 @@ svg {
 
 /* Element tipus 'polygon' amb class 'clickable' */
 polygon.clickable {
-  filter: drop-shadow(0 0 4px rgba(21, 101, 192, 0.5));
+  filter: drop-shadow(0 0 4px rgba(82, 85, 88, 0.5));
 }
 
 /* Quan qualsevol element del grup rep hover → tots canvien */
