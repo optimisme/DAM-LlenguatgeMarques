@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Room 1 - First Media Query</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-mobile-responsive',
+            roomId: 'room1',
+            title: '📱 Your First Media Query',
+            description: 'Learn to write CSS that responds to screen size',
+            instructions: `The box is blue. Write a media query to make it <strong>green</strong> when the screen is small (max-width: 500px). The preview simulates a mobile screen!`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="responsive-box">
+    <p>I change color on small screens!</p>
+    <p class="hint">📱 Currently simulating mobile width</p>
+</div>`,
+
+            initialCSS: `/* Make the box green on small screens */
+.responsive-box {
+    background: #3498db;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.hint {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Add your media query below */
+`,
+
+            hints: [
+                'Media queries start with <code>@media</code>',
+                'Syntax: <code>@media (max-width: 500px) { ... }</code>',
+                'Inside, change the background: <code>.responsive-box { background: #2ecc71; }</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                const box = doc.querySelector('.responsive-box');
+                if (!box) return { success: false, message: 'Box not found!' };
+
+                // Check if CSS contains a media query
+                if (!css.includes('@media')) {
+                    return { success: false, message: 'Add a @media query to your CSS!' };
+                }
+
+                // The preview is 350px wide, so if the media query works, color should change
+                const style = doc.defaultView.getComputedStyle(box);
+                const bgColor = style.backgroundColor;
+                const rgb = bgColor.match(/\d+/g);
+
+                // Check for greenish color (green > red && green > blue)
+                if (rgb && parseInt(rgb[1]) > parseInt(rgb[0]) && parseInt(rgb[1]) > parseInt(rgb[2])) {
+                    return { success: true };
+                }
+
+                return { success: false, message: 'The box should be green on small screens! Check your media query.' };
+            }
+        });
+    </script>
+</body>
+</html>

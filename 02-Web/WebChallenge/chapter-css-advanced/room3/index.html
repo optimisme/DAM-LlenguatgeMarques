@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Room 3 - CSS Variables</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-advanced',
+            roomId: 'room3',
+            title: '🎨 CSS Variables',
+            description: 'Learn to use CSS custom properties (variables)',
+            instructions: `Define a CSS variable <code>--accent-color</code> in <code>:root</code> and set it to a color. Then use it with <code>var(--accent-color)</code>!`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="themed-box">
+    <h3>Themed Content</h3>
+    <p>This box uses CSS variables for consistent theming!</p>
+    <button class="themed-button">Themed Button</button>
+</div>`,
+
+            initialCSS: `/* Define CSS variables in :root */
+
+/* Example:
+:root {
+    --accent-color: #3498db;
+}
+*/
+
+.themed-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 3px solid #ccc;
+}
+
+.themed-box h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.themed-button {
+    background: #ccc;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Use var(--accent-color) for border and button background */
+`,
+
+            hints: [
+                'First define: <code>:root { --accent-color: #3498db; }</code>',
+                'Then use: <code>border-color: var(--accent-color);</code>',
+                'Apply to button: <code>background: var(--accent-color);</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                // Check if CSS contains variable definition
+                if (!css.includes('--') || !css.includes(':root')) {
+                    return { success: false, message: 'Define a CSS variable in :root!' };
+                }
+
+                if (!css.includes('var(')) {
+                    return { success: false, message: 'Use var() to apply your CSS variable!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations Room 2 - Transform on Hover</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-animations',
+            roomId: 'room2',
+            title: '🔍 Scale on Hover',
+            description: 'Learn to use transform for hover effects',
+            instructions: `Make the card grow slightly when hovered! Add a <code>transition</code> and use <code>transform: scale(1.05);</code> on hover.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="cards-container">
+    <div class="hover-card">
+        <h3>Hover Card</h3>
+        <p>I should grow smoothly on hover!</p>
+    </div>
+</div>`,
+
+            initialCSS: `/* Add scale transform on hover */
+.cards-container {
+    padding: 40px;
+    text-align: center;
+}
+
+.hover-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.hover-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.hover-card p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Add :hover rule with transform: scale() */
+`,
+
+            hints: [
+                'First add <code>transition: transform 0.3s;</code> to .hover-card',
+                'Then add <code>.hover-card:hover { transform: scale(1.05); }</code>',
+                'scale(1.05) means 105% of original size'
+            ],
+
+            validate: function({ doc, css }) {
+                const card = doc.querySelector('.hover-card');
+                if (!card) return { success: false, message: 'Card not found!' };
+
+                const style = doc.defaultView.getComputedStyle(card);
+                const transition = style.transition || style.transitionProperty;
+                const hasTransition = transition && transition !== 'none' && transition !== 'all 0s ease 0s';
+
+                if (!hasTransition) {
+                    return { success: false, message: 'Add a transition to .hover-card first!' };
+                }
+
+                // Check for scale in hover rule
+                if (!css.includes('scale') || !css.includes(':hover')) {
+                    return { success: false, message: 'Add transform: scale() on .hover-card:hover!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

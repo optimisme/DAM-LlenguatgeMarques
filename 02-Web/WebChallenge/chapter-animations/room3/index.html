@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations Room 3 - Keyframe Animation</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-animations',
+            roomId: 'room3',
+            title: '🎬 Keyframe Animations',
+            description: 'Learn to create custom animations with @keyframes',
+            instructions: `Make the key float up and down! Define a <code>@keyframes</code> animation and apply it with the <code>animation</code> property.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="animation-container">
+    <div class="key-icon">🔑</div>
+</div>`,
+
+            initialCSS: `/* Create a floating animation */
+.animation-container {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+}
+
+.key-icon {
+    font-size: 64px;
+    display: inline-block;
+}
+
+/* Define @keyframes here */
+
+/* Example:
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+*/
+`,
+
+            hints: [
+                'Define keyframes: <code>@keyframes float { 0% { ... } 50% { ... } 100% { ... } }</code>',
+                'Use translateY to move up/down: <code>transform: translateY(-20px);</code>',
+                'Apply with: <code>animation: float 2s ease-in-out infinite;</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                const key = doc.querySelector('.key-icon');
+                if (!key) return { success: false, message: 'Key icon not found!' };
+
+                const style = doc.defaultView.getComputedStyle(key);
+                const animationName = style.animationName;
+                const animationDuration = style.animationDuration;
+
+                if (!animationName || animationName === 'none') {
+                    return { success: false, message: 'Add an animation to .key-icon!' };
+                }
+
+                if (animationDuration === '0s') {
+                    return { success: false, message: 'Set an animation duration!' };
+                }
+
+                if (!css.includes('@keyframes')) {
+                    return { success: false, message: 'Define a @keyframes animation!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

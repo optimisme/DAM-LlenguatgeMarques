@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Interactivity Room 4 - Accordion</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-interactivity-checkbox-radio',
+            roomId: 'room4',
+            title: '🪗 CSS Accordion',
+            description: 'Build an accordion where only one section opens at a time',
+            instructions: `Create an accordion! Hide content by default with <code>max-height: 0</code>, then use <code>:checked</code> to expand with <code>max-height: 200px</code>. Use <code>overflow: hidden</code> on the content.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="accordion">
+    <div class="accordion-item">
+        <input type="radio" name="accordion" id="acc1" class="accordion-radio" checked>
+        <label for="acc1" class="accordion-header">Section 1: The Beginning</label>
+        <div class="accordion-content" id="content1">
+            <p>Your journey starts here. The first clue leads to the ancient library.</p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <input type="radio" name="accordion" id="acc2" class="accordion-radio">
+        <label for="acc2" class="accordion-header">Section 2: The Middle</label>
+        <div class="accordion-content" id="content2">
+            <p>In the heart of the maze, secrets await those who persevere.</p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <input type="radio" name="accordion" id="acc3" class="accordion-radio">
+        <label for="acc3" class="accordion-header">Section 3: The End</label>
+        <div class="accordion-content" id="content3">
+            <p>The final door opens to reveal your reward!</p>
+        </div>
+    </div>
+</div>`,
+
+            initialCSS: `/* Build a CSS accordion */
+.accordion {
+    max-width: 400px;
+}
+
+.accordion-item {
+    margin-bottom: 5px;
+}
+
+.accordion-radio {
+    display: none;
+}
+
+.accordion-header {
+    display: block;
+    padding: 15px 20px;
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.accordion-header:hover {
+    background: #2980b9;
+}
+
+.accordion-content {
+    background: #ecf0f1;
+    padding: 0 20px;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    /* Add max-height: 0 to hide by default */
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+}
+
+/* Show content when radio is checked */
+/* Use: .accordion-radio:checked ~ .accordion-content */
+`,
+
+            hints: [
+                'Hide by default: <code>.accordion-content { max-height: 0; }</code>',
+                'Show when checked: <code>.accordion-radio:checked ~ .accordion-content { max-height: 200px; }</code>',
+                'overflow: hidden is already set to clip the content'
+            ],
+
+            validate: function({ doc, css }) {
+                const acc1 = doc.getElementById('acc1');
+                const acc2 = doc.getElementById('acc2');
+                const content1 = doc.getElementById('content1');
+                const content2 = doc.getElementById('content2');
+
+                if (!acc1 || !acc2 || !content1 || !content2) {
+                    return { success: false, message: 'Accordion elements not found!' };
+                }
+
+                // Check when acc1 is selected
+                acc1.checked = true;
+                acc2.checked = false;
+
+                const maxHeight1 = doc.defaultView.getComputedStyle(content1).maxHeight;
+                const maxHeight2 = doc.defaultView.getComputedStyle(content2).maxHeight;
+
+                if (parseInt(maxHeight1) === 0 || maxHeight1 === '0px') {
+                    return { success: false, message: 'Content 1 should be visible when Section 1 is selected!' };
+                }
+
+                // Check when acc2 is selected
+                acc1.checked = false;
+                acc2.checked = true;
+
+                const maxHeight1After = doc.defaultView.getComputedStyle(content1).maxHeight;
+                const maxHeight2After = doc.defaultView.getComputedStyle(content2).maxHeight;
+
+                if (maxHeight1After !== '0px' && parseInt(maxHeight1After) !== 0) {
+                    return { success: false, message: 'Content 1 should be hidden when Section 2 is selected!' };
+                }
+
+                if (parseInt(maxHeight2After) === 0 || maxHeight2After === '0px') {
+                    return { success: false, message: 'Content 2 should be visible when Section 2 is selected!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

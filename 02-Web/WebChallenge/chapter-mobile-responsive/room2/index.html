@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Room 2 - Relative Units</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-mobile-responsive',
+            roomId: 'room2',
+            title: '📏 Relative Units',
+            description: 'Learn to use percentage widths for fluid layouts',
+            instructions: `The container has a fixed width of 400px and overflows! Change it to a percentage width (like 90% or 100%) so it fits any screen.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+</div>`,
+
+            initialCSS: `/* Change px to % for responsive width */
+.container {
+    width: 400px;
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card {
+    background: #3498db;
+    color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+}`,
+
+            hints: [
+                'Percentage widths are relative to the parent',
+                'Change <code>width: 400px;</code> to <code>width: 100%;</code>',
+                'You can also use <code>max-width</code> to limit maximum size'
+            ],
+
+            validate: function({ doc, css }) {
+                const container = doc.querySelector('.container');
+                if (!container) return { success: false, message: 'Container not found!' };
+
+                // Check if CSS uses percentage or relative units
+                if (css.includes('width: 400px') || css.includes('width:400px')) {
+                    return { success: false, message: 'Change the fixed 400px width to a percentage!' };
+                }
+
+                // Check actual width ratio
+                const containerWidth = container.offsetWidth;
+                const parentWidth = container.parentElement.offsetWidth;
+                const widthRatio = containerWidth / parentWidth;
+
+                if (widthRatio < 0.85) {
+                    return { success: false, message: 'The container should fill most of the available width. Try width: 100% or 90%.' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

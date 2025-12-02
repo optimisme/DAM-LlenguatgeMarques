@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Room 4 - Focus States</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-forms',
+            roomId: 'room4',
+            title: '🎯 Focus States',
+            description: 'Style inputs when they are focused',
+            instructions: `Inputs need a visible focus indicator for accessibility! Add a <code>:focus</code> style with a <code>border-color</code> or <code>box-shadow</code>.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<form class="focus-form">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" class="focus-input" placeholder="Type to search...">
+    </div>
+    <p class="hint-text">Click on the input to see your focus style!</p>
+</form>`,
+
+            initialCSS: `/* Add a :focus style */
+.focus-form {
+    max-width: 350px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.focus-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Add .focus-input:focus rule here */
+
+.hint-text {
+    color: #666;
+    font-size: 14px;
+}`,
+
+            hints: [
+                'Add <code>.focus-input:focus { ... }</code>',
+                'Change the border: <code>border-color: #3498db;</code>',
+                'Or add glow: <code>box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                // Check if CSS contains :focus
+                if (!css.includes(':focus')) {
+                    return { success: false, message: 'Add a :focus pseudo-class rule!' };
+                }
+
+                // Check for border-color or box-shadow in CSS
+                if (!css.includes('border-color') && !css.includes('box-shadow') && !css.includes('border:')) {
+                    return { success: false, message: 'Add border-color or box-shadow to your :focus rule!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

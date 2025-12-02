@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basic Room 2 - Selectors</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-basic',
+            roomId: 'room2',
+            title: '🎯 CSS Selectors',
+            description: 'Learn to target specific elements using CSS selectors',
+            instructions: `Style only the element with class <code>highlight</code> to have a yellow background. Use the class selector <code>.highlight</code>.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<p>This is normal text.</p>
+<p class="highlight">This should be highlighted!</p>
+<p>This is also normal text.</p>`,
+
+            initialCSS: `/* Style only the highlighted paragraph */
+p {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Add a rule for .highlight here */
+`,
+
+            hints: [
+                'Class selectors start with a dot: <code>.classname</code>',
+                'Add <code>.highlight { background-color: yellow; }</code>',
+                'You can also add <code>font-weight: bold;</code> for emphasis'
+            ],
+
+            validate: function({ doc, css }) {
+                const highlight = doc.querySelector('.highlight');
+                const normal = doc.querySelectorAll('p:not(.highlight)');
+
+                if (!highlight) return { success: false, message: 'Element not found!' };
+
+                const hlStyle = doc.defaultView.getComputedStyle(highlight);
+                const hlBg = hlStyle.backgroundColor;
+
+                // Check highlight has non-white/transparent background
+                const rgb = hlBg.match(/\d+/g);
+                if (!rgb || (parseInt(rgb[0]) > 250 && parseInt(rgb[1]) > 250 && parseInt(rgb[2]) > 250)) {
+                    return { success: false, message: 'Add a background-color to .highlight!' };
+                }
+
+                // Make sure it's using class selector (not styling all p)
+                let normalHasSameBg = false;
+                normal.forEach(p => {
+                    const pStyle = doc.defaultView.getComputedStyle(p);
+                    if (pStyle.backgroundColor === hlBg) {
+                        normalHasSameBg = true;
+                    }
+                });
+
+                if (normalHasSameBg) {
+                    return { success: false, message: 'Only .highlight should have the background color, not all paragraphs!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

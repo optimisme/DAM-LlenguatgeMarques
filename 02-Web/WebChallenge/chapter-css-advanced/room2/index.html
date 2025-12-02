@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Room 2 - nth-child Selector</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-advanced',
+            roomId: 'room2',
+            title: '🦓 Zebra Stripes',
+            description: 'Use :nth-child() for alternating styles',
+            instructions: `Create zebra stripes on the table! Use <code>:nth-child(even)</code> or <code>:nth-child(odd)</code> to give alternating rows a different background color.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<table class="data-table">
+    <tr><td>Row 1</td><td>Data A</td></tr>
+    <tr><td>Row 2</td><td>Data B</td></tr>
+    <tr><td>Row 3</td><td>Data C</td></tr>
+    <tr><td>Row 4</td><td>Data D</td></tr>
+    <tr><td>Row 5</td><td>Data E</td></tr>
+    <tr><td>Row 6</td><td>Data F</td></tr>
+</table>`,
+
+            initialCSS: `/* Add zebra stripes with :nth-child */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.data-table tr {
+    background: white;
+}
+
+/* Add :nth-child(even) or :nth-child(odd) rule */
+`,
+
+            hints: [
+                'Target even rows: <code>.data-table tr:nth-child(even) { ... }</code>',
+                'Add a different background: <code>background: #f0f0f0;</code>',
+                'You can also use :nth-child(odd) for odd rows'
+            ],
+
+            validate: function({ doc, css }) {
+                const rows = doc.querySelectorAll('.data-table tr');
+                if (rows.length < 4) return { success: false, message: 'Table rows not found!' };
+
+                const row1Bg = doc.defaultView.getComputedStyle(rows[0]).backgroundColor;
+                const row2Bg = doc.defaultView.getComputedStyle(rows[1]).backgroundColor;
+                const row3Bg = doc.defaultView.getComputedStyle(rows[2]).backgroundColor;
+                const row4Bg = doc.defaultView.getComputedStyle(rows[3]).backgroundColor;
+
+                // Check alternating pattern
+                if (row1Bg !== row2Bg && row1Bg === row3Bg && row2Bg === row4Bg) {
+                    return { success: true };
+                }
+
+                return { success: false, message: 'Create alternating background colors for rows!' };
+            }
+        });
+    </script>
+</body>
+</html>

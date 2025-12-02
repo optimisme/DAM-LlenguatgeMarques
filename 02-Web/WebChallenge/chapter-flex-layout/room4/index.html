@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout Room 4 - Column Direction</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-flex-layout',
+            roomId: 'room4',
+            title: '⬇️ Stack the Blocks',
+            description: 'Learn to change flex direction to stack items vertically',
+            instructions: `The blocks are in a row. Use <code>flex-direction: column;</code> to stack them vertically!`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="container">
+    <div class="block">Top</div>
+    <div class="block">Middle</div>
+    <div class="block">Bottom</div>
+</div>`,
+
+            initialCSS: `/* Stack blocks vertically */
+.container {
+    display: flex;
+    background: #2c3e50;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 12px;
+}
+
+.block {
+    background: #e74c3c;
+    color: white;
+    padding: 20px 40px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+}`,
+
+            hints: [
+                'Add <code>flex-direction</code> to the .container',
+                'Use <code>flex-direction: column;</code>',
+                'The main axis becomes vertical, items stack top to bottom'
+            ],
+
+            validate: function({ doc, css }) {
+                const container = doc.querySelector('.container');
+                if (!container) return { success: false, message: 'Container not found!' };
+
+                const style = doc.defaultView.getComputedStyle(container);
+
+                if (style.flexDirection !== 'column' && style.flexDirection !== 'column-reverse') {
+                    return { success: false, message: 'Add flex-direction: column; to stack the blocks!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

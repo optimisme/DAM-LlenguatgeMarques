@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basic Room 4 - Borders</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-basic',
+            roomId: 'room4',
+            title: '🖼️ Borders & Rounded Corners',
+            description: 'Learn to add borders and rounded corners',
+            instructions: `Style the card with a <code>border</code> and use <code>border-radius</code> to round the corners.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="card">
+    <h3>My Card</h3>
+    <p>This card needs a nice border!</p>
+</div>`,
+
+            initialCSS: `/* Add border and border-radius */
+.card {
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}`,
+
+            hints: [
+                'Border syntax: <code>border: 2px solid #3498db;</code>',
+                'Round corners with: <code>border-radius: 10px;</code>',
+                'You can also try <code>box-shadow: 0 2px 10px rgba(0,0,0,0.1);</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                const card = doc.querySelector('.card');
+                if (!card) return { success: false, message: 'Card not found!' };
+
+                const style = doc.defaultView.getComputedStyle(card);
+                const borderWidth = parseInt(style.borderTopWidth) || parseInt(style.borderWidth);
+                const borderStyle = style.borderTopStyle || style.borderStyle;
+                const borderRadius = parseInt(style.borderRadius) || parseInt(style.borderTopLeftRadius);
+
+                if (!borderWidth || borderWidth < 1 || borderStyle === 'none') {
+                    return { success: false, message: 'Add a border to the card!' };
+                }
+
+                if (!borderRadius || borderRadius < 5) {
+                    return { success: false, message: 'Add border-radius to round the corners!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

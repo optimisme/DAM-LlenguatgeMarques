@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Room 5 - Master Challenge</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-advanced',
+            roomId: 'room5',
+            title: '🏆 Master Challenge',
+            description: 'Combine CSS variables, gradients, and pseudo-elements',
+            instructions: `Style the achievement card with all three techniques:
+<br>1. Define a <code>--primary</code> CSS variable
+<br>2. Add a <code>linear-gradient</code> background
+<br>3. Add a star with <code>::before</code>`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="achievement-card">
+    <h3>Achievement Unlocked!</h3>
+    <p>CSS Advanced Master</p>
+</div>`,
+
+            initialCSS: `/* Master Challenge: Combine all techniques! */
+
+/* 1. Define --primary variable in :root */
+
+/* 2. Add gradient background to card */
+
+/* 3. Add ::before with star content */
+
+.achievement-card {
+    background: #444;
+    color: white;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+}
+
+.achievement-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.achievement-card p {
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+`,
+
+            hints: [
+                'Define variable: <code>:root { --primary: #f1c40f; }</code>',
+                'Add gradient: <code>background: linear-gradient(135deg, #1a1a2e, #16213e);</code>',
+                'Add star: <code>.achievement-card::before { content: "⭐"; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 40px; }</code>'
+            ],
+
+            validate: function({ doc, css }) {
+                const card = doc.querySelector('.achievement-card');
+                if (!card) return { success: false, message: 'Achievement card not found!' };
+
+                // Check CSS variable
+                if (!css.includes('--primary') || !css.includes(':root')) {
+                    return { success: false, message: 'Define a --primary variable in :root!' };
+                }
+
+                // Check gradient
+                if (!css.includes('gradient')) {
+                    return { success: false, message: 'Add a gradient background!' };
+                }
+
+                // Check ::before
+                if (!css.includes('::before') && !css.includes(':before')) {
+                    return { success: false, message: 'Add a ::before pseudo-element!' };
+                }
+
+                if (!css.includes('content')) {
+                    return { success: false, message: 'Set content in your ::before rule!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

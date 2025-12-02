@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basic Room 5 - Typography</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-basic',
+            roomId: 'room5',
+            title: '✍️ Typography',
+            description: 'Learn to style text with CSS font properties',
+            instructions: `Style the text! Change <code>font-size</code>, <code>font-weight</code>, and <code>text-align</code> to make it look professional.`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<div class="article">
+    <h1>Breaking News</h1>
+    <p class="lead">This is the lead paragraph that should stand out.</p>
+    <p>This is regular body text with more details about the story.</p>
+</div>`,
+
+            initialCSS: `/* Style the typography */
+.article {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 16px;
+    text-align: left;
+}
+
+.lead {
+    font-size: 14px;
+    font-weight: normal;
+}`,
+
+            hints: [
+                'Make h1 bigger: <code>font-size: 32px;</code>',
+                'Center it: <code>text-align: center;</code>',
+                'Make .lead bold: <code>font-weight: bold;</code> and bigger'
+            ],
+
+            validate: function({ doc, css }) {
+                const h1 = doc.querySelector('h1');
+                const lead = doc.querySelector('.lead');
+
+                if (!h1 || !lead) return { success: false, message: 'Elements not found!' };
+
+                const h1Style = doc.defaultView.getComputedStyle(h1);
+                const leadStyle = doc.defaultView.getComputedStyle(lead);
+
+                const h1Size = parseInt(h1Style.fontSize);
+                const leadSize = parseInt(leadStyle.fontSize);
+                const leadWeight = parseInt(leadStyle.fontWeight);
+
+                if (h1Size < 24) {
+                    return { success: false, message: 'Make the h1 font-size bigger! Try at least 24px.' };
+                }
+
+                if (leadSize < 16) {
+                    return { success: false, message: 'Make the .lead font-size a bit bigger!' };
+                }
+
+                if (leadWeight < 600) {
+                    return { success: false, message: 'Make the .lead text bold with font-weight!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

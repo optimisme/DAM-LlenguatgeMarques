@@ -64,3 +64,5 @@ dades.sqlite
 
 # Ignore pycache
 __pycache__
+
+.claude

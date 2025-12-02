@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Room 3 - Responsive Navigation</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-mobile-responsive',
+            roomId: 'room3',
+            title: '🧭 Stack Navigation on Mobile',
+            description: 'Make horizontal navigation stack vertically on small screens',
+            instructions: `The navigation links are horizontal and cramped on mobile. Use a media query to make them stack vertically with <code>flex-direction: column;</code>`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<nav class="navigation">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Services</a>
+    <a href="#" class="nav-link">Contact</a>
+</nav>`,
+
+            initialCSS: `/* Stack navigation on small screens */
+.navigation {
+    display: flex;
+    background: #2c3e50;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 5px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background: #34495e;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background: #3498db;
+}
+
+/* Add media query to stack on mobile */
+`,
+
+            hints: [
+                'Add <code>@media (max-width: 500px) { ... }</code>',
+                'Inside, target .navigation and add <code>flex-direction: column;</code>',
+                'The links will stack vertically!'
+            ],
+
+            validate: function({ doc, css }) {
+                const nav = doc.querySelector('.navigation');
+                if (!nav) return { success: false, message: 'Navigation not found!' };
+
+                // Check if CSS has media query
+                if (!css.includes('@media')) {
+                    return { success: false, message: 'Add a @media query for small screens!' };
+                }
+
+                const style = doc.defaultView.getComputedStyle(nav);
+
+                if (style.flexDirection !== 'column' && style.flexDirection !== 'column-reverse') {
+                    return { success: false, message: 'Add flex-direction: column; inside your media query!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

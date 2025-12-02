@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Room 1 - Headings & Paragraphs</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-html',
+            roomId: 'room1',
+            title: '📝 Headings & Paragraphs',
+            description: 'Learn to structure text with HTML heading and paragraph tags',
+            instructions: `The preview shows plain text without structure. Add proper HTML tags to create a heading and a paragraph. Use <code>&lt;h1&gt;</code> for the title and <code>&lt;p&gt;</code> for the paragraph.`,
+
+            htmlEditable: true,
+            cssEditable: false,
+
+            initialHTML: `Welcome to My Website
+
+This is my first webpage. I am learning HTML and it is fun!`,
+
+            initialCSS: `
+h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+}`,
+
+            hints: [
+                'Wrap the title with <code>&lt;h1&gt;</code> and <code>&lt;/h1&gt;</code>',
+                'Wrap the paragraph with <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>',
+                'Solution: <code>&lt;h1&gt;Welcome to My Website&lt;/h1&gt;</code>'
+            ],
+
+            validate: function({ doc, html }) {
+                const h1 = doc.querySelector('h1');
+                const p = doc.querySelector('p');
+
+                if (!h1) {
+                    return { success: false, message: 'Add an <h1> tag for the heading!' };
+                }
+                if (!p) {
+                    return { success: false, message: 'Add a <p> tag for the paragraph!' };
+                }
+                if (h1.textContent.trim().length < 3) {
+                    return { success: false, message: 'The heading needs some text content!' };
+                }
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

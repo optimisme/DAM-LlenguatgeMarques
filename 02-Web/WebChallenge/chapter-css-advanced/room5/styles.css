@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* FIX THIS: Define --primary CSS variable */
+:root {
+    /* Add: --primary: #00ff88; */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.room {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #00d9ff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.challenge-area {
+    background: #16213e;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.challenge-area > p {
+    margin-bottom: 1.5rem;
+    color: #aaa;
+}
+
+/* FIX THIS: Add gradient background and ::before pseudo-element */
+.achievement-card {
+    background: #1a3a5c;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.achievement-card h3 {
+    color: var(--primary, #888);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.achievement-card p {
+    color: #aaa;
+}
+
+/* FIX THIS: Add ::before with star content */
+
+
+
+.clue-box {
+    background: #1a3a5c;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #00ff88;
+}
+
+.clue-box ul {
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+.clue-box li {
+    color: #aaa;
+    margin-bottom: 0.25rem;
+}
+
+.clue-box code {
+    background: #0f0f23;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: #00ff88;
+}
+
+.success {
+    background: #00ff88;
+    color: #000;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}

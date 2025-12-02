@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Room 1 - Pseudo Elements</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-css-advanced',
+            roomId: 'room1',
+            title: '✨ Pseudo Elements',
+            description: 'Learn to add content with ::before and ::after',
+            instructions: `Use the <code>::before</code> pseudo-element to add a checkmark before each completed item. Set the <code>content</code> property!`,
+
+            htmlEditable: false,
+            cssEditable: true,
+
+            initialHTML: `<ul class="task-list">
+    <li class="completed">Learn HTML</li>
+    <li class="completed">Learn CSS</li>
+    <li>Learn JavaScript</li>
+</ul>`,
+
+            initialCSS: `/* Add checkmarks using ::before */
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    padding: 15px 20px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.completed {
+    color: #27ae60;
+}
+
+/* Add ::before pseudo-element to .completed */
+`,
+
+            hints: [
+                'Use <code>.completed::before { content: "..."; }</code>',
+                'Try <code>content: "✓ ";</code> or <code>content: "✔️ ";</code>',
+                'You can also add color and margin-right to style the checkmark'
+            ],
+
+            validate: function({ doc, css }) {
+                const item = doc.querySelector('.completed');
+                if (!item) return { success: false, message: 'Completed item not found!' };
+
+                // Check if CSS contains ::before
+                if (!css.includes('::before') && !css.includes(':before')) {
+                    return { success: false, message: 'Add a ::before pseudo-element to .completed!' };
+                }
+
+                if (!css.includes('content')) {
+                    return { success: false, message: 'Set the content property in your ::before rule!' };
+                }
+
+                const beforeStyle = doc.defaultView.getComputedStyle(item, '::before');
+                const content = beforeStyle.content;
+
+                if (!content || content === 'none' || content === '""' || content === "''") {
+                    return { success: false, message: 'Add content to the ::before element!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Room 2 - Lists</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-html',
+            roomId: 'room2',
+            title: '📋 Creating Lists',
+            description: 'Learn to organize items using HTML list tags',
+            instructions: `Create an unordered list with the shopping items. Use <code>&lt;ul&gt;</code> for the list container and <code>&lt;li&gt;</code> for each item.`,
+
+            htmlEditable: true,
+            cssEditable: false,
+
+            initialHTML: `<h2>Shopping List</h2>
+
+Milk
+Bread
+Eggs
+Butter`,
+
+            initialCSS: `
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+ul {
+    background: #ecf0f1;
+    padding: 20px 40px;
+    border-radius: 8px;
+}
+li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #bdc3c7;
+    color: #2c3e50;
+}
+li:last-child {
+    border-bottom: none;
+}`,
+
+            hints: [
+                'Start with <code>&lt;ul&gt;</code> to create an unordered list',
+                'Wrap each item with <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code>',
+                'Structure: <code>&lt;ul&gt;&lt;li&gt;Milk&lt;/li&gt;&lt;li&gt;Bread&lt;/li&gt;...&lt;/ul&gt;</code>'
+            ],
+
+            validate: function({ doc, html }) {
+                const ul = doc.querySelector('ul');
+                if (!ul) {
+                    return { success: false, message: 'Add a <ul> tag to create an unordered list!' };
+                }
+
+                const items = ul.querySelectorAll('li');
+                if (items.length < 4) {
+                    return { success: false, message: 'Add at least 4 <li> items inside the list!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>

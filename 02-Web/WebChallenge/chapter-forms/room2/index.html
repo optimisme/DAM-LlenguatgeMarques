@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Room 2 - Input Types</title>
+    <link rel="stylesheet" href="../../game-styles.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <script src="../../progress.js"></script>
+    <script src="../../game-engine.js"></script>
+    <script>
+        startRoom({
+            chapterId: 'chapter-forms',
+            roomId: 'room2',
+            title: '🔢 Input Types',
+            description: 'Use the correct input types for better UX',
+            instructions: `Each input is using <code>type="text"</code>, but should use the correct type! Change them to <code>email</code>, <code>tel</code>, and <code>number</code>.`,
+
+            htmlEditable: true,
+            cssEditable: false,
+
+            initialHTML: `<form class="contact-form">
+    <div class="form-group">
+        <label for="user-email">Email Address</label>
+        <input type="text" id="user-email" name="email" placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+        <label for="user-phone">Phone Number</label>
+        <input type="text" id="user-phone" name="phone" placeholder="123-456-7890">
+    </div>
+
+    <div class="form-group">
+        <label for="user-age">Age</label>
+        <input type="text" id="user-age" name="age" placeholder="25">
+    </div>
+</form>`,
+
+            initialCSS: `
+.contact-form {
+    max-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}`,
+
+            hints: [
+                'Email input: change to <code>type="email"</code>',
+                'Phone input: change to <code>type="tel"</code>',
+                'Age input: change to <code>type="number"</code>'
+            ],
+
+            validate: function({ doc, html }) {
+                const emailInput = doc.getElementById('user-email');
+                const phoneInput = doc.getElementById('user-phone');
+                const ageInput = doc.getElementById('user-age');
+
+                if (!emailInput || emailInput.type !== 'email') {
+                    return { success: false, message: 'Change the email input to type="email"!' };
+                }
+
+                if (!phoneInput || phoneInput.type !== 'tel') {
+                    return { success: false, message: 'Change the phone input to type="tel"!' };
+                }
+
+                if (!ageInput || ageInput.type !== 'number') {
+                    return { success: false, message: 'Change the age input to type="number"!' };
+                }
+
+                return { success: true };
+            }
+        });
+    </script>
+</body>
+</html>
