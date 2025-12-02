@@ -7,9 +7,9 @@ body {
 }
 
 svg {
-  /* Optional: nicer overall look */
   overflow: visible;
 }
+
 /* Estil base */
 .clickable {
   fill: #e3f2fd;
