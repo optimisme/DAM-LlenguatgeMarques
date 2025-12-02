@@ -127,6 +127,12 @@ circle {
 
 [Glaxnimate](https://glaxnimate.org/es/), editor SVG amb animacions
 
+Per instal·lar a Ubuntu:
+```bash
+flatpak install flathub org.mattbas.Glaxnimate
+flatpak run org.mattbas.Glaxnimate
+```
+
 ### Lottie Animation
 
 Aprofitant que els formats SVG i CSS són "complicats" de programar, hi ha eines que permeten fer animacions pel web i exportar-les a formats propietaris com **"Lottie"**
