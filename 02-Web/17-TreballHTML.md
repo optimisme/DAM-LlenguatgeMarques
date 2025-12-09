@@ -89,5 +89,5 @@ DAM1M04-TreballHTML
 ```
 
 2. Puja-hi tota la pràctica  
-3. Envia l’enllaç del repositori al Moodle
-4. Enllaç al Proxmox on es pot veure la pàgina també al Moodle
+3. Copia l’enllaç del repositori a l'entrega del Moodle
+4. Copia també l'enllaç al Proxmox on es pot veure la pàgina també al Moodle
