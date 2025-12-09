@@ -81,7 +81,8 @@ Teniu molt temps, entregueu algo "professional", **l'estètica comptarà nota**.
 
 ## Entrega
 
-1. Crea un repositori a GitHub anomenat:
+1. Tenir la pàgina publicada i accessible al Proxmox
+2. Crea un repositori a GitHub anomenat:
 
 ```
 DAM1M04-TreballHTML
