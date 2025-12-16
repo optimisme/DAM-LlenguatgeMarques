@@ -22,7 +22,7 @@ chmod 600 $HOME/.ssh/id_rsa
 
 #Pas2 Entrar al portal de claus https://kamehouse.ieti.site
 #(el domini és .SITE!)
-#Carregar la clau PUBLICA (.pub)
+#Crear una nova clau pública amb la clau que s'obte de la comanda local:
 cat $HOME/.ssh/id_rsa.pub
 
 #Pas3 Configurar arxiu proxmox/config.env
