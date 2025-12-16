@@ -54,7 +54,7 @@ sudo apt install npm unzip
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
-npm install -g pm2
+sudo npm install -g pm2
 ```
 
 A MacOS:
