@@ -150,5 +150,9 @@ Aquest script empaqueta la pàgina web i l'envia al Proxmox
 
 ```bash
 cd scripts
-./proxmoxRedirect80.sh
+./proxmoxDeploy.sh
 ```
+
+La pàgina queda publicada a:
+
+[https://usuari.ieti.site](https://usuari.ieti.site)
