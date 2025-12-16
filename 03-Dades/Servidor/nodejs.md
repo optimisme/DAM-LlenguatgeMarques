@@ -58,7 +58,7 @@ sudo brew install node
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
-npm install -g pm2
+sudo npm install -g pm2
 ```
 
 ## Servidor web (local)
