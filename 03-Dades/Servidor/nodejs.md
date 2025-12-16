@@ -25,8 +25,13 @@ chmod 600 $HOME/.ssh/id_rsa
 #Carregar la clau PUBLICA (.pub)
 cat $HOME/.ssh/id_rsa.pub
 
-#Pas3 Connectar-te al servidor amb:
-ssh -p 20127 username@ieticloudpro.ieti.site
+#Pas3 Configurar arxiu proxmox/config.env
+DEFAULT_USER="usuariesteveterradas"
+DEFAULT_RSA_PATH="$HOME/.ssh/id_rsa"
+DEFAULT_SERVER_PORT="3000"
+
+#Connectar amb
+./proxmoxConnect.sh
 ```
 
 <center><img src="./assets/logo-nodejs.png" style="max-width: 90%; max-height: 200px;" alt="">
