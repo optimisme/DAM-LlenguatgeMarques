@@ -50,7 +50,7 @@ DEFAULT_SERVER_PORT="3000"
 
 A Linux:
 ```bash
-sudo apt install npm unzip
+sudo apt install npm unzip iptables
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
