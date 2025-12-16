@@ -12,13 +12,18 @@
 
 ```bash
 #Pas 1 Crear clau pública RSA (ha de ser d'aquest tipus)
-ssh-keygen -t RSA
+ssh-keygen -t rsa
+
+
+#Assegurar que els permissos són 
+chmod 600 $HOME/.ssh/id_rsa
 
 #Usuari proxmox = correu iesesteveterradas sense .25cf@iesestevterradas.cat
 
 #Pas2 Entrar al portal de claus https://kamehouse.ieti.site
 #(el domini és .SITE!)
 #Carregar la clau PUBLICA (.pub)
+cat $HOME/.ssh/id_rsa.pub
 
 #Pas3 Connectar-te al servidor amb:
 ssh -p 20127 username@ieticloudpro.ieti.site
@@ -53,15 +58,6 @@ sudo brew install node
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
-npm install -g pm2
-```
-A Windows:
-```bash
-winget install Schniz.fnm
-fnm env --use-on-cd | Out-String | Invoke-Expression
-fnm use --install-if-missing 22
-fnm install latest
-fnm use latest
 npm install -g pm2
 ```
 
