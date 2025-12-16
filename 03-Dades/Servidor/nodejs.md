@@ -14,6 +14,8 @@
 Pas 1 Crear clau pública RSA (ha de ser d'aquest tipus)
 ssh-keygen -t RSA
 
+Usuari proxmox = correu iesesteveterradas sense .25cf@iesestevterradas.cat
+
 Pas2 Entrar al portal de claus https://kamehouse.ieti.site
 (el domini és .SITE!)
 Carregar la clau PUBLICA (.pub)
