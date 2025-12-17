@@ -9,7 +9,7 @@ USER=${1:-$DEFAULT_USER}
 RSA_PATH=${2:-"$DEFAULT_RSA_PATH"}
 SERVER_PORT=${3:-$DEFAULT_SERVER_PORT}  # not required; we remove ALL 80 redirects
 RSA_PATH="${RSA_PATH%$'\r'}"
-SSH_OPTS='-oIdentitiesOnly=yes -oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
+SSH_OPTS='-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
 
 echo "User: $USER"
 echo "RSA:  $RSA_PATH"

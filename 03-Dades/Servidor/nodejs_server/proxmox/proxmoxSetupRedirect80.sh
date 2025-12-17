@@ -8,7 +8,7 @@ USER=${1:-$DEFAULT_USER}
 RSA_PATH=${2:-"$DEFAULT_RSA_PATH"}
 SERVER_PORT=${3:-$DEFAULT_SERVER_PORT}
 RSA_PATH="${RSA_PATH%$'\r'}"
-SSH_OPTS='-oIdentitiesOnly=yes -oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
+SSH_OPTS='-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
 
 echo "Server port: $SERVER_PORT"
 [[ -f "$RSA_PATH" ]] || { echo "Error: no troba la clau: $RSA_PATH"; exit 1; }
