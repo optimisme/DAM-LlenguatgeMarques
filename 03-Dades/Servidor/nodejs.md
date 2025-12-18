@@ -20,7 +20,7 @@ chmod 600 $HOME/.ssh/id_rsa
 
 #Usuari proxmox = correu iesesteveterradas sense .25cf@iesestevterradas.cat
 
-#Pas2 Entrar al portal de claus https://kamehouse.ieti.site
+#Pas2 Entrar al portal de claus https://kamehouse.ieti.site amb el compte "@iesestevterradas.cat"
 #(el domini és .SITE!)
 #Crear una nova clau pública amb la clau que s'obte de la comanda local:
 cat $HOME/.ssh/id_rsa.pub
