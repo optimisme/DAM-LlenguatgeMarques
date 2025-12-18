@@ -50,7 +50,7 @@ DEFAULT_SERVER_PORT="3000"
 
 A Linux:
 ```bash
-sudo apt install npm unzip iptables-persistent
+sudo apt install npm zip unzip iptables-persistent
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
@@ -132,7 +132,7 @@ sudo rm -rf /var/log/apache2
 sudo rm -rf /var/lib/apache2
 
 # Instal·la NodeJS a la última versió
-sudo apt install npm unzip iptables-persistent
+sudo apt install npm zip unzip iptables-persistent
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
