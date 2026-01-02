@@ -1,0 +1,71 @@
+{
+  "zoo": {
+    "nom": "Zoo de BCN",
+    "ciutat": "Barcelona",
+    "obert": true,
+    "ultima_actualitzacio": "2025-02-15T09:30:00"
+  },
+  "animals": [
+    {
+      "id": 1,
+      "nom": "Simba",
+      "especie": "Lleó",
+      "classe": "Mamífer",
+      "edat": 5,
+      "pes": 190.5,
+      "habitat": "Sabana",
+      "alimentacio": "Carnívora",
+      "vacunat": true
+    },
+    {
+      "id": 2,
+      "nom": "Kira",
+      "especie": "Girafa",
+      "classe": "Mamífer",
+      "edat": 7,
+      "pes": 800,
+      "habitat": "Sabana",
+      "alimentacio": "Herbívora",
+      "vacunat": true
+    },
+    {
+      "id": 3,
+      "nom": "Roc",
+      "especie": "Cocodril",
+      "classe": "Rèptil",
+      "edat": 12,
+      "pes": 500,
+      "habitat": "Pantà",
+      "alimentacio": "Carnívora",
+      "vacunat": false
+    },
+    {
+      "id": 4,
+      "nom": "Luna",
+      "especie": "Pingüí",
+      "classe": "Au",
+      "edat": 4,
+      "pes": 30,
+      "habitat": "Zona polar",
+      "alimentacio": "Piscívora",
+      "vacunat": true
+    }
+  ],
+  "zones": [
+    {
+      "nom": "Sabana",
+      "superficie_m2": 5000,
+      "responsable": "Anna Puig"
+    },
+    {
+      "nom": "Zona polar",
+      "superficie_m2": 3000,
+      "responsable": "Marc Vidal"
+    },
+    {
+      "nom": "Pantà",
+      "superficie_m2": 2500,
+      "responsable": "Laura Serra"
+    }
+  ]
+}

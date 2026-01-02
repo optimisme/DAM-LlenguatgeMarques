@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "required": ["zoo", "animals", "zones"],
+  "additionalProperties": false,
+
+  "properties": {
+    "zoo": {
+      "type": "object",
+      "required": ["nom", "ciutat", "obert", "ultima_actualitzacio"],
+      "additionalProperties": false,
+      "properties": {
+        "nom": { "type": "string" },
+        "ciutat": { "type": "string" },
+        "obert": { "type": "boolean" },
+        "ultima_actualitzacio": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+
+    "animals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "nom",
+          "especie",
+          "classe",
+          "edat",
+          "pes",
+          "habitat",
+          "alimentacio",
+          "vacunat"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "nom": { "type": "string" },
+          "especie": { "type": "string" },
+          "classe": {
+            "type": "string",
+            "enum": ["Mamífer", "Au", "Rèptil", "Amfibi", "Peix"]
+          },
+          "edat": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "pes": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "habitat": { "type": "string" },
+          "alimentacio": {
+            "type": "string",
+            "enum": ["Carnívora", "Herbívora", "Omnívora", "Piscívora"]
+          },
+          "vacunat": { "type": "boolean" }
+        }
+      }
+    },
+
+    "zones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["nom", "superficie_m2", "responsable"],
+        "additionalProperties": false,
+        "properties": {
+          "nom": { "type": "string" },
+          "superficie_m2": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "responsable": { "type": "string" }
+        }
+      }
+    }
+  }
+}

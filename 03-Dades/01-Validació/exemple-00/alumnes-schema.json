@@ -1,0 +1,28 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "nom": { "type": "string" },
+      "edat": { "type": "integer", "minimum": 0 },
+      "treballa": { "type": "boolean" },
+      "estudis": {
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 1
+      },
+      "ultima_modificacio": { "type": "string", "format": "date-time" },
+      "adreça": {
+        "type": "object",
+        "properties": {
+          "ciutat": { "type": "string" },
+          "carrer": { "type": "string" }
+        },
+        "required": ["ciutat", "carrer"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["nom", "edat", "treballa", "estudis", "ultima_modificacio", "adreça"],
+    "additionalProperties": false
+  }
+}

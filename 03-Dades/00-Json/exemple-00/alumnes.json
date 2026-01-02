@@ -1,0 +1,49 @@
+[
+  {
+    "treballa": true,
+    "estudis": [
+      "CFGS DAM",
+      "CFGM SMX"
+    ],
+    "ultima_modificacio": "2025-01-09T15:46:05",
+    "adreça": {
+      "ciutat": "Cornellà",
+      "carrer": "Carrer de la Llibertat"
+    },
+    "nom": "Marc",
+    "edat": 20
+  },
+  {
+    "treballa": false,
+    "estudis": ["CFGS DAW"],
+    "ultima_modificacio": "2025-01-09T15:46:05",
+    "adreça": {
+      "ciutat": "Terrassa",
+      "carrer": "Carrer Major"
+    },
+    "nom": "Clara",
+    "edat": 22
+  },
+  {
+    "treballa": true,
+    "estudis": ["CFGM SMX"],
+    "ultima_modificacio": "2025-02-03T10:12:30",
+    "adreça": {
+      "ciutat": "Sabadell",
+      "carrer": "Avinguda de Barberà"
+    },
+    "nom": "Jordi",
+    "edat": 24
+  },
+  {
+    "treballa": false,
+    "estudis": ["Batxillerat"],
+    "ultima_modificacio": "2025-02-10T18:05:00",
+    "adreça": {
+      "ciutat": "Mataró",
+      "carrer": "Carrer Argentona"
+    },
+    "nom": "Laia",
+    "edat": 19
+  }
+]
