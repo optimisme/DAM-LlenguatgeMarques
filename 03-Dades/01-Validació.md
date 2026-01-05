@@ -46,7 +46,6 @@ Elements habituals:
 
 ```json
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "name": { "type": "string" },
@@ -58,7 +57,7 @@ Elements habituals:
 
 Aquest esquema indica:
 - el document ha de ser un objecte
-- `name` és obligatori i és una cadena de text
+- `name` és obligatori *(required)* i és una cadena de text
 - `age` és opcional i ha de ser un nombre enter positiu
 
 ---
@@ -103,7 +102,7 @@ Aquest esquema indica:
 }
 ```
 
-👉 Aquest esquema obliga que **tots els elements de l’array siguin del mateix tipus**.
+👉 Aquest esquema obliga que **tots els elements de l’array siguin del mateix tipus** *(integer)*.
 
 ---
 
@@ -154,7 +153,7 @@ Altres formats habituals:
 
 ---
 
-## Eines de validació: Ajv
+## Eina de validació: Ajv
 
 **Ajv** (*Another JSON Schema Validator*) és una llibreria molt utilitzada en Node.js per validar documents JSON.
 

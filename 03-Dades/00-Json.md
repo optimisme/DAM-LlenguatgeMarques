@@ -164,16 +164,6 @@ JSON **no distingeix** entre enters i decimals.
 ## Usos habituals del format JSON
 
 - Intercanvi de dades entre aplicacions
-- APIs REST
 - Emmagatzematge de configuracions
 - Exportació de dades de bases de dades
 - Comunicació client-servidor
-
----
-
-## Resum
-
-- JSON és un **format d’intercanvi de dades** lleuger i molt utilitzat.
-- Permet **objectes dins d’objectes** i estructures jeràrquiques complexes.
-- Els arrays poden contenir tipus barrejats, però és recomanable mantenir-los homogenis.
-- És la base de moltes tecnologies modernes de desenvolupament web.

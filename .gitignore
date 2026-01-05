@@ -66,3 +66,11 @@ dades.sqlite
 __pycache__
 
 .claude
+clients-schema.json
+flora-schema.json
+movies-schema.json
+olympics-schema.json
+opera-schema.json
+sabana-schema.json
+solar-schema.json
+traditions-schema.json

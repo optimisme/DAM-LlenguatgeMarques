@@ -1,2 +1,0 @@
-# Exercicis de validació .json
-
