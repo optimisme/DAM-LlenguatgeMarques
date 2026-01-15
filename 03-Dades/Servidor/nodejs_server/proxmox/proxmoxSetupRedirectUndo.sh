@@ -16,11 +16,12 @@ echo "RSA:  $RSA_PATH"
 
 [[ -f "$RSA_PATH" ]] || { echo "Error: no troba la clau: $RSA_PATH"; exit 1; }
 
-read -s -p "Pwd sudo remota: " SUDO_PASSWORD
-echo
+# read -s -p "Pwd sudo remota: " SUDO_PASSWORD
+# echo
 
 # Escape password safely for embedding
-ESC_PWD=$(printf "%q" "$SUDO_PASSWORD")
+# ESC_PWD=$(printf "%q" "$SUDO_PASSWORD")
+ESC_PWD="\n"
 
 eval "$(ssh-agent -s)" >/dev/null
 ssh-add "$RSA_PATH" >/dev/null
