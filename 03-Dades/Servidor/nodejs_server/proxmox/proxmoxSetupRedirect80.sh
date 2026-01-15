@@ -13,9 +13,9 @@ SSH_OPTS='-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
 echo "Server port: $SERVER_PORT"
 [[ -f "$RSA_PATH" ]] || { echo "Error: no troba la clau: $RSA_PATH"; exit 1; }
 
-read -s -p "Pwd sudo remota: " SUDO_PASSWORD
-echo
-ESC_PWD=$(printf "%q" "$SUDO_PASSWORD")
+# read -s -p "Pwd sudo remota: " SUDO_PASSWORD
+# echo
+# ESC_PWD=$(printf "%q" "$SUDO_PASSWORD")
 
 eval "$(ssh-agent -s)" >/dev/null
 ssh-add "$RSA_PATH" >/dev/null
@@ -23,7 +23,8 @@ ssh-add "$RSA_PATH" >/dev/null
 # Prepare remote script with real port substituted
 REMOTE_SCRIPT=$(cat <<'EOF'
 set -euo pipefail
-run_sudo() { echo "$SUDO_PASSWORD" | sudo -S -p '' "$@"; }
+# run_sudo() { echo "$SUDO_PASSWORD" | sudo -S -p '' "$@"; }
+run_sudo() { sudo -S -p '' "$@"; }
 
 export DEBIAN_FRONTEND=noninteractive
 run_sudo apt-get update -qq
@@ -51,6 +52,7 @@ EOF
 # Substitute port before sending
 REMOTE_SCRIPT="${REMOTE_SCRIPT//SERVER_PORT_VALUE/$SERVER_PORT}"
 
-ssh -T -p 20127 $SSH_OPTS "$USER@ieticloudpro.ieti.cat" "SUDO_PASSWORD=$ESC_PWD bash -s" <<<"$REMOTE_SCRIPT"
+# ssh -T -p 20127 $SSH_OPTS "$USER@ieticloudpro.ieti.cat" "SUDO_PASSWORD=$ESC_PWD bash -s" <<<"$REMOTE_SCRIPT"
+ssh -T -p 20127 $SSH_OPTS "$USER@ieticloudpro.ieti.cat" "sudo bash -s" <<<"$REMOTE_SCRIPT"
 
 ssh-agent -k >/dev/null

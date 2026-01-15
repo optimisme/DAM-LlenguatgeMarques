@@ -146,7 +146,7 @@ Cal que el servidor remot redireccioni les peticions del port 80 al port 3000 (d
 
 ```bash
 cd scripts
-./proxmoxRedirect80.sh
+./proxmoxSetupRedirect80.sh
 ```
 
 ## Enviar la pàgina web al Proxmox
