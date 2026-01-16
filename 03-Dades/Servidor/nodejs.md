@@ -104,11 +104,10 @@ Proxmox/nodejs_web/public
 
 Amb el compte de l'insitut tens accés a un servidor *Proxmox* personal del centre. Per connectar-hi:
 
-- Configura l'arxiu **./scripts/config.env"** amb el teu usuari i la ubicació de la clau per accedir al servei.
+- Configura l'arxiu **./proxmox/config.env"** amb el teu usuari i la ubicació de la clau per accedir al servei.
 
 - Connecta't al **Proxmox** remot
 ```bash
-cd scripts
 bash ./proxmoxConnect.sh
 ```
 
@@ -116,7 +115,6 @@ bash ./proxmoxConnect.sh
 
 ```bash
 # Al terminal local, connecta't al proxmox remot
-cd scripts
 bash ./proxmoxConnect.sh
 # Escriu la contrasenya (si en tens)
 
@@ -145,7 +143,6 @@ exit
 Cal que el servidor remot redireccioni les peticions del port 80 al port 3000 (del NodeJS), per respondre a les peticions web.
 
 ```bash
-cd scripts
 ./proxmoxSetupRedirect80.sh
 ```
 
@@ -154,10 +151,21 @@ cd scripts
 Aquest script empaqueta la pàgina web i l'envia al Proxmox
 
 ```bash
-cd scripts
 ./proxmoxDeploy.sh
 ```
 
 La pàgina queda publicada a:
 
 [https://usuari.ieti.site](https://usuari.ieti.site)
+
+## Enviar arxius al Proxmox
+
+L'script **'proxmoxSendFile.sh'** permet enviar arxius al Proxmox:
+
+Exemple:
+
+```bash
+./proxmoxSendFile.sh $HOME/Baixades/nomArxiu.txt
+```
+
+L'arxiu queda a l'arrel del servidor.
