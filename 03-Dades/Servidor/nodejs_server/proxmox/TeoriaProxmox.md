@@ -230,7 +230,7 @@ Demana el codi (abans hem posat 1234)
 1234
 ```
 
-Des de la comanda 'mysql' remota:
+Des de la consola 'MySQL' remota:
 ```text
 SHOW DATABASES;
 quit
@@ -285,7 +285,7 @@ Demana el codi (abans hem posat 1234)
 1234
 ```
 
-6 - Comprovar que hi ha les dades/taules esperades al servidor MySQL remot.
+6 - Des de la consola MySQL remota, comprovar que hi ha les dades/taules esperades al servidor MySQL remot.
 
 ```sql
 SHOW TABLES;
