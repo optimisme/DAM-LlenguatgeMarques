@@ -218,7 +218,7 @@ Executa la següent comanda per **aturar el túnel**:
 ./proxmoxTunelStop.sh
 ```
 
-Un cop fet el túnel, ja podeu connectar-vos a la base de dades remota, però ho heu de fer a la ip local **127.0.0.1** i port **3306**!
+Amb el túnel funcionant, podeu connectar-vos a la base de dades remota, però ho heu de fer a la ip local **127.0.0.1** i port **3306**!
 
 ```bash
 mysql -h 127.0.0.1 -P 3307 -u super -p
