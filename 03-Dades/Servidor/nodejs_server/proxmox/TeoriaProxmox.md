@@ -249,7 +249,9 @@ Evidentment, **només funcionarà amb el tunel activat**
 
 ## Clonar una base de dades local cap al servidor remot
 
-Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot, canvieu 'nom_db' pel nom de la vostre base de dades:
+Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot
+
+**Nota:** *canvieu 'nom_db' pel nom de la vostre base de dades*
 
 1 - Obrir el túnel
 
