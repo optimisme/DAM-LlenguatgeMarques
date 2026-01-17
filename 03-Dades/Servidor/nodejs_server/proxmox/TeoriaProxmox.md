@@ -283,7 +283,7 @@ Demana el codi (abans hem posat 1234)
 1234
 ```
 
-6 - Comprovar que hi ha les dades/taules
+6 - Comprovar que hi ha les dades/taules esperades al servidor MySQL remot.
 
 ```sql
 SHOW TABLES;
