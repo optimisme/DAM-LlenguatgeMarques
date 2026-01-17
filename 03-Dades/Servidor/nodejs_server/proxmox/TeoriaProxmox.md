@@ -246,3 +246,27 @@ Password: 1234
 ```
 
 Evidentment, **només funcionarà amb el tunel activat**
+
+## Clonar una base de dades local cap al servidor remot
+
+Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot:
+
+1 - Obrir el túnel
+
+2 - Crear una còpia de la base de dades local a 'dump.sql'
+
+```bash
+mysqldump -h 127.0.0.1 -P 3306 -u super -p nom_bd_local > dump.sql
+```
+
+3 - Crear la base de dades al servidor remot
+
+```bash
+mysql -h 127.0.0.1 -P 3307 -u super -p -e "CREATE DATABASE IF NOT EXISTS nom_bd_local;"
+```
+
+4 - Enviar les dades de 'dump.sql' a la base de dades remota
+
+```bash
+mysql -h 127.0.0.1 -P 3307 -u super -p nom_bd_local < dump.sql
+```
