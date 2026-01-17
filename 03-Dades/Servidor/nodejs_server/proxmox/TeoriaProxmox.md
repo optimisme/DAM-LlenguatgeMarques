@@ -255,7 +255,7 @@ Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot
 
 1 - Obrir el túnel
 
-2 - Crear una còpia de la base de dades local a 'dump.sql'
+2 - Crear una còpia de la base de dades local cap a l'arxiu 'dump.sql'
 
 ```bash
 mysqldump -h 127.0.0.1 -P 3306 -u super -p nom_db > dump.sql
