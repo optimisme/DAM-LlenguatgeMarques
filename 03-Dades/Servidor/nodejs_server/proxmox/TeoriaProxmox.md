@@ -267,7 +267,7 @@ mysqldump -h 127.0.0.1 -P 3306 -u super -p nom_db > dump.sql
 mysql -h 127.0.0.1 -P 3307 -u super -p -e "CREATE DATABASE IF NOT EXISTS nom_db;"
 ```
 
-4 - Enviar les dades de 'dump.sql' a la base de dades remota
+4 - Enviar les dades de l'arxiu 'dump.sql' a la base de dades remota
 
 ```bash
 mysql -h 127.0.0.1 -P 3307 -u super -p nom_db < dump.sql
