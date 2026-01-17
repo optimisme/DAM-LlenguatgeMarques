@@ -249,24 +249,43 @@ Evidentment, **només funcionarà amb el tunel activat**
 
 ## Clonar una base de dades local cap al servidor remot
 
-Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot:
+Si teniu una base de dades al MySQL local i la voleu enviar al servidor remot, canvieu 'nom_db' pel nom de la vostre base de dades:
 
 1 - Obrir el túnel
 
 2 - Crear una còpia de la base de dades local a 'dump.sql'
 
 ```bash
-mysqldump -h 127.0.0.1 -P 3306 -u super -p nom_bd_local > dump.sql
+mysqldump -h 127.0.0.1 -P 3306 -u super -p nom_db > dump.sql
 ```
 
 3 - Crear la base de dades al servidor remot
 
 ```bash
-mysql -h 127.0.0.1 -P 3307 -u super -p -e "CREATE DATABASE IF NOT EXISTS nom_bd_local;"
+mysql -h 127.0.0.1 -P 3307 -u super -p -e "CREATE DATABASE IF NOT EXISTS nom_db;"
 ```
 
 4 - Enviar les dades de 'dump.sql' a la base de dades remota
 
 ```bash
-mysql -h 127.0.0.1 -P 3307 -u super -p nom_bd_local < dump.sql
+mysql -h 127.0.0.1 -P 3307 -u super -p nom_db < dump.sql
+```
+
+5 - Connectar a la base de dades remota, directament a la base de dades creada/clonada 'nom_db'
+
+```bash
+mysql -h 127.0.0.1 -P 3307 -u super -p nom_db
+```
+
+Demana el codi (abans hem posat 1234)
+
+```text
+1234
+```
+
+6 - Comprovar que hi ha les dades/taules
+
+```sql
+SHOW TABLES;
+quit
 ```
