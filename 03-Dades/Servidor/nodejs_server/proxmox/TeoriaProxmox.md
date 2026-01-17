@@ -172,7 +172,7 @@ L'arxiu queda a l'arrel del servidor.
 
 # MySQL al Proxmox
 
-Al servidor remot "Proxmox" es pot instal·lar un MySQL, per accedir-hi caldrà fer un "pont" entre el vostre ordinador i el servidor.
+Al servidor remot "Proxmox" es pot instal·lar un MySQL, per accedir-hi caldrà fer un "túnel" entre el vostre ordinador i el servidor.
 
 ## Instal·lar MySQL al servidor remot
 
@@ -198,7 +198,7 @@ FLUSH PRIVILEGES;
 quit
 ```
 
-## Connectar a la base de dades MySQL del servidor remot
+## Connectar a la base de dades MySQL del servidor remot (túnel)
 
 Des del vostre ordinador, primer cal configurar el **"túnel"** entre el vostre ordinador i el servidor remot, executa la següent comanda per **obrir el túnel**:
 
