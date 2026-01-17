@@ -169,3 +169,80 @@ Exemple:
 ```
 
 L'arxiu queda a l'arrel del servidor.
+
+# MySQL al Proxmox
+
+Al servidor remot "Proxmox" es pot instal·lar un MySQL, per accedir-hi caldrà fer un "pont" entre el vostre ordinador i el servidor.
+
+## Instal·lar MySQL al servidor remot
+
+Des de la consola local, connectar amb el servidor:
+
+```bash
+./proxmoxConnect.sh
+```
+
+Un cop connectats, des de la consola remota instal·lar MySQL. Les següents comandes poden anar lentes, no talleu la connexió i llegiu bé els missatges d'error en cas que n'hi hagin:
+
+```bash
+sudo apt update
+sudo apt install mysql-server
+sudo systemctl status mysql
+
+# Connectar a la base de dades des del propi servidor remot i crear l'usuari 'super':
+
+sudo mysql
+CREATE USER 'super'@'localhost' IDENTIFIED WITH caching_sha2_password BY '1234';
+GRANT ALL PRIVILEGES ON *.* TO 'super'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+quit
+```
+
+## Connectar a la base de dades MySQL del servidor remot
+
+Primer cal configurar el **"túnel"** entre el vostre ordinador i el servidor remot, executa la següent comanda per **obrir el túnel**:
+
+```bash
+./proxmoxTunelStart.sh
+```
+
+Executa la següent comanda per **saber si el túnel està obert**:
+
+```bash
+./proxmoxTunelStatus.sh
+```
+
+Executa la següent comanda per **aturar el túnel**:
+
+```bash
+./proxmoxTunelStop.sh
+```
+
+Un cop fet el túnel, ja podeu connectar-vos a la base de dades remota, però ho heu de fer a la ip local **127.0.0.1** i port **3306**!
+
+```bash
+mysql -h 127.0.0.1 -P 3307 -u super -p
+```
+
+Demana el codi (abans hem posat 1234)
+
+```text
+1234
+```
+
+Des de la comanda 'mysql' remota:
+```text
+SHOW DATABASES;
+quit
+```
+
+Si la comanda anterior ja us funciona, podeu configurar **"MySQLWorkbench"** (o la eina gràfica que volgueu)
+
+```text
+Host: 127.0.0.1
+Port: 2207
+User: super
+Password: 1234
+```
+
+Evidentment, **només funcionarà amb el tunel activat**
