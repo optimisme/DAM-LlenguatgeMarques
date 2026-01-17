@@ -200,7 +200,7 @@ quit
 
 ## Connectar a la base de dades MySQL del servidor remot
 
-Primer cal configurar el **"túnel"** entre el vostre ordinador i el servidor remot, executa la següent comanda per **obrir el túnel**:
+Des del vostre ordinador, primer cal configurar el **"túnel"** entre el vostre ordinador i el servidor remot, executa la següent comanda per **obrir el túnel**:
 
 ```bash
 ./proxmoxTunelStart.sh
