@@ -1,0 +1,7 @@
+{
+  "cities": [
+    { "name": "Stockholm", "country": "SK", "population": 1620000 },
+    { "name": "Paris", "country": "FR", "population": 2140000 },
+    { "name": "Berlin", "country": "DE", "population": 3760000 }
+  ]
+}

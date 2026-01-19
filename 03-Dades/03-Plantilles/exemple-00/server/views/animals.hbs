@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>Animals</title>
+  <link rel="stylesheet" href="/estils.css">
+</head>
+<body>
+  <h1>Llista d’animals</h1>
+  <ul>
+    {{#each animals}}
+      
+      <li>
+        <strong>{{name}}</strong> 
+        – {{habitat}}
+        {{#if (gt weight 10)}}(animal pesat){{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</body>
+</html>

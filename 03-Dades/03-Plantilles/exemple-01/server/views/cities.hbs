@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>Ciutats</title>
+  <link rel="stylesheet" href="/estils.css">
+</head>
+<body>
+  <h1>Llista de ciutats</h1>
+
+  <ul>
+    {{#each cities}}
+      <li>
+        <strong>{{name}}</strong>
+        —
+        {{lookup ../countries country}}
+        :
+        {{population}} habitants
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>

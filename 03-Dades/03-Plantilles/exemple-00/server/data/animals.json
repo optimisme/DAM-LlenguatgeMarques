@@ -1,0 +1,9 @@
+{
+  "animals": [
+    { "name": "Guineu", "habitat": "Bosc", "weight": 10 },
+    { "name": "Senglar", "habitat": "Bosc mediterrani", "weight": 5 },
+    { "name": "Conill", "habitat": "Clarianes", "weight": 2 },
+    { "name": "Àguila", "habitat": "Muntanya", "weight": 15 },
+    { "name": "Cérvol", "habitat": "Bosc", "weight": 20 }
+  ]
+}
