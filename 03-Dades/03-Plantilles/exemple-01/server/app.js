@@ -28,10 +28,28 @@ app.set('view engine', 'hbs');
 // Registrar "Helpers .hbs" aquí
 hbs.registerHelper('gt', (a, b) => a > b);
 
+// Partials de Handlebars
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+
 // Route
+app.get('/', (req, res) => {
+  const common = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'data', 'common.json'), 'utf8')
+  );
+
+  data = {
+    common: common
+  }
+
+  res.render('index', data);
+});
+
 app.get('/cities', (req, res) => {
 
   // Legim els fitxers JSON
+  const common = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'data', 'common.json'), 'utf8')
+  );
   const cities = JSON.parse(
     fs.readFileSync(path.join(__dirname, 'data', 'cities.json'), 'utf8')
   );
@@ -41,6 +59,7 @@ app.get('/cities', (req, res) => {
 
   // Preparem les dades per a la plantilla
   data = {
+    common: common,
     cities: cities.cities,
     countries: countries.countries
   }

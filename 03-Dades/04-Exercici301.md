@@ -15,7 +15,7 @@ Construir un projecte que:
 
 1. Serveixi una pàgina **`index.html`** (ruta `/`) generada amb una plantilla i dades d’**un sol arxiu JSON**.
 2. Serveixi una segona pàgina (ruta `/informe`) generada amb una altra plantilla i dades **combinades de 3 arxius JSON**.
-
+3. Tinguin un header amb el menú per canviar a cada una de les pàgines, comú i definit a partir d'un parcial
 ---
 
 ## Estructura de carpetes obligatòria
@@ -34,11 +34,11 @@ DAM1M04-Exercici302/
     │   ├── cities.json
     │   └── countries.json
     └── views/
+        ├── partials
+        │   └── header.hbs
         ├── index.hbs
         └── informe.hbs
 ```
-
-> Nota: la pàgina de la ruta `/` **ha de renderitzar HTML** i el navegador ha de mostrar-la com la teva “pàgina principal” (equivalent a un `index.html`).
 
 ---
 
@@ -140,6 +140,9 @@ Després, a la plantilla `informe.hbs`, fes-lo servir per marcar les ciutats “
 ---
 
 ## Requisits mínims de les plantilles
+
+### `partials/header.hbs`
+- Capçalera comú amb el menú per canviar de pàgina
 
 ### `index.hbs`
 - variables simples (`{{title}}`, `{{subtitle}}`)

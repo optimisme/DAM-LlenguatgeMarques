@@ -153,9 +153,35 @@ Només representen dades.
 
 ---
 
-## Bones pràctiques
+# Partials
 
-- Preparar dades al servidor
-- Passar només el necessari
-- Plantilles simples
-- Evitar lògica complexa
+Els **"partials"** permeten reutilitzar parts de pàgines web que són comunes a diferents pàgines, per exemple: **menús, footer, llistes, ...**
+
+Cal registrar la carpeta on hi haurà els parcials a *"app.js"*:
+
+```javascript
+// Partials de Handlebars
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+```
+
+I posar els arxius parcials a la carpeta *"./server/views/partials"*:
+
+```text
+./server/views/partials
+├── footer.hbs
+└── header.hbs
+```
+
+Els arxius parcials són arxius *".hbs"* normals, però només tenen un part del codi *HTML* que volem repetir en diverses pàgines, per exemple el *footer.hbs*
+
+```hbs
+<footer>
+  <p>&copy; {{common.year}}</p>
+</footer>
+```
+
+Quan volem afegir aquest *"parcial"* en un arxiu *".hbs"* hem de posar el nom de l'arxiu sense l'extensió:
+
+```hbs
+{{> footer}}
+```
