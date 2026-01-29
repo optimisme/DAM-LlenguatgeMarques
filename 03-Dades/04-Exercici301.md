@@ -23,7 +23,7 @@ Construir un projecte que:
 Crea el projecte amb aquesta estructura:
 
 ```
-DAM1M04-Exercici302/
+DAM1M04-Exercici301/
 ├── package.json
 ├── public/
 │   └── estils.css
@@ -176,6 +176,6 @@ Després, a la plantilla `informe.hbs`, fes-lo servir per marcar les ciutats “
 
 Entrega l’exercici com un nou repositori a GitHub anomenat:
 
-`DAM1M04-Exercici302`
+`DAM1M04-Exercici301`
 
 I puja l’enllaç del repositori a l’espai d’entrega del Moodle de l’assignatura.

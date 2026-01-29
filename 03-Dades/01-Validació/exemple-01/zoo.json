@@ -1,5 +1,6 @@
 {
   "zoo": {
+    "id": 101,
     "nom": "Zoo de BCN",
     "ciutat": "Barcelona",
     "obert": true,
