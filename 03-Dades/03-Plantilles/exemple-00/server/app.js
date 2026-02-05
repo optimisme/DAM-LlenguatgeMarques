@@ -6,9 +6,6 @@ const hbs = require('hbs');
 const app = express();
 const port = 3000;
 
-// Static files (optional)
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Disable cache
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');

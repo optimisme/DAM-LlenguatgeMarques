@@ -8,16 +8,11 @@ const app = express();
 const port = 3000;
 
 // Detectar si estem al Proxmox (si és pm2)
-const isProxmox =
-  !!process.env.PM2_HOME ||
-  process.env.exec_mode === "cluster_mode" ||
-  process.env.exec_mode === "fork_mode";
+const isProxmox = !!process.env.PM2_HOME;
 
 // Iniciar connexió MySQL
 const db = new MySQL();
 if (!isProxmox) {
-  // Configurar aquí les credencials 
-  // MySQL per a ordinador local
   db.init({
     host: process.env.MYSQL_HOST ?? '127.0.0.1',
     port: Number(process.env.MYSQL_PORT ?? 3306),
@@ -26,8 +21,6 @@ if (!isProxmox) {
     database: process.env.MYSQL_DB ?? 'escola',
   });
 } else {
-  // Configurar aquí les credencials 
-  // MySQL per a ordinador remot Proxmox
   db.init({
     host: process.env.MYSQL_HOST ?? '127.0.0.1',
     port: Number(process.env.MYSQL_PORT ?? 3306),
@@ -37,8 +30,9 @@ if (!isProxmox) {
   });
 }
 
-// Static files (optional)
-app.use(express.static(path.join(__dirname, 'public')));
+// Static files - ONLY ONCE
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
 
 // Disable cache
 app.use((req, res, next) => {
@@ -48,9 +42,6 @@ app.use((req, res, next) => {
   res.setHeader('Surrogate-Control', 'no-store');
   next();
 });
-
-// Continguts estàtics (carpeta public)
-app.use(express.static('public'))
 
 // Handlebars
 app.set('views', path.join(__dirname, 'views'));
@@ -66,8 +57,8 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 // Route
 app.get('/', async (req, res) => {
   try {
-    cursosRows = await db.query('SELECT id, nom, tematica FROM cursos ORDER BY id');
-    especialitatsRows = await db.query('SELECT id, nom FROM especialitats ORDER BY nom');
+    const cursosRows = await db.query('SELECT id, nom, tematica FROM cursos ORDER BY id');
+    const especialitatsRows = await db.query('SELECT id, nom FROM especialitats ORDER BY nom');
 
     const cursosJson = db.table_to_json(cursosRows, { id: 'number', nom: 'string', tematica: 'string' });
     const especialitatsJson = db.table_to_json(especialitatsRows, { id: 'number', nom: 'string' });
@@ -130,7 +121,6 @@ app.get('/cursos', async (req, res) => {
   }
 });
 
-
 // Start server
 const httpServer = app.listen(port, () => {
   console.log(`http://localhost:${port}`);
@@ -138,7 +128,8 @@ const httpServer = app.listen(port, () => {
 });
 
 // Graceful shutdown
-process.on('SIGINT', () => {
+process.on('SIGINT', async () => {
+  await db.end();
   httpServer.close();
   process.exit(0);
 });
