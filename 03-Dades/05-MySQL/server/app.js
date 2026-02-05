@@ -31,8 +31,8 @@ if (!isProxmox) {
 }
 
 // Static files - ONLY ONCE
-//app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
 
 // Disable cache
 app.use((req, res, next) => {
