@@ -98,3 +98,27 @@ Recorda que per al que la pàgina funcioni al *Proxmox*:
 
 - Has d'haver configurat l'arxiu 'config.env' amb el teu nom d'usuari i clau privada
 - Has d'haver redireccionat el port 80 cap al 3000 amb './proxmoxSetupRedirect80.sh'
+
+## MySQL al server "app.js"
+
+El servidor **app.js** es connecta a la base de dades MySQL, per fer-ho cal tenir configurats els paràmtres de la base de dades local i la del Proxmox.
+
+```javascript
+if (!isProxmox) {
+  db.init({
+    host: process.env.MYSQL_HOST ?? '127.0.0.1',
+    port: Number(process.env.MYSQL_PORT ?? 3306),
+    user: process.env.MYSQL_USER ?? 'root',
+    password: process.env.MYSQL_PASS ?? 'root',
+    database: process.env.MYSQL_DB ?? 'escola',
+  });
+} else {
+  db.init({
+    host: process.env.MYSQL_HOST ?? '127.0.0.1',
+    port: Number(process.env.MYSQL_PORT ?? 3306),
+    user: process.env.MYSQL_USER ?? 'super',
+    password: process.env.MYSQL_PASS ?? '1234',
+    database: process.env.MYSQL_DB ?? 'escola',
+  });
+}
+```
