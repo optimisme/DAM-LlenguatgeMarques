@@ -91,8 +91,7 @@ npm install
 
 ## Estil i presentació
 - Crea `public/estils.css` i enllaça’l perquè les dues pàgines es vegin correctament.
-- Afegeix com a mínim:
-  - una font base
+- Afegeix com a mínim una font base
 
 Si et calen més estils personalitzats a cada pàgina, es poden afegir.
 
