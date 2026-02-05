@@ -7,15 +7,35 @@ const MySQL = require('./utilsMySQL');
 const app = express();
 const port = 3000;
 
+// Detectar si estem al Proxmox (si és pm2)
+const isProxmox =
+  !!process.env.PM2_HOME ||
+  process.env.exec_mode === "cluster_mode" ||
+  process.env.exec_mode === "fork_mode";
+
 // Iniciar connexió MySQL
 const db = new MySQL();
-db.init({
-  host: process.env.MYSQL_HOST ?? '127.0.0.1',
-  port: Number(process.env.MYSQL_PORT ?? 3306),
-  user: process.env.MYSQL_USER ?? 'root',
-  password: process.env.MYSQL_PASS ?? 'root',
-  database: process.env.MYSQL_DB ?? 'escola',
-});
+if (!isProxmox) {
+  // Configurar aquí les credencials 
+  // MySQL per a ordinador local
+  db.init({
+    host: process.env.MYSQL_HOST ?? '127.0.0.1',
+    port: Number(process.env.MYSQL_PORT ?? 3306),
+    user: process.env.MYSQL_USER ?? 'root',
+    password: process.env.MYSQL_PASS ?? 'root',
+    database: process.env.MYSQL_DB ?? 'escola',
+  });
+} else {
+  // Configurar aquí les credencials 
+  // MySQL per a ordinador remot Proxmox
+  db.init({
+    host: process.env.MYSQL_HOST ?? '127.0.0.1',
+    port: Number(process.env.MYSQL_PORT ?? 3306),
+    user: process.env.MYSQL_USER ?? 'super',
+    password: process.env.MYSQL_PASS ?? '1234',
+    database: process.env.MYSQL_DB ?? 'escola',
+  });
+}
 
 // Static files (optional)
 app.use(express.static(path.join(__dirname, 'public')));
