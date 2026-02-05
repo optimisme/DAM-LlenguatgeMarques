@@ -98,6 +98,29 @@ Casos típics:
 * Login
 * Crear / editar dades
 
+## Definir crides a la pàgina web
+
+Per fer crides post sense codi JavaScript al web, cal definir:
+
+**Un formulari**, amb el paràmetre **"action"** configurant la URL del post:
+
+```html
+<form method="POST" action="/afegirCurs" class="form-grid">
+```
+
+**Els caps del formulari**, amb el nom que rebrà el servidor":
+
+```html
+<input type="text" id="nom" name="nom" required>
+<input type="text" id="tematica" name="tematica" required>
+```
+
+**Un botó d'enviament**, *"submit"*:
+
+```html
+<button type="submit">Afegir curs</button>
+```
+
 ## Definir crides POST al servidor NodeJS
 
 Al servidor, definim la direcció URL amb un *'app.post'*  i obtenim els parametres amb **"req.body.NOMDELPARAMETRE"**.
