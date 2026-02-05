@@ -346,7 +346,6 @@ app.post('/editarCurs', async (req, res) => {
 // Start server
 const httpServer = app.listen(port, () => {
   console.log(`http://localhost:${port}`);
-  console.log(`http://localhost:${port}/cursos`);
 });
 
 // Graceful shutdown
