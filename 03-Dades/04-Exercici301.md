@@ -84,9 +84,11 @@ DAM1M04-Exercici301/
 
 ### A) Servidor i dependències
 1. Inicialitza el projecte amb npm.
-2. Instal·la:
-   - `express`
-   - `hbs`
+2. Amb el mateix **package.json** dels exemples, instal·la les dependències:
+
+```bash
+npm install
+```
 
 ### B) Ruta `/` (pàgina principal)
 - Ruta: `GET /`
