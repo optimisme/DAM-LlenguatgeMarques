@@ -6,6 +6,8 @@ En aquest exercici crearàs un petit servidor web amb **Node.js + Express + Hand
 - **movies.hbs**: Pàgina de pel·lícules
 - **customers.hbs**: Pàgina de clients
 
+> **Important**: Fes servir el servidor de l'exemple *"05-MySQL"* com a base!
+
 ---
 
 ## Subvistes parcials
