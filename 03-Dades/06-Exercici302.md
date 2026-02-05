@@ -56,7 +56,7 @@ Ha de contenir l'any actual i atres dades comuns a totes les pàgines que cregui
 
 Si no la tens instal·lada, carrega la base de dades **Sakila** al servidor de MySQL (local i Proxmox)
 
-[Base de dades Sakila](https://dev.mysql.com/doc/sakila/en/sakila-usage.html)
+[Base de dades Sakila](https://dev.mysql.com/doc/sakila/en/sakila-installation.html)
 
 ---
 
