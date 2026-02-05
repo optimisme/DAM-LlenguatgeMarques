@@ -57,22 +57,28 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 // Route
 app.get('/', async (req, res) => {
   try {
+    // Obtenir les dades de la base de dades
     const cursosRows = await db.query('SELECT id, nom, tematica FROM cursos ORDER BY id');
     const especialitatsRows = await db.query('SELECT id, nom FROM especialitats ORDER BY nom');
 
+    // Transformar les dades a JSON (per les plantilles .hbs)
+    // Cal informar de les columnes i els seus tipus
     const cursosJson = db.table_to_json(cursosRows, { id: 'number', nom: 'string', tematica: 'string' });
     const especialitatsJson = db.table_to_json(especialitatsRows, { id: 'number', nom: 'string' });
 
+    // Llegir l'arxiu .json amb dades comunes per a totes les pàgines
     const commonData = JSON.parse(
       fs.readFileSync(path.join(__dirname, 'data', 'common.json'), 'utf8')
     );
 
+    // Construir l'objecte de dades per a la plantilla
     const data = {
       cursos: cursosJson,
       especialitats: especialitatsJson,
       common: commonData
     };
 
+    // Renderitzar la plantilla amb les dades
     res.render('index', data);
   } catch (err) {
     console.error(err);
@@ -82,6 +88,8 @@ app.get('/', async (req, res) => {
 
 app.get('/cursos', async (req, res) => {
   try {
+
+    // Obtenir les dades de la base de dades
     const cursosRows = await db.query(`
       SELECT
         c.id,
@@ -98,6 +106,7 @@ app.get('/cursos', async (req, res) => {
       ORDER BY c.id;
     `);
 
+    // Transformar les dades a JSON (per les plantilles .hbs)
     const cursosJson = db.table_to_json(cursosRows, {
       id: 'number',
       nom: 'string',
@@ -105,15 +114,18 @@ app.get('/cursos', async (req, res) => {
       mestre_nom: 'string'
     });
 
+    // Llegir l'arxiu .json amb dades comunes per a totes les pàgines
     const commonData = JSON.parse(
       fs.readFileSync(path.join(__dirname, 'data', 'common.json'), 'utf8')
     );
 
+    // Construir l'objecte de dades per a la plantilla
     const data = {
       cursos: cursosJson,
       common: commonData
     };
 
+    // Renderitzar la plantilla amb les dades
     res.render('cursos', data);
   } catch (err) {
     console.error(err);
