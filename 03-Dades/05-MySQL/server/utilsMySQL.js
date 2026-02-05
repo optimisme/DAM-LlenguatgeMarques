@@ -30,7 +30,7 @@ class Obj {
 
     // Fer una consulta a la base de dades
     callbackQuery(queryStr, callback) {
-    this.pool.query(queryStr, (err, rows) => callback(err, rows));
+    this.pool.query(queryStr, (err, rst) => callback(err, rst));
     }
 
     // Fer una consulta a la base de dades amb 'promises'
