@@ -14,19 +14,19 @@ const isProxmox = !!process.env.PM2_HOME;
 const db = new MySQL();
 if (!isProxmox) {
   db.init({
-    host: process.env.MYSQL_HOST ?? '127.0.0.1',
-    port: Number(process.env.MYSQL_PORT ?? 3306),
-    user: process.env.MYSQL_USER ?? 'root',
-    password: process.env.MYSQL_PASS ?? 'root',
-    database: process.env.MYSQL_DB ?? 'escola',
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'root',
+    password: 'root',
+    database: 'escola'
   });
 } else {
   db.init({
-    host: process.env.MYSQL_HOST ?? '127.0.0.1',
-    port: Number(process.env.MYSQL_PORT ?? 3306),
-    user: process.env.MYSQL_USER ?? 'super',
-    password: process.env.MYSQL_PASS ?? '1234',
-    database: process.env.MYSQL_DB ?? 'escola',
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'super',
+    password: '1234',
+    database: 'escola'
   });
 }
 
