@@ -47,3 +47,56 @@ El DOM permet que JavaScript pugui:
 * afegir o eliminar elements
 * respondre a clics i accions de l’usuari
 
+## JavaScript a les pàgines web
+
+Per incloure codi **JavaScript** a les pàgines web, es fa servir l'element `<Script>`
+
+```html
+<script type="text/JavaScript" src="script.js"></script>
+```
+
+> **Nota**: Es pot posar codi directament a dins del cos de l'element, però és més recomanable fer-ho en un arxiu amb l'atribut *"src"*.
+
+## Referència a elements
+
+Per poder modificar els elements del DOM, hem d'obtenir una referència. Hi ha diverses maneres:
+
+**.querySelector** permet obtenir la referència amb el mateix format que es defineixen les classes CSS
+
+```html
+  <div id="hola">...</div>
+  <div class="segon">2n</div>
+```
+
+```javascript
+  var refHola = document.querySelector("#hola")
+  var refSegon = document.querySelector(".segon")
+```
+
+**.getElementById** permet obtenir la referència a partir de l'identificador de l'element
+
+```html
+  <div id="nom">Toni</div>
+  <div id="cognom">Amorós</div>
+```
+
+```javascript
+  var refNom = document.getElementById("nom")
+  var refCog = document.getElementById("cognom")
+```
+
+## Contingut dels elements
+
+Hi ha diverses maneres de canviar el contingut dels elements:
+
+**textContent**: Permet veure i/o modificar el text dins d'un element
+
+```html
+  <div id="nom">Toni</div>
+```
+
+```javascript
+  var refNom = document.getElementById("nom")
+  var textNom = refNom.textContent
+  // Ara "textNom" conté el valor "Toni"
+```
