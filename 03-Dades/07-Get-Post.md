@@ -105,7 +105,8 @@ Per fer crides post sense codi JavaScript al web, cal definir:
 **Un formulari**, amb el paràmetre **"action"** configurant la URL del post:
 
 ```html
-<form method="POST" action="/afegirCurs" class="form-grid">
+<form method="POST" action="/create" class="form-grid">
+<input type="hidden" name="table" value="cursos">
 ```
 
 **Els caps del formulari**, amb el nom que rebrà el servidor":
@@ -126,10 +127,13 @@ Per fer crides post sense codi JavaScript al web, cal definir:
 Al servidor, definim la direcció URL amb un *'app.post'*  i obtenim els parametres amb **"req.body.NOMDELPARAMETRE"**.
 
 ```javascript
-app.post('/afegirCurs', async (req, res) => {
+app.post('/add', async (req, res) => {
   try {
-    const nom = req.body.nom
-    const tematica = req.body.tematica
+    const table = req.body.table
+    if (table == "cursos") {
+      const nom = req.body.nom
+      const tematica = req.body.tematica
+      //...
 ```
 
 Aleshores podem fer queries a la base de dades, amb aquests paràmetres:
