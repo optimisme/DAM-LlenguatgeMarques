@@ -299,7 +299,7 @@ app.post('/create', async (req, res) => {
   }
 })
 
-app.post('/remove', async (req, res) => {
+app.post('/delete', async (req, res) => {
   try {
 
     const table = req.body.table
