@@ -1,16 +1,16 @@
 function posaHola() {
     var ref = document.querySelector("#hola")
-    ref.innerText = "Hola"
+    ref.textContent = "Hola"
 }
 
 function posaRes() {
     var ref = document.querySelector("#hola")
-    ref.innerText = "???"
+    ref.textContent = "???"
 }
 
 function canviaNom() {
     var ref =  document.querySelector("#adeu")
-    var text = ref.innerText
+    var text = ref.textContent
 
     if (text.indexOf("Maria") >= 0) {
         // Si hi ha el text "Maria" es canvia per "Pepet"
@@ -20,7 +20,7 @@ function canviaNom() {
         text = text.replaceAll("Pepet", "Maria")
     }
     
-    ref.innerText = text
+    ref.textContent = text
 }
 
 function escriuConsola(valor) {
