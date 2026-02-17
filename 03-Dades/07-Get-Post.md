@@ -127,7 +127,7 @@ Per fer crides post sense codi JavaScript al web, cal definir:
 Al servidor, definim la direcció URL amb un *'app.post'*  i obtenim els parametres amb **"req.body.NOMDELPARAMETRE"**.
 
 ```javascript
-app.post('/add', async (req, res) => {
+app.post('/create', async (req, res) => {
   try {
     const table = req.body.table
     if (table == "cursos") {
