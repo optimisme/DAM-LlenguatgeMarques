@@ -267,25 +267,31 @@ app.get('/cursEdit', async (req, res) => {
   }
 })
 
-app.post('/afegirCurs', async (req, res) => {
+app.post('/create', async (req, res) => {
   try {
-    const nom = req.body.nom
-    const tematica = req.body.tematica
 
-    // Basic validation
-    if (!nom || !tematica) {
-      return res.status(400).send('Falten dades')
+    const table = req.body.table
+
+    if (table == "cursos") {
+
+      const nom = req.body.nom
+      const tematica = req.body.tematica
+
+      // Basic validation
+      if (!nom || !tematica) {
+        return res.status(400).send('Falten dades')
+      }
+
+      await db.query(
+        `
+        INSERT INTO cursos (nom, tematica)
+        VALUES ("${nom}", "${tematica}")
+        `
+      )
+
+      // Redirect to list of courses
+      res.redirect('/cursos')
     }
-
-    await db.query(
-      `
-      INSERT INTO cursos (nom, tematica)
-      VALUES ("${nom}", "${tematica}")
-      `
-    )
-
-    // Redirect to list of courses
-    res.redirect('/cursos')
 
   } catch (err) {
     console.error(err)
@@ -293,50 +299,63 @@ app.post('/afegirCurs', async (req, res) => {
   }
 })
 
-app.post('/esborrarCurs', async (req, res) => {
+app.post('/remove', async (req, res) => {
   try {
-    const id = parseInt(req.body.id, 10)
 
-    // Basic validation
-    if (!Number.isInteger(id) || id <= 0) {
-      return res.status(400).send('ID de curs invàlid')
+    const table = req.body.table
+
+    if (table == "cursos") {
+
+      const id = parseInt(req.body.id, 10)
+
+      // Basic validation
+      if (!Number.isInteger(id) || id <= 0) {
+        return res.status(400).send('ID de curs invàlid')
+      }
+
+      await db.query(
+        `DELETE FROM cursos WHERE id = ${id}`
+      )
+
+      res.redirect('/cursos')
     }
 
-    await db.query(
-      `DELETE FROM cursos WHERE id = ${id}`
-    )
-
-    res.redirect('/cursos')
   } catch (err) {
     console.error(err)
     res.status(500).send('Error esborrant el curs')
   }
 })
 
-app.post('/editarCurs', async (req, res) => {
+app.post('/update', async (req, res) => {
   try {
-    const id = parseInt(req.body.id, 10)
-    const mestre_id = parseInt(req.body.mestre_id, 10)
-    const nom = req.body.nom
-    const tematica = req.body.tematica
 
-    // Basic validation
-    if (!Number.isInteger(id) || id <= 0) return res.status(400).send('ID invàlid')
-    if (!Number.isInteger(mestre_id) || mestre_id <= 0) return res.status(400).send('Mestre invàlid')
-    if (!nom || !tematica) return res.status(400).send('Falten dades')
+    const table = req.body.table
 
-    // Update curs
-    await db.query(`
-      UPDATE cursos
-      SET nom = "${nom}", tematica = "${tematica}"
-      WHERE id = ${id};
-    `)
+    if (table == "cursos") {
 
-    // Keep only 1 mestre per curs (UI)
-    await db.query(`DELETE FROM mestre_curs WHERE curs_id = ${id};`)
-    await db.query(`INSERT INTO mestre_curs (mestre_id, curs_id) VALUES (${mestre_id}, ${id});`)
+      const id = parseInt(req.body.id, 10)
+      const mestre_id = parseInt(req.body.mestre_id, 10)
+      const nom = req.body.nom
+      const tematica = req.body.tematica
 
-    res.redirect(`/curs?id=${id}`)
+      // Basic validation
+      if (!Number.isInteger(id) || id <= 0) return res.status(400).send('ID invàlid')
+      if (!Number.isInteger(mestre_id) || mestre_id <= 0) return res.status(400).send('Mestre invàlid')
+      if (!nom || !tematica) return res.status(400).send('Falten dades')
+
+      // Update curs
+      await db.query(`
+        UPDATE cursos
+        SET nom = "${nom}", tematica = "${tematica}"
+        WHERE id = ${id};
+      `)
+
+      // Keep only 1 mestre per curs (UI)
+      await db.query(`DELETE FROM mestre_curs WHERE curs_id = ${id};`)
+      await db.query(`INSERT INTO mestre_curs (mestre_id, curs_id) VALUES (${mestre_id}, ${id});`)
+
+      res.redirect(`/curs?id=${id}`)
+    }
   } catch (err) {
     console.error(err)
     res.status(500).send('Error editant el curs')

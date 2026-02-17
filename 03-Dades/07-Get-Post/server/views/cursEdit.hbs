@@ -11,7 +11,8 @@
   <main class="container">
     <h1>Editar curs (ID: {{curs.id}})</h1>
 
-    <form method="POST" action="/editarCurs" class="form-grid">
+    <form method="POST" action="/update" class="form-grid">
+      <input type="hidden" name="table" value="cursos">
       <input type="hidden" name="id" value="{{curs.id}}">
 
       <label for="nom">Nom del curs</label>
@@ -32,7 +33,8 @@
 
     <hr>
 
-    <form method="POST" action="/esborrarCurs" onsubmit="return true;">
+    <form method="POST" action="/remove" onsubmit="return true;">
+      <input type="hidden" name="table" value="cursos">
       <input type="hidden" name="id" value="{{curs.id}}">
       <button type="submit">🗑️ Esborrar curs</button>
     </form>
