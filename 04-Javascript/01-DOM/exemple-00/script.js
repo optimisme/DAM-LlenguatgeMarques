@@ -8,10 +8,6 @@ function posaRes() {
     ref.innerText = "???"
 }
 
-function escriuConsola(valor) {
-    console.log(`Sha rebut: "${valor}"`)
-}
-
 function canviaNom() {
     var ref =  document.querySelector("#adeu")
     var text = ref.innerText
@@ -25,4 +21,8 @@ function canviaNom() {
     }
     
     ref.innerText = text
+}
+
+function escriuConsola(valor) {
+    console.log(`Sha rebut: "${valor}"`)
 }
