@@ -49,7 +49,7 @@ El DOM permet que JavaScript pugui:
 
 ## JavaScript a les pàgines web
 
-Per incloure codi **JavaScript** a les pàgines web, es fa servir l'element `<Script>`
+Per incloure codi **JavaScript** a les pàgines web, es fa servir l'element `<script>`
 
 ```html
 <script type="text/JavaScript" src="script.js"></script>
@@ -85,9 +85,9 @@ Per poder modificar els elements del DOM, hem d'obtenir una referència. Hi ha d
   var refCog = document.getElementById("cognom")
 ```
 
-## Contingut dels elements
+## Contingut de text dels elements
 
-Hi ha diverses maneres de canviar el contingut dels elements:
+Hi ha diverses maneres de canviar el contingut dels elements, per canviar el text:
 
 **textContent**: Permet veure i/o modificar el text dins d'un element
 
@@ -100,3 +100,38 @@ Hi ha diverses maneres de canviar el contingut dels elements:
   var textNom = refNom.textContent
   // Ara "textNom" conté el valor "Toni"
 ```
+
+## Estils 'style' dels elements
+
+Es pot canviar l'estil dels elements des de JavaScript amb una referència a l'element i la propietat *".style"*
+
+
+> **Nota**: Això és com modificar l'element *"style"* de l'element, és per aquest motiu que no es recomana fer servir mai *"style"*, perquè així quan hi ha modificacions sabem que venen de JavaScript.
+
+```html
+<div id="txtCol" style="color:blue;">Color del text</div>
+```
+
+```javascript
+function textColor(value) {
+    var ref =  document.querySelector("#txtCol")
+    ref.style.color = value;
+}
+```
+
+Quan un estil té un nom compost, per exemple **"background-color"** es passa a notació *"CamelCase".
+
+```javascript
+function backColor(value) {
+    var ref =  document.querySelector("#bckCol")
+    ref.style.backgroundColor = value;
+}
+```
+
+## Estils 'class' dels elements
+
+També es poden modificar els estils que hi ha definits en un element, això és útil per canviar-los l'estil o afegir/treure classes
+
+
+
+## Modificar variables del CSS

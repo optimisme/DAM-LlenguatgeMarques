@@ -1,7 +1,36 @@
-/* estils.css */
-
 body {
     font-family: "Open Sans";
     margin: 0;
     padding: 25px;
+}
+
+/* Exemple: modificar les classes d'un element */
+.color {
+    color: red;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.marker {
+    background-color: yellow;
+}
+
+/* Exemple: activar/desactivar una animació CSS */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+#animatedBox {
+  display: inline-block;
+}
+
+.animacioCSS {
+  animation: girar 2s linear infinite;
+}
+
+.animacioPausada {
+  animation-play-state: paused;
 }
