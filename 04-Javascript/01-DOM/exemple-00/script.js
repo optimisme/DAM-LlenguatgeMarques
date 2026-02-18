@@ -79,6 +79,13 @@ function animOff() {
   ref.classList.remove("animacioPausada")
 }
 
+// Exemple: Modificar el valor d'una variable CSS
+function canviaVarCSS(nouColor) {
+  document.documentElement
+    .style
+    .setProperty('--color-principal', nouColor)
+}
+
 // Manipular l'estructura del DOM
 var divCounter = 0
 function addDiv() {

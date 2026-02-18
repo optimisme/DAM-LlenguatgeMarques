@@ -35,8 +35,19 @@ body {
   animation-play-state: paused;
 }
 
+/* Exemple: Modificar el valor d'una variable CSS */
+:root {
+  --color-principal: LightSalmon;
+}
+
+.fonsVarCSS {
+  background-color: var(--color-principal);
+  color: black;
+}
+
 /* Exemple: Manipular l'estructura del DOM */
 .fonsMagenta {
     background-color: magenta;
     color: #330033;
 }
+

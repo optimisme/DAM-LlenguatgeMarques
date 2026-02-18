@@ -132,6 +132,35 @@ function backColor(value) {
 
 També es poden modificar els estils que hi ha definits en un element, això és útil per canviar-los l'estil o afegir/treure classes
 
+```javascript
+// Si un element té la classe "menu"
+ref.classList.contains("menu")
 
+// Afegir una classe al 'class' d'un element anomenada "fonsGroc"
+ref.classList.add("fonsGroc")
+
+// Treure una classe del 'class' d'un element anomenada "lletresGrans"
+ref.classList.remove("lletresGrans")
+
+// Si l'element té la classe "animacio" la treu
+// Si l'element no té la classe "animacio" l'afegeix
+ref.classList.toggle("animacio")
+```
 
 ## Modificar variables del CSS
+
+Per modificar el valor d'una variable CSS
+
+```css
+:root {
+  --color-principal: LightSalmon;
+}
+```
+
+Com que no es pot accedir al css ":root" modifiquem *"document.documentElement"*
+
+```javascript
+document.documentElement.style.setProperty('--color-principal', 'cyan')
+```
+
+## Manipular l'estructura del DOM
