@@ -66,7 +66,7 @@ function animPause() {
 
   if (!ref.classList.contains("animacioCSS")) {
     ref.classList.add("animacioCSS")
-    return // ja està en marxa, no fem toggle
+    return // s'inicia l'animació, no canviem l'estat de pausa
   }
 
   // Canviar l'estat posar/treure per pausar/animar
@@ -76,4 +76,31 @@ function animPause() {
 function animOff() {
   const ref = document.getElementById("animatedBox")
   ref.classList.remove("animacioCSS")
+  ref.classList.remove("animacioPausada")
+}
+
+// Manipular l'estructura del DOM
+var divCounter = 0
+function addDiv() {
+    
+    // Crear un nou 'div'
+    var newDiv = document.createElement("div")
+    newDiv.setAttribute("id", "nouDiv" + divCounter)
+    newDiv.setAttribute("class", "fonsMagenta")
+    newDiv.textContent = "Magenta! " + divCounter
+
+
+    // Afegir el nou 'div' a 'emptyBox'
+    const ref = document.getElementById("emptyBox")
+    ref.appendChild(newDiv)
+    divCounter = divCounter + 1
+}
+
+function removeDiv() {
+    const ref = document.getElementById("emptyBox")
+
+    if (ref.lastElementChild) {
+        ref.removeChild(ref.lastElementChild)
+        divCounter--
+    }
 }

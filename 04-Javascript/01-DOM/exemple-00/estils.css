@@ -34,3 +34,9 @@ body {
 .animacioPausada {
   animation-play-state: paused;
 }
+
+/* Exemple: Manipular l'estructura del DOM */
+.fonsMagenta {
+    background-color: magenta;
+    color: #330033;
+}

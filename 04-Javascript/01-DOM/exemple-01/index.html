@@ -2,73 +2,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8">
-    <title>Demostració CSS: inline, internal, external</title>
-
-    <!-- 1) EXTERNAL CSS -->
-    <!-- Carrega d'estils comuns des d'un fitxer extern -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="estils.css">
-
-    <!-- 2) INTERNAL CSS -->
-    <!-- Estils específics d'aquesta pàgina. Aquests sobreescriuen l'external si tenen la mateixa especificitat. -->
-    <style>
-      /* Selector per etiqueta: afectarà tots els <p> d'aquest document,
-         i sobreescriurà el color definit a estils.css per a <p> */
-      p {
-        color: blue;
-        line-height: 1.5;
-      }
-
-      /* Un exemple addicional per diferenciar seccions */
-      div.seccio {
-        margin-bottom: 16px;
-      }
-
-      #unic {
-        border: 1px solid #999;
-        color: orange;
-        padding: 4px;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="estils.css">
+    <script type="text/JavaScript" src="script.js"></script>
+    <title>Javascript DOM</title>
   </head>
   <body>
-    <div class="seccio">
-      <h1 id="titol" class="vermell gran">Demostració de CSS</h1>
-      <p>Aquest paràgraf hereta el color <strong>blau</strong> del CSS intern (internal), que sobreescriu el <em>verd</em> definit a l'external.</p>
-    </div>
+    <b>Exemple:</b> modificar un text de la pàgina (1)
+    <br/>
+    <div id="hola">???</div>
+    <button onclick="posaHola()">Saluda!</button>
+    <button onclick="posaRes()">Restaura</button>
+    <br/><br/>
+    <br/><br/>
 
-    <hr/>
+    <b>Exemple:</b> modificar un text de la pàgina (2)
+    <br/>
+    <div id="adeu">A reveure Maria</div>
+    <button onclick="canviaNom()">Acomiada</button>
+    <br/><br/>
+    <br/><br/>
 
-    <div class="seccio">
-      <h2>Classes múltiples combinades</h2>
-      <p class="negreta">Només negreta via classe <code>.negreta</code>.</p>
-      <p class="vermell subratllat">Vermell i subratllat via <code>.vermell</code> + <code>.subratllat</code>.</p>
-      <p class="gran negreta subratllat">Gran, negreta i subratllat via <code>.gran</code> + <code>.negreta</code> + <code>.subratllat</code>.</p>
-    </div>
+    <b>Exemple:</b> escriure a la consola (i paràmetres)
+    <br/>
+    <button onclick="escriuConsola('Hola què tal')">Escriu a la consola</button>
+    <br/><br/>
+    <br/><br/>
 
-    <hr/>
+    <b>Exemple:</b> canviar l'estil d'un element (1)
+    <br/>
+    <div id="txtCol">Color del text</div>
+    <button onclick="textColor('blue')">Blau</button>
+    <button onclick="textColor('red')">Vermell</button>
+    <button onclick="textColor('orange')">Taronja</button>
+    <button onclick="textColor('black')">Negre</button>
+    <br/><br/>
+    <br/><br/>
 
-    <div class="seccio">
-      <h2>Inline CSS (atribut style)</h2>
-      <p id="unic">
-        Aquest paràgraf fa servir <strong>inline CSS</strong>, així que el color <em>taronja</em> té prioritat sobre l'internal i l'external.
-      </p>
-    </div>
+    <b>Exemple:</b> canviar l'estil d'un element (2)
+    <br/>
+    <div id="bckCol">Color del fons</div>
+    <button onclick="backColor('cyan')">Blau</button>
+    <button onclick="backColor('red')">Vermell</button>
+    <button onclick="backColor('orange')">Taronja</button>
+    <button onclick="backColor('white')">Blanc</button>
+    <br/><br/>
+    <br/><br/>
 
-    <hr/>
+    <b>Exemple:</b> modificar les classes d'un element
+    <br/>
+    <div id="clsConfig">Propietats</div>
+    <button onclick="propertiesConfig('color')">Color</button>
+    <button onclick="propertiesConfig('underline')">Subratllat</button>
+    <button onclick="propertiesConfig('marker')">Rotulador</button>
+    <br/><br/>
+    <br/><br/>
 
-    <div class="seccio">
-      <h2>Exemple d'ús de <code>id</code> i d'una classe semàntica</h2>
-      <p class="text-important">Aquest text és important (classe <code>.text-important</code> aplica vermell i negreta).</p>
-      <p>El títol dalt utilitza <code>id="titol"</code> i rep estil específic (subratllat i mida extra) des del CSS extern.</p>
-    </div>
-
-    <hr/>
-
-    <div class="seccio">
-      <h2>Enllaç per comprovar estils d'anchor</h2>
-      <p>
-        Visita la <a href="https://developer.mozilla.org/en-US/docs/Web/CSS#reference" target="_blank">Documentació CSS a MDN</a>.
-      </p>
-    </div>
+    <b>Exemple:</b> activar/desactivar una animació CSS
+    <br/>
+    <div id="animatedBox">🔥🔥🔥🔥</div>
+    <br/>
+    <button onclick="animOn()">Activar</button>
+    <button onclick="animPause()">Pausar</button>
+    <button onclick="animOff()">Desactivar</button>
+    <br/><br/>
+    <br/><br/>
   </body>
 </html>

@@ -1,41 +1,36 @@
-/* estils.css */
-
-/* Selector per etiqueta (aplica a tot el document, però pot ser sobreescrit):
-   Aquest color verd serà sobreescrit pel CSS intern (p {color: blue;}) */
-p {
-  color: green;
-  font-size: 16px;
+body {
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 25px;
 }
 
-/* Selectors per classe */
-.vermell {
-  color: red;
-}
-.gran {
-  font-size: 24px;
-}
-.negreta {
-  font-weight: bold;
-}
-.subratllat {
-  text-decoration: underline;
-}
-.text-important {
-  color: #c00000;
-  font-weight: bold;
+/* Exemple: modificar les classes d'un element */
+.color {
+    color: red;
 }
 
-/* Selector per id (únic per element) */
-#titol {
-  font-size: 28px;
-  text-decoration: underline;
+.underline {
+    text-decoration: underline;
 }
 
-/* Un toc per als enllaços, per veure que l'external també aplica */
-a {
-  border-bottom: 1px dotted #333;
-  text-decoration: none;
+.marker {
+    background-color: yellow;
 }
-a:hover {
-  border-bottom-style: solid;
+
+/* Exemple: activar/desactivar una animació CSS */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+#animatedBox {
+  display: inline-block;
+}
+
+.animacioCSS {
+  animation: girar 2s linear infinite;
+}
+
+.animacioPausada {
+  animation-play-state: paused;
 }
