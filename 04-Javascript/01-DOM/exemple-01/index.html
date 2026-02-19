@@ -1,73 +1,75 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ca">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="estils.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="estils.css">
-    <script type="text/JavaScript" src="script.js"></script>
-    <title>Javascript DOM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
+    <title>JavaScript + DOM + Events</title>
+    <script src="script.js" defer></script>
   </head>
+
   <body>
-    <b>Exemple:</b> modificar un text de la pàgina (1)
-    <br/>
-    <div id="hola">???</div>
-    <button onclick="posaHola()">Saluda!</button>
-    <button onclick="posaRes()">Restaura</button>
-    <br/><br/>
-    <br/><br/>
 
-    <b>Exemple:</b> modificar un text de la pàgina (2)
-    <br/>
-    <div id="adeu">A reveure Maria</div>
-    <button onclick="canviaNom()">Acomiada</button>
-    <br/><br/>
-    <br/><br/>
+    <div class="bloc">
+      <h2>Events definits a l'HTML (inline)</h2>
 
-    <b>Exemple:</b> escriure a la consola (i paràmetres)
-    <br/>
-    <button onclick="escriuConsola('Hola què tal')">Escriu a la consola</button>
-    <br/><br/>
-    <br/><br/>
+      <p><b>Exemple:</b> modificar un text (onclick)</p>
+      <div id="hola" class="caixa">???</div>
+      <button onclick="posaHola()">Saluda!</button>
+      <button onclick="posaRes()">Restaura</button>
 
-    <b>Exemple:</b> canviar l'estil d'un element (1)
-    <br/>
-    <div id="txtCol">Color del text</div>
-    <button onclick="textColor('blue')">Blau</button>
-    <button onclick="textColor('red')">Vermell</button>
-    <button onclick="textColor('orange')">Taronja</button>
-    <button onclick="textColor('black')">Negre</button>
-    <br/><br/>
-    <br/><br/>
+      <hr/>
 
-    <b>Exemple:</b> canviar l'estil d'un element (2)
-    <br/>
-    <div id="bckCol">Color del fons</div>
-    <button onclick="backColor('cyan')">Blau</button>
-    <button onclick="backColor('red')">Vermell</button>
-    <button onclick="backColor('orange')">Taronja</button>
-    <button onclick="backColor('white')">Blanc</button>
-    <br/><br/>
-    <br/><br/>
+      <p><b>Exemple:</b> input (oninput)</p>
+      <input id="nomInput" type="text" placeholder="Escriu el teu nom..." oninput="actualitzaNomInline(this.value)">
+      <div id="nomPreview" class="caixa">Nom: (buit)</div>
 
-    <b>Exemple:</b> modificar les classes d'un element
-    <br/>
-    <div id="clsConfig">Propietats</div>
-    <button onclick="propertiesConfig('color')">Color</button>
-    <button onclick="propertiesConfig('underline')">Subratllat</button>
-    <button onclick="propertiesConfig('marker')">Rotulador</button>
-    <br/><br/>
-    <br/><br/>
+      <hr/>
 
-    <b>Exemple:</b> activar/desactivar una animació CSS
-    <br/>
-    <div id="animatedBox">🔥🔥🔥🔥</div>
-    <br/>
-    <button onclick="animOn()">Activar</button>
-    <button onclick="animPause()">Pausar</button>
-    <button onclick="animOff()">Desactivar</button>
-    <br/><br/>
-    <br/><br/>
+      <p><b>Exemple:</b> ratolí (onmouseover / onmouseout)</p>
+      <div id="hoverBox" class="caixa hover"
+           onmouseover="hoverInline(true)"
+           onmouseout="hoverInline(false)">
+        Passa el ratolí per sobre
+      </div>
+    </div>
+
+    <div class="bloc">
+      <h2>Events assignats des de JavaScript (addEventListener)</h2>
+
+      <p class="nota">
+        Aquests botons NO tenen onclick a l'HTML. Els handlers es connecten a <code>init()</code>.
+      </p>
+
+      <p><b>Exemple:</b> canviar el color del text (click)</p>
+      <div id="txtCol" class="caixa">Color del text</div>
+      <button id="btnBlue">Blau</button>
+      <button id="btnRed">Vermell</button>
+      <button id="btnOrange">Taronja</button>
+      <button id="btnBlack">Negre</button>
+
+      <hr/>
+
+      <p><b>Exemple:</b> modificar classes (click)</p>
+      <div id="clsConfig" class="caixa">Propietats</div>
+      <button id="btnColor">Color</button>
+      <button id="btnUnderline">Subratllat</button>
+      <button id="btnMarker">Rotulador</button>
+
+      <hr/>
+
+      <p><b>Exemple:</b> teclat (keydown)</p>
+      <input id="keyInput" type="text" placeholder="Prem tecles aquí (mira el log)">
+      <div id="keyInfo" class="caixa">Tecla: (cap)</div>
+
+      <hr/>
+
+      <p><b>Exemple:</b> animació CSS (click)</p>
+      <div id="animatedBox" class="caixa anim">🔥🔥🔥🔥</div>
+      <button id="btnAnimOn">Activar</button>
+      <button id="btnAnimPause">Pausar</button>
+      <button id="btnAnimOff">Desactivar</button>
+    </div>
   </body>
 </html>

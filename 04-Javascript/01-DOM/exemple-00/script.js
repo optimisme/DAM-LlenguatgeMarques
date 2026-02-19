@@ -59,6 +59,18 @@ function propertiesConfig(className) {
 function animOn() {
   const ref = document.getElementById("animatedBox")
   ref.classList.add("animacioCSS")
+
+  const refBtn = document.getElementById("btnPause")
+  refBtn.classList.remove("hidden")
+}
+
+function animOff() {
+  const ref = document.getElementById("animatedBox")
+  ref.classList.remove("animacioCSS")
+  ref.classList.remove("animacioPausada")
+
+  const refBtn = document.getElementById("btnPause")
+  refBtn.classList.add("hidden")
 }
 
 function animPause() {
@@ -71,12 +83,13 @@ function animPause() {
 
   // Canviar l'estat posar/treure per pausar/animar
   ref.classList.toggle("animacioPausada")
-}
 
-function animOff() {
-  const ref = document.getElementById("animatedBox")
-  ref.classList.remove("animacioCSS")
-  ref.classList.remove("animacioPausada")
+  const refBtn = document.getElementById("btnPause")
+  if (ref.classList.contains("animacioPausada")) {
+    refBtn.innerText = "Reanudar"
+  } else {
+    refBtn.innerText = "Pausar"
+  }
 }
 
 // Exemple: Modificar el valor d'una variable CSS
@@ -101,6 +114,9 @@ function addDiv() {
     const ref = document.getElementById("emptyBox")
     ref.appendChild(newDiv)
     divCounter = divCounter + 1
+
+    const refBtn = document.getElementById("btnRemove")
+    refBtn.classList.remove("hidden")
 }
 
 function removeDiv() {
@@ -109,5 +125,10 @@ function removeDiv() {
     if (ref.lastElementChild) {
         ref.removeChild(ref.lastElementChild)
         divCounter--
+    }
+
+    const refBtn = document.getElementById("btnRemove")
+    if (divCounter <= 0) {
+        refBtn.classList.add("hidden")
     }
 }

@@ -1,0 +1,140 @@
+/* estils.css (tema clar) */
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2430;
+  --muted: #5c647a;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #5b6cff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Open Sans", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.contenidor {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.bloc {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.bloc h2 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.fila {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input, select, textarea, button {
+  font: inherit;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--text);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+textarea { resize: vertical; }
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91, 108, 255, 0.15);
+}
+
+.sortida {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.sortida span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.check, .radios label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.radios {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.botons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #4a59e0;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.pre {
+  margin: 0;
+  padding: 12px;
+  background: #f1f3f9;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+.peu {
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  background: #ffffff;
+}

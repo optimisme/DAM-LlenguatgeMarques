@@ -52,10 +52,12 @@ El DOM permet que JavaScript pugui:
 Per incloure codi **JavaScript** a les pàgines web, es fa servir l'element `<script>`
 
 ```html
-<script type="text/JavaScript" src="script.js"></script>
+<script src="script.js" defer></script>
 ```
 
 > **Nota**: Es pot posar codi directament a dins del cos de l'element, però és més recomanable fer-ho en un arxiu amb l'atribut *"src"*.
+
+> **Nota**: *"defer"* fa que el codi JavaScript s'executi quan el DOM ja existeix
 
 ## Referència a elements
 
@@ -164,3 +166,95 @@ document.documentElement.style.setProperty('--color-principal', 'cyan')
 ```
 
 ## Manipular l'estructura del DOM
+
+El DOM és la manera que té el navegador de representar els elements de la pàgina web, organitzats en forma d'arbre. 
+
+- Cada node de l'arbre pot tenir fills, que poden ser altres nodes (elements) o nodes de text.
+- No tots els elements HTML poden tenir fills (per exemple <img>, <input>).
+
+Es poden crear nous nodes (elements) amb JavaScript:
+
+```javascript
+    var newDiv = document.createElement("div")
+    newDiv.setAttribute("id", "nouDiv" + divCounter)
+    newDiv.setAttribute("class", "fonsMagenta")
+    newDiv.textContent = "Magenta! " + divCounter
+```
+
+Els nodes creats amb JavaScript es poden afegir a la pàgina web, com a fills de d'un node 
+
+```javascript
+    const ref = document.getElementById("emptyBox")
+    ref.appendChild(newDiv)
+```
+
+Les funcions per manipular els fills d'un node són:
+
+```javascript
+// Afegeix al final
+parent.appendChild(node)
+
+// Afegeix al principi
+parent.prepend(node)
+
+// Afegeix (accepta text també)
+parent.append(node)           
+
+// Inserir a una posició concreta
+parent.insertBefore(newNode, referenceNode)
+
+// Elimina un fill concret
+parent.removeChild(child)
+
+// Elimina l'últim fill
+const last = ref.lastElementChild
+if (last) last.remove()
+
+// Elimina directament el node
+node.remove()
+
+```
+
+Exemple d'afegir davant dels altres nodes com a primer fill:
+```javascript
+const parent = document.getElementById("emptyBox")
+const firstChild = parent.firstChild
+parent.insertBefore(newDiv, firstChild)
+```
+
+Exemple de com canviar un node per un altre:
+```javascript
+const parent = document.getElementById("emptyBox")
+const old = parent.firstElementChild
+parent.replaceChild(newDiv, old)
+```
+
+## Esdeveniments
+
+Hi ha dues maneres d'afegir esdevenimens:
+
+- **Definir crids des de l'HTML de la pàgina web**:
+
+```html
+<!-- Executa 'init()' quan s'ha carregat la pàgina -->
+<body onload="init()">
+```
+
+- **Definir esdeveniments des de JavaScript**:
+
+```javascript
+// Executa 'init()' quan s'ha carregat la pàgina
+function init () {
+  console.log("Pàgina completament carregada")
+}
+window.addEventListener("load", init)
+```
+
+Quan es crea un nou element des de JavaScript, es poden afegir esdeveniments:
+
+```javascript
+const btn = document.getElementById("btn")
+btn.addEventListener("click", function() {
+    alert("Has fet clic!")
+})
+```

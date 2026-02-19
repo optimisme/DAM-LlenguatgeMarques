@@ -1,0 +1,72 @@
+:root{
+  --mida: 75px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  font-family:"Open Sans", sans-serif;
+  background:#f6f7fb;
+  color:#111827;
+}
+
+.contenidor{
+  max-width:700px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.tauler{
+  position:relative;
+  display:flex;
+  width: calc(var(--mida) * 5);
+  height: var(--mida);
+  background:white;
+}
+
+.casella{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.casella:not(:first-child){
+  border-left: 1px solid black;
+}
+
+.fitxa{
+  position:absolute;
+  top:0;
+  left:0;
+  width: var(--mida);
+  height: var(--mida);
+
+  opacity: 0.5;
+  background:#2563eb;
+  cursor:pointer;
+  
+  transition: transform 350ms ease;
+}
+
+.fitxa:hover{
+  background:#06b6d4;
+}
+
+.controls{
+  margin-top:15px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+button{
+  border:0;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#111827;
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+}

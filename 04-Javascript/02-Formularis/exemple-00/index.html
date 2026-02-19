@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="estils.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
+    <title>Formularis + JavaScript</title>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+
+    <main class="contenidor">
+      <!-- Text + input -->
+      <section class="bloc">
+        <h2>Input de text + event <code>input</code></h2>
+
+        <div class="fila">
+          <label for="inpNom">Nom</label>
+          <input id="inpNom" type="text" placeholder="Escriu el teu nom">
+        </div>
+
+        <p class="sortida">Valor actual: <span id="outNom">-</span></p>
+      </section>
+
+      <!-- Text + change -->
+      <section class="bloc">
+        <h2>Input de text + event <code>change</code></h2>
+
+        <div class="fila">
+          <label for="inpCiutat">Ciutat</label>
+          <input id="inpCiutat" type="text" placeholder="Escriu una ciutat i surt del camp">
+        </div>
+
+        <p class="sortida">Valor (quan acaba): <span id="outCiutat">-</span></p>
+      </section>
+
+      <!-- Select + change -->
+      <section class="bloc">
+        <h2>Select/option + event <code>change</code></h2>
+
+        <div class="fila">
+          <label for="selCurs">Curs</label>
+          <select id="selCurs">
+            <option value="">-- tria --</option>
+            <option value="smx">SMX</option>
+            <option value="dam">DAM</option>
+            <option value="asir">ASIR</option>
+          </select>
+        </div>
+
+        <p class="sortida">Seleccionat: <span id="outCurs">-</span></p>
+      </section>
+
+      <!-- Checkbox + change -->
+      <section class="bloc">
+        <h2>Checkbox + propietat <code>checked</code></h2>
+
+        <label class="check">
+          <input id="chkCond" type="checkbox">
+          Accepto condicions
+        </label>
+
+        <p class="sortida">Marcat: <span id="outCond">No</span></p>
+      </section>
+
+      <!-- Radio + change -->
+      <section class="bloc">
+        <h2>Radiobox (grup) + trobar <code>:checked</code></h2>
+
+        <div class="radios">
+          <label><input type="radio" name="mode" value="presencial"> Presencial</label>
+          <label><input type="radio" name="mode" value="online"> Online</label>
+          <label><input type="radio" name="mode" value="hibrid"> Híbrid</label>
+        </div>
+
+        <p class="sortida">Triat: <span id="outMode">-</span></p>
+      </section>
+
+      <!-- Textarea + input -->
+      <section class="bloc">
+        <h2>Textarea + event <code>input</code></h2>
+
+        <div class="fila">
+          <label for="txtComent">Comentaris</label>
+          <textarea id="txtComent" rows="3" placeholder="Escriu comentaris..."></textarea>
+        </div>
+
+        <p class="sortida">Text: <span id="outComent">-</span></p>
+      </section>
+
+      <!-- Set value via JS -->
+      <section class="bloc">
+        <h2>Modificar valors des de JS (amb botó)</h2>
+
+        <div class="fila">
+          <label for="inpSetNom">Nom editable</label>
+          <input id="inpSetNom" type="text" placeholder="Prem el botó per posar un valor">
+        </div>
+
+        <div class="botons">
+          <button id="btnPosaNom" type="button">Posa "Pere"</button>
+          <button id="btnNetejaNom" type="button">Neteja</button>
+        </div>
+
+        <p class="sortida">Valor: <span id="outSetNom">-</span></p>
+      </section>
+
+      <!-- Focus/Blur -->
+      <section class="bloc">
+        <h2><code>focus</code> i <code>blur</code></h2>
+
+        <div class="fila">
+          <label for="inpFocus">Camp focus</label>
+          <input id="inpFocus" type="text" placeholder="Fes focus i surt">
+        </div>
+
+        <p class="sortida">Estat: <span id="outFocus">Sense focus</span></p>
+      </section>
+    </main>
+
+    <footer class="peu">
+      <p>DOM + Formularis — exemples bàsics</p>
+    </footer>
+  </body>
+</html>

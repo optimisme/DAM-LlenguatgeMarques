@@ -1,36 +1,105 @@
+:root {
+  --bg: #f6f6f6;
+  --card: #ffffff;
+  --border: #dddddd;
+  --text: #222;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: "Open Sans";
-    margin: 0;
-    padding: 25px;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 16px;
 }
 
-/* Exemple: modificar les classes d'un element */
-.color {
-    color: red;
+h1 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
 }
 
-.underline {
-    text-decoration: underline;
+.bloc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
 }
 
-.marker {
-    background-color: yellow;
+.bloc h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
 }
 
-/* Exemple: activar/desactivar una animació CSS */
-@keyframes girar {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.caixa {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px 0;
+  background: #fff;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
 }
 
-#animatedBox {
-  display: inline-block;
+button {
+  padding: 8px 10px;
+  margin: 4px 6px 4px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
 }
 
-.animacioCSS {
-  animation: girar 2s linear infinite;
+button:active { transform: translateY(1px); }
+
+input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: min(420px, 100%);
 }
 
-.animacioPausada {
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+.nota {
+  margin: 6px 0 10px 0;
+  color: #444;
+  font-size: 13px;
+}
+
+.hover {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.fila-botons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+/* Classes per l'exemple classList */
+.clr { color: #0b63ce; font-weight: 700; }
+.ul { text-decoration: underline; }
+.mark { background: #fff2a8; }
+
+/* Animació */
+.animOn {
+  animation: pulse 0.45s infinite alternate;
+}
+
+.animPaused {
   animation-play-state: paused;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
 }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="estils.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
+    <title>Validació formulari</title>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body onload="init()">
+    <header class="cap">
+      <h1>Inscripció a un curs d’informàtica</h1>
+      <p>Validació amb JavaScript: errors per camp i validació al submit</p>
+    </header>
+
+    <main class="contenidor">
+      <section class="bloc">
+        <h2>Formulari d’inscripció</h2>
+
+        <form id="frm" novalidate>
+          <div class="fila">
+            <label for="inpNom">Nom i cognoms</label>
+            <input id="inpNom" name="nom" type="text" placeholder="Ex: Laia Soler">
+            <p class="error" id="errNom"></p>
+          </div>
+
+          <div class="fila">
+            <label for="inpEmail">Email</label>
+            <input id="inpEmail" name="email" type="text" placeholder="Ex: laia@exemple.cat">
+            <p class="error" id="errEmail"></p>
+          </div>
+
+          <div class="fila">
+            <label for="inpEdat">Edat</label>
+            <input id="inpEdat" name="edat" type="number" min="12" max="99" step="1" placeholder="Ex: 16">
+            <p class="error" id="errEdat"></p>
+          </div>
+
+          <div class="fila">
+            <label for="selCurs">Curs</label>
+            <select id="selCurs" name="curs">
+              <option value="">-- tria un curs --</option>
+              <option value="web">Programació Web (HTML/CSS/JS)</option>
+              <option value="python">Python bàsic</option>
+              <option value="bd">Bases de dades (SQL)</option>
+            </select>
+            <p class="error" id="errCurs"></p>
+          </div>
+
+          <fieldset class="fieldset">
+            <legend>Nivell</legend>
+
+            <label class="inline">
+              <input type="radio" name="nivell" value="iniciacio">
+              Iniciació
+            </label>
+
+            <label class="inline">
+              <input type="radio" name="nivell" value="mitja">
+              Mitjà
+            </label>
+
+            <label class="inline">
+              <input type="radio" name="nivell" value="avancat">
+              Avançat
+            </label>
+
+            <p class="error" id="errNivell"></p>
+          </fieldset>
+
+          <label class="check">
+            <input id="chkPriv" name="priv" type="checkbox">
+            Accepto la política de privacitat
+          </label>
+          <p class="error" id="errPriv"></p>
+
+          <div class="botons">
+            <button type="submit">Inscriure’m</button>
+            <button id="btnReset" type="button">Reset</button>
+          </div>
+        </form>
+
+        <pre id="out" class="pre">Resultat: (encara res)</pre>
+      </section>
+    </main>
+
+    <footer class="peu">
+      <p>Exemple de validació JS</p>
+    </footer>
+  </body>
+</html>
