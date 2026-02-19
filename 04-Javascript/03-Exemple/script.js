@@ -19,7 +19,7 @@ function actualitzaFitxa() {
   const posicioPixels = posicioActual * midaCasella;
 
   refFitxa.style.transform = `translateX(${posicioPixels}px)`;
-  refInfo.textContent = `Posició: ${posicioActual} / 4`;
+  refInfo.textContent = `Posició: ${posicioActual} / 4 (${posicioPixels}px)`;
 }
 
 function mouADreta() {
