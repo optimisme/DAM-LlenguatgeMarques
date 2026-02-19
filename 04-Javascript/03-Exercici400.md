@@ -162,7 +162,7 @@ Compara l’array actual amb l’estat resolt:
 
   * 8 peces + 1 buit
   * un estat jugable
-  
+
 * Les peces només es mouen si toca.
 * Quan es completa, es mostra un missatge.
 
@@ -175,3 +175,5 @@ Entrega l’exercici com un nou repositori a GitHub anomenat:
 `DAM1M04-Exercici400`
 
 I puja l’enllaç del repositori a l’espai d’entrega del Moodle.
+
+Hauràs d'ensenyar l'exercici funcionant al Proxmox el dia de l'entrega presencial.
