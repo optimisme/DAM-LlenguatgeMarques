@@ -30,6 +30,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .casella:not(:first-child){
