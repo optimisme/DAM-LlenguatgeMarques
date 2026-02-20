@@ -34,36 +34,31 @@ script.js
 
 ### Interfície
 
-* Un tauler en forma de graella (3x3 recomanat).
-* Les peces han de tenir un aspecte clar:
-
-  * o bé una **imatge** retallada en 8 arxius *".png"*
-  * o bé números (mínim acceptat)
-
+* Un tauler en forma de graella 3x3.
+* Les peces han de tenir un aspecte clar, ha de ser una **imatge** retallada en 8 arxius *".png"*
 * La casella buida.
-
+* Un comptador de moviments que s'han fet des que ha començat la partida (última barreja).
 * Un botó **Reset** que:
 
-  * reiniciï el puzle en un estat barrejat
-  * situa la peça buida també en una posició aleatòria
-  * posa el comptador de moviments a 0
+  * Reiniciï el puzle en un estat barrejat
+  * Situa la peça buida també en una posició aleatòria
+  * Posa el comptador de moviments a 0
 
-* Un comptador de moviments que s'han fet des que ha començat la partida (última barreja).
-
-* Animació suau del moviment amb *"transform/translate"*.
+> **Nota**: L'animació ha de ser suau i feta amb *"transform/translate"*.
 
 ### Funcionament
 
 * Clic a una peça:
 
-  * si és adjacent al *buit* → es mou cap al *buit*
-  * si no ho és → no passa res
+  * Si és adjacent al *buit* → es mou cap al *buit*
+  * Si no ho és → no passa res
 
 * Detecció de “puzle resolt”:
 
-  * quan està resolt, mostra un missatge a la pàgina dient que està resolt i el número de moviments que ha calgut per acabar.
+  * Quan està resolt, mostra un missatge a la pàgina dient que està resolt i el número de moviments que ha calgut per acabar.
 
 ---
+
 ## Com s’ha de muntar la lògica amb un array de dues dimensions
 
 El puzle s’ha de controlar amb una **matriu (array 2D)** que representi el tauler:
