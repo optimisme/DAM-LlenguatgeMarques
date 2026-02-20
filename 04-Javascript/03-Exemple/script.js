@@ -13,7 +13,7 @@ function init() {
   const refTauler = document.querySelector(".tauler");
   const refReset = document.getElementById("refReset");
 
-  // Definit els valors de les variables CSS
+  // Definir els valors de les variables CSS
   const refCSSRoot = document.documentElement;
   refCSSRoot.style.setProperty("--mida", midaCasella + "px");
   refCSSRoot.style.setProperty("--files", numFiles);
@@ -22,6 +22,7 @@ function init() {
   // Afegir caselles al tauler
   for (let fila = 0; fila < numFiles; fila++) {
     for (let columna = 0; columna < numColumnes; columna++) {
+
       const refCasella = document.createElement("div");
       refCasella.classList.add("casella");
       refCasella.addEventListener("click", () => mouFitxa(fila, columna));
@@ -29,6 +30,7 @@ function init() {
       refCasella.style.left = `${columna * midaCasella}px`;
       refCasella.style.top = `${fila * midaCasella}px`;
       refTauler.appendChild(refCasella);
+      
     }
   }
 
