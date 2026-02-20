@@ -278,5 +278,3 @@ També mostra els errors de compilació o d'execució:
 <center>
 <img src="./assets/console-error.png" style="width: 90%; max-width: 500px">
 </center>
-
-
