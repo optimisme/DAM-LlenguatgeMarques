@@ -1,6 +1,6 @@
 "use strict";
 
-const midaCasella = 75;
+const midaCasella = 100;
 const numFiles = 3;
 const numColumnes = 3;
 
