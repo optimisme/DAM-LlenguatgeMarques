@@ -19,8 +19,6 @@ function init() {
   refCSSRoot.style.setProperty("--files", numFiles);
   refCSSRoot.style.setProperty("--columnes", numColumnes);
 
-
-
   // Afegir caselles al tauler
   for (let fila = 0; fila < numFiles; fila++) {
     for (let columna = 0; columna < numColumnes; columna++) {
@@ -42,7 +40,7 @@ function init() {
   // Afegir event al botó de reset
   refReset.addEventListener("click", reset);
 
-  actualitzaFitxa();
+  posicionaFitxa(1, 1);
 }
 
 function mouFitxa(fila, columna) {

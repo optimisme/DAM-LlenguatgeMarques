@@ -258,3 +258,25 @@ btn.addEventListener("click", function() {
     alert("Has fet clic!")
 })
 ```
+
+## Consola i execució al Navegador
+
+Emb les eines de desenvolupament dels navegadors, s'inclou la consola on podem veure els missatges de:
+
+```javascript
+console.log("Missatge a escriure a la consola")
+console.warn("Avís a escriure a la consola")
+console.error("Error a escriure a la consola")
+```
+
+<center>
+<img src="./assets/console-messages.png" style="width: 90%; max-width: 500px">
+</center>
+
+També mostra els errors de compilació o d'execució:
+
+<center>
+<img src="./assets/console-error.png" style="width: 90%; max-width: 500px">
+</center>
+
+

@@ -6,7 +6,7 @@
 
 En aquest exercici crearàs un **sliding puzzle** amb JavaScript. El joc mostra una imatge dividida en peces i una **casella buida**. L’objectiu és **ordenar les peces** fins reconstruir la imatge original.
 
-> **Base**: fes servir la idea de *"03-Exemple"* de la fitxa que es desplaça per posicions, però ara amb **diverses peces**, una **casella buida** i moviments **validats**.
+> **Base**: fes servir la idea de *"03-Exemple"* de la fitxa que es desplaça per posicions.
 
 ## Objectiu del joc
 
@@ -20,13 +20,12 @@ En aquest exercici crearàs un **sliding puzzle** amb JavaScript. El joc mostra 
 
 ## Estructura mínima del projecte
 
-Crea el projecte amb aquesta estructura:
+Crea els següents arxius a la carpeta "public" del servidor:
 
 ```
-DAM1M04-Exercici400/
-├── index.html
-├── estils.css
-└── script.js
+index.html
+estils.css
+script.js
 ```
 
 ---
@@ -38,120 +37,156 @@ DAM1M04-Exercici400/
 * Un tauler en forma de graella (3x3 recomanat).
 * Les peces han de tenir un aspecte clar:
 
-  * o bé una **imatge** tallada (recomanat)
+  * o bé una **imatge** retallada en 8 arxius *".png"*
   * o bé números (mínim acceptat)
 
-* Una casella buida **visible** (pot ser un “forat” o una casella sense fons).
+* La casella buida.
 
 * Un botó **Reset** que:
 
   * reiniciï el puzle en un estat barrejat
-  * mantingui sempre **1 buit**
+  * situa la peça buida també en una posició aleatòria
+  * posa el comptador de moviments a 0
 
-* Animació suau del moviment (per exemple amb `transition` i `ease`).
+* Un comptador de moviments que s'han fet des que ha començat la partida (última barreja).
+
+* Animació suau del moviment amb *"transform/translate"*.
 
 ### Funcionament
 
 * Clic a una peça:
 
-  * si és adjacent al buit → es mou
+  * si és adjacent al *buit* → es mou cap al *buit*
   * si no ho és → no passa res
 
 * Detecció de “puzle resolt”:
 
-  * quan està resolt, mostra un missatge (`alert` o text a la pàgina).
+  * quan està resolt, mostra un missatge a la pàgina dient que està resolt i el número de moviments que ha calgut per acabar.
 
 ---
+## Com s’ha de muntar la lògica amb un array de dues dimensions
 
-## Com s’ha de muntar la lògica amb un array JavaScript
-
-El puzle s’ha de controlar amb **un array** que representi el tauler.
-
-### Representació recomanada (1D)
-
-Per una graella 3x3, tens 9 posicions. Fes un array de 9 elements:
+El puzle s’ha de controlar amb una **matriu (array 2D)** que representi el tauler:
 
 * `0` representa la **casella buida**
 * la resta són les peces (1..8)
 
-Exemple d’estat resolt:
+### Representació recomanada (2D)
+
+Exemple d’estat resolt (3x3):
 
 ```js
-// 3x3 (posicions 0..8)
-[1, 2, 3,
- 4, 5, 6,
- 7, 8, 0]
+const tauler = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 0]
+];
 ```
 
 Exemple d’estat barrejat:
 
 ```js
-[1, 2, 3,
- 4, 0, 6,
- 7, 5, 8]
+const tauler = [
+  [1, 2, 3],
+  [4, 0, 6],
+  [7, 5, 8]
+];
 ```
+
+> Important: `numFiles` i `numColumnes` han de coincidir amb la mida de la matriu.
+
+---
 
 ### Com saber on és el buit
 
-* Cerca l’índex on hi ha `0` amb `indexOf(0)`.
+Com que és 2D, es busca amb dos bucles:
+
+* recorre `fila` i `columna`
+* quan `tauler[fila][columna] === 0`, has trobat el buit
+
+Exemple d’idea (sense entrar a detalls d’implementació):
+
+* `posicioBuit.fila`
+* `posicioBuit.columna`
+
+---
 
 ### Com saber si una peça és adjacent al buit
 
-Treballant amb índexs (0..8):
+Amb coordenades (fila/columna), una peça és movible si està **just al costat** del buit:
 
-* calcula **fila** i **columna**:
+* mateixa fila i columna ±1
+* o mateixa columna i fila ±1
 
-  * `fila = Math.floor(index / mida)`
-  * `columna = index % mida`
+Regla curta (distància Manhattan):
 
-Una peça és movible si:
+* és legal si `abs(df) + abs(dc) === 1`
 
-* està a la mateixa fila i columna ±1
-* o a la mateixa columna i fila ±1
+On:
 
-En resum, el moviment és legal si:
+* `df = filaPeca - filaBuit`
+* `dc = columnaPeca - columnaBuit`
 
-* `abs(fila1 - fila2) + abs(col1 - col2) === 1`
+---
 
 ### Com fer el moviment
 
-Si la peça és adjacent:
+Quan l’usuari clica una casella `(fila, columna)`:
 
-* intercanvia els dos valors dins l’array (la peça i el `0`)
-* després “pinta” el tauler al DOM (actualitza la UI)
+1. Mira on és el buit `(filaBuit, columnaBuit)`
+2. Si és adjacent:
+
+   * intercanvia els dos valors a la matriu:
+
+     * `tauler[fila][columna]` ↔ `tauler[filaBuit][columnaBuit]`
+   * incrementa el comptador de moviments
+   * actualitza la UI (repinta / mou les fitxes al DOM)
+
+---
+
+### Com “pintar” el tauler al DOM (estil de l’exemple)
+
+Muntatge típic, coherent amb l’exemple:
+
+* a `init()` crees els `div.casella` amb dos bucles `fila/columna`
+* a cada casella li assignes:
+
+  * `addEventListener("click", () => clicCasella(fila, columna))`
+  * posició visual amb:
+
+    * `style.left = ...`
+    * `style.top = ...`
+
+Per a les fitxes (números o tros d’imatge):
+
+* cada fitxa es col·loca amb **`transform: translate(...)`** segons:
+
+  * `x = columna * midaCasella`
+  * `y = fila * midaCasella`
+
+* així tens animació suau amb `transition: transform ...` (com a l’exemple)
+
+---
 
 ### Com comprovar si està resolt
 
-Compara l’array actual amb l’estat resolt:
+Compara el tauler actual amb l’estat resolt esperat:
 
 ```js
-[1,2,3,4,5,6,7,8,0]
+const resolt = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 0]
+];
 ```
 
----
+Pots fer-ho recorrent totes les files i columnes i comprovant que:
 
-## Muntatge del tauler al DOM
+* `tauler[fila][columna] === resolt[fila][columna]` per a totes les posicions
 
-* El tauler HTML pot contenir 9 `div` (caselles).
-* Cada casella mostra:
+Quan està resolt:
 
-  * o un número
-  * o un “tros” de la imatge (via `background-position`)
-
-* En clicar una casella:
-
-  * obtens l’índex clicat
-  * intentes moure segons la lògica de l’array
-  * repintes
-
----
-
-## Extra opcional (per nota alta)
-
-* Botó “Barreja” que faci un shuffle vàlid.
-* Comptador de moviments.
-* Temporitzador.
-* Escollir imatge amb un "<option>" (2-3 opcions).
+* mostra un missatge (i moviments totals)
 
 ---
 
