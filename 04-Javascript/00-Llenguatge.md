@@ -56,6 +56,7 @@ Els tipus de variables són:
 ```javascript
 // Exemple d'array
 let arr = [1, "text", true]
+console.log(`Valor = ${arr[2]}`) // Output: Valor = true
 
 // Exemple de matriu (array de dues dimensions)
 var tauler = [
@@ -63,10 +64,20 @@ var tauler = [
   [4, 0, 6],
   [7, 5, 8]
 ];
+console.log(`Valor = ${tauler[1][2]}`) // Output: Valor = 6
 ```
 - **Objectes**: equival als diccionaris de Python, són compatibles amb JSON
 ```javascript
-let person = { name: "John", age: 30 }
+let person = { 
+  name: "John", 
+  age: 30, 
+  hobbies:  {
+    summer: ["nedar", "senderisme"],
+    winter: ["esquiar"]
+  }
+}
+console.log(`Valor = ${person.name}`) // Output: Valor = John
+console.log(`Valor = ${person.hobbies.summer[1]}`) // Output: Valor = senderisme
 ```
 
 Per obtenir el tipus d'una variable:
