@@ -1,73 +1,74 @@
+/* Aquests valors es defineixen al JavaScript */
 :root{
-  --mida: 75px;
+  --mida: 0;
+  --columnes: 0;
+  --files: 0;
 }
 
-*{ box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
 
 body{
-  margin:0;
-  font-family:"Open Sans", sans-serif;
   background:#f6f7fb;
   color:#111827;
-}
-
-.contenidor{
-  max-width:700px;
-  margin:40px auto;
-  padding:20px;
+  font-family:"Open Sans", sans-serif;
+  padding: 10px;
 }
 
 .tauler{
-  position:relative;
-  display:flex;
-  width: calc(var(--mida) * 5);
-  height: var(--mida);
   background:white;
+  border: 1px solid #111827;
+  border-radius: 8px;
+  height: calc(var(--mida) * var(--files));
+  overflow: hidden;
+  position:relative;
+  width: calc(var(--mida) * var(--columnes));
 }
 
 .casella{
-  flex: 1;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  height: var(--mida);
+  justify-content: center;
+  position: absolute;
   user-select: none;
+  width: var(--mida);
 }
 
-.casella:not(:first-child){
-  border-left: 1px solid black;
+.casella:hover{
+  background:#d6dee0;
+  cursor: pointer;
 }
 
 .fitxa{
+  background:#00b3ff;
+  border-radius: 50%;
+  height: var(--mida);
+  left:0;
+  opacity: 0.5;
+  overflow: hidden;
   position:absolute;
   top:0;
-  left:0;
-  width: var(--mida);
-  height: var(--mida);
-
-  opacity: 0.5;
-  background:#2563eb;
-  cursor:pointer;
-  
   transition: transform 350ms ease;
-}
-
-.fitxa:hover{
-  background:#06b6d4;
+  width: var(--mida);
 }
 
 .controls{
-  margin-top:15px;
+  align-items:center;
   display:flex;
   gap:12px;
-  align-items:center;
+  margin-top:15px;
 }
 
 button{
-  border:0;
-  padding:10px 14px;
-  border-radius:10px;
   background:#111827;
+  border:0;
+  border-radius:10px;
   color:white;
-  font-weight:800;
   cursor:pointer;
+  font-weight:800;
+  padding:10px 14px;
 }
