@@ -52,9 +52,17 @@ Els tipus de variables són:
 - **Number**: val per enter, float i double
 - **String**: cadenes de text
 - **Boolean**: boolean
-- **Array**: poden contenir dades de diferents tipus
+- **Array**: poden contenir dades de diferents tipus, però no és recomanable:
 ```javascript
+// Exemple d'array
 let arr = [1, "text", true]
+
+// Exemple de matriu (array de dues dimensions)
+var tauler = [
+  [1, 2, 3],
+  [4, 0, 6],
+  [7, 5, 8]
+];
 ```
 - **Objectes**: equival als diccionaris de Python, són compatibles amb JSON
 ```javascript
