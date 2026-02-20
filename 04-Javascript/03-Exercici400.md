@@ -3,8 +3,11 @@
 <center>
 <img src="./assets/sliding-puzzle.png" style="width: 90%; max-width: 250px">
 </center>
+<br/>
 
-En aquest exercici crearàs un **sliding puzzle** amb JavaScript. El joc mostra una imatge dividida en peces i una **casella buida**. L’objectiu és **ordenar les peces** fins reconstruir la imatge original.
+En aquest exercici has de fer un **sliding puzzle** amb JavaScript. 
+
+El joc mostra una imatge dividida en peces i una **casella buida**. L’objectiu és **ordenar les peces** fins reconstruir la imatge original.
 
 > **Base**: fes servir la idea de *"03-Exemple"* de la fitxa que es desplaça per posicions.
 
