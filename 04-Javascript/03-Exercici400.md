@@ -132,10 +132,9 @@ Quan l’usuari clica una casella `(fila, columna)`:
 2. Si és adjacent:
 
    * intercanvia els dos valors a la matriu:
-
      * `tauler[fila][columna]` ↔ `tauler[filaBuit][columnaBuit]`
    * incrementa el comptador de moviments
-   * actualitza la UI (repinta / mou les fitxes al DOM)
+   * actualitza la UI (mou les fitxes al DOM)
 
 ---
 
