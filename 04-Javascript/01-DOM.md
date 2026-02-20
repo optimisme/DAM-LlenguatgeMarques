@@ -259,6 +259,13 @@ btn.addEventListener("click", function() {
 })
 ```
 
+També es pot cridar una funció al definir l'event
+
+```javascript
+const refReset = document.getElementById("refReset");
+refReset.addEventListener("click", reset);
+```
+
 ## Consola i execució al Navegador
 
 Emb les eines de desenvolupament dels navegadors, s'inclou la consola on podem veure els missatges de:
