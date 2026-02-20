@@ -21,6 +21,11 @@ body{
   padding: 10px;
 }
 
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
 .tauler{
   background:white;
   border: 1px solid #111827;
