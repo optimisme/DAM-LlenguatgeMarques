@@ -42,7 +42,7 @@ function init() {
   // Afegir event al botó de reset
   refReset.addEventListener("click", reset);
 
-  posicionaFitxa(1, 1);
+  mouFitxa(1, 1);
 }
 
 function mouFitxa(fila, columna) {
