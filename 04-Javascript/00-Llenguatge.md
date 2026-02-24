@@ -115,6 +115,22 @@ NaN == NaN   // false perquè NaN és diferent
 NaN === NaN  // a qualsevol valor inclòs ell mateix
 ```
 
+Es poden posar múltiples condicions concatenades amb:
+
+- **and** és &&
+- **or** és ||
+
+Així:
+```javascript
+a = 1
+b = 2
+c = 3
+(a == 1 && b == 2) // true
+(a == 1 && b == c) // false
+(a == 1 || b == 2) // true
+(a == 1 || b == c) // true
+```
+
 ## Condicions
 
 Exemples de condicions:
@@ -155,11 +171,23 @@ for (let fruit of fruits) {
 ```
 
 ```javascript
-// forEach d'elements d'una llista/array
+// forEach d'elements d'una llista/array amb funció *inline*
 let colors = ["vermell", "blau", "groc"]
 colors.forEach(function(color) {
   console.log(color)
 })
+```
+
+```javascript
+// forEach d'elements d'una llista/array amb funció definida
+function writeLog(value) {
+  console.log(value)
+}
+
+//...
+
+let colors = ["vermell", "blau", "groc"]
+colors.forEach(writeLog)
 ```
 
 ```javascript
