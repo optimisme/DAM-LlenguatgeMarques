@@ -10,14 +10,15 @@ let posicioActual = {
 }
 
 function init() {
-  const refTauler = document.getElementById("tauler")
-  const refReset = document.getElementById("btnReinici")
 
   // Definir els valors de les variables CSS
   const refCSSRoot = document.documentElement
   refCSSRoot.style.setProperty("--mida", midaCasella + "px")
   refCSSRoot.style.setProperty("--files", numFiles)
   refCSSRoot.style.setProperty("--columnes", numColumnes)
+
+  // Obtenir referència al tauler on es col·locaran les caselles
+  const refTauler = document.getElementById("tauler")
 
   // Afegir caselles al tauler
   for (let fila = 0; fila < numFiles; fila++) {
@@ -34,12 +35,15 @@ function init() {
     }
   }
 
-  // Afegir fitxa al tauler
+  // Crear la fitxa blava que es mourà pel tauler
   var refFitxa = document.createElement("div")
   refFitxa.setAttribute("id", "fitxaBlava")
+
+  // Afegir la fitxa blava al tauler
   refTauler.appendChild(refFitxa)
 
   // Afegir event al botó de reset
+  const refReset = document.getElementById("btnReinici")
   refReset.addEventListener("click", reinicia)
 
   reinicia()
@@ -56,18 +60,17 @@ function mouFitxa(fila, columna) {
 }
 
 function actualitzaDOM() {
-  // Moure fitxa a la nova posició
-  const refFitxa = document.getElementById("fitxaBlava")
-  const refInfo = document.getElementById("info")
 
   // Calcular la posició en píxels a partir de la fila i columna
   const posicioX = posicioActual.columna * midaCasella
   const posicioY = posicioActual.fila * midaCasella
 
   // Aplicar la transformació CSS per moure la fitxa
+  const refFitxa = document.getElementById("fitxaBlava")
   refFitxa.style.transform = `translate(${posicioX}px, ${posicioY}px)`
   
   // Actualitzar informació de la posició
+  const refInfo = document.getElementById("info")
   refInfo.textContent = `Fila: ${posicioActual.fila}, Columna: ${posicioActual.columna}`
 }
 
