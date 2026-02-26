@@ -46,10 +46,16 @@ function init() {
 }
 
 function mouFitxa(fila, columna) {
-  // Actualitzar posició actual
+
+  // Actualitzar les dades del joc
   posicioActual.fila = fila
   posicioActual.columna = columna
 
+  // Mostrar canvis a la web
+  actualitzaWeb()
+}
+
+function actualitzaWeb() {
   // Moure fitxa a la nova posició
   const refFitxa = document.querySelector(".fitxa")
   const refInfo = document.getElementById("refInfo")
