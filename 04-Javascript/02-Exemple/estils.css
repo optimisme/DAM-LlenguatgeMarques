@@ -26,7 +26,7 @@ h1 {
   margin-bottom: 15px;
 }
 
-.tauler{
+#tauler{
   background:white;
   border: 1px solid #111827;
   border-radius: 8px;
@@ -53,7 +53,7 @@ h1 {
   cursor: pointer;
 }
 
-.fitxa{
+#fitxaBlava{
   background:#00b3ff;
   border-radius: 50%;
   height: var(--mida);

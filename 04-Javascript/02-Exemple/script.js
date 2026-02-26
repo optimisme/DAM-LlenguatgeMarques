@@ -10,8 +10,8 @@ let posicioActual = {
 }
 
 function init() {
-  const refTauler = document.querySelector(".tauler")
-  const refReset = document.getElementById("refReset")
+  const refTauler = document.getElementById("tauler")
+  const refReset = document.getElementById("btnReinici")
 
   // Definir els valors de les variables CSS
   const refCSSRoot = document.documentElement
@@ -36,13 +36,13 @@ function init() {
 
   // Afegir fitxa al tauler
   var refFitxa = document.createElement("div")
-  refFitxa.classList.add("fitxa")
+  refFitxa.setAttribute("id", "fitxaBlava")
   refTauler.appendChild(refFitxa)
 
   // Afegir event al botó de reset
-  refReset.addEventListener("click", reset)
+  refReset.addEventListener("click", reinicia)
 
-  reset()
+  reinicia()
 }
 
 function mouFitxa(fila, columna) {
@@ -57,8 +57,8 @@ function mouFitxa(fila, columna) {
 
 function actualitzaWeb() {
   // Moure fitxa a la nova posició
-  const refFitxa = document.querySelector(".fitxa")
-  const refInfo = document.getElementById("refInfo")
+  const refFitxa = document.getElementById("fitxaBlava")
+  const refInfo = document.getElementById("info")
 
   // Calcular la posició en píxels a partir de la fila i columna
   const posicioX = posicioActual.columna * midaCasella
@@ -71,6 +71,6 @@ function actualitzaWeb() {
   refInfo.textContent = `Fila: ${posicioActual.fila}, Columna: ${posicioActual.columna}`
 }
 
-function reset() {
+function reinicia() {
   mouFitxa(1, 1)
 }
