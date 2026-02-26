@@ -52,10 +52,10 @@ function mouFitxa(fila, columna) {
   posicioActual.columna = columna
 
   // Mostrar canvis a la web
-  actualitzaWeb()
+  actualitzaDOM()
 }
 
-function actualitzaWeb() {
+function actualitzaDOM() {
   // Moure fitxa a la nova posició
   const refFitxa = document.getElementById("fitxaBlava")
   const refInfo = document.getElementById("info")
