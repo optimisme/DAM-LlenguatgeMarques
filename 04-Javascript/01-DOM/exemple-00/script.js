@@ -26,6 +26,18 @@ function canviaNom() {
     ref.textContent = text
 }
 
+//  Exemple: números aleatoris
+function randomDecimal() {
+    const ref = document.querySelector("#randomBox")
+    ref.textContent = Math.random()
+}
+
+function randomRange(min, max) {
+    const ref = document.querySelector("#randomBox")
+    var num = Math.floor(Math.random() * (max - min + 1)) + min
+    ref.textContent = num
+}
+
 // Exemple: escriure a la consola (i paràmetres)
 function escriuConsola(valor) {
     console.log(`Sha rebut: "${valor}"`)
