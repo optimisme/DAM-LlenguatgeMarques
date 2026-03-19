@@ -401,13 +401,3 @@ Quan es fa clic a l’enllaç, el navegador **fa scroll automàtic** fins a l’
 <p>Informació de contacte...</p>
 ```
 
----
-
-### Nota important
-
-* L’`id` ha de ser **únic** dins de la pàgina.
-* No pot haver-hi dos elements amb el mateix `id`.
-
----
-
-Si vols, et puc integrar aquest apartat dins del markdown complet que estaves preparant amb HBS 👍
