@@ -26,7 +26,7 @@ fi
 
 cd ..
 rm -f "$ZIP_NAME"
-zip -r "$ZIP_NAME" . -x "proxmox/*" "node_modules/*" "data/*" ".gitignore"
+zip -r "$ZIP_NAME" . -x "proxmox/*" "node_modules/*" "data" "data/*" ".gitignore"
 
 eval "$(ssh-agent -s)" >/dev/null
 ssh-add "$RSA_PATH"
@@ -70,11 +70,11 @@ rm -f "$PKG"
 
 # Detect project root
 if [[ -f "$TMP_DIR/package.json" ]]; then
-  rsync -a --delete "$TMP_DIR/" "$APP_DIR/"
+  rsync -a --delete --exclude 'data/' "$TMP_DIR/" "$APP_DIR/"
 elif [[ -f "$TMP_DIR/nodejs_server/package.json" ]]; then
-  rsync -a --delete "$TMP_DIR/nodejs_server/" "$APP_DIR/"
+  rsync -a --delete --exclude 'data/' "$TMP_DIR/nodejs_server/" "$APP_DIR/"
 elif [[ -f "$TMP_DIR/nodejs_web/package.json" ]]; then
-  rsync -a --delete "$TMP_DIR/nodejs_web/" "$APP_DIR/"
+  rsync -a --delete --exclude 'data/' "$TMP_DIR/nodejs_web/" "$APP_DIR/"
 else
   echo "Error: no trobo package.json dins del zip"
   exit 1
