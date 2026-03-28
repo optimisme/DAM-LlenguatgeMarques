@@ -349,3 +349,55 @@ L’element que s’utilitza és **`<a>`** (*anchor*).
 ```
 
 **Exemple-03**: Obrir amb "Show preview" la pàgina "02-Web/01-HTML/exemple-03/index.html"
+
+Pots afegir un apartat nou just després dels enllaços interns, així:
+
+---
+
+## Enllaços dins de la mateixa pàgina
+
+També podem crear enllaços que **salten a una part concreta de la mateixa pàgina**. Això és útil per fer índexs, menús o documents llargs.
+
+Per fer-ho s’utilitzen:
+
+* Un **identificador (`id`)** a l’element de destinació
+* Un enllaç amb `href="#id"`
+
+### Exemple bàsic
+
+```html
+<!-- Enllaç -->
+<a href="#seccio2">Ves a la secció 2</a>
+
+<br/><br/><br/><br/><br/>
+
+<!-- Destinació -->
+<h2 id="seccio2">Secció 2</h2>
+<p>Aquesta és la secció 2 de la pàgina.</p>
+```
+
+Quan es fa clic a l’enllaç, el navegador **fa scroll automàtic** fins a l’element amb aquell `id`.
+
+---
+
+### Exemple amb menú (cas real)
+
+```html
+<h1>Contingut</h1>
+
+<ul>
+  <li><a href="#intro">Introducció</a></li>
+  <li><a href="#contingut">Contingut</a></li>
+  <li><a href="#contacte">Contacte</a></li>
+</ul>
+
+<h2 id="intro">Introducció</h2>
+<p>Text de la introducció...</p>
+
+<h2 id="contingut">Contingut</h2>
+<p>Text del contingut...</p>
+
+<h2 id="contacte">Contacte</h2>
+<p>Informació de contacte...</p>
+```
+
