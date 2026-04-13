@@ -1,78 +1,294 @@
-# Plantilles
+# Plantilles Handlebars (HBS)
 
 ## Què són les plantilles?
 
-Les plantilles **Handlebars (`.hbs`)** són fitxers HTML amb una sintaxi especial que permet **inserir dades dinàmiques** provinents d'arxius JSON. El seu objectiu principal és **representar dades**, no processar-les.
+Les plantilles **Handlebars (`.hbs`)** són fitxers HTML amb una sintaxi especial que permet **inserir dades dinàmiques** dins del document.
 
-El resultat final d’una plantilla Handlebars és **HTML pur**, preparat per ser enviat al navegador.
+Aquestes dades normalment provenen de:
+
+- fitxers **JSON**
+- bases de dades
+- objectes creats al **servidor Node.js**
+
+Les plantilles tenen un objectiu molt concret:
+
+> **Mostrar dades en format HTML**
+
+No estan pensades per calcular ni modificar dades.
+
+El resultat final sempre és:
+
+```
+Plantilla .hbs + dades → HTML pur
+```
+
+Aquest HTML és el que el servidor envia al navegador.
 
 ---
 
-## Flux general de treball
+# Flux general de funcionament
 
-El procés habitual amb Handlebars en un servidor Node.js és:
+Quan un usuari accedeix a una pàgina web amb plantilles Handlebars, passa el següent:
 
-1. El servidor llegeix dades (per exemple, un o més fitxers `.json`)
-2. Construeix un objecte amb totes les dades necessàries
-3. Passa aquest objecte a una plantilla `.hbs`
-4. Handlebars substitueix els marcadors per valors reals
-5. Es genera HTML final
+1. El navegador demana una URL al servidor  
+2. El servidor executa una ruta (`app.get`)
+3. El servidor carrega dades (per exemple un `.json`)
+4. El servidor envia aquestes dades a una plantilla `.hbs`
+5. Handlebars genera l'HTML final
+6. El servidor envia aquest HTML al navegador
 
 ```
-Dades JSON → plantilla .hbs → HTML
+Browser → Node.js → dades JSON → plantilla HBS → HTML
 ```
 
 ---
 
-## Variables
+# Estructura típica del projecte
 
-```hbs
-{{name}}
+Un projecte senzill amb Handlebars sol tenir aquesta estructura:
+
+```
+projecte
+│
+├── app.js
+│
+├── data
+│   └── animals.json
+│
+├── views
+│   ├── animals.hbs
+│   └── partials
+│       ├── header.hbs
+│       └── footer.hbs
+│
+└── public
+    └── estils.css
 ```
 
-Mostra el valor d’una clau del JSON.  
-Si la clau no existeix, no es mostra res i no hi ha error.
+---
 
-**Exemple**:
+# Com es carreguen dades JSON
+
+En Node.js és molt habitual guardar dades en fitxers `.json`.
+
+Exemple de fitxer:
+
+`data/animals.json`
+
+```json
+{
+  "animals": [
+    { "name": "Tigre", "continent": "Àsia" },
+    { "name": "Elefant", "continent": "Àfrica" },
+    { "name": "Cangur", "continent": "Austràlia" }
+  ]
+}
+```
+
+Aquest fitxer es pot carregar des del servidor amb `fs`.
+
+---
+
+# Exemple complet de servidor `app.js`
+
+```javascript
+const express = require('express')
+const fs = require('fs')
+const path = require('path')
+const hbs = require('hbs')
+
+const app = express()
+const port = 3000
+
+// Disable cache
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+  res.setHeader('Pragma', 'no-cache')
+  res.setHeader('Expires', '0')
+  res.setHeader('Surrogate-Control', 'no-store')
+  next()
+})
+
+// Continguts estàtics
+app.use(express.static('public'))
+
+// Configuració Handlebars
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'hbs')
+
+// Registrar helpers
+hbs.registerHelper('gt', (a, b) => a > b)
+
+// Ruta
+app.get('/animals', (req, res) => {
+
+  // Llegir fitxer JSON
+  const file = path.join(__dirname, 'data', 'animals.json')
+  const json = JSON.parse(fs.readFileSync(file, 'utf8'))
+
+  // Aplicar dades a la plantilla
+  res.render('animals', json)
+
+})
+
+// Iniciar servidor
+const httpServer = app.listen(port, () => {
+  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}/animals`)
+})
+
+// Tancar correctament
+process.on('SIGINT', () => {
+  httpServer.close()
+  process.exit(0)
+})
+```
+
+---
+
+# Què fa `app.get`
+
+Defineix la funció que s'executa quan l'usuari demana una URL:
+
+A l'exemple, quan es demana '/animals':
+
+```text
+http://localhost:3000/animals
+```
+
+S'executa la funció que es defineix amb:
+
+```javascript
+app.get('/animals', (req, res) => {
+
+}
+```
+
+Aquesta funció:
+
+- Llegeix les dades dels `.json``
+- Construeix un nou objecte amb totes les dades
+- Renderitza la pàgina fent servir la plantilla `.hbs`
+- Retorna el resultat al client
+
+```javascript
+app.get('/animals', (req, res) => { // A la ruta URL /animals
+
+  const file = path.join(__dirname, 'data', 'animals.json'); // Llegim el fitxer JSON
+  const json = JSON.parse(fs.readFileSync(file, 'utf8'));
+  res.render('animals', json);                              // renderitza la plantilla animals.hbs i retorna el resultat (res.)
+});
+```
+
+
+# Què fa `res.render()`
+
+La funció **`render()`** és la que connecta les dades amb la plantilla.
+
+```
+res.render(plantilla, dades)
+```
+
+Exemple:
+
+```javascript
+res.render('animals', json)
+```
+
+Significa:
+
+- carregar `views/animals.hbs`
+- injectar les dades de `json`
+- generar HTML
+
+---
+
+# Variables
+
+Les variables permeten mostrar valors del JSON.
+
+Sintaxi:
+
+```
+{{variable}}
+```
+
+Exemple de JSON:
 
 ```json
 {
   "name": "Barcelona",
-  "population": 1620000,
-  "capital": true
+  "population": 1620000
 }
 ```
 
-Ús de les dades a la plantilla:
+Plantilla:
+
 ```hbs
 <p>Ciutat: {{name}}</p>
 <p>Població: {{population}}</p>
 ```
 
+Resultat HTML:
+
+```html
+<p>Ciutat: Barcelona</p>
+<p>Població: 1620000</p>
+```
+
+Si una clau no existeix **no apareix res i no hi ha error**.
+
 ---
 
-## Recorregut de llistes (`each`)
+# Llistes (`each`)
 
-- Recorre una llista
-- Repeteix el bloc HTML per a cada element
-- El context passa a ser l’element actual
+Permet recórrer una col·lecció de dades.
 
-```hbs
-{{#each cities}}
+```
+{{#each animals}}
   <p>{{name}}</p>
 {{/each}}
 ```
 
-### Context i jerarquia
+Si el JSON és:
 
-Dins d’un `each`, el context canvia.  
-Per accedir a dades superiors cal usar `../`.
+```json
+{
+  "animals": [
+    {"name": "Tigre"},
+    {"name": "Elefant"},
+    {"name": "Cangur"}
+  ]
+}
+```
+
+El resultat serà:
+
+```
+Tigre
+Elefant
+Cangur
+```
 
 ---
 
-## Condicionals (`if`)
+# Context dins d'un `each`
 
-El contingut es mostra si la clau existeix i té valor.
+Quan s'entra dins d'un `each`, el context canvia.
+
+Si cal accedir a un nivell superior s'utilitza:
+
+```
+../
+```
+
+---
+
+# Condicionals
+
+## `if`
+
+Mostra el bloc si la clau existeix i té valor.
 
 ```hbs
 {{#if population}}
@@ -80,17 +296,6 @@ El contingut es mostra si la clau existeix i té valor.
 {{/if}}
 ```
 
----
-
-## Condicional negatiu (`unless`)
-
-S’executa quan la condició no es compleix.
-
-```hbs
-{{#unless population}}
-  <em>Població desconeguda</em>
-{{/unless}}
-```
 ---
 
 ## `if / else`
@@ -105,74 +310,64 @@ S’executa quan la condició no es compleix.
 
 ---
 
-## Comprovació implícita de claus
+## `unless`
 
-Si la clau no existeix, el bloc no es mostra i no hi ha error.
+És el contrari d'`if`.
 
 ```hbs
-{{#if population}}
-  Quantitat de població: {{population}}
-{{/if}}
+{{#unless population}}
+  <em>Població desconeguda</em>
+{{/unless}}
 ```
 
 ---
 
-## Limitacions intencionades
+# Helpers
 
-- No comparacions
-- No càlculs
-- No ordenacions
-- No modificació de dades
+Els helpers permeten ampliar Handlebars.
 
-La lògica ha d’estar preparada abans.
+Es defineixen al servidor.
 
----
-
-## Helpers (extensió)
-
-```js
-hbs.registerHelper('gt', (a, b) => a > b);
+```javascript
+hbs.registerHelper('gt', (a, b) => a > b)
 ```
+
+Ús a la plantilla:
 
 ```hbs
 {{#if (gt population 1000000)}}
-  (Ciutat gran)
+  Ciutat gran
 {{/if}}
 ```
-
----
-
-## Què NO fan les plantilles `.hbs`
-
-- No llegeixen fitxers
-- No fan consultes
-- No processen dades
-- No contenen lògica de negoci
-
-Només representen dades.
 
 ---
 
 # Partials
 
-Els **"partials"** permeten reutilitzar parts de pàgines web que són comunes a diferents pàgines, per exemple: **menús, footer, llistes, ...**
+Els **partials** permeten reutilitzar fragments de pàgines.
 
-Cal registrar la carpeta on hi haurà els parcials a *"app.js"*:
+Exemples habituals:
+
+- header
+- menú
+- footer
+
+Primer cal registrar-los al servidor.
 
 ```javascript
-// Partials de Handlebars
-hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 ```
 
-I posar els arxius parcials a la carpeta *"./server/views/partials"*:
+Estructura:
 
-```text
-./server/views/partials
-├── footer.hbs
-└── header.hbs
+```
+views
+ └── partials
+     ├── header.hbs
+     └── footer.hbs
 ```
 
-Els arxius parcials són arxius *".hbs"* normals, però només tenen un part del codi *HTML* que volem repetir en diverses pàgines, per exemple el *footer.hbs*
+Exemple de parcial `footer.hbs`:
 
 ```hbs
 <footer>
@@ -180,8 +375,45 @@ Els arxius parcials són arxius *".hbs"* normals, però només tenen un part del
 </footer>
 ```
 
-Quan volem afegir aquest *"parcial"* en un arxiu *".hbs"* hem de posar el nom de l'arxiu sense l'extensió:
+Per utilitzar-lo dins una plantilla:
 
-```hbs
+```
 {{> footer}}
 ```
+
+---
+
+# Limitacions intencionades de Handlebars
+
+Les plantilles **no estan pensades per fer lògica complexa**.
+
+No poden:
+
+- llegir fitxers
+- consultar bases de dades
+- ordenar dades
+- modificar dades
+- fer càlculs complexos
+
+Aquestes tasques s'han de fer **abans**, al servidor (`app.js`).
+
+Les plantilles només **mostren dades**.
+
+---
+
+# Resum
+
+Flux complet:
+
+```
+JSON → Node.js → res.render() → plantilla HBS → HTML → navegador
+```
+
+Responsabilitats:
+
+| Component | Funció |
+|-----------|--------|
+| JSON | dades |
+| Node.js | preparar dades |
+| Handlebars | mostrar dades |
+| HTML | resultat final |
