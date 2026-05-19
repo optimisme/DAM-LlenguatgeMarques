@@ -40,7 +40,7 @@ Prepareu un **document explicatiu** (PDF) que inclogui els següents apartats:
 
 ---
 
-### Part pràctica (opcional però recomanada)
+### Part pràctica
 
 * Instal·lar Odoo (local)
 * Crear una empresa fictícia
