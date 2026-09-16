@@ -60,7 +60,7 @@ GitHub és una plataforma de control de versions basada en Git que permet als de
 
 - A **Windows** i **macOS** descarregar i instal·lar **[GitHub Desktop](https://desktop.github.com/download/)**
 
-- Anar a aquesta direcció web **[GitHub Desktop Releases](https://github.com/shiftkey/desktop/releases)**
+- Per **Linux** anar a aquesta direcció web **[GitHub Desktop Releases](https://github.com/shiftkey/desktop/releases)**
 
 Desplegar **"Assets"**
 
