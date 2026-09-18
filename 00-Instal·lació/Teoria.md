@@ -1,6 +1,6 @@
 # Instal·lació
 
-## IDEs ABC
+## IDEs
 
 Un entorn de desenvolupament software (o IDE, Integrated Development Environment) és un conjunt d'eines que permeten als programadors escriure, provar i depurar codi de manera més eficient. Aquestes eines inclouen, sovint, un editor de codi, eines de compilació i depuració, gestió de versions i altres utilitats.
 
