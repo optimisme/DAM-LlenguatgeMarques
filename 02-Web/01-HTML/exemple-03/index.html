@@ -1,18 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
+<!--  
+    L'element `html` és l'arrel del document HTML.
+    Conté tots els altres elements del document HTML.
+
+    xmlns:  Defineix l'espai de noms XML per a XHTML.
+    lang:   Defineix l'idioma del document (ca = català).
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+<!--  
+    L'element `head` és l'encapçalament del document HTML.
+
+    charset="UTF-8":    Permet acceptar caràcters com accents o emojis.
+    title:              Defineix el títol del document que mostra la pestanya del navegador.
+  -->
+    <head>
        <meta charset="UTF-8">
-       <title>Exemple enllaços</title>
-   </head>
+       <title>Currículums</title>
+    </head>
+<!--  
+    L'element `body` conté el contingut que es mostra a la pàgina web.
+  -->
    <body>
-        Pàgina principal (index.html)
-        <br/><br/>
-        <a href="peixos.html" target="_self">Pàgina de peixos</a> (peixos.html)
-        <br/>
-        <a href="dinosaures.html" target="_self">Pàgina de dinosaures</a> (dinosaures.html)
-        <br/><br/>
-        <a href="https://ca.wikipedia.org/wiki/Peixos" target="_blank">Pàgina de peixos a la Viquipèdia</a>, en una nova pestanya
-        <br/>
-        <a href="https://ca.wikipedia.org/wiki/Dinosaures" target="_blank">Pàgina de dinosaures a la Viquipèdia</a>, en una nova pestanya  
+<!--  
+    L'element `nav` recull els principals enllaços de navegació.
+    L'element `br` fa un salt de línia.
+    L'element `hr` fa una línia horitzontal.
+    L'element `a` defineix un enllaç a una altra pàgina web.
+
+    &nbsp;      Espai en blanc (non-breaking space).
+  -->
+        <nav>
+            <a href="index.html">Inici</a>
+            &nbsp;|&nbsp;
+            <a href="peixos.html">Peixos</a>
+            &nbsp;|&nbsp;
+            <a href="dinosaures.html">Dinosaures</a>
+        </nav>
+        <br/><hr/>
+<!--  
+    L'element `h1` defineix un títol de nivell 1, principal.
+    L'element `h2` defineix un títol de nivell 2, subtitol.
+    L'element `p` defineix un paràgraf de text.
+    L'element `img` defineix una imatge.
+
+    &nbsp;      Espai en blanc (non-breaking space).
+  -->
+        <h1>Animals</h1>
+        <h2>Peixos i dinosaures</h2>
+        <p>Aquesta pàgina web conté informació sobre peixos i dinosaures.</p>
+        <img src="./imatges/peixos.png" alt="Peixos" width="200"/>
+        <img src="./imatges/dinosaures.png" alt="Dinosaures" width="200"/>  
+
+<!--  
+    L'element `footer` conté informació de peu de pàgina.
+    
+    target="_blank":    Obre l'enllaç en una nova pestanya.
+    mailto:             Obre el client de correu per enviar un email.
+    tel:                Obre l'aplicació de trucades amb el número de telèfon.
+  -->
+        <br/><br/><hr/><br/>
+        <footer>
+            © 2024 Albert Palacios Jiménez
+            <br/><br/>
+            <a href="mailto:albert@mail.com">Envia'm un email</a>
+            &nbsp;|&nbsp;
+            <a href="tel:+34666666666">Truca'm al 666 66 66 66</a>
+            &nbsp;|&nbsp;
+            <a href="https://www.google.com" target="_blank">Buscar a Google</a>
+        </footer>
    </body>
 </html>
