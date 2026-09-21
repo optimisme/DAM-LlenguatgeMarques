@@ -276,7 +276,7 @@ L’enllaç extern s’ha d’obrir en una pestanya nova amb `target="_blank"`.
 Entrega l’exercici com un nou repositori a GitHub anomenat:
 
 ```text
-DAM1M04-Exercici000
+DAM1M04-Exercici-HTML
 ```
 
 Copia l’enllaç del repositori de GitHub a l’espai d’entrega del Moodle de l’assignatura.
