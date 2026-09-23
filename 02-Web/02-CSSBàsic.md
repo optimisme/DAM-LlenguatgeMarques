@@ -287,7 +287,7 @@ També es pot escollir la font del sistema o sinó sans-serif:
 font-family: system-ui, sans-serif;
 ```
 
-Per fer servir altres tipos de tipografies:
+## Google Fonts
 
 A **[Google Fonts](https://fonts.google.com)** hi ha moltes tipografies gratuïtes, per fer-les servir:
 
