@@ -271,6 +271,24 @@ Per escollir la tipografia amb css es fa servir *`font-family`*
 }
 ```
 
+Pel què fa a les fonts:
+
+- Han d'estar disponibles al sistema
+- Les fonts "segures" que sepre estàn disponibles són: Arial, Helvetica, sans-serif
+- S'apliquen amb la preferència que es defineixen
+
+```css
+font-family: Arial, Helvetica, sans-serif;
+```
+
+També es pot escollir la font del sistema o sinó sans-serif:
+
+```css
+font-family: system-ui, sans-serif;
+```
+
+Per fer servir altres tipos de tipografies:
+
 A **[Google Fonts](https://fonts.google.com)** hi ha moltes tipografies gratuïtes, per fer-les servir:
 
 ```html
