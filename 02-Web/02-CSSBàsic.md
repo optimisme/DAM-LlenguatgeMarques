@@ -257,3 +257,24 @@ Command (⌘) + Option (⌥) + I (Mac)
 <center>
 <img src="./assets/css-eines.png" style="width: 90%; max-width: 600px">
 </center>
+
+# Tipografies
+
+Per escollir la tipografia amb css es fa servir *`font-family`*
+
+```css
+.pixelify-sans {
+  font-family: Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+```
+
+A **[Google Fonts](https://fonts.google.com)** hi ha moltes tipografies gratuïtes, per fer-les servir:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+```
