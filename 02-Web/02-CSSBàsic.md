@@ -37,6 +37,7 @@ Dins d'aquest element es defineixen les propietats CSS, en aquest exemple diem q
 <head>
   <style>
     p {
+      background-color: yellow;
       color: blue;
       font-size: 2em;
     }

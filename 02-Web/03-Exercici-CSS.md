@@ -25,3 +25,13 @@ Com a mínim has
 - Una geraquia combinada tipus `id` > `element` (exemple: #base > li)
 
 - Pseudoelements `::before` i `::after`
+
+## Entrega
+
+Entrega l’exercici com un nou repositori a GitHub anomenat:
+
+```text
+DAM1M04-Exercici-CSS
+```
+
+Copia l’enllaç del repositori de GitHub a l’espai d’entrega del Moodle de l’assignatura.
