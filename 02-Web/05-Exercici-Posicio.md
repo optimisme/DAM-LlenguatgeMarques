@@ -72,7 +72,7 @@ Pàgina que facilita la comunicació amb l’empresa.
 Entrega l’exercici com un nou repositori a GitHub anomenat:
 
 ```text
-DAM1M04-Exercici-CSS
+DAM1M04-Exercici-Posicio
 ```
 
 Copia l’enllaç del repositori de GitHub a l’espai d’entrega del Moodle de l’assignatura.
