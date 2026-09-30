@@ -1,4 +1,4 @@
-# Exercici002: 
+# ExerciciPosicio: 
 
 Construir una mini-web d’empresa amb 3 pàgines HTML i un full d’estil comú, aplicant tècniques de max-width + auto-center, Flex i Grid.
 
@@ -6,7 +6,7 @@ La temàtica pot ser: “un gimnàs”, “una botiga de roba”, “una acadèm
 
 ## Estructura del projecte
 ```text
-exercici-002/
+exercici-Posicio/
 ├── index.html
 ├── productes.html
 ├── contacte.html
@@ -66,4 +66,14 @@ Pàgina que facilita la comunicació amb l’empresa.
 - Layout amb Grid de 2 columnes:
     * Columna A: formulari senzill (nom, email, missatge).
     * Columna B: informació de contacte (adreça, horari, telèfon) + mapa fictici (caixa grisa o iframe de Google Maps).
+
+## Entrega
+
+Entrega l’exercici com un nou repositori a GitHub anomenat:
+
+```text
+DAM1M04-Exercici-CSS
+```
+
+Copia l’enllaç del repositori de GitHub a l’espai d’entrega del Moodle de l’assignatura.
 
