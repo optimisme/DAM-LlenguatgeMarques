@@ -129,7 +129,7 @@ Per adaptar millor el disseny a diferents pantalles, en lloc de mides fixes (px)
 | `%` | el contenidor pare | `width: 80%;` | amplades relatives |
 | `em` | la mida de la lletra del **pare** | `margin: 2em;` | espais interns i marges |
 | `rem` | la mida de la lletra de l’**arrel (html)** | `font-size: 1.2rem;` | tipografia coherent a tota la pàgina |
-| `vw`, `vh` | amplada / alçada de la **finestra del navegador** | `width: 100vw; height: 100vh;` | seccions a pantalla completa |
+| `dvw`, `dvh` | amplada / alçada de la **finestra del navegador** | `width: 100vw; height: 100vh;` | seccions a pantalla completa |
 | `vmin`, `vmax` | el valor més petit / gran de `vw` o `vh` | `font-size: 3vmin;` | tipografia fluïda amb relació de pantalla |
 | `clamp()` | combina un **mínim**, **preferit** i **màxim** | `font-size: clamp(1rem, 2vw, 2rem);` | textos i elements que creixen de forma suau |
 
