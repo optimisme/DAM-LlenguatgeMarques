@@ -1,0 +1,51 @@
+.ex-responsive-fluid h2, .ex-responsive-fluid p {
+  margin: 0;
+}
+.ex-responsive-fluid {
+  max-width: 900px;
+  padding: clamp(20px, 5vw, 48px);
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-responsive-fluid > span {
+  color: #267c6b;
+  font-weight: 700;
+}
+.ex-responsive-fluid h2 {
+  font-size: clamp(24px, 6vw, 56px);
+  line-height: 1.1;
+  margin: 18px 0;
+}
+.ex-responsive-fluid p {
+  max-width: 55ch;
+}
+.ex-responsive-fluid .il·lustracio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  min-height: 180px;
+  margin-top: 28px;
+  border-radius: 16px;
+  background: #e3f4ed;
+}
+.ex-responsive-fluid .il·lustracio span {
+  width: 20%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #267c6b;
+}
+.ex-responsive-fluid .il·lustracio span:nth-child(2) {
+  border-radius: 14px;
+  background: #e3ba68;
+}
+.ex-responsive-fluid .il·lustracio span:nth-child(3) {
+  background: #9b89dd;
+}
+.ex-responsive-fluid, .ex-responsive-fluid * {
+  box-sizing: border-box;
+}

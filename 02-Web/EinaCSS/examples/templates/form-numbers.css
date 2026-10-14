@@ -1,0 +1,92 @@
+.ex-form-numbers h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.ex-form-numbers {
+  --ex-form-numbers-accent: #1976d2;
+  --ex-form-numbers-error: #b83a48;
+  --ex-form-numbers-radius: 8px;
+  padding: 24px;
+  max-width: 580px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-form-numbers .camp {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.ex-form-numbers label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.ex-form-numbers input {
+  min-width: 0;
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--ex-form-numbers-radius);
+  background: white;
+  color: #17263c;
+}
+
+.ex-form-numbers input:focus-visible {
+  outline: 3px solid var(--ex-form-numbers-accent);
+  outline-offset: 2px;
+}
+
+.ex-form-numbers input:invalid:focus, .ex-form-numbers input:invalid:not(:placeholder-shown) {
+  border-color: var(--ex-form-numbers-error);
+}
+
+.ex-form-numbers .error {
+  display: none;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--ex-form-numbers-error);
+}
+
+.ex-form-numbers input:invalid:focus ~ .error, .ex-form-numbers input:invalid:not(:placeholder-shown) ~ .error {
+  display: block;
+}
+
+.ex-form-numbers button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--ex-form-numbers-radius);
+  background: var(--ex-form-numbers-accent);
+  color: white;
+  cursor: pointer;
+}
+
+.ex-form-numbers button:hover, .ex-form-numbers button:focus-visible {
+  filter: brightness(.85);
+}
+
+.ex-form-numbers button:focus-visible {
+  outline: 3px solid var(--ex-form-numbers-accent);
+  outline-offset: 3px;
+}
+
+.ex-form-numbers input:out-of-range {
+  background: #fff1f2;
+  border-color: var(--ex-form-numbers-error);
+}
+
+.ex-form-numbers input:in-range:valid:not(:placeholder-shown) {
+  border-color: var(--ex-form-numbers-accent);
+}
+
+.ex-form-numbers, .ex-form-numbers * {
+  box-sizing: border-box;
+}

@@ -1,0 +1,42 @@
+.ex-form-floating {
+  --ex-form-floating-accent: #1976d2;
+  --ex-form-floating-radius: 8px;
+  max-width: 580px;
+  margin: auto;
+  padding: 24px;
+  font-family: sans-serif;
+}
+
+.ex-form-floating .camp {
+  position: relative;
+  margin-top: 28px;
+}
+
+.ex-form-floating input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--ex-form-floating-radius);
+  font-size: 16px;
+}
+
+.ex-form-floating label {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  padding: 0 4px;
+  background-color: white;
+  color: gray;
+  transition: top 180ms, font-size 180ms;
+}
+
+.ex-form-floating input:focus + label, .ex-form-floating input:not(:placeholder-shown) + label {
+  top: -9px;
+  font-size: 12px;
+  color: var(--ex-form-floating-accent);
+}
+
+.ex-form-floating input:focus {
+  outline-color: var(--ex-form-floating-accent);
+}

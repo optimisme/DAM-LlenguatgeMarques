@@ -1,0 +1,22 @@
+.ex-state-color {
+  --ex-state-color-first: #ea6c20;
+  --ex-state-color-second: #bf536b;
+  --ex-state-color-duration: 250ms;
+  padding: 24px;
+  font-family: sans-serif;
+}
+.ex-state-color .estat { display: none; }
+.ex-state-color .opcions { display: flex; gap: 10px; }
+.ex-state-color label { padding: 10px; border: 1px solid gray; cursor: pointer; }
+.ex-state-color .caixa {
+  padding: 50px 20px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  background-color: var(--ex-state-color-first);
+  transition: background-color var(--ex-state-color-duration);
+}
+/* :checked detecta el radio actiu; ~ selecciona la caixa que ve després. */
+.ex-state-color #color-pink:checked ~ .caixa {
+  background-color: var(--ex-state-color-second);
+}

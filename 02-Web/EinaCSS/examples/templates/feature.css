@@ -1,0 +1,77 @@
+.ex-feature h2, .ex-feature p {
+  margin: 0;
+}
+
+.ex-feature a {
+  color: inherit;
+}
+
+.ex-feature {
+  --ex-feature-accent: #267c6b;
+  --ex-feature-gap: 32px;
+  --ex-feature-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--ex-feature-gap);
+  padding: 36px;
+  background: #f5f8f5;
+  color: #183d36;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ex-feature__eyebrow {
+  color: var(--ex-feature-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ex-feature h2 {
+  margin: 16px 0;
+  font-size: 44px;
+  line-height: 1.12;
+}
+
+.ex-feature p {
+  color: #576f65;
+}
+
+.ex-feature__text a {
+  display: inline-flex;
+  gap: 12px;
+  margin-top: 24px;
+  color: var(--ex-feature-accent);
+  font-weight: 700;
+}
+
+.ex-feature__art {
+  overflow: hidden;
+  border-radius: var(--ex-feature-radius);
+  background: #d7e8df;
+}
+
+.ex-feature__art svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (max-width: 540px) {
+  .ex-feature {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+.ex-feature, .ex-feature * {
+  box-sizing: border-box;
+}
+
+.ex-feature a:focus-visible {
+  outline: 3px solid var(--ex-feature-accent);
+  outline-offset: 4px;
+}

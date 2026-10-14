@@ -1,0 +1,99 @@
+.ex-form-selection h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.ex-form-selection {
+  --ex-form-selection-accent: #1976d2;
+  --ex-form-selection-error: #b83a48;
+  --ex-form-selection-radius: 8px;
+  padding: 24px;
+  max-width: 580px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-form-selection .camp {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.ex-form-selection label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.ex-form-selection textarea, .ex-form-selection select {
+  min-width: 0;
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--ex-form-selection-radius);
+  background: white;
+  color: #17263c;
+}
+
+.ex-form-selection textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ex-form-selection textarea:focus-visible, .ex-form-selection select:focus-visible {
+  outline: 3px solid var(--ex-form-selection-accent);
+  outline-offset: 2px;
+}
+
+.ex-form-selection textarea:invalid:focus, .ex-form-selection textarea:invalid:not(:placeholder-shown), .ex-form-selection select:invalid:focus {
+  border-color: var(--ex-form-selection-error);
+}
+
+.ex-form-selection .error {
+  display: none;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--ex-form-selection-error);
+}
+
+.ex-form-selection textarea:invalid:focus ~ .error, .ex-form-selection textarea:invalid:not(:placeholder-shown) ~ .error, .ex-form-selection select:invalid:focus ~ .error {
+  display: block;
+}
+
+.ex-form-selection .ajuda {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #52647b;
+}
+
+.ex-form-selection button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--ex-form-selection-radius);
+  background: var(--ex-form-selection-accent);
+  color: white;
+  cursor: pointer;
+}
+
+.ex-form-selection button:hover, .ex-form-selection button:focus-visible {
+  filter: brightness(.85);
+}
+
+.ex-form-selection button:focus-visible {
+  outline: 3px solid var(--ex-form-selection-accent);
+  outline-offset: 3px;
+}
+
+.ex-form-selection select {
+  accent-color: var(--ex-form-selection-accent);
+}
+
+.ex-form-selection, .ex-form-selection * {
+  box-sizing: border-box;
+}

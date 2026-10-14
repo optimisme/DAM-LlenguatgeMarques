@@ -1,0 +1,59 @@
+.ex-form-choices {
+  --ex-form-choices-accent: #6453c7;
+  --ex-form-choices-size: 20px;
+  --ex-form-choices-radius: 10px;
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  max-width: 520px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-form-choices fieldset {
+  display: block;
+  min-width: 0;
+  border: 0;
+}
+
+.ex-form-choices legend {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ex-form-choices label {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--ex-form-choices-radius);
+  cursor: pointer;
+}
+
+.ex-form-choices input {
+  flex-shrink: 0;
+  width: var(--ex-form-choices-size);
+  height: var(--ex-form-choices-size);
+  accent-color: var(--ex-form-choices-accent);
+}
+
+.ex-form-choices label:has(input:checked) {
+  border-color: var(--ex-form-choices-accent);
+  background: #f3f1ff;
+}
+
+.ex-form-choices input:focus-visible {
+  outline: 3px solid var(--ex-form-choices-accent);
+  outline-offset: 3px;
+}
+
+.ex-form-choices, .ex-form-choices * {
+  box-sizing: border-box;
+}

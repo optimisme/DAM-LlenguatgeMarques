@@ -1,0 +1,111 @@
+.ex-pricing h2, .ex-pricing h3, .ex-pricing p {
+  margin: 0;
+}
+.ex-pricing a {
+  color: inherit;
+}
+.ex-pricing {
+  padding: 36px;
+  background: #f6f7fc;
+  color: #202838;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+.ex-pricing header {
+  text-align: center;
+}
+.ex-pricing h2 {
+  font-size: 38px;
+}
+.ex-pricing header p {
+  margin-top: 10px;
+  color: #687083;
+}
+.ex-pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+.ex-pricing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid #dce0ef;
+  border-radius: 18px;
+  background: white;
+}
+.ex-pricing__featured {
+  border: 2px solid #5265da;
+  box-shadow: 0 12px 30px rgba(32, 40, 56, 0.06);
+}
+.ex-pricing__badge {
+  align-self: flex-start;
+  margin-bottom: 14px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #5265da;
+  color: white;
+  font-size: 11px;
+}
+.ex-pricing h3 {
+  font-size: 19px;
+}
+.ex-pricing__price {
+  margin-top: 16px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.ex-pricing__price span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #687083;
+}
+.ex-pricing ul {
+  padding: 0;
+  margin: 24px 0;
+  list-style: none;
+  font-size: 13px;
+}
+.ex-pricing li {
+  margin-bottom: 10px;
+}
+.ex-pricing li::before {
+  content: '✓';
+  color: #5265da;
+  margin-right: 8px;
+}
+.ex-pricing__card a {
+  display: block;
+  text-align: center;
+  padding: 10px 12px;
+  border: 1px solid #dce0ef;
+  border-radius: 9px;
+  margin-top: auto;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ex-pricing .ex-pricing__featured a {
+  background: #5265da;
+  color: white;
+  border-color: #5265da;
+}
+@media (max-width: 580px) {
+  .ex-pricing {
+    padding: 24px;
+  }
+  .ex-pricing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ex-pricing, .ex-pricing * {
+  box-sizing: border-box;
+}
+.ex-pricing a:focus-visible {
+  outline: 3px solid #5265da;
+  outline-offset: 4px;
+}

@@ -1,0 +1,60 @@
+.ex-form-states h2 {
+  margin: 0;
+  font-size: 24px;
+}
+.ex-form-states {
+  display: grid;
+  gap: 18px;
+  max-width: 520px;
+  padding: 24px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-form-states label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.ex-form-states input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+}
+.ex-form-states input:focus-visible {
+  outline: 3px solid #267c6b;
+  outline-offset: 2px;
+}
+.ex-form-states input:valid:not(:placeholder-shown):not(:read-only) {
+  border-color: #267c6b;
+}
+.ex-form-states input:invalid:not(:placeholder-shown) {
+  border-color: #b83a48;
+}
+.ex-form-states small {
+  display: none;
+  margin-top: 6px;
+  color: #b83a48;
+}
+.ex-form-states input:invalid:not(:placeholder-shown) ~ small {
+  display: block;
+}
+.ex-form-states input:read-only {
+  background: #f1f5f9;
+  border-style: dashed;
+}
+.ex-form-states input:disabled {
+  background: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+}
+.ex-form-states, .ex-form-states * {
+  box-sizing: border-box;
+}

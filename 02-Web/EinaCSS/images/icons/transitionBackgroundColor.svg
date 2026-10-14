@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <title>Color del fons</title>
+  <rect x="5" y="5" width="40" height="40" rx="4" fill="#348cec"/>
+  <path d="M13 18h24M13 26h18M13 34h24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

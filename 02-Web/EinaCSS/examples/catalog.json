@@ -1,0 +1,660 @@
+[
+  {
+    "id": "hero",
+    "title": "Portada amb gradient",
+    "tags": [
+      "Gradient",
+      "Tipografia",
+      "Flexbox"
+    ],
+    "description": "Un títol protagonista, dos enllaços i un fons amb gradients suaus.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "space",
+        "label": "Espai interior",
+        "property": "padding",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "align",
+        "label": "Alineació del text",
+        "property": "text-align",
+        "type": "select",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": [
+          "left",
+          "center",
+          "right"
+        ]
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Dona forma a la teva pròxima idea."
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Una presentació clara, una mica de color i tot l’espai que necessita el teu projecte per destacar."
+      },
+      {
+        "name": "link",
+        "label": "Enllaç principal",
+        "type": "url",
+        "value": "#projectes"
+      }
+    ],
+    "properties": [
+      "background",
+      "background-color",
+      "font-size",
+      "text-align",
+      "padding"
+    ],
+    "instructions": "Els gradients creen el fons i Flexbox distribueix els enllaços. La regla @media redueix el títol i els espais en mòbil. Canvia les destinacions dels enllaços abans d’utilitzar la secció."
+  },
+  {
+    "id": "feature",
+    "title": "Portada amb imatge",
+    "tags": [
+      "Grid",
+      "Imatge",
+      "Responsive"
+    ],
+    "description": "Text i il·lustració en dues columnes que s’apilen en pantalles petites.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "gap",
+        "label": "Separació",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades de la imatge",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Petites idees. Grans possibilitats."
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Explica què fa especial el teu projecte amb una imatge i una descripció que convidin a descobrir-lo."
+      },
+      {
+        "name": "link",
+        "label": "Destinació de l’enllaç",
+        "type": "url",
+        "value": "#projectes"
+      },
+      {
+        "name": "image",
+        "label": "URL de la imatge (opcional)",
+        "type": "image",
+        "value": ""
+      }
+    ],
+    "properties": [
+      "display",
+      "grid-template-columns",
+      "gap",
+      "border-radius",
+      "aspect-ratio",
+      "object-fit"
+    ],
+    "instructions": "Grid crea les dues columnes. La regla @media les apila en mòbil. La il·lustració SVG està inclosa a l’HTML; pots substituir-la per una imatge pròpia."
+  },
+  {
+    "id": "bento",
+    "title": "Graella bento",
+    "tags": [
+      "Grid",
+      "Targetes",
+      "Responsive"
+    ],
+    "description": "Una graella modular amb una targeta protagonista i tres peces petites.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color de la targeta principal",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "gap",
+        "label": "Separació",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Un espai per a cada idea."
+      },
+      {
+        "name": "description",
+        "label": "Descripció de la targeta ampla",
+        "type": "textarea",
+        "value": "Una distribució flexible que també funciona en una pantalla petita."
+      }
+    ],
+    "properties": [
+      "display",
+      "grid-template-columns",
+      "grid-column",
+      "grid-row",
+      "gap",
+      "border-radius"
+    ],
+    "instructions": "La targeta principal ocupa dues files i la inferior dues columnes. Les regles @media simplifiquen la graella en pantalles petites."
+  },
+  {
+    "id": "cards",
+    "title": "Targetes amb hover",
+    "tags": [
+      "Hover",
+      "Transicions",
+      "Flexbox"
+    ],
+    "description": "Una secció de serveis amb elevació suau i el mateix efecte quan es navega amb teclat.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color de contrast",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "lift",
+        "label": "Elevació",
+        "property": "transform",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 16,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "duration",
+        "label": "Durada",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 800,
+        "step": 50,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Què vols crear avui?"
+      },
+      {
+        "name": "description",
+        "label": "Descripció de l’última targeta",
+        "type": "textarea",
+        "value": "Experimenta, comparteix i millora a cada pas."
+      },
+      {
+        "name": "link",
+        "label": "Enllaç de la primera targeta",
+        "type": "url",
+        "value": "#projectes"
+      }
+    ],
+    "properties": [
+      "transform",
+      "transition",
+      "box-shadow",
+      "border-color",
+      "display"
+    ],
+    "instructions": "Passa el cursor per una targeta o selecciona’n un enllaç amb Tab. :hover i :focus-visible comparteixen l’efecte."
+  },
+  {
+    "id": "gallery",
+    "title": "Galeria horitzontal",
+    "tags": [
+      "Scroll-snap",
+      "Imatges",
+      "Galeria"
+    ],
+    "description": "Un petit portafolis amb desplaçament horitzontal i encaix de les targetes.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color de contrast",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "gap",
+        "label": "Separació",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "card-width",
+        "label": "Amplada de targeta",
+        "property": "width",
+        "type": "number",
+        "unit": "px",
+        "min": 140,
+        "max": 360,
+        "step": 10,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Projectes per descobrir."
+      },
+      {
+        "name": "description",
+        "label": "Indicació de desplaçament",
+        "type": "textarea",
+        "value": "Desplaça’t horitzontalment amb el ratolí, el dit o les fletxes del teclat."
+      },
+      {
+        "name": "image",
+        "label": "URL de la primera imatge (opcional)",
+        "type": "image",
+        "value": ""
+      }
+    ],
+    "properties": [
+      "overflow-x",
+      "scroll-snap-type",
+      "scroll-snap-align",
+      "flex",
+      "gap",
+      "aspect-ratio"
+    ],
+    "instructions": "La galeria es desplaça manualment. scroll-snap-align encaixa cada targeta a l’inici. El contenidor té tabindex per poder utilitzar les fletxes del teclat."
+  },
+  {
+    "id": "pricing",
+    "title": "Plans o tarifes",
+    "tags": [
+      "Grid",
+      "Comparació",
+      "Targetes"
+    ],
+    "description": "Tres opcions amb un pla destacat i una distribució que s’apila en mòbil.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color del pla destacat",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "gap",
+        "label": "Separació",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Un pla per a cada ritme."
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Comença petit. Tria l’opció que s’adapti al teu projecte."
+      },
+      {
+        "name": "link",
+        "label": "Enllaç del primer pla",
+        "type": "url",
+        "value": "#contacte"
+      }
+    ],
+    "properties": [
+      "display",
+      "grid-template-columns",
+      "border",
+      "box-shadow",
+      "margin"
+    ],
+    "instructions": "Grid manté les targetes alineades. Flexbox i margin-top: auto situen els enllaços al final. La classe __featured identifica el pla destacat; els textos i preus es poden editar a l’HTML."
+  },
+  {
+    "id": "faq",
+    "title": "Preguntes freqüents",
+    "tags": [
+      "Details",
+      "Acordió",
+      "Accessibilitat"
+    ],
+    "description": "Un acordió natiu que es pot obrir amb el ratolí o el teclat, sense scripts.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color de contrast",
+        "property": "border-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "space",
+        "label": "Espai interior de les preguntes",
+        "property": "padding",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Preguntes freqüents."
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Tot el que necessites saber abans de començar."
+      }
+    ],
+    "properties": [
+      "padding",
+      "border-color",
+      "border-radius",
+      "display"
+    ],
+    "instructions": "details i summary gestionen l’acordió sense JavaScript. open defineix quina pregunta està oberta inicialment. Les regles details[open] canvien la vora i el signe de la icona."
+  },
+  {
+    "id": "glass",
+    "title": "Crida a l’acció amb vidre",
+    "tags": [
+      "Backdrop-filter",
+      "Transparència",
+      "Gradient"
+    ],
+    "description": "Una franja de contacte amb una capa translúcida sobre formes acolorides.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color del fons",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "opacity",
+        "label": "Opacitat del vidre",
+        "property": "background-color",
+        "type": "number",
+        "unit": "%",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "blur",
+        "label": "Desenfocament",
+        "property": "backdrop-filter",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol",
+        "type": "text",
+        "value": "Fem realitat la teva idea?"
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Comparteix el que tens al cap i comencem a donar-li forma."
+      },
+      {
+        "name": "link",
+        "label": "Enllaç del botó",
+        "type": "url",
+        "value": "#contacte"
+      }
+    ],
+    "properties": [
+      "backdrop-filter",
+      "background",
+      "background-color",
+      "position",
+      "border-radius",
+      "transition",
+      "transform",
+      "box-shadow"
+    ],
+    "instructions": "backdrop-filter desenfoca el fons darrere de la capa. El fons semitransparent deixa veure les formes i el text es manté nítid."
+  },
+  {
+    "id": "navbar",
+    "title": "Menú fix amb vidre",
+    "tags": [
+      "Position fixed",
+      "Flex: 1",
+      "Hamburguesa",
+      "Backdrop-filter"
+    ],
+    "description": "Una barra fixa amb un espai flexible i un menú mòbil animat amb HTML i CSS.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color de contrast",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "opacity",
+        "label": "Opacitat del vidre",
+        "property": "background-color",
+        "type": "number",
+        "unit": "%",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "options": null
+      },
+      {
+        "name": "blur",
+        "label": "Desenfocament",
+        "property": "backdrop-filter",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "options": null
+      }
+    ],
+    "content": [
+      {
+        "name": "title",
+        "label": "Títol del contingut",
+        "type": "text",
+        "value": "Les idees sempre a mà."
+      },
+      {
+        "name": "description",
+        "label": "Descripció",
+        "type": "textarea",
+        "value": "Fes scroll vertical per comprovar que el menú es manté fix. Canvia l’amplada de l’exemple amb l’slider inferior d’amplada per veure el menú en format de botó d’hamburguesa per mòbils"
+      }
+    ],
+    "properties": [
+      "position",
+      "display",
+      "align-items",
+      "flex",
+      "backdrop-filter",
+      "transition",
+      "transform"
+    ],
+    "instructions": "La barra utilitza position: fixed, display: flex i align-items: center. L’element __space té flex: 1. En mòbil, un checkbox ocult i :checked obren el menú i transformen la icona, sense JavaScript. La barra es fixa dins de la previsualització; en copiar-la es fixarà a la finestra de la teva pàgina.",
+    "previewHeight": 360
+  }
+]

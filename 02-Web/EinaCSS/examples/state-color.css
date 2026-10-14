@@ -1,0 +1,19 @@
+.ex-state-color {
+  padding: 24px;
+  font-family: sans-serif;
+}
+.ex-state-color .estat { display: none; }
+.ex-state-color .opcions { display: flex; gap: 10px; }
+.ex-state-color label { padding: 10px; border: 1px solid gray; cursor: pointer; }
+.ex-state-color .caixa {
+  padding: 50px 20px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  background-color: #ea6c20;
+  transition: background-color 250ms;
+}
+/* :checked detecta el radio actiu; ~ selecciona la caixa que ve després. */
+.ex-state-color #color-pink:checked ~ .caixa {
+  background-color: #bf536b;
+}

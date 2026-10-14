@@ -1,0 +1,137 @@
+.ex-bento h2, .ex-bento h3, .ex-bento p {
+  margin: 0;
+}
+
+.ex-bento {
+  --ex-bento-accent: #6d5dfc;
+  --ex-bento-gap: 12px;
+  --ex-bento-radius: 20px;
+  padding: 32px;
+  background: #faf9f6;
+  color: #202838;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ex-bento header > span {
+  font-size: 12px;
+  color: #687083;
+}
+
+.ex-bento h2 {
+  margin: 8px 0 24px;
+  font-size: 38px;
+}
+
+.ex-bento__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ex-bento-gap);
+}
+
+.ex-bento__card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: var(--ex-bento-radius);
+  background: #eeeaf9;
+}
+
+.ex-bento__main {
+  grid-row: span 2;
+  min-height: 260px;
+  background: var(--ex-bento-accent);
+  color: white;
+}
+
+.ex-bento__mint {
+  background: #dff1e7;
+}
+
+.ex-bento__peach {
+  background: #ffe9d9;
+}
+
+.ex-bento__wide {
+  grid-column: span 2;
+}
+
+.ex-bento__number {
+  display: block;
+  opacity: .7;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.ex-bento h3 {
+  font-size: 19px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.ex-bento__card p {
+  font-size: 13px;
+}
+
+.ex-bento__orbits {
+  position: relative;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.ex-bento__orbits i {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.ex-bento__orbits i:nth-child(2) {
+  left: 35px;
+}
+
+.ex-bento__orbits i:nth-child(3) {
+  left: 70px;
+}
+
+@media (max-width: 540px) {
+  .ex-bento {
+    padding: 24px;
+  }
+
+  .ex-bento__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ex-bento__main {
+    grid-column: span 2;
+    grid-row: auto;
+    min-height: 0;
+  }
+
+  .ex-bento__orbits {
+    display: none;
+  }
+}
+
+@media (max-width: 340px) {
+  .ex-bento__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ex-bento__main, .ex-bento__wide {
+    grid-column: auto;
+  }
+}
+
+.ex-bento, .ex-bento * {
+  box-sizing: border-box;
+}
+
+.ex-bento a:focus-visible {
+  outline: 3px solid var(--ex-bento-accent);
+  outline-offset: 4px;
+}

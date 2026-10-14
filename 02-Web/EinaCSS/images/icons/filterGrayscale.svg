@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <title>Escala de grisos</title>
+  <rect x="5" y="8" width="10" height="34" rx="2" fill="#343a40"/>
+  <rect x="20" y="8" width="10" height="34" rx="2" fill="#92989f"/>
+  <rect x="35" y="8" width="10" height="34" rx="2" fill="#d8dde3"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>ease-out: temps en X i progrés en Y</title>
+  <path d="M8 4v38h38M4 9l4-5 4 5M41 38l5 4-5 4" stroke="#727272" stroke-width="2.5"/>
+  <path d="M8 42C8 42 27.72 8 42 8" stroke="#348cec" stroke-width="3.5"/>
+</svg>

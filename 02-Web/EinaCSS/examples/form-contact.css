@@ -1,0 +1,58 @@
+.ex-form-contact h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.ex-form-contact {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+  margin: auto;
+  padding: 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-form-contact label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.ex-form-contact input, .ex-form-contact textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #bfc6ce;
+  border-radius: 8px;
+  background: white;
+  color: #17263c;
+}
+.ex-form-contact textarea {
+  resize: vertical;
+}
+.ex-form-contact input:focus-visible, .ex-form-contact textarea:focus-visible {
+  outline: 3px solid #5265da;
+  outline-offset: 2px;
+}
+.ex-form-contact button {
+  justify-self: start;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #5265da;
+  color: white;
+  cursor: pointer;
+  transition: filter 150ms ease;
+}
+.ex-form-contact button:hover, .ex-form-contact button:focus-visible {
+  filter: brightness(.85);
+}
+.ex-form-contact button:focus-visible {
+  outline: 3px solid #5265da;
+  outline-offset: 3px;
+}
+.ex-form-contact, .ex-form-contact * {
+  box-sizing: border-box;
+}

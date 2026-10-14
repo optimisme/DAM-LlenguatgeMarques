@@ -1,0 +1,72 @@
+.ex-form-focus h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.ex-form-focus {
+  --ex-form-focus-accent: #267c6b;
+  --ex-form-focus-outline: 3px;
+  --ex-form-focus-radius: 10px;
+  max-width: 520px;
+  padding: 24px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-form-focus fieldset {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--ex-form-focus-radius);
+}
+
+.ex-form-focus legend {
+  padding: 0 8px;
+}
+
+.ex-form-focus fieldset:focus-within {
+  border-color: var(--ex-form-focus-accent);
+  background: #f0faf6;
+}
+
+.ex-form-focus label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 18px;
+  min-width: 0;
+}
+
+.ex-form-focus input {
+  min-width: 0;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bfc6ce;
+  border-radius: var(--ex-form-focus-radius);
+}
+
+.ex-form-focus input:focus-visible, .ex-form-focus button:focus-visible {
+  outline: var(--ex-form-focus-outline) solid var(--ex-form-focus-accent);
+  outline-offset: 3px;
+}
+
+.ex-form-focus button {
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--ex-form-focus-radius);
+  background: var(--ex-form-focus-accent);
+  color: white;
+  cursor: pointer;
+}
+
+.ex-form-focus, .ex-form-focus * {
+  box-sizing: border-box;
+}

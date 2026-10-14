@@ -1,0 +1,97 @@
+.ex-state-arrows h2, .ex-state-arrows p {
+  margin: 0;
+}
+
+.ex-state-arrows {
+  --ex-state-arrows-accent: #245da8;
+  --ex-state-arrows-duration: 350ms;
+  --ex-state-arrows-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-state-arrows .finestra {
+  overflow: hidden;
+  border-radius: var(--ex-state-arrows-radius);
+}
+
+.ex-state-arrows .diapositives {
+  display: flex;
+  transition: transform var(--ex-state-arrows-duration) ease;
+}
+
+.ex-state-arrows article {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 32px 24px;
+  min-height: 240px;
+  background: var(--ex-state-arrows-accent);
+  color: white;
+}
+
+.ex-state-arrows article:nth-child(2) {
+  background: #b83c74;
+}
+
+.ex-state-arrows article:nth-child(3) {
+  background: #334155;
+}
+
+.ex-state-arrows article > span {
+  font-size: 40px;
+  font-weight: 700;
+  opacity: .6;
+}
+
+.ex-state-arrows h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.ex-state-arrows #arrow-two:checked ~ .finestra .diapositives {
+  transform: translateX(-100%);
+}
+
+.ex-state-arrows #arrow-three:checked ~ .finestra .diapositives {
+  transform: translateX(-200%);
+}
+
+.ex-state-arrows .navegacio {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ex-state-arrows label {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.ex-state-arrows, .ex-state-arrows * {
+  box-sizing: border-box;
+}
+
+.ex-state-arrows .estat {
+  display: none;
+}
+
+.ex-state-arrows .controls {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.ex-state-arrows #arrow-one:checked ~ .navegacio .controls-one, .ex-state-arrows #arrow-two:checked ~ .navegacio .controls-two, .ex-state-arrows #arrow-three:checked ~ .navegacio .controls-three {
+  display: flex;
+}

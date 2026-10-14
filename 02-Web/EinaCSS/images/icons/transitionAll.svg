@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke-width="3.5" stroke-linejoin="round">
+  <title>Totes les propietats</title>
+  <g stroke="#348cec" fill="#348cec" fill-opacity=".16">
+    <rect x="5" y="5" width="16" height="16" rx="2"/>
+    <rect x="29" y="29" width="16" height="16" rx="2"/>
+  </g>
+  <g stroke="#727272">
+    <rect x="29" y="5" width="16" height="16" rx="2"/>
+    <rect x="5" y="29" width="16" height="16" rx="2"/>
+  </g>
+</svg>

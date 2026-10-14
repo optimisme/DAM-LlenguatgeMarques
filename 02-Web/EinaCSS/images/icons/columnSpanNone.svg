@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke="#348cec" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <title>column-span: none</title>
+  <style>.guide { stroke: #727272; stroke-width: 2; stroke-dasharray: 2 3; }</style>
+  <path class="guide" d="M25 7v36"/><path d="M6 10h13M6 20h13M6 29h13M6 38h13M31 10h13M31 20h13M31 29h13M31 38h13"/>
+</svg>

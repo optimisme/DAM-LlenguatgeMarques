@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explora CSS amb exemples interactius i copia el codi per a les teves pàgines web.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>CSS Tools</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Eina CSS</title>
+    <style>
+        body.workspace-loading > .container { visibility: hidden; }
+        .workspace-loading-status { position: fixed; inset: 40% 0 auto; text-align: center; color: #5e6f86; font: 14px system-ui, sans-serif; }
+    </style>
+    <link rel="stylesheet" href="style.css?v=cursor-grid-six">
+    <script src="popup-positioning.js?v=follow-control" defer></script>
+    <script src="color-controls.js?v=colors-without-mode-hint" defer></script>
+    <script src="property-explanations.js?v=box-lessons" defer></script>
+    <script src="property-selectors.js?v=cursor-grid" defer></script>
+    <script src="workspace.js?v=applied-menu-order" defer></script>
+    <script src="background-editor.js?v=uniform-live-stage" defer></script>
+    <script src="grid-editor.js?v=grid-focused-lessons" defer></script>
+    <script src="position-editor.js?v=sticky-scroll-label" defer></script>
+    <script src="animation-editor.js?v=animation-delay-phases" defer></script>
+    <script src="box-editors.js?v=sizing-label" defer></script>
+    <script src="examples/css-source.js?v=beginner-examples-v2" defer></script>
+    <script src="examples-editor.js?v=carousel-first" defer></script>
+    <script src="flex-spacer-example.js?v=flex-spacer" defer></script>
+    <script src="script.js?v=css-aplicat-final" defer></script>
 </head>
-<body>
+<body class="workspace-loading">
+    <p class="workspace-loading-status" role="status">Carregant l’eina CSS…</p>
     <div class="container">
         <main class="main-controls">
-            <h2>CSS Tools</h2>
+            <h1 class="fallback-title">Eina CSS</h1>
             <div class="css-sections">
                 <details class="section">
                     <summary>
@@ -26,7 +46,7 @@
                                 <div class="mini-item item-2" style="display: block;">B</div>
                                 <div class="mini-item item-3" style="display: block;">C</div>
                             </div>
-                            <div class="mini-description">Each item takes full width and starts on new line</div>
+                            <div class="mini-description">Cada element ocupa tota l’amplada i comença en una línia nova.</div>
                         </div>
 
                         <div class="property-row">
@@ -65,7 +85,7 @@
                                     <div class="mini-item item-2">B</div>
                                     <div class="mini-item item-3">C</div>
                                 </div>
-                                <div class="mini-description">Items arranged horizontally from left to right</div>
+                                <div class="mini-description">Els elements es distribueixen d’esquerra a dreta.</div>
                             </div>
 
                             <div style="display: flex; align-items: flex-end;">
@@ -101,7 +121,7 @@
                                     <div class="mini-item item-2" style="padding: 8px;">B</div>
                                     <div class="mini-item item-3" style="padding: 12px 8px;">C</div>
                                 </div>
-                                <div class="mini-description">Items aligned to the start of the cross axis</div>
+                                <div class="mini-description">Els elements s’alineen a l’inici de l’eix transversal.</div>
                             </div>
 
                             <div style="display: flex; align-items: flex-end;">
@@ -140,7 +160,7 @@
                                     <div class="mini-item item-2">B</div>
                                     <div class="mini-item item-3">C</div>
                                 </div>
-                                <div class="mini-description">Horizontal (row): Items packed at the start of the main axis</div>
+                                <div class="mini-description">Horizontal (row): Els elements s’agrupen a l’inici de l’eix principal.</div>
                             </div>
 
                             <div style="display: flex; align-items: flex-end;">
@@ -183,7 +203,7 @@
                                     <div class="mini-item item-2">B</div>
                                     <div class="mini-item item-3">C</div>
                                 </div>
-                                <div class="mini-description">Vertical (column): Items packed at the start of the main axis</div>
+                                <div class="mini-description">Vertical (column): Els elements s’agrupen a l’inici de l’eix principal.</div>
                             </div>
 
                             <div style="display: flex; align-items: flex-end;">
@@ -229,7 +249,7 @@
                                     <div class="mini-item item-5">E</div>
                                     <div class="mini-item item-6">F</div>
                                 </div>
-                                <div class="mini-description">Items forced into single line (may overflow)</div>
+                                <div class="mini-description">Els elements es mantenen en una línia i poden desbordar.</div>
                             </div>
 
                             <div class="property-row">
@@ -261,7 +281,7 @@
                                     <div class="mini-item item-5">E</div>
                                     <div class="mini-item item-6">F</div>
                                 </div>
-                                <div class="mini-description">Lines packed at the start of the container</div>
+                                <div class="mini-description">Les línies s’agrupen a l’inici del contenidor.</div>
                             </div>
 
                             <div class="property-row">
@@ -303,7 +323,7 @@
                     <div class="section-content">
                         <div class="example-container" id="boxmodel-example" style="height: 420px;">
                             <canvas id="boxmodel-canvas" width="800" height="400" style="width: 100%; height: 380px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
-                            <div class="mini-description" id="boxmodel-description">Chrome DevTools Box Model Visualization</div>
+                            <div class="mini-description" id="boxmodel-description">Esquema del model de caixa de CSS</div>
                         </div>
 
                         <div class="boxmodel-controls">
@@ -430,7 +450,7 @@
                     <div class="section-content">
                         <div class="example-container" id="size-example" style="height: 410px;">
                             <canvas id="size-canvas" width="800" height="300" style="width: 100%; height: 345px; border: 1px solid #2c3e50; border-radius: 4px; background: #fff;"></canvas>
-                            <div class="mini-description" id="size-description">Box sizing visualization</div>
+                            <div class="mini-description" id="size-description">Esquema de les dimensions de la caixa</div>
                         </div>
 
                         <div class="property-row">
@@ -495,7 +515,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mini-description" id="overflow-description">Default overflow behavior</div>
+                            <div class="mini-description" id="overflow-description">Comportament inicial: el contingut pot desbordar.</div>
                         </div>
 
                         <div class="property-row">
@@ -528,7 +548,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mini-description" id="overflow-x-description">Default horizontal overflow behavior</div>
+                            <div class="mini-description" id="overflow-x-description">Comportament inicial: el contingut pot desbordar horitzontalment.</div>
                         </div>
 
                         <div class="property-row">
@@ -561,7 +581,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mini-description" id="overflow-y-description">Default vertical overflow behavior</div>
+                            <div class="mini-description" id="overflow-y-description">Comportament inicial: el contingut pot desbordar verticalment.</div>
                         </div>
 
                         <div class="property-row">
@@ -600,7 +620,7 @@
                                 <h4 style="font-size: 0.9em; color: #2c3e50; margin: 0 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">Box Shadow</h4>
 
                                 <div class="example-container" style="height: 150px;">
-                                    <div class="mini-description">White box with box-shadow</div>
+                                    <div class="mini-description">Una caixa amb box-shadow.</div>
                                     <div class="mini-outer" style="height: 105px; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
                                         <div id="box-shadow-demo" style="width: 100px; height: 70px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2c3e50; font-size: 0.8em;">
                                             Box
@@ -629,7 +649,7 @@
                                 <h4 style="font-size: 0.9em; color: #2c3e50; margin: 0 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">Text Shadow</h4>
 
                                 <div class="example-container" style="height: 150px;">
-                                    <div class="mini-description">Text with text-shadow</div>
+                                    <div class="mini-description">Un text amb text-shadow.</div>
                                     <div class="mini-outer" style="height: 105px; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
                                         <div id="text-shadow-demo" style="font-size: 1.8em; font-weight: bold; color: #2c3e50;">
                                             Shadow
@@ -668,7 +688,7 @@
                                     DEMO
                                 </div>
                             </div>
-                            <div class="mini-description" id="bg-clip-description">Background demonstration box</div>
+                            <div class="mini-description" id="bg-clip-description">Exemple de fons</div>
                         </div>
 
                         <div class="property-row">
@@ -732,7 +752,7 @@
                                     Demo
                                 </div>
                             </div>
-                            <div class="mini-description">Element with adjustable visibility and opacity</div>
+                            <div class="mini-description">Compara la visibilitat i l’opacitat de l’element.</div>
                         </div>
 
                         <div class="property-row">
@@ -781,7 +801,7 @@
                                     Demo
                                 </div>
                             </div>
-                            <div class="mini-description">Element with multiple transforms applied</div>
+                            <div class="mini-description">Combina transformacions sobre l’element.</div>
                         </div>
 
                         <div class="property-row">
@@ -811,10 +831,10 @@
                         <div class="example-container" style="min-height: 200px;">
                             <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 30px; background: #f0f0f0; min-height: 120px;">
                                 <div id="transition-demo" style="width: 100px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1em; font-weight: bold; cursor: pointer;">
-                                    Hover Me
+                                    Passa el ratolí
                                 </div>
                             </div>
-                            <div class="mini-description">Hover over the box to see transitions in action</div>
+                            <div class="mini-description">Prem Play o passa el ratolí per l’exemple per veure la transició.</div>
                         </div>
 
                         <div class="property-row">
@@ -841,26 +861,51 @@
                         <span>Filters</span>
                     </summary>
                     <div class="section-content">
-                        <div class="example-container" style="min-height: 220px;">
-                            <div class="mini-outer" style="display: flex; align-items: center; justify-content: center; padding: 30px; background: #f0f0f0; min-height: 140px;">
-                                <img id="filter-demo" src="images/image0.jpg" alt="Filter Demo" style="width: 150px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                        <div class="example-container filter-stage live-stage--transparency">
+                            <div id="filter-scene" class="filter-scene">
+                                <img id="filter-demo" src="images/image0.jpg" alt="Paisatge per provar els filtres">
+                                <div id="filter-glass" class="filter-glass" hidden>
+                                    <strong>Vidre glaçat</strong>
+                                    <span>El fons es transforma; el text es manté nítid.</span>
+                                </div>
                             </div>
-                            <div class="mini-description">Image with adjustable CSS filters</div>
                         </div>
 
+                        <div class="filter-modes lesson-tabs" role="group" aria-label="On s’aplica el filtre">
+                            <button type="button" data-filter-mode="image" aria-pressed="true">Imatge · filter</button>
+                            <button type="button" data-filter-mode="backdrop" aria-pressed="false">Fons · backdrop-filter</button>
+                        </div>
+                        <div class="preset-panel filter-presets">
+                            <span class="pane-label">Prova un exemple</span>
+                            <div class="preset-buttons">
+                                <button type="button" data-filter-preset="original" aria-pressed="true">Original</button>
+                                <button type="button" data-filter-preset="grayscale" aria-pressed="false">Blanc i negre</button>
+                                <button type="button" data-filter-preset="vintage" aria-pressed="false">Vintage</button>
+                                <button type="button" data-filter-preset="vivid" aria-pressed="false">Colors vius</button>
+                                <button type="button" data-filter-preset="fade" aria-pressed="false">Semitransparent</button>
+                                <button type="button" data-filter-preset="frosted" aria-pressed="false">Vidre glaçat</button>
+                                <button type="button" data-filter-preset="dark-glass" aria-pressed="false">Vidre fosc</button>
+                            </div>
+                        </div>
                         <div class="property-row">
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" class="property-link">filter:</a>
+                            <a id="filter-property-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" class="property-link">filter:</a>
                             <span class="property-value" id="filter-value">none;</span>
+                        </div>
+                        <div id="filter-glass-controls" hidden>
+                            <div class="property-row">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color" target="_blank" class="property-link">background-color:</a>
+                                <input type="color" id="filter-glass-color" value="#ffffff" data-color-alpha="28" aria-label="Color del vidre">
+                            </div>
                         </div>
 
                         <!-- Filter List Container -->
                         <div id="filter-list-container" style="margin-top: 15px;">
-                            <h4 style="font-size: 0.85em; color: #2c3e50; margin: 0 0 10px 0;">Filter List:</h4>
+                            <h4 style="font-size: 0.85em; color: #2c3e50; margin: 0 0 10px 0;">Llista de filtres:</h4>
                             <div id="filter-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px;">
                                 <!-- Filter items will be added here dynamically -->
                             </div>
-                            <button id="add-filter-btn" class="property-btn" title="Add new filter" style="width: 100%; padding: 10px 16px; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;">
-                                <img src="images/icons/iconAdd.svg" alt="Add" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;"> Add Filter
+                            <button id="add-filter-btn" class="property-btn" title="Afegeix un filtre" style="width: 100%; padding: 10px 16px; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;">
+                                <img src="images/icons/iconAdd.svg" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;"><span class="button-label">Afegeix un filtre</span>
                             </button>
                         </div>
                     </div>
@@ -877,21 +922,7 @@
                             <span class="property-value" id="cursor-value">pointer;</span>
                         </div>
 
-                        <div style="display: flex; gap: 15px; margin-top: 15px;">
-                            <!-- Left side: Grid of cursor options -->
-                            <div id="cursor-grid" style="flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px;">
-                                <!-- Cursor boxes will be added here by JavaScript -->
-                            </div>
-
-                            <!-- Right side: Large demo box -->
-                            <div style="width: 180px; flex-shrink: 0;">
-                                <div id="cursor-demo-box" style="width: 100%; height: 180px; background: #AFAFAF; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 400; font-size: 0.95em; text-align: center; cursor: pointer; border: 2px solid #dee2e6; padding: 15px; line-height: 1.4;">
-                                    <div>Hover to see</div>
-                                    <div style="font-weight: 700; font-size: 1.1em; margin: 5px 0;">"pointer"</div>
-                                    <div>cursor</div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="cursor-grid" role="group" aria-label="Àrees per provar cada cursor"></div>
                     </div>
                 </details>
 
@@ -907,7 +938,7 @@
                                     The quick brown fox jumps over the lazy dog. Typography is the art and technique of arranging type to make written language legible, readable, and appealing.
                                 </div>
                             </div>
-                            <div class="mini-description">Adjust typography properties to see changes</div>
+                            <div class="mini-description">Edita el text i prova les propietats de tipografia.</div>
                         </div>
 
                         <!-- Font Family -->
@@ -1078,7 +1109,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                                 </div>
                             </div>
-                            <div class="mini-description">Adjust paragraph properties to see changes</div>
+                            <div class="mini-description">Edita el text i prova l’espaiat i els salts de línia.</div>
                         </div>
 
                         <!-- User Select -->
@@ -1229,7 +1260,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </div>
                             </div>
-                            <div class="mini-description">Adjust column properties to see changes</div>
+                            <div class="mini-description">Ajusta les columnes del text.</div>
                         </div>
 
                         <!-- Column Count -->
@@ -1313,6 +1344,7 @@
                                 </button>
                                 <input type="color" id="column-rule-color-picker" value="#000000" style="width: 60px; height: 36px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
                             </div>
+                            <p class="field-help column-rule-hint">Per veure la línia, defineix dues o més columnes i tria un estil com solid a column-rule-style.</p>
                         </div>
 
                         <!-- Column Span -->
@@ -1334,4 +1366,4 @@
         </footer>
     </div>
 </body>
-</html> 
+</html>

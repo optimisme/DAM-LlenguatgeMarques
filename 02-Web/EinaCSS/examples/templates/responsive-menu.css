@@ -1,0 +1,143 @@
+.ex-responsive-menu h2, .ex-responsive-menu p {
+  margin: 0;
+}
+
+.ex-responsive-menu a {
+  color: inherit;
+}
+
+.ex-responsive-menu {
+  --ex-responsive-menu-accent: #6453c7;
+  --ex-responsive-menu-breakpoint: 480px;
+  --ex-responsive-menu-duration: 200ms;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-responsive-menu header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #d8d3e7;
+  background: #f5f2ff;
+}
+
+.ex-responsive-menu .marca {
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ex-responsive-menu .espai {
+  flex: 1;
+}
+
+.ex-responsive-menu nav {
+  display: flex;
+  gap: 18px;
+}
+
+.ex-responsive-menu nav a {
+  text-decoration: none;
+}
+
+.ex-responsive-menu .hamburguesa {
+  display: none;
+}
+
+.ex-responsive-menu .contingut {
+  padding: 32px 24px;
+}
+
+.ex-responsive-menu h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.ex-responsive-menu p + p {
+  margin-top: 28px;
+}
+
+@media (max-width: var(--ex-responsive-menu-breakpoint)) {
+  .ex-responsive-menu header {
+    gap: 8px;
+    padding: 14px 18px;
+  }
+
+  .ex-responsive-menu .marca {
+    font-size: 20px;
+  }
+
+  .ex-responsive-menu .hamburguesa {
+    display: flex;
+    flex: 0 0 40px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid #d8d3e7;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .ex-responsive-menu .hamburguesa span {
+    width: 18px;
+    height: 2px;
+    background: var(--ex-responsive-menu-accent);
+    transition: transform var(--ex-responsive-menu-duration) ease, opacity var(--ex-responsive-menu-duration) ease;
+  }
+
+  .ex-responsive-menu nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    background: #f5f2ff;
+    transition: max-height var(--ex-responsive-menu-duration) ease, opacity var(--ex-responsive-menu-duration) ease, visibility var(--ex-responsive-menu-duration);
+  }
+
+  .ex-responsive-menu nav a {
+    padding: 14px 20px;
+    border-top: 1px solid #d8d3e7;
+  }
+
+  .ex-responsive-menu #responsive-menu-open:checked ~ nav {
+    max-height: 220px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ex-responsive-menu #responsive-menu-open:checked ~ .hamburguesa span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .ex-responsive-menu #responsive-menu-open:checked ~ .hamburguesa span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .ex-responsive-menu #responsive-menu-open:checked ~ .hamburguesa span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.ex-responsive-menu, .ex-responsive-menu * {
+  box-sizing: border-box;
+}
+
+.ex-responsive-menu .estat {
+  display: none;
+}

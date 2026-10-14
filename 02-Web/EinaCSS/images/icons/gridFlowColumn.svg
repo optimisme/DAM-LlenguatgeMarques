@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke="#348cec" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <title>gridFlowColumn</title>
+  <g transform="rotate(90 25 25)"><rect x="7" y="8" width="9" height="9"/><rect x="21" y="8" width="9" height="9"/><rect x="35" y="8" width="9" height="9"/><rect x="7" y="27" width="9" height="9" stroke="#727272"/><rect x="21" y="27" width="9" height="9" stroke="#727272"/><path d="M9 22h32m-6-4 6 4-6 4" stroke-width="2.5"/></g>
+</svg>

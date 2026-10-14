@@ -1,0 +1,94 @@
+.ex-faq h2, .ex-faq p {
+  margin: 0;
+}
+
+.ex-faq {
+  --ex-faq-accent: #387b68;
+  --ex-faq-space: 18px;
+  --ex-faq-radius: 12px;
+  padding: 36px;
+  background: #fafbf8;
+  color: #253c34;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ex-faq header > span {
+  font-size: 12px;
+  color: var(--ex-faq-accent);
+  font-weight: 600;
+}
+
+.ex-faq h2 {
+  margin: 10px 0;
+  font-size: 38px;
+}
+
+.ex-faq header p {
+  color: #677b73;
+}
+
+.ex-faq__list {
+  margin-top: 28px;
+}
+
+.ex-faq details {
+  margin-bottom: 10px;
+  border: 1px solid #dce5de;
+  border-radius: var(--ex-faq-radius);
+  background: white;
+}
+
+.ex-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: var(--ex-faq-space);
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ex-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.ex-faq summary > span::before {
+  content: '+';
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--ex-faq-accent);
+}
+
+.ex-faq details[open] summary > span::before {
+  content: '−';
+}
+
+.ex-faq details[open] {
+  border-color: var(--ex-faq-accent);
+}
+
+.ex-faq details p {
+  padding: 0 var(--ex-faq-space) var(--ex-faq-space);
+  font-size: 13px;
+  color: #677b73;
+}
+
+@media (max-width: 480px) {
+  .ex-faq {
+    padding: 24px;
+  }
+}
+
+.ex-faq, .ex-faq * {
+  box-sizing: border-box;
+}
+
+.ex-faq a:focus-visible, .ex-faq summary:focus-visible {
+  outline: 3px solid var(--ex-faq-accent);
+  outline-offset: 4px;
+}

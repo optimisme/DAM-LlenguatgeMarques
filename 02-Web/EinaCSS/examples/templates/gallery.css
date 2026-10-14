@@ -1,0 +1,94 @@
+.ex-gallery h2, .ex-gallery h3, .ex-gallery p {
+  margin: 0;
+}
+
+.ex-gallery a {
+  color: inherit;
+}
+
+.ex-gallery {
+  --ex-gallery-accent: #a05f38;
+  --ex-gallery-gap: 18px;
+  --ex-gallery-card-width: 240px;
+  padding: 32px;
+  background: #faf5ee;
+  color: #352b25;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ex-gallery h2 {
+  font-size: 38px;
+}
+
+.ex-gallery header p {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #79685b;
+}
+
+.ex-gallery__track {
+  display: flex;
+  gap: var(--ex-gallery-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 24px 4px 16px;
+}
+
+.ex-gallery__track:focus-visible {
+  outline: 3px solid var(--ex-gallery-accent);
+  outline-offset: 3px;
+}
+
+.ex-gallery__card {
+  flex: 0 0 min(var(--ex-gallery-card-width), 85%);
+  scroll-snap-align: start;
+  text-decoration: none;
+}
+
+.ex-gallery__art {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #e9f2f2;
+}
+
+.ex-gallery__art svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.ex-gallery__card > span {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 11px;
+  color: var(--ex-gallery-accent);
+}
+
+.ex-gallery h3 {
+  font-size: 20px;
+}
+
+.ex-gallery__card p {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #79685b;
+}
+
+@media (max-width: 480px) {
+  .ex-gallery {
+    padding: 24px;
+  }
+}
+
+.ex-gallery, .ex-gallery * {
+  box-sizing: border-box;
+}
+
+.ex-gallery a:focus-visible {
+  outline: 3px solid var(--ex-gallery-accent);
+  outline-offset: 4px;
+}

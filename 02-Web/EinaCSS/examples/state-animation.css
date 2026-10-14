@@ -1,0 +1,91 @@
+.ex-state-animation p {
+  margin: 0;
+}
+.ex-state-animation {
+  padding: 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-state-animation .control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.ex-state-animation input {
+  width: 20px;
+  height: 20px;
+  accent-color: #267c6b;
+}
+.ex-state-animation .pista {
+  margin: 24px 0;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  border-radius: 12px;
+}
+.ex-state-animation .pilota {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #267c6b;
+  animation: ex-desplacament 2000ms ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.ex-state-animation:has(#animation-running:checked) .pilota {
+  animation-play-state: running;
+}
+.ex-state-animation .en-marxa {
+  display: none;
+}
+.ex-state-animation:has(#animation-running:checked) .en-marxa {
+  display: block;
+}
+.ex-state-animation:has(#animation-running:checked) .en-pausa {
+  display: none;
+}
+@keyframes ex-desplacament {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(80px);
+  }
+}
+.ex-state-animation, .ex-state-animation * {
+  box-sizing: border-box;
+}
+.ex-state-animation .estat {
+  display: none;
+}
+.ex-state-animation .interruptor {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 32px;
+  border-radius: 18px;
+  background: #d7d9dd;
+  transition: background-color 180ms ease;
+}
+.ex-state-animation .interruptor::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+  transition: transform 180ms ease;
+}
+.ex-state-animation:has(#animation-running:checked) .interruptor {
+  background: #267c6b;
+}
+.ex-state-animation:has(#animation-running:checked) .interruptor::after {
+  transform: translateX(24px);
+}

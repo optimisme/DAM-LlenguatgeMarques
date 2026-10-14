@@ -1,0 +1,70 @@
+.ex-responsive-columns h2, .ex-responsive-columns p {
+  margin: 0;
+}
+
+.ex-responsive-columns {
+  --ex-responsive-columns-accent: #267c6b;
+  --ex-responsive-columns-breakpoint: 480px;
+  --ex-responsive-columns-gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ex-responsive-columns-gap);
+  align-items: center;
+  padding: 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-responsive-columns > div {
+  min-width: 0;
+}
+
+.ex-responsive-columns h2 {
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 14px 0;
+}
+
+.ex-responsive-columns .imatge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  background: #e3f4ed;
+  border-radius: 18px;
+}
+
+.ex-responsive-columns .imatge span {
+  width: 22%;
+  aspect-ratio: 1;
+  background: var(--ex-responsive-columns-accent);
+  border-radius: 12px;
+}
+
+.ex-responsive-columns .imatge span:nth-child(2) {
+  border-radius: 50%;
+  background: #e3ba68;
+}
+
+.ex-responsive-columns .imatge span:nth-child(3) {
+  transform: rotate(20deg);
+  background: #9b89dd;
+}
+
+@media (max-width: var(--ex-responsive-columns-breakpoint)) {
+  .ex-responsive-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .ex-responsive-columns .imatge {
+    min-height: 180px;
+  }
+}
+
+.ex-responsive-columns, .ex-responsive-columns * {
+  box-sizing: border-box;
+}

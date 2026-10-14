@@ -1,0 +1,58 @@
+.ex-state-tabs h2, .ex-state-tabs p {
+  margin: 0;
+}
+.ex-state-tabs {
+  padding: 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-state-tabs fieldset {
+  border: 0;
+  min-width: 0;
+}
+.ex-state-tabs legend {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.ex-state-tabs .pestanyes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ex-state-tabs label {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+}
+.ex-state-tabs .panells {
+  padding: 24px;
+  border: 1px solid #cbd5e1;
+  border-radius: 0 10px 10px 10px;
+  background: #f8fafc;
+}
+.ex-state-tabs article {
+  display: none;
+}
+.ex-state-tabs h2 {
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+.ex-state-tabs #tab-design:checked ~ .panells .disseny, .ex-state-tabs #tab-build:checked ~ .panells .construccio, .ex-state-tabs #tab-share:checked ~ .panells .compartir {
+  display: block;
+}
+.ex-state-tabs #tab-design:checked ~ .pestanyes [for="tab-design"], .ex-state-tabs #tab-build:checked ~ .pestanyes [for="tab-build"], .ex-state-tabs #tab-share:checked ~ .pestanyes [for="tab-share"] {
+  background: #5265da;
+  color: white;
+  border-color: #5265da;
+}
+.ex-state-tabs, .ex-state-tabs * {
+  box-sizing: border-box;
+}
+.ex-state-tabs .estat {
+  display: none;
+}

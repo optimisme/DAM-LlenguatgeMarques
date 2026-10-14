@@ -1,0 +1,44 @@
+.ex-form-indicators h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.ex-form-indicators {
+  --ex-form-indicators-accent: #1976d2;
+  --ex-form-indicators-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  max-width: 560px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-form-indicators label {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.ex-form-indicators input, .ex-form-indicators progress, .ex-form-indicators meter {
+  width: 100%;
+  accent-color: var(--ex-form-indicators-accent);
+}
+
+.ex-form-indicators progress, .ex-form-indicators meter {
+  height: var(--ex-form-indicators-size);
+}
+
+.ex-form-indicators input:focus-visible {
+  outline: 3px solid var(--ex-form-indicators-accent);
+  outline-offset: 4px;
+}
+
+.ex-form-indicators, .ex-form-indicators * {
+  box-sizing: border-box;
+}

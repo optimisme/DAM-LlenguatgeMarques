@@ -1,0 +1,88 @@
+.ex-hero h2, .ex-hero p {
+  margin: 0;
+}
+
+.ex-hero a {
+  color: inherit;
+}
+
+.ex-hero {
+  --ex-hero-accent: #6d5dfc;
+  --ex-hero-space: 48px;
+  --ex-hero-align: left;
+  padding: var(--ex-hero-space) 64px;
+  background: radial-gradient(ellipse at 100% 0%, #d8f7ed, transparent 60%), radial-gradient(ellipse at 0% 100%, #ded5ff, transparent 65%), #faf9ff;
+  color: #18233d;
+  text-align: var(--ex-hero-align);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ex-hero__badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #d8d2ee;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.ex-hero h2 {
+  margin: 24px 0 16px;
+  font-size: 64px;
+  line-height: 1.08;
+}
+
+.ex-hero p {
+  color: #57627b;
+}
+
+.ex-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  justify-content: var(--ex-hero-align);
+}
+
+.ex-hero__actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ex-hero .ex-hero__primary {
+  background: var(--ex-hero-accent);
+  color: white;
+}
+
+.ex-hero__secondary {
+  border: 1px solid #d8d2ee;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  .ex-hero {
+    padding: var(--ex-hero-space) 24px;
+  }
+
+  .ex-hero h2 {
+    font-size: 36px;
+  }
+}
+
+.ex-hero, .ex-hero * {
+  box-sizing: border-box;
+}
+
+.ex-hero a:focus-visible {
+  outline: 3px solid var(--ex-hero-accent);
+  outline-offset: 4px;
+}

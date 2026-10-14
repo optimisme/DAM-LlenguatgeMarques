@@ -1,0 +1,63 @@
+.ex-form-files h2 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.ex-form-files {
+  padding: 24px;
+  max-width: 580px;
+  margin: auto;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+.ex-form-files .camp {
+  position: relative;
+  margin-bottom: 22px;
+}
+.ex-form-files label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.ex-form-files input {
+  min-width: 0;
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  color: #17263c;
+}
+.ex-form-files input:focus-visible {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+.ex-form-files input:invalid:focus, .ex-form-files input:invalid:not(:placeholder-shown) {
+  border-color: #b83a48;
+}
+.ex-form-files .ajuda {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #52647b;
+}
+.ex-form-files input[type=file] {
+  padding: 8px;
+  font-size: 14px;
+}
+.ex-form-files input::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+.ex-form-files, .ex-form-files * {
+  box-sizing: border-box;
+}

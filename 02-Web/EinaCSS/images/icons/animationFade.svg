@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke="#348cec" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <title>animationFade</title>
+  <circle cx="9" cy="25" r="6" fill="#348cec" opacity=".2"/><circle cx="24" cy="25" r="8" fill="#348cec" opacity=".55"/><circle cx="41" cy="25" r="8" fill="#348cec"/>
+</svg>

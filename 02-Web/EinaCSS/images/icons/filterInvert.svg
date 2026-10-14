@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <title>Inversió dels colors</title>
+  <rect x="5" y="11" width="16" height="28" rx="3" fill="#348cec"/>
+  <rect x="29" y="11" width="16" height="28" rx="3" fill="#cb7313"/>
+  <path d="M18 5h14m-5-4 5 4-5 4M32 45H18m5-4-5 4 5 4" fill="none" stroke="#727272" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

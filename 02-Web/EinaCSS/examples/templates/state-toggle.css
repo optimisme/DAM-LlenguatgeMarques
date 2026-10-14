@@ -1,0 +1,83 @@
+.ex-state-toggle h2, .ex-state-toggle p {
+  margin: 0;
+}
+
+.ex-state-toggle {
+  --ex-state-toggle-accent: #007aff;
+  --ex-state-toggle-duration: 200ms;
+  padding: 32px 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-state-toggle h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.ex-state-toggle .interruptor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.ex-state-toggle .pista {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 32px;
+  border-radius: 18px;
+  background: #d7d9dd;
+  transition: background-color var(--ex-state-toggle-duration) ease;
+}
+
+.ex-state-toggle .pista::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+  transition: transform var(--ex-state-toggle-duration) ease;
+}
+
+.ex-state-toggle:has(input:checked) .pista {
+  background: var(--ex-state-toggle-accent);
+}
+
+.ex-state-toggle:has(input:checked) .pista::after {
+  transform: translateX(24px);
+}
+
+.ex-state-toggle .estat-on {
+  display: none;
+}
+
+.ex-state-toggle:has(input:checked) .estat-on {
+  display: block;
+}
+
+.ex-state-toggle:has(input:checked) .estat-off {
+  display: none;
+}
+
+.ex-state-toggle p {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.ex-state-toggle, .ex-state-toggle * {
+  box-sizing: border-box;
+}
+
+.ex-state-toggle .estat {
+  display: none;
+}

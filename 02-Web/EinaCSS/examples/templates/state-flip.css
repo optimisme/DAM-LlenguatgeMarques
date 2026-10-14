@@ -1,0 +1,63 @@
+.ex-state-flip {
+  --ex-state-flip-accent: #6453c7;
+  --ex-state-flip-duration: 500ms;
+  --ex-state-flip-radius: 18px;
+  padding: 32px 24px;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #17263c;
+}
+
+.ex-state-flip .targeta {
+  display: block;
+  max-width: 320px;
+  margin: auto;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.ex-state-flip .cares {
+  display: grid;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform var(--ex-state-flip-duration) ease;
+}
+
+.ex-state-flip .cara {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  border-radius: var(--ex-state-flip-radius);
+  backface-visibility: hidden;
+}
+
+.ex-state-flip .davant {
+  background: var(--ex-state-flip-accent);
+  color: white;
+}
+
+.ex-state-flip .darrere {
+  background: #e3f4ed;
+  transform: rotateY(180deg);
+}
+
+.ex-state-flip strong {
+  font-size: 25px;
+}
+
+.ex-state-flip #flip-card:checked ~ .targeta .cares {
+  transform: rotateY(180deg);
+}
+
+.ex-state-flip, .ex-state-flip * {
+  box-sizing: border-box;
+}
+
+.ex-state-flip .estat {
+  display: none;
+}

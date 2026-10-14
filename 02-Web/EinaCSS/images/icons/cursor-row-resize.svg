@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke="#348cec" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <title>cursor: row-resize</title>
+  <path d="M8 22h34M8 28h34" stroke="#727272"/><path d="M25 4v14M25 32v14m-6-36 6-6 6 6m-12 30 6 6 6-6"/>
+</svg>

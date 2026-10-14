@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "form-contact",
+    "topic": "forms",
+    "title": "Formulari de contacte",
+    "tags": [
+      "Input",
+      "Textarea",
+      "Botó"
+    ],
+    "description": "Un formulari petit amb etiquetes visibles, camps amplis i un botó amb hover.",
+    "instructions": "padding defineix l’espai interior dels camps; border-radius n’arrodoneix les cantonades. Les etiquetes es relacionen amb els camps mitjançant for i id. El botó mostra l’estil; afegeix l’enviament quan integris el formulari al teu projecte.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "space",
+        "label": "Espai interior dels camps",
+        "property": "padding",
+        "type": "number",
+        "unit": "px",
+        "min": 4,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "padding",
+      "border-radius",
+      "background-color",
+      "outline",
+      "display"
+    ]
+  },
+  {
+    "id": "form-focus",
+    "topic": "forms",
+    "title": "Focus i teclat",
+    "tags": [
+      "Focus-visible",
+      "Focus-within",
+      "Tab"
+    ],
+    "description": "Prem Tab o selecciona un camp per veure el focus del camp i del seu contenidor.",
+    "instructions": ":focus-visible marca el control quan el navegador considera necessari mostrar el focus, especialment amb el teclat. :focus-within destaca el grup mentre algun dels seus camps té el focus. Prem Tab per passar d’un camp al següent.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "outline",
+        "label": "Gruix del focus",
+        "property": "outline-width",
+        "type": "number",
+        "unit": "px",
+        "min": 1,
+        "max": 6,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "outline",
+      "outline-width",
+      "border-color",
+      "background-color",
+      "border-radius"
+    ]
+  },
+  {
+    "id": "form-states",
+    "topic": "forms",
+    "title": "Validació i estats",
+    "tags": [
+      "Valid",
+      "Invalid",
+      "Disabled"
+    ],
+    "description": "Escriu un correu i compara un camp editable, un de només lectura i un de desactivat.",
+    "instructions": "HTML defineix la validesa amb type=\"email\" i required; CSS en mostra l’estat amb :valid i :invalid. :disabled i :read-only permeten distingir els camps que no es poden editar. El missatge de validació inclou text, a més del color.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "border-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "border-color",
+      "border-style",
+      "background-color",
+      "color",
+      "outline",
+      "display"
+    ]
+  },
+  {
+    "id": "form-choices",
+    "topic": "forms",
+    "title": "Checkbox i radio",
+    "tags": [
+      "Accent-color",
+      "Checked",
+      "Controls natius"
+    ],
+    "description": "Personalitza el color dels controls natius i ressalta les opcions seleccionades.",
+    "instructions": "accent-color dona color als checkbox i radio mantenint el seu comportament natiu. Els radio comparteixen name i només se’n pot seleccionar un. :has(input:checked) destaca tota l’etiqueta seleccionada.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "size",
+        "label": "Mida del control",
+        "property": "width",
+        "type": "number",
+        "unit": "px",
+        "min": 16,
+        "max": 28,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades de l’opció",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "accent-color",
+      "width",
+      "height",
+      "border-color",
+      "background-color",
+      "border-radius"
+    ]
+  },
+  {
+    "id": "state-carousel",
+    "topic": "interactivity",
+    "title": "Carrusel amb radio",
+    "tags": [
+      "Radio",
+      "TranslateX",
+      "Transition"
+    ],
+    "description": "Selecciona una diapositiva i observa el desplaçament horitzontal del contingut.",
+    "instructions": "Cada radio activa una posició diferent del contenidor amb translateX(). Les diapositives ocupen el 100% de l’amplada disponible i transition suavitza el canvi. El carrusel avança només quan tries una diapositiva.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada del desplaçament",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 1200,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 32,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "transform",
+      "transition",
+      "display",
+      "overflow",
+      "border-radius"
+    ]
+  },
+  {
+    "id": "state-arrows",
+    "topic": "interactivity",
+    "title": "Carrusel amb fletxes",
+    "tags": [
+      "Radio",
+      "Fletxes",
+      "TranslateX"
+    ],
+    "description": "Avança o retrocedeix amb fletxes, sense botons numerats ni JavaScript.",
+    "instructions": "Cada estat del carrusel mostra una parella de labels associats als radio anterior i següent. Les fletxes canvien quin radio està :checked i el CSS desplaça les diapositives. Des de la primera es pot tornar a l’última, i a l’inrevés.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada del desplaçament",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 1200,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 32,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "transform",
+      "transition",
+      "display",
+      "overflow",
+      "border-radius"
+    ]
+  },
+  {
+    "id": "state-color",
+    "topic": "interactivity",
+    "title": "Canviar el color",
+    "tags": [
+      "Radio",
+      ":checked",
+      "Germans ~"
+    ],
+    "description": "Tria una opció i observa com el CSS canvia el color d’una caixa.",
+    "instructions": "Els dos radio comparteixen name: només un pot estar seleccionat. Cada label activa el seu input amb for i id. #color-pink:checked ~ .caixa canvia el fons quan tries el segon color. El signe ~ selecciona un element que ve després i comparteix el mateix pare. transition suavitza el canvi.",
+    "fields": [
+      {
+        "name": "first",
+        "label": "Primer color",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "second",
+        "label": "Segon color",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada del canvi",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 1000,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "background-color",
+      "transition",
+      "display"
+    ]
+  },
+  {
+    "id": "state-toggle",
+    "topic": "interactivity",
+    "title": "Interruptor ON/OFF",
+    "tags": [
+      "Checkbox",
+      "Has",
+      "Transition"
+    ],
+    "description": "Un checkbox guarda l’estat d’un interruptor i mou el seu indicador.",
+    "instructions": "El label activa el checkbox ocult. :has(input:checked) canvia el fons al blau iOS i desplaça el cercle amb transform. El text ON/OFF mostra quin estat està actiu.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada del canvi",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 1000,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "background-color",
+      "transform",
+      "transition",
+      "display"
+    ]
+  },
+  {
+    "id": "state-flip",
+    "topic": "interactivity",
+    "title": "Targeta que es capgira",
+    "tags": [
+      "Checkbox",
+      "RotateY",
+      "Perspective"
+    ],
+    "description": "Activa la targeta per descobrir-ne la cara posterior i torna-la a activar per tancar-la.",
+    "instructions": "El checkbox activa rotateY(180deg). perspective crea la profunditat i backface-visibility amaga el revers de cada cara. L’estat queda guardat encara que el ratolí surti de la targeta.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada del gir",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 1200,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 32,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "transform",
+      "transition",
+      "perspective",
+      "backface-visibility",
+      "border-radius"
+    ]
+  },
+  {
+    "id": "state-tabs",
+    "topic": "interactivity",
+    "title": "Pestanyes de contingut",
+    "tags": [
+      "Radio",
+      "Germans ~",
+      "Display"
+    ],
+    "description": "Tres radio agrupats controlen quin contingut es mostra.",
+    "instructions": "Els radio comparteixen name i només un pot estar :checked. El combinador ~ selecciona germans posteriors del mateix contenidor. La regla de cada radio mostra el seu panell i ressalta el label corresponent. Amb el focus en un radio, les fletxes del teclat canvien la selecció.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      },
+      {
+        "name": "space",
+        "label": "Espai del contingut",
+        "property": "padding",
+        "type": "number",
+        "unit": "px",
+        "min": 12,
+        "max": 40,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "display",
+      "background-color",
+      "border-radius",
+      "padding"
+    ]
+  },
+  {
+    "id": "responsive-columns",
+    "topic": "responsive",
+    "title": "Dues columnes o una",
+    "tags": [
+      "Media query",
+      "Grid",
+      "Mobile first"
+    ],
+    "description": "Una composició amb text i il·lustració que s’apila quan l’amplada baixa del punt de ruptura.",
+    "instructions": "grid-template-columns: 1fr 1fr crea dues columnes iguals. La regla @media canvia el valor a 1fr i deixa una sola columna quan l’amplada és inferior al límit.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "breakpoint",
+        "label": "Punt de ruptura",
+        "property": "@media",
+        "type": "number",
+        "unit": "px",
+        "min": 280,
+        "max": 900,
+        "step": 1
+      },
+      {
+        "name": "gap",
+        "label": "Separació",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 48,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "grid-template-columns",
+      "gap",
+      "display",
+      "font-size",
+      "@media"
+    ],
+    "breakpointField": "breakpoint"
+  },
+  {
+    "id": "responsive-cards",
+    "topic": "responsive",
+    "title": "Graella adaptable",
+    "tags": [
+      "Media query",
+      "Grid",
+      "Columnes"
+    ],
+    "description": "Quatre targetes passen de dues columnes a una quan l’espai es redueix.",
+    "instructions": "La mateixa estructura HTML utilitza dues columnes en l’estil base i una en la media query. minmax(0, 1fr) deixa que les columnes es redueixin sense que el text n’imposi una amplada mínima.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "breakpoint",
+        "label": "Punt de ruptura",
+        "property": "@media",
+        "type": "number",
+        "unit": "px",
+        "min": 280,
+        "max": 900,
+        "step": 1
+      },
+      {
+        "name": "gap",
+        "label": "Separació entre targetes",
+        "property": "gap",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 40,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "grid-template-columns",
+      "gap",
+      "display",
+      "@media"
+    ],
+    "breakpointField": "breakpoint"
+  },
+  {
+    "id": "responsive-menu",
+    "topic": "responsive",
+    "title": "Menú d’escriptori i mòbil",
+    "tags": [
+      "Media query",
+      "Flex",
+      "Hamburguesa"
+    ],
+    "description": "Els enllaços horitzontals es converteixen en un menú desplegable amb botó hamburguesa.",
+    "instructions": "La media query mostra el botó i transforma la distribució dels enllaços. El checkbox guarda si el menú està obert i :checked n’activa la transició. Prova el botó amb una amplada inferior al punt de ruptura.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "breakpoint",
+        "label": "Punt de ruptura",
+        "property": "@media",
+        "type": "number",
+        "unit": "px",
+        "min": 280,
+        "max": 900,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada de l’obertura",
+        "property": "transition-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 0,
+        "max": 800,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "display",
+      "flex",
+      "max-height",
+      "transition",
+      "visibility",
+      "@media"
+    ],
+    "breakpointField": "breakpoint"
+  },
+  {
+    "id": "responsive-fluid",
+    "topic": "responsive",
+    "title": "Tipografia i mides fluides",
+    "tags": [
+      "Clamp",
+      "VW",
+      "Max-width"
+    ],
+    "description": "Un títol creix gradualment amb l’amplada, respectant una mida mínima i una màxima.",
+    "instructions": "clamp(mínim, valor fluid, màxim) limita la mida del títol. El valor 6vw depèn de l’amplada de la finestra de l’exemple. max-width limita l’amplada de lectura i width: 100% permet que el bloc es redueixi.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "minimum",
+        "label": "Mida mínima del títol",
+        "property": "font-size",
+        "type": "number",
+        "unit": "px",
+        "min": 16,
+        "max": 32,
+        "step": 1
+      },
+      {
+        "name": "maximum",
+        "label": "Mida màxima del títol",
+        "property": "font-size",
+        "type": "number",
+        "unit": "px",
+        "min": 36,
+        "max": 72,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "font-size",
+      "max-width",
+      "width",
+      "padding"
+    ]
+  },
+  {
+    "id": "form-floating",
+    "topic": "forms",
+    "title": "Etiqueta flotant Material",
+    "tags": [
+      "Label flotant",
+      "Placeholder-shown",
+      "Focus"
+    ],
+    "description": "L’etiqueta comença dins del camp i puja a la vora quan escrius o selecciones el camp.",
+    "instructions": "L’input té placeholder=\" \" (un espai) i el label va immediatament després. input:focus + label fa pujar l’etiqueta en entrar al camp. input:not(:placeholder-shown) + label la manté a dalt si hi ha text. El signe + selecciona el germà immediat.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "position",
+      "top",
+      "font-size",
+      "transition",
+      "color"
+    ]
+  },
+  {
+    "id": "form-validation",
+    "topic": "forms",
+    "title": "Text, correu i contrasenya",
+    "tags": [
+      "Required",
+      "Email",
+      "Minlength"
+    ],
+    "description": "Prova camps obligatoris, el format del correu i una contrasenya d’exemple de sis caràcters.",
+    "instructions": "Exemple basat en 13-Formularis/exemple-01. required comprova si falta un valor; type=\"email\" en comprova el format i minlength defineix la longitud mínima. CSS mostra els missatges mentre un camp invàlid té focus o contingut. El botó activa la comprovació nativa del navegador.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "border-color",
+      "color",
+      "display",
+      "outline"
+    ]
+  },
+  {
+    "id": "form-patterns",
+    "topic": "forms",
+    "title": "Patrons: usuari i telèfon",
+    "tags": [
+      "Pattern",
+      "Regex",
+      "Invalid"
+    ],
+    "description": "Compara tres patrons: lletres i números, nou dígits i un nom amb lletres i espais.",
+    "instructions": "Exemples basats en 13-Formularis/exemple-01 i exemple-04. pattern defineix el format admès per HTML; CSS reacciona amb :invalid. El camp tel no valida un telèfon per si sol: el patró [0-9]{9} demana exactament nou dígits.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "border-color",
+      "color",
+      "display",
+      "outline"
+    ]
+  },
+  {
+    "id": "form-numbers",
+    "topic": "forms",
+    "title": "Nombres: límits i salts",
+    "tags": [
+      "Min",
+      "Max",
+      "Step"
+    ],
+    "description": "Prova una edat entre 0 i 120 i un nombre que només admet múltiples de cinc.",
+    "instructions": "Exemples basats en 13-Formularis/exemple-01 i exemple-04. min i max limiten el valor; step defineix els salts vàlids. :out-of-range detecta un valor fora dels límits, mentre que :invalid també detecta un salt incorrecte.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "border-color",
+      "background-color",
+      "color",
+      "display"
+    ]
+  },
+  {
+    "id": "form-selection",
+    "topic": "forms",
+    "title": "Textarea i selectors",
+    "tags": [
+      "Textarea",
+      "Select",
+      "Multiple"
+    ],
+    "description": "Escriu un comentari, selecciona una província i prova una selecció múltiple obligatòria.",
+    "instructions": "Exemple basat en 13-Formularis/exemple-03. required també s’aplica a textarea i select. Una opció amb value=\"\" manté el selector invàlid. multiple permet seleccionar diverses opcions amb Ctrl o Cmd. El botó comprova els tres camps.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "padding",
+      "border-color",
+      "border-radius",
+      "color",
+      "display"
+    ]
+  },
+  {
+    "id": "form-dates",
+    "topic": "forms",
+    "title": "Dates i hora",
+    "tags": [
+      "Date",
+      "Datetime-local",
+      "Time"
+    ],
+    "description": "Dona estil als camps de data, data i hora, mes, setmana i hora.",
+    "instructions": "Exemple basat en 13-Formularis/exemple-04. El primer camp és obligatori i té un interval de dates. Els controls de calendari els dibuixa el navegador; la vora, el focus i la distribució els defineix aquest CSS. Mes i setmana poden aparèixer com a text segons el navegador.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "padding",
+      "border-color",
+      "border-radius",
+      "outline"
+    ]
+  },
+  {
+    "id": "form-files",
+    "topic": "forms",
+    "title": "Fitxers i suggeriments",
+    "tags": [
+      "File",
+      "Accept",
+      "Datalist"
+    ],
+    "description": "Personalitza el botó de fitxer i combina un camp de text amb suggeriments.",
+    "instructions": "Exemple basat en 13-Formularis/exemple-04. ::file-selector-button dona estil al botó del camp de fitxer. accept orienta el selector cap als formats indicats. datalist ofereix suggeriments sense restringir el text a les opcions de la llista.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "error",
+        "label": "Color d’error",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "radius",
+        "label": "Cantonades",
+        "property": "border-radius",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 24,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "padding",
+      "border-radius",
+      "background-color",
+      "color"
+    ]
+  },
+  {
+    "id": "form-indicators",
+    "topic": "forms",
+    "title": "Slider i indicadors",
+    "tags": [
+      "Range",
+      "Progress",
+      "Meter"
+    ],
+    "description": "Compara un slider editable amb una barra de progrés i un indicador de nivell.",
+    "instructions": "Exemple basat en 13-Formularis/exemple-04. range és un control editable; progress representa una tasca i meter un valor dins d’un interval. accent-color personalitza els controls compatibles. Les tres mostres són independents i no necessiten JavaScript.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "size",
+        "label": "Alçada dels indicadors",
+        "property": "height",
+        "type": "number",
+        "unit": "px",
+        "min": 12,
+        "max": 32,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "accent-color",
+      "width",
+      "height"
+    ]
+  },
+  {
+    "id": "state-animation",
+    "topic": "interactivity",
+    "title": "Iniciar i pausar",
+    "tags": [
+      "Checkbox",
+      "Animation-play-state",
+      "Keyframes"
+    ],
+    "description": "Un interruptor d’estètica Apple controla la reproducció d’una animació CSS.",
+    "instructions": "El toggle representa un checkbox ocult visualment que continua accessible amb Tab i la barra espaiadora. :checked activa animation-play-state: running; quan es desmarca, passa a paused. En tornar-lo a activar, l’animació continua des de la posició pausada. @keyframes defineix el moviment.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "duration",
+        "label": "Durada d’una volta",
+        "property": "animation-duration",
+        "type": "number",
+        "unit": "ms",
+        "min": 500,
+        "max": 5000,
+        "step": 1
+      },
+      {
+        "name": "distance",
+        "label": "Distància del moviment",
+        "property": "transform",
+        "type": "number",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "animation",
+      "animation-play-state",
+      "transform",
+      "display"
+    ]
+  },
+  {
+    "id": "state-theme",
+    "topic": "interactivity",
+    "title": "Mode clar i fosc",
+    "tags": [
+      "Checkbox",
+      "Has",
+      "Light / dark"
+    ],
+    "description": "Activa el mode fosc per canviar conjuntament el fons, el text i les targetes.",
+    "instructions": "Un checkbox guarda l’estat del tema. :has(#theme-dark:checked) aplica les regles del mode fosc al contenidor i als seus elements. Els estils queden limitats a aquesta secció. Mostra l’input per veure com funciona l’interruptor.",
+    "fields": [
+      {
+        "name": "accent",
+        "label": "Color principal",
+        "property": "color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "light",
+        "label": "Fons del mode clar",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      },
+      {
+        "name": "dark",
+        "label": "Fons del mode fosc",
+        "property": "background-color",
+        "type": "color",
+        "unit": "px",
+        "min": 0,
+        "max": 64,
+        "step": 1
+      }
+    ],
+    "content": [],
+    "properties": [
+      "background-color",
+      "color",
+      "display",
+      "transform",
+      "transition"
+    ]
+  }
+]

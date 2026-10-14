@@ -1,97 +1,11 @@
-// Smooth animation for details/summary elements
-document.addEventListener('DOMContentLoaded', () => {
-    const details = document.querySelectorAll('details.section');
-
-    details.forEach(detail => {
-        const summary = detail.querySelector('summary');
-        const content = detail.querySelector('.section-content');
-
-        // Store the animation so we can cancel it if needed
-        let animation = null;
-        let isClosing = false;
-        let isExpanding = false;
-
-        summary.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Check if the element is being closed or is already closed
-            if (isClosing || !detail.open) {
-                open();
-            } else if (isExpanding || detail.open) {
-                close();
-            }
-        });
-
-        function close() {
-            isClosing = true;
-
-            const startHeight = detail.offsetHeight;
-            const endHeight = summary.offsetHeight;
-
-            if (animation) {
-                animation.cancel();
-            }
-
-            animation = detail.animate({
-                height: [startHeight + 'px', endHeight + 'px']
-            }, {
-                duration: 300,
-                easing: 'ease-out'
-            });
-
-            animation.onfinish = () => {
-                detail.removeAttribute('open');
-                isClosing = false;
-                animation = null;
-                detail.style.height = '';
-                detail.style.overflow = '';
-            };
-
-            animation.oncancel = () => {
-                isClosing = false;
-            };
-        }
-
-        function open() {
-            detail.style.height = detail.offsetHeight + 'px';
-            detail.open = true;
-
-            window.requestAnimationFrame(() => {
-                isExpanding = true;
-
-                const startHeight = detail.offsetHeight;
-                const endHeight = summary.offsetHeight + content.offsetHeight;
-
-                if (animation) {
-                    animation.cancel();
-                }
-
-                animation = detail.animate({
-                    height: [startHeight + 'px', endHeight + 'px']
-                }, {
-                    duration: 300,
-                    easing: 'ease-out'
-                });
-
-                animation.onfinish = () => {
-                    detail.style.height = '';
-                    detail.style.overflow = '';
-                    isExpanding = false;
-                    animation = null;
-                };
-
-                animation.oncancel = () => {
-                    isExpanding = false;
-                };
-            });
-        }
-    });
+// Initialize the topic workspace and its interactive examples.
+document.addEventListener('DOMContentLoaded', async () => {
+    setupWorkspace();
 
     // Handle property button clicks
     setupPropertyButtons();
     setupFlexButtons();
-    setupBoxModelInputs();
-    setupSizeInputs();
+    setupBoxEditors();
     setupOverflowButtons();
     setupShadowControls();
     setupBackgroundControls();
@@ -103,7 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTypographyControls();
     setupParagraphControls();
     setupParagraphColumnsControls();
+    setupGridEditor();
+    setupPositionEditor();
+    setupAnimationEditor();
+    setupFlexSpacerExample();
+    try {
+        await setupExamplesEditor();
+    } catch (error) {
+        ['examples', 'forms', 'interactivity', 'responsive'].forEach(id => {
+            const record = workspaceTopics.get(id);
+            record.section.querySelector('.section-content').innerHTML = '<div class="lesson-layout"><div class="preview-pane"><p role="status">No s’han pogut carregar els exemples. Recarrega l’eina per tornar-ho a provar.</p></div><div class="controls-pane"></div></div>';
+            const layout = record.section.querySelector('.lesson-layout');
+            record.groups = [{ layout, controls: layout.querySelector('.controls-pane'), preview: layout.querySelector('.preview-pane'), pane: layout.querySelector('.preview-pane') }];
+            record.groupIndex = 0;
+            record.getSource = () => ({ html: '', css: '' }); record.reset = () => {};
+        });
+        console.error(error);
+    }
+    finishWorkspace();
 });
+
+function createRemoveButton() {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'property-btn remove-button';
+    button.title = 'Remove';
+    button.innerHTML = '<img src="images/icons/iconDelete.svg" alt="" aria-hidden="true"><span class="button-label">Remove</span>';
+    return button;
+}
 
 function setupPropertyButtons() {
     const propertyButtons = document.querySelectorAll('.property-btn');
@@ -170,7 +111,7 @@ function setupFlexButtons() {
             e.stopImmediatePropagation();
 
             const direction = btn.dataset.direction;
-            currentFlexDirection = direction;
+            currentFlexDirection = direction === 'initial' ? 'row' : direction;
             currentFlexSettings.direction = direction;
 
             // Remove selected from siblings
@@ -181,12 +122,13 @@ function setupFlexButtons() {
             document.getElementById('flex-direction-value').textContent = direction + ';';
 
             // Update icons based on direction
-            if (direction !== 'initial') {
-                updateFlexIcons(direction);
-            }
+            updateFlexIcons(currentFlexDirection);
 
             // Show example for this property
             showFlexDirectionExample(direction);
+            showAlignItemsExample(document.querySelector('.align-items-btn.selected').dataset.align);
+            showFlexWrapExample(document.querySelector('.flex-wrap-btn.selected').dataset.wrap);
+            showAlignContentExample(document.querySelector('.align-content-btn.selected').dataset.alignContent);
             return false;
         });
     });
@@ -289,33 +231,22 @@ function showDisplayExample(displayValue) {
     const container = document.getElementById('display-example');
 
     const descriptions = {
-        'initial': 'Resets to default value (usually inline or block)',
-        'block': 'Each item takes full width and starts on new line',
-        'inline': 'Items flow with text, width/height ignored',
-        'inline-block': 'Items flow inline but respect width/height',
-        'flex': 'Container uses flexbox layout system',
-        'contents': 'Container box disappears, children remain',
-        'none': 'Elements completely hidden (items 1 and 3 hidden)'
+        'initial': 'Valor inicial de CSS: inline',
+        'block': 'Cada element ocupa tota l’amplada i comença en una línia nova.',
+        'inline': 'Els elements flueixen amb el text; width i height no defineixen la seva mida.',
+        'inline-block': 'Els elements flueixen en línia i admeten width i height.',
+        'flex': 'El contenidor distribueix els fills amb Flexbox.',
+        'contents': 'La caixa del contenidor desapareix i els fills es mantenen.',
+        'none': 'Els elements A i C desapareixen i deixen d’ocupar espai.'
     };
 
     // Special handling for display: none
     if (displayValue === 'none') {
         container.innerHTML = `
             <div class="mini-outer" style="display: flex;">
+                <div class="mini-item item-1" style="display: none;">A</div>
                 <div class="mini-item item-2" style="display: block;">B</div>
-            </div>
-            <div class="mini-description">${descriptions[displayValue]}</div>
-        `;
-        return;
-    }
-
-    // Special handling for initial
-    if (displayValue === 'initial') {
-        container.innerHTML = `
-            <div class="mini-outer">
-                <div class="mini-item item-1">1</div>
-                <div class="mini-item item-2">2</div>
-                <div class="mini-item item-3">3</div>
+                <div class="mini-item item-3" style="display: none;">C</div>
             </div>
             <div class="mini-description">${descriptions[displayValue]}</div>
         `;
@@ -342,7 +273,9 @@ function showDisplayExample(displayValue) {
     });
 
     // Apply specific display styles
-    if (displayValue === 'block') {
+    if (displayValue === 'initial') {
+        items.forEach(item => { item.style.display = 'initial'; });
+    } else if (displayValue === 'block') {
         // For block, set items to display: block
         items.forEach(item => {
             item.style.display = 'block';
@@ -371,11 +304,11 @@ function showFlexDirectionExample(direction) {
     const container = document.getElementById('flex-direction-example');
 
     const descriptions = {
-        'initial': 'Resets to default value (row)',
-        'row': 'Items arranged horizontally from left to right',
-        'column': 'Items stacked vertically from top to bottom',
-        'row-reverse': 'Items arranged horizontally from right to left',
-        'column-reverse': 'Items stacked vertically from bottom to top'
+        'initial': 'Valor inicial: row.',
+        'row': 'Els elements es distribueixen d’esquerra a dreta.',
+        'column': 'Els elements es distribueixen de dalt a baix.',
+        'row-reverse': 'Els elements es distribueixen de dreta a esquerra.',
+        'column-reverse': 'Els elements es distribueixen de baix a dalt.'
     };
 
     const actualDirection = direction === 'initial' ? 'row' : direction;
@@ -396,15 +329,15 @@ function showAlignItemsExample(align) {
     const container = document.getElementById('align-items-example');
 
     const descriptions = {
-        'initial': 'Resets to default value (start)',
-        'start': 'Items aligned to the start of the cross axis',
-        'center': 'Items centered along the cross axis',
-        'end': 'Items aligned to the end of the cross axis',
-        'stretch': 'Items stretched to fill the container',
-        'baseline': 'Items aligned along their text baseline'
+        'initial': 'Valor inicial: normal (estira els elements en Flexbox)',
+        'start': 'Els elements s’alineen a l’inici de l’eix transversal.',
+        'center': 'Els elements se centren a l’eix transversal.',
+        'end': 'Els elements s’alineen al final de l’eix transversal.',
+        'stretch': 'Els elements s’estiren per omplir l’eix transversal.',
+        'baseline': 'Els elements s’alineen per la línia base del text.'
     };
 
-    const actualAlign = align === 'initial' ? 'start' : align;
+    const actualAlign = align;
 
     // Create items with varying heights for better visualization
     container.innerHTML = `
@@ -422,13 +355,13 @@ function showJustifyContentRowExample(justify) {
     const containerRow = document.getElementById('justify-content-example-row');
 
     const descriptions = {
-        'initial': 'Resets to default value (start)',
-        'start': 'Items packed at the start of the main axis',
-        'center': 'Items centered along the main axis',
-        'end': 'Items packed at the end of the main axis',
-        'space-between': 'Items evenly distributed, first at start, last at end',
-        'space-around': 'Items evenly distributed with equal space around',
-        'space-evenly': 'Items evenly distributed with equal space between'
+        'initial': 'Valor inicial: normal; en aquest exemple, alineació a l’inici.',
+        'start': 'Els elements s’agrupen a l’inici de l’eix principal.',
+        'center': 'Els elements se centren a l’eix principal.',
+        'end': 'Els elements s’agrupen al final de l’eix principal.',
+        'space-between': 'L’espai es reparteix entre elements, sense espai als extrems.',
+        'space-around': 'Cada element té el mateix espai al voltant.',
+        'space-evenly': 'L’espai entre elements i als extrems és igual.'
     };
 
     const actualJustify = justify === 'initial' ? 'start' : justify;
@@ -448,13 +381,13 @@ function showJustifyContentColumnExample(justify) {
     const containerColumn = document.getElementById('justify-content-example-column');
 
     const descriptions = {
-        'initial': 'Resets to default value (start)',
-        'start': 'Items packed at the start of the main axis',
-        'center': 'Items centered along the main axis',
-        'end': 'Items packed at the end of the main axis',
-        'space-between': 'Items evenly distributed, first at start, last at end',
-        'space-around': 'Items evenly distributed with equal space around',
-        'space-evenly': 'Items evenly distributed with equal space between'
+        'initial': 'Valor inicial: normal; en aquest exemple, alineació a l’inici.',
+        'start': 'Els elements s’agrupen a l’inici de l’eix principal.',
+        'center': 'Els elements se centren a l’eix principal.',
+        'end': 'Els elements s’agrupen al final de l’eix principal.',
+        'space-between': 'L’espai es reparteix entre elements, sense espai als extrems.',
+        'space-around': 'Cada element té el mateix espai al voltant.',
+        'space-evenly': 'L’espai entre elements i als extrems és igual.'
     };
 
     const actualJustify = justify === 'initial' ? 'start' : justify;
@@ -474,10 +407,10 @@ function showFlexWrapExample(wrap) {
     const container = document.getElementById('flex-wrap-example');
 
     const descriptions = {
-        'initial': 'Resets to default value (nowrap)',
-        'nowrap': 'Items forced into single line (may overflow)',
-        'wrap': 'Items wrap to multiple lines if needed',
-        'wrap-reverse': 'Items wrap to multiple lines in reverse order'
+        'initial': 'Valor inicial: nowrap.',
+        'nowrap': 'Els elements es mantenen en una línia i poden desbordar.',
+        'wrap': 'Els elements salten de línia quan falta espai.',
+        'wrap-reverse': 'Els elements salten de línia en sentit invers.'
     };
 
     const actualWrap = wrap === 'initial' ? 'nowrap' : wrap;
@@ -502,16 +435,16 @@ function showAlignContentExample(alignContent) {
     const container = document.getElementById('align-content-example');
 
     const descriptions = {
-        'initial': 'Resets to default value (start)',
-        'start': 'Lines packed at the start of the container',
-        'center': 'Lines centered in the container',
-        'end': 'Lines packed at the end of the container',
-        'stretch': 'Lines stretched to fill the container',
-        'space-between': 'Lines evenly distributed, first at start, last at end',
-        'space-around': 'Lines evenly distributed with equal space around'
+        'initial': 'Valor inicial: normal (estira les línies en Flexbox)',
+        'start': 'Les línies s’agrupen a l’inici del contenidor.',
+        'center': 'Les línies se centren al contenidor.',
+        'end': 'Les línies s’agrupen al final del contenidor.',
+        'stretch': 'Les línies s’estiren per ocupar el contenidor.',
+        'space-between': 'L’espai es reparteix entre línies, sense espai als extrems.',
+        'space-around': 'Cada línia té el mateix espai al voltant.'
     };
 
-    const actualAlignContent = alignContent === 'initial' ? 'start' : alignContent;
+    const actualAlignContent = alignContent;
     const isColumn = currentFlexDirection.includes('column');
     const sizeStyle = isColumn ? 'height: 100px; width: 100%;' : 'width: 150px; min-height: 100px;';
 
@@ -1098,7 +1031,7 @@ function drawBoxModel(margin, border, padding, radius, borderStyles, borderColor
 
     // Update description
     const desc = document.getElementById('boxmodel-description');
-    desc.innerHTML = `<span style="color: #fadeb4;">■ Margin</span> <span style="color: #a0ccfa;">■ Border</span> <span style="color: #c8e0a5;">■ Padding</span> <span style="color: #fff; text-shadow: 0 0 2px #000;">■ Content</span>`;
+    desc.innerHTML = `<span style="color: #fadeb4;">■ margin</span> <span style="color: #a0ccfa;">■ border</span> <span style="color: #c8e0a5;">■ padding</span> <span style="color: #fff; text-shadow: 0 0 2px #000;">■ Contingut</span>`;
 }
 
 // Size (box-sizing, width, height) input handlers
@@ -1171,6 +1104,7 @@ function showSizeExample() {
 }
 
 function drawSizeExample(boxSizing, width, minWidth, maxWidth, height, minHeight, maxHeight) {
+    if (boxSizing === 'initial') boxSizing = 'content-box';
     const canvas = document.getElementById('size-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -1192,38 +1126,19 @@ function drawSizeExample(boxSizing, width, minWidth, maxWidth, height, minHeight
     // Clear canvas
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    // Parse dimension values (support calc, px, %, auto, etc.)
+    // Let the browser resolve lengths and calc(); never evaluate input as JavaScript.
     function parseDimension(value, containerSize) {
         if (!value || value === 'auto') return null;
-
-        // Handle calc() expressions
-        if (value.includes('calc')) {
-            // Simple calc parser for basic expressions like calc(50% - 16px)
-            const calcMatch = value.match(/calc\((.*?)\)/);
-            if (calcMatch) {
-                const expr = calcMatch[1];
-                try {
-                    // Replace % with actual values
-                    const replaced = expr.replace(/(\d+(?:\.\d+)?)%/g, (_match, num) => {
-                        return (parseFloat(num) / 100 * containerSize).toString();
-                    });
-                    // Replace px
-                    const withoutPx = replaced.replace(/px/g, '');
-                    // Evaluate simple expression
-                    return eval(withoutPx);
-                } catch (e) {
-                    return null;
-                }
-            }
-        }
-
-        // Handle percentages
-        if (value.includes('%')) {
-            return parseFloat(value) / 100 * containerSize;
-        }
-
-        // Handle px values
-        return parseFloat(value) || null;
+        if (!CSS.supports('width', value)) return null;
+        const parent = document.createElement('div');
+        parent.style.cssText = `position: absolute; visibility: hidden; pointer-events: none; width: ${Math.max(0, containerSize)}px; height: 0; overflow: hidden;`;
+        const probe = document.createElement('div');
+        probe.style.width = value;
+        parent.append(probe);
+        canvas.parentElement.append(parent);
+        const pixels = probe.getBoundingClientRect().width;
+        parent.remove();
+        return pixels;
     }
 
     // Calculate content dimensions
@@ -1251,21 +1166,21 @@ function drawSizeExample(boxSizing, width, minWidth, maxWidth, height, minHeight
     let constrainedByMinW = false, constrainedByMaxW = false;
     let constrainedByMinH = false, constrainedByMaxH = false;
 
-    if (minW !== null && boxWidth < minW) {
-        boxWidth = minW;
-        constrainedByMinW = true;
-    }
     if (maxW !== null && boxWidth > maxW) {
         boxWidth = maxW;
         constrainedByMaxW = true;
     }
-    if (minH !== null && boxHeight < minH) {
-        boxHeight = minH;
-        constrainedByMinH = true;
+    if (minW !== null && boxWidth < minW) {
+        boxWidth = minW;
+        constrainedByMinW = true;
     }
     if (maxH !== null && boxHeight > maxH) {
         boxHeight = maxH;
         constrainedByMaxH = true;
+    }
+    if (minH !== null && boxHeight < minH) {
+        boxHeight = minH;
+        constrainedByMinH = true;
     }
 
     // Center the box
@@ -1552,25 +1467,25 @@ function drawSizeExample(boxSizing, width, minWidth, maxWidth, height, minHeight
         const contentArrowOffsetY = contentY + contentH + 8;
         const contentArrowOffsetX = contentX + contentW + 8;
         drawArrow(contentX, contentArrowOffsetY, contentX + contentW, contentArrowOffsetY,
-            `content: ${Math.round(contentW)}px`, '#95a5a6');
+            `contingut: ${Math.round(contentW)}px`, '#95a5a6');
         drawArrow(contentArrowOffsetX, contentY, contentArrowOffsetX, contentY + contentH,
-            `content: ${Math.round(contentH)}px`, '#95a5a6');
+            `contingut: ${Math.round(contentH)}px`, '#95a5a6');
     }
 
     // Update description
     const desc = document.getElementById('size-description');
     let boxSizingText = boxSizing === 'border-box'
-        ? 'Width/height includes padding & border (total box size)'
+        ? 'width i height inclouen el padding i la vora.'
         : boxSizing === 'content-box'
-        ? 'Width/height applies to content only (padding & border added outside)'
-        : 'Initial value (content-box)';
+        ? 'width i height mesuren el contingut; el padding i la vora s’hi afegeixen.'
+        : 'Valor inicial: content-box.';
 
     let constraintText = '';
     if (constrainedByMinW || constrainedByMaxW || constrainedByMinH || constrainedByMaxH) {
-        constraintText = ' <span style="color: #e74c3c;">(constrained)</span>';
+        constraintText = ' <span style="color: #e74c3c;">(mida limitada per min o max)</span>';
     }
 
-    const colorLegend = '<br><span style="font-size: 0.9em;"><span style="color: #a0ccfa;">■ Border</span> <span style="color: #c8e0a5;">■ Padding</span> <span style="color: #666;">■ Content</span></span>';
+    const colorLegend = '<br><span style="font-size: 0.9em;"><span style="color: #a0ccfa;">■ border</span> <span style="color: #c8e0a5;">■ padding</span> <span style="color: #666;">■ Contingut</span></span>';
 
     desc.innerHTML = `<strong>box-sizing: ${boxSizing}</strong> - ${boxSizingText}${constraintText}${colorLegend}`;
 }
@@ -1600,11 +1515,11 @@ function setupOverflowButtons() {
             const overflowDescription = document.getElementById('overflow-description');
             if (overflowDescription) {
                 const descriptions = {
-                    'initial': 'Default overflow behavior',
-                    'visible': 'Content overflows the container',
-                    'hidden': 'Clips overflow content',
-                    'scroll': 'Adds scrollbars always',
-                    'auto': 'Adds scrollbars when needed'
+                    'initial': 'Comportament inicial: el contingut pot desbordar.',
+                    'visible': 'El contingut es mostra encara que surti de la caixa.',
+                    'hidden': 'Retalla el contingut que queda fora de la caixa.',
+                    'scroll': 'Permet desplaçar el contingut; les barres depenen del sistema.',
+                    'auto': 'Permet desplaçar el contingut quan no hi cap.'
                 };
                 overflowDescription.textContent = descriptions[overflow] || '';
             }
@@ -1639,11 +1554,11 @@ function setupOverflowButtons() {
             const overflowXDescription = document.getElementById('overflow-x-description');
             if (overflowXDescription) {
                 const descriptions = {
-                    'initial': 'Default horizontal overflow behavior',
-                    'visible': 'Content overflows horizontally',
-                    'hidden': 'Clips horizontal overflow',
-                    'scroll': 'Adds horizontal scrollbar always',
-                    'auto': 'Adds horizontal scrollbar when needed'
+                    'initial': 'Comportament inicial: el contingut pot desbordar horitzontalment.',
+                    'visible': 'El contingut pot sortir dels límits horitzontals.',
+                    'hidden': 'Retalla el contingut que desborda horitzontalment.',
+                    'scroll': 'Permet el desplaçament horitzontal; la barra depèn del sistema.',
+                    'auto': 'Permet el desplaçament horitzontal quan cal.'
                 };
                 overflowXDescription.textContent = descriptions[overflowX] || '';
             }
@@ -1678,11 +1593,11 @@ function setupOverflowButtons() {
             const overflowYDescription = document.getElementById('overflow-y-description');
             if (overflowYDescription) {
                 const descriptions = {
-                    'initial': 'Default vertical overflow behavior',
-                    'visible': 'Content overflows vertically',
-                    'hidden': 'Clips vertical overflow',
-                    'scroll': 'Adds vertical scrollbar always',
-                    'auto': 'Adds vertical scrollbar when needed'
+                    'initial': 'Comportament inicial: el contingut pot desbordar verticalment.',
+                    'visible': 'El contingut pot sortir dels límits verticals.',
+                    'hidden': 'Retalla el contingut que desborda verticalment.',
+                    'scroll': 'Permet el desplaçament vertical; la barra depèn del sistema.',
+                    'auto': 'Permet el desplaçament vertical quan cal.'
                 };
                 overflowYDescription.textContent = descriptions[overflowY] || '';
             }
@@ -1744,16 +1659,10 @@ function setupShadowControls() {
 
     function createBoxShadowItem() {
         const id = boxShadowIdCounter++;
-        // First shadow: grey (180,180,180), second: blue (125,240,240), third: green (125,240,125)
-        let defaultColor = '#7df0f0'; // blue for 4th+ shadows
-        if (boxShadowIdCounter === 1) defaultColor = '#b4b4b4'; // grey
-        else if (boxShadowIdCounter === 2) defaultColor = '#7df0f0'; // blue
-        else if (boxShadowIdCounter === 3) defaultColor = '#7df07d'; // green
-
-        // Horizontal offsets: 0 for first, 10 for second, -10 for third, 0 for rest
-        let defaultHorizontal = 0;
-        if (boxShadowIdCounter === 2) defaultHorizontal = 10;
-        else if (boxShadowIdCounter === 3) defaultHorizontal = -10;
+        // The first visible shadow always starts with the original neutral preset.
+        const ordinal = boxShadows.length;
+        const defaultColor = ['#b4b4b4', '#7df0f0', '#7df07d'][ordinal % 3];
+        const defaultHorizontal = [0, 10, -10][ordinal % 3];
 
         const shadowObj = {
             id: id,
@@ -1762,6 +1671,7 @@ function setupShadowControls() {
             blur: 10,
             spread: 0,
             color: defaultColor,
+            alpha: 100,
             inset: false,
             value: '',
             element: null
@@ -1769,7 +1679,7 @@ function setupShadowControls() {
 
         function generateValue() {
             const insetKeyword = shadowObj.inset ? 'inset ' : '';
-            return `${insetKeyword}${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${shadowObj.spread}px ${shadowObj.color}`;
+            return `${insetKeyword}${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${shadowObj.spread}px ${formatCssColor(shadowObj.color, shadowObj.alpha)}`;
         }
 
         shadowObj.value = generateValue();
@@ -1780,18 +1690,14 @@ function setupShadowControls() {
         itemDiv.style.cssText = 'background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px;';
 
         const headerDiv = document.createElement('div');
-        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;';
+        headerDiv.className = 'list-item-header';
 
         const titleSpan = document.createElement('span');
         titleSpan.textContent = 'Shadow';
         titleSpan.style.cssText = 'font-weight: 500; font-size: 0.75em; color: #2c3e50;';
         headerDiv.appendChild(titleSpan);
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'property-btn';
-        deleteBtn.title = 'Remove shadow';
-        deleteBtn.style.cssText = 'padding: 3px 6px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7em;';
-        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">';
+        const deleteBtn = createRemoveButton();
         deleteBtn.addEventListener('click', () => {
             const index = boxShadows.findIndex(s => s.id === id);
             if (index !== -1) {
@@ -1919,29 +1825,55 @@ function setupShadowControls() {
         cRow.appendChild(cLabel);
         const cPicker = document.createElement('input');
         cPicker.type = 'color';
+        cPicker.id = `box-shadow-color-${id}`;
         cPicker.value = shadowObj.color;
         cPicker.style.cssText = 'width: 30px; height: 20px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;';
         cPicker.addEventListener('input', (e) => {
-            shadowObj.color = e.target.value;
+            shadowObj.color = colorPickerHex(cPicker);
+            shadowObj.alpha = Number(cPicker.dataset.colorAlpha);
             shadowObj.value = generateValue();
             updateBoxShadowDisplay();
         });
         cRow.appendChild(cPicker);
 
-        const insetBtn = document.createElement('button');
-        insetBtn.className = 'property-btn';
-        insetBtn.title = 'Toggle inset';
-        insetBtn.style.cssText = 'margin-left: auto; padding: 3px 8px; font-size: 0.65em; background: #6c757d; color: white; border: none; border-radius: 3px; cursor: pointer;';
-        insetBtn.textContent = 'Inset';
-        insetBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            shadowObj.inset = !shadowObj.inset;
-            insetBtn.style.background = shadowObj.inset ? '#28a745' : '#6c757d';
+        const insetLabel = document.createElement('label');
+        insetLabel.style.cssText = 'margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 0.75em; cursor: pointer;';
+        const insetCheckbox = document.createElement('input');
+        insetCheckbox.type = 'checkbox';
+        insetCheckbox.id = `box-shadow-inset-${id}`;
+        insetCheckbox.checked = shadowObj.inset;
+        insetCheckbox.addEventListener('change', () => {
+            shadowObj.inset = insetCheckbox.checked;
             shadowObj.value = generateValue();
             updateBoxShadowDisplay();
         });
-        cRow.appendChild(insetBtn);
+        insetLabel.append(insetCheckbox, document.createTextNode('Inset'));
+        cRow.appendChild(insetLabel);
         paramsDiv.appendChild(cRow);
+        addColorTransparency(cPicker, 'Color de l’ombra de caixa');
+
+        [
+            [hRow, hLabel, hSlider, hValue, 'Horizontal', 'horizontal'],
+            [vRow, vLabel, vSlider, vValue, 'Vertical', 'vertical'],
+            [bRow, bLabel, bSlider, bValue, 'Desenfocament', 'blur'],
+            [sRow, sLabel, sSlider, sValue, 'Extensió', 'spread']
+        ].forEach(([row, label, slider, value, text, name]) => {
+            row.className = 'shadow-parameter-row';
+            row.removeAttribute('style');
+            label.className = 'shadow-parameter-label';
+            label.textContent = text + ':';
+            label.removeAttribute('style');
+            slider.id = `box-shadow-${name}-${id}`;
+            label.htmlFor = slider.id;
+            slider.removeAttribute('style');
+            value.className = 'shadow-parameter-value';
+            value.removeAttribute('style');
+        });
+        cRow.className = 'shadow-color-row';
+        cRow.removeAttribute('style');
+        cLabel.textContent = 'Color:';
+        cLabel.className = 'shadow-parameter-label';
+        cLabel.removeAttribute('style');
 
         itemDiv.appendChild(paramsDiv);
         shadowObj.element = itemDiv;
@@ -1950,16 +1882,10 @@ function setupShadowControls() {
 
     function createTextShadowItem() {
         const id = textShadowIdCounter++;
-        // First shadow: grey (180,180,180), second: blue (125,240,240), third: green (125,240,125)
-        let defaultColor = '#7df0f0'; // blue for 4th+ shadows
-        if (textShadowIdCounter === 1) defaultColor = '#b4b4b4'; // grey
-        else if (textShadowIdCounter === 2) defaultColor = '#7df0f0'; // blue
-        else if (textShadowIdCounter === 3) defaultColor = '#7df07d'; // green
-
-        // Horizontal offsets: 0 for first, 10 for second, -10 for third, 0 for rest
-        let defaultHorizontal = 0;
-        if (textShadowIdCounter === 2) defaultHorizontal = 10;
-        else if (textShadowIdCounter === 3) defaultHorizontal = -10;
+        // The first visible shadow always starts with the original neutral preset.
+        const ordinal = textShadows.length;
+        const defaultColor = ['#b4b4b4', '#7df0f0', '#7df07d'][ordinal % 3];
+        const defaultHorizontal = [0, 10, -10][ordinal % 3];
 
         const shadowObj = {
             id: id,
@@ -1967,12 +1893,13 @@ function setupShadowControls() {
             vertical: 5,
             blur: 10,
             color: defaultColor,
+            alpha: 100,
             value: '',
             element: null
         };
 
         function generateValue() {
-            return `${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${shadowObj.color}`;
+            return `${shadowObj.horizontal}px ${shadowObj.vertical}px ${shadowObj.blur}px ${formatCssColor(shadowObj.color, shadowObj.alpha)}`;
         }
 
         shadowObj.value = generateValue();
@@ -1983,18 +1910,14 @@ function setupShadowControls() {
         itemDiv.style.cssText = 'background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px;';
 
         const headerDiv = document.createElement('div');
-        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;';
+        headerDiv.className = 'list-item-header';
 
         const titleSpan = document.createElement('span');
         titleSpan.textContent = 'Shadow';
         titleSpan.style.cssText = 'font-weight: 500; font-size: 0.75em; color: #2c3e50;';
         headerDiv.appendChild(titleSpan);
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'property-btn';
-        deleteBtn.title = 'Remove shadow';
-        deleteBtn.style.cssText = 'padding: 3px 6px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7em;';
-        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">';
+        const deleteBtn = createRemoveButton();
         deleteBtn.addEventListener('click', () => {
             const index = textShadows.findIndex(s => s.id === id);
             if (index !== -1) {
@@ -2096,15 +2019,18 @@ function setupShadowControls() {
         cRow.appendChild(cLabel);
         const cPicker = document.createElement('input');
         cPicker.type = 'color';
+        cPicker.id = `text-shadow-color-${id}`;
         cPicker.value = shadowObj.color;
         cPicker.style.cssText = 'width: 30px; height: 20px; border: 1px solid #ddd; border-radius: 3px; cursor: pointer;';
         cPicker.addEventListener('input', (e) => {
-            shadowObj.color = e.target.value;
+            shadowObj.color = colorPickerHex(cPicker);
+            shadowObj.alpha = Number(cPicker.dataset.colorAlpha);
             shadowObj.value = generateValue();
             updateTextShadowDisplay();
         });
         cRow.appendChild(cPicker);
         paramsDiv.appendChild(cRow);
+        addColorTransparency(cPicker, 'Color de l’ombra de text');
 
         itemDiv.appendChild(paramsDiv);
         shadowObj.element = itemDiv;
@@ -2146,151 +2072,7 @@ function setupShadowControls() {
 
 // Background controls handlers
 function setupBackgroundControls() {
-    const bgColorPicker = document.getElementById('bg-color');
-    const bgColorValue = document.getElementById('bg-color-value');
-    const backgroundInput = document.getElementById('background-input');
-    const backgroundValue = document.getElementById('background-value');
-    const backgroundInitialBtn = document.getElementById('background-initial-btn');
-    const bgClipButtons = document.querySelectorAll('.bg-clip-btn');
-    const bgClipValue = document.getElementById('background-clip-value');
-    const demoBox = document.getElementById('background-demo-box');
-
-    let currentBgClip = 'border-box';
-    let isBackgroundInitial = true;
-
-    function updateBackground() {
-        if (!demoBox) return;
-
-        const bgColor = bgColorPicker.value;
-        const bgValue = backgroundInput.value.trim();
-
-        // Update color value display
-        if (bgColorValue) {
-            bgColorValue.textContent = bgColor + ';';
-        }
-
-        // Apply background
-        if (isBackgroundInitial || bgValue === 'initial') {
-            // Set to initial (use background-color)
-            demoBox.style.background = '';
-            demoBox.style.backgroundColor = bgColor;
-            if (backgroundValue) {
-                backgroundValue.textContent = 'initial;';
-            }
-        } else if (bgValue) {
-            // If background input has a value, use it (overrides background-color)
-            demoBox.style.background = bgValue;
-            if (backgroundValue) {
-                backgroundValue.textContent = bgValue + ';';
-            }
-        } else {
-            // Otherwise use background-color
-            demoBox.style.background = '';
-            demoBox.style.backgroundColor = bgColor;
-            if (backgroundValue) {
-                backgroundValue.textContent = '';
-            }
-        }
-
-        // Apply background-clip
-        demoBox.style.backgroundClip = currentBgClip;
-        demoBox.style.webkitBackgroundClip = currentBgClip; // For -webkit-background-clip: text
-
-        // Special handling for text clip
-        if (currentBgClip === 'text') {
-            demoBox.style.webkitBackgroundClip = 'text';
-            demoBox.style.webkitTextFillColor = 'transparent';
-            demoBox.style.color = 'transparent';
-        } else {
-            demoBox.style.webkitTextFillColor = '';
-            demoBox.style.color = 'white';
-        }
-    }
-
-    // Background initial button
-    if (backgroundInitialBtn) {
-        backgroundInitialBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isBackgroundInitial = !isBackgroundInitial;
-
-            if (isBackgroundInitial) {
-                backgroundInitialBtn.classList.add('selected');
-                backgroundInput.disabled = true;
-                backgroundInput.value = 'initial';
-                if (backgroundValue) {
-                    backgroundValue.textContent = 'initial;';
-                }
-                updateBackground();
-            } else {
-                backgroundInitialBtn.classList.remove('selected');
-                backgroundInput.disabled = false;
-                // Set default value if input is empty
-                const defaultValue = 'center / cover url("./images/image0.jpg")';
-                backgroundInput.value = defaultValue;
-                if (backgroundValue) {
-                    backgroundValue.textContent = defaultValue + ';';
-                }
-                updateBackground();
-            }
-        });
-    }
-
-    // Background color picker
-    if (bgColorPicker) {
-        bgColorPicker.addEventListener('input', updateBackground);
-    }
-
-    // Background input
-    if (backgroundInput) {
-        backgroundInput.addEventListener('input', () => {
-            if (!isBackgroundInitial) {
-                const value = backgroundInput.value.trim();
-                if (backgroundValue) {
-                    backgroundValue.textContent = (value ? value + ';' : '');
-                }
-                updateBackground();
-            }
-        });
-        backgroundInput.addEventListener('blur', updateBackground);
-    }
-
-    // Background-clip buttons
-    bgClipButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const clip = button.dataset.clip;
-
-            // Update selected state
-            bgClipButtons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-
-            // Update value display
-            if (bgClipValue) {
-                bgClipValue.textContent = clip + ';';
-            }
-
-            // Update current clip
-            currentBgClip = clip;
-
-            // Update description
-            const bgClipDescription = document.getElementById('bg-clip-description');
-            if (bgClipDescription) {
-                const descriptions = {
-                    'initial': 'Default value (border-box)',
-                    'border-box': 'Background extends to outer edge of border',
-                    'padding-box': 'Background extends to outer edge of padding',
-                    'content-box': 'Background only within content area',
-                    'text': 'Background clipped to text (transparent text)'
-                };
-                bgClipDescription.textContent = descriptions[clip] || 'Background demonstration box';
-            }
-
-            updateBackground();
-        });
-    });
-
-    // Initial update
-    updateBackground();
+    setupBackgroundEditor();
 }
 
 function setupOpacityControls() {
@@ -2497,16 +2279,10 @@ function setupTransformControls() {
 
         // Header with type selector and delete button
         const headerDiv = document.createElement('div');
-        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;';
+        headerDiv.className = 'list-item-header';
 
         const selectContainer = document.createElement('div');
         selectContainer.style.cssText = 'display: flex; align-items: center; gap: 8px;';
-
-        const iconImg = document.createElement('img');
-        iconImg.src = `images/icons/${config.icon}`;
-        iconImg.alt = type;
-        iconImg.style.cssText = 'width: 20px; height: 20px;';
-        selectContainer.appendChild(iconImg);
 
         const typeSelect = document.createElement('select');
         typeSelect.className = 'transform-type-select';
@@ -2540,11 +2316,7 @@ function setupTransformControls() {
         selectContainer.appendChild(typeSelect);
         headerDiv.appendChild(selectContainer);
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'property-btn';
-        deleteBtn.title = 'Remove transform';
-        deleteBtn.style.cssText = 'padding: 4px 8px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;';
-        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">';
+        const deleteBtn = createRemoveButton();
         deleteBtn.addEventListener('click', () => removeTransform(id));
         headerDiv.appendChild(deleteBtn);
 
@@ -2764,18 +2536,14 @@ function setupTransitionControls() {
 
         // Header with delete button
         const headerDiv = document.createElement('div');
-        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;';
+        headerDiv.className = 'list-item-header';
 
         const titleSpan = document.createElement('span');
         titleSpan.textContent = 'Transition';
         titleSpan.style.cssText = 'font-weight: 500; font-size: 0.85em; color: #2c3e50;';
         headerDiv.appendChild(titleSpan);
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'property-btn';
-        deleteBtn.title = 'Remove transition';
-        deleteBtn.style.cssText = 'padding: 4px 8px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;';
-        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">';
+        const deleteBtn = createRemoveButton();
         deleteBtn.addEventListener('click', () => removeTransition(id));
         headerDiv.appendChild(deleteBtn);
 
@@ -2929,16 +2697,17 @@ function setupTransitionControls() {
 
     // Add hover effect to demo box
     if (transitionDemo) {
+        transitionDemo.style.background = '#2563eb';
+        const finalStyles = { transform: 'scale(1.2) rotate(10deg)', borderRadius: '50%', backgroundColor: '#f39c12',
+            width: '120px', height: '120px', opacity: '0.6', color: '#17263c', margin: '10px', padding: '12px',
+            boxShadow: '0 8px 20px #17263c55', filter: 'grayscale(1)' };
+        const initialStyles = Object.fromEntries(Object.keys(finalStyles).map(property => [property, transitionDemo.style[property]]));
         transitionDemo.addEventListener('mouseenter', () => {
-            transitionDemo.style.transform = 'scale(1.2) rotate(10deg)';
-            transitionDemo.style.borderRadius = '50%';
-            transitionDemo.style.backgroundColor = '#f39c12';
+            Object.assign(transitionDemo.style, finalStyles);
         });
 
         transitionDemo.addEventListener('mouseleave', () => {
-            transitionDemo.style.transform = '';
-            transitionDemo.style.borderRadius = '';
-            transitionDemo.style.backgroundColor = '';
+            Object.assign(transitionDemo.style, initialStyles);
         });
     }
 
@@ -2951,6 +2720,23 @@ function setupFilterControls() {
     const filterValue = document.getElementById('filter-value');
     const addFilterBtn = document.getElementById('add-filter-btn');
     const filterList = document.getElementById('filter-list');
+    const scene = document.getElementById('filter-scene');
+    const glass = document.getElementById('filter-glass');
+    const glassControls = document.getElementById('filter-glass-controls');
+    const glassColor = document.getElementById('filter-glass-color');
+    const propertyLink = document.getElementById('filter-property-link');
+    const section = workspaceTopics.get('filters').section;
+    let mode = 'image';
+    const presets = {
+        original: { mode: 'image', filters: [] },
+        grayscale: { mode: 'image', filters: [['grayscale', 100]] },
+        vintage: { mode: 'image', filters: [['sepia', 70], ['contrast', 90], ['brightness', 110]] },
+        vivid: { mode: 'image', filters: [['saturate', 180], ['contrast', 115]] },
+        fade: { mode: 'image', filters: [['opacity', 50]] },
+        frosted: { mode: 'backdrop', filters: [['blur', 12], ['saturate', 150]], color: '#ffffff', alpha: 28 },
+        'dark-glass': { mode: 'backdrop', filters: [['blur', 12], ['brightness', 80]], color: '#17263c', alpha: 55 }
+    };
+    const clearPreset = () => section.querySelectorAll('[data-filter-preset]').forEach(button => button.setAttribute('aria-pressed', 'false'));
 
     let filters = []; // Array to store filter objects
     let filterIdCounter = 0;
@@ -2959,7 +2745,7 @@ function setupFilterControls() {
     const filterConfigs = {
         'blur': {
             min: 0,
-            max: 10,
+            max: 30,
             step: 0.5,
             default: 0,
             unit: 'px',
@@ -3032,28 +2818,33 @@ function setupFilterControls() {
     };
 
     function updateFilterDisplay() {
-        if (filters.length === 0) {
-            filterValue.textContent = 'none;';
-            if (filterDemo) {
-                filterDemo.style.filter = '';
-            }
-        } else {
-            const filterString = filters.map(f => f.filterValue).join(' ');
-            filterValue.textContent = filterString + ';';
-            if (filterDemo) {
-                filterDemo.style.filter = filterString;
-            }
+        const filterString = filters.map(f => f.filterValue).join(' ') || 'none';
+        const backdrop = mode === 'backdrop';
+        filterValue.textContent = filterString + ';';
+        propertyLink.textContent = backdrop ? 'backdrop-filter:' : 'filter:';
+        propertyLink.href = `https://developer.mozilla.org/en-US/docs/Web/CSS/${backdrop ? 'backdrop-filter' : 'filter'}`;
+        scene.classList.toggle('filter-scene--backdrop', backdrop);
+        glass.hidden = glassControls.hidden = !backdrop;
+        filterDemo.style.filter = backdrop ? 'none' : filterString;
+        glass.style.backdropFilter = backdrop ? filterString : 'none';
+        glass.style.backgroundColor = colorPickerValue(glassColor);
+        const rgb = parseCssColor(glassColor.value).rgb;
+        glass.style.color = (rgb[0] * .299 + rgb[1] * .587 + rgb[2] * .114) < 128 ? '#ffffff' : '#17263c';
+        section.querySelectorAll('[data-filter-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filterMode === mode)));
+        if (workspaceReady) {
+            improveControls(section);
+            updateWorkspaceCode();
         }
     }
 
-    function createFilterItem(type = 'blur') {
+    function createFilterItem(type = 'blur', value = filterConfigs[type].default) {
         const id = filterIdCounter++;
         const config = filterConfigs[type];
 
         const filterObj = {
             id: id,
             type: type,
-            value: config.default,
+            value,
             filterValue: '',
             element: null
         };
@@ -3073,13 +2864,13 @@ function setupFilterControls() {
 
         // Header with type selector and delete button
         const headerDiv = document.createElement('div');
-        headerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;';
+        headerDiv.className = 'list-item-header';
 
         const selectContainer = document.createElement('div');
         selectContainer.style.cssText = 'display: flex; align-items: center; gap: 8px; flex: 1;';
 
         const typeLabel = document.createElement('span');
-        typeLabel.textContent = 'Filter:';
+        typeLabel.textContent = 'Filtre:';
         typeLabel.style.cssText = 'font-size: 0.75em; color: #2c3e50; width: 50px;';
         selectContainer.appendChild(typeLabel);
 
@@ -3103,6 +2894,7 @@ function setupFilterControls() {
                 const newFilter = createFilterItem(newType);
                 filters[index] = newFilter;
                 itemDiv.replaceWith(newFilter.element);
+                clearPreset();
                 updateFilterDisplay();
             }
         });
@@ -3110,11 +2902,7 @@ function setupFilterControls() {
         selectContainer.appendChild(typeSelect);
         headerDiv.appendChild(selectContainer);
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'property-btn';
-        deleteBtn.title = 'Remove filter';
-        deleteBtn.style.cssText = 'padding: 4px 8px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;';
-        deleteBtn.innerHTML = '<img src="images/icons/iconDelete.svg" alt="Delete" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">';
+        const deleteBtn = createRemoveButton();
         deleteBtn.addEventListener('click', () => removeFilter(id));
         headerDiv.appendChild(deleteBtn);
 
@@ -3128,7 +2916,8 @@ function setupFilterControls() {
         sliderRow.style.cssText = 'display: flex; align-items: center; gap: 8px;';
 
         const sliderLabel = document.createElement('label');
-        sliderLabel.textContent = 'Value:';
+        sliderLabel.textContent = 'Valor:';
+        sliderLabel.htmlFor = `filter-slider-${id}`;
         sliderLabel.style.cssText = 'width: 50px; font-size: 0.75em; color: #2c3e50;';
         sliderRow.appendChild(sliderLabel);
 
@@ -3136,16 +2925,18 @@ function setupFilterControls() {
         sliderWrapper.style.cssText = 'flex: 1; display: flex; flex-direction: column; gap: 2px;';
 
         const slider = document.createElement('input');
+        slider.id = `filter-slider-${id}`;
         slider.type = 'range';
         slider.min = config.min;
         slider.max = config.max;
         slider.step = config.step;
-        slider.value = config.default;
+        slider.value = value;
         slider.style.cssText = 'width: 100%;';
         slider.addEventListener('input', (e) => {
             filterObj.value = parseFloat(e.target.value);
             valueSpan.textContent = e.target.value + config.unit;
             filterObj.filterValue = generateValue();
+            clearPreset();
             updateFilterDisplay();
         });
         sliderWrapper.appendChild(slider);
@@ -3176,7 +2967,7 @@ function setupFilterControls() {
         sliderRow.appendChild(sliderWrapper);
 
         const valueSpan = document.createElement('span');
-        valueSpan.textContent = config.default + config.unit;
+        valueSpan.textContent = value + config.unit;
         valueSpan.style.cssText = 'width: 60px; text-align: right; font-size: 0.75em; font-family: "Courier New", monospace;';
         sliderRow.appendChild(valueSpan);
 
@@ -3191,6 +2982,7 @@ function setupFilterControls() {
         const newFilter = createFilterItem();
         filters.push(newFilter);
         filterList.appendChild(newFilter.element);
+        clearPreset();
         updateFilterDisplay();
     }
 
@@ -3199,6 +2991,7 @@ function setupFilterControls() {
         if (index !== -1) {
             filters[index].element.remove();
             filters.splice(index, 1);
+            clearPreset();
             updateFilterDisplay();
         }
     }
@@ -3211,16 +3004,56 @@ function setupFilterControls() {
         });
     }
 
-    // Initialize with one filter
-    addFilter();
+    function applyPreset(name) {
+        const preset = presets[name];
+        mode = preset.mode;
+        filterList.replaceChildren();
+        filters = preset.filters.map(([type, value]) => createFilterItem(type, value));
+        filters.forEach(filter => filterList.append(filter.element));
+        if (preset.color) {
+            glassColor.value = preset.color;
+            glassColor.dataset.colorAlpha = String(preset.alpha);
+            glassColor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        section.querySelectorAll('[data-filter-preset]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filterPreset === name)));
+        updateFilterDisplay();
+    }
+    section.querySelectorAll('[data-filter-preset]').forEach(button => button.addEventListener('click', () => applyPreset(button.dataset.filterPreset)));
+    section.querySelectorAll('[data-filter-mode]').forEach(button => button.addEventListener('click', () => {
+        mode = button.dataset.filterMode;
+        clearPreset();
+        updateFilterDisplay();
+    }));
+    addColorTransparency(glassColor, 'Color del vidre', { opacity: 28 });
+    glassColor.addEventListener('input', () => { clearPreset(); updateFilterDisplay(); });
+    const record = workspaceTopics.get('filters');
+    record.reset = () => {
+        glassColor.value = '#ffffff';
+        glassColor.dataset.colorAlpha = '28';
+        glassColor.dispatchEvent(new Event('input', { bubbles: true }));
+        applyPreset('original');
+    };
+    record.getSource = () => {
+        const filter = filters.map(item => item.filterValue).join(' ') || 'none';
+        const sceneCss = `.escena {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 270px;\n  overflow: hidden;\n  background: repeating-conic-gradient(#e7ebf1 0% 25%, #fff 0% 50%) 50% / 20px 20px;\n}`;
+        if (mode === 'image') return {
+            html: '<div class="escena">\n  <img class="exemple" src="images/image0.jpg" alt="Paisatge">\n</div>',
+            css: `${sceneCss}\n\n.exemple {\n  display: block;\n  width: 260px;\n  max-width: 100%;\n  height: 180px;\n  object-fit: cover;\n  filter: ${filter};\n}`
+        };
+        return {
+            html: '<div class="escena">\n  <img class="foto" src="images/image0.jpg" alt="Paisatge">\n  <div class="exemple">\n    <strong>Vidre glaçat</strong>\n    <span>El fons es transforma; el text es manté nítid.</span>\n  </div>\n</div>',
+            css: `${sceneCss}\n\n.foto {\n  position: absolute;\n  right: 16px;\n  top: 16px;\n  width: 65%;\n  height: calc(100% - 32px);\n  object-fit: cover;\n}\n\n.exemple {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  gap: 12px;\n  box-sizing: border-box;\n  width: 82%;\n  min-height: 180px;\n  padding: 24px;\n  border: 1px solid rgba(255, 255, 255, 0.55);\n  border-radius: 16px;\n  background-color: ${colorPickerValue(glassColor)};\n  color: ${glass.style.color};\n  box-shadow: 0 8px 24px rgba(23, 38, 60, 0.12);\n  backdrop-filter: ${filter};\n}\n\n.exemple strong {\n  font-size: 22px;\n}\n\n.exemple span {\n  font-size: 14px;\n  line-height: 1.5;\n}`
+        };
+    };
+    applyPreset('original');
 }
 
 // Cursor controls handlers
 function setupCursorControls() {
     const cursorGrid = document.getElementById('cursor-grid');
-    const cursorDemoBox = document.getElementById('cursor-demo-box');
     const cursorValue = document.getElementById('cursor-value');
-
+    const record = workspaceTopics.get('cursor');
+    const demo = document.getElementById('cursor-demo-box');
     const cursorTypes = [
         'auto', 'default', 'none', 'pointer', 'context-menu', 'help',
         'progress', 'wait', 'cell', 'crosshair', 'text', 'vertical-text',
@@ -3230,86 +3063,36 @@ function setupCursorControls() {
         'sw-resize', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize',
         'zoom-in', 'zoom-out'
     ];
-
-    let selectedBox = null;
-
-    function createCursorBox(cursorType) {
-        const box = document.createElement('div');
-        box.dataset.cursor = cursorType;
-        box.textContent = cursorType;
-        box.style.cssText = `
-            height: 50px;
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 6px;
-            cursor: ${cursorType};
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7em;
-            color: #2c3e50;
-            transition: all 0.2s;
-            position: relative;
-            text-align: center;
-            padding: 4px;
-        `;
-
-        // Handle click to select cursor
-        box.addEventListener('click', (e) => {
-            e.stopPropagation();
-
-            // Update selected state
-            if (selectedBox) {
-                selectedBox.style.background = '#f8f9fa';
-                selectedBox.style.borderColor = '#dee2e6';
-            }
-            box.style.background = '#e3f2fd';
-            box.style.borderColor = '#2196F3';
-            selectedBox = box;
-
-            // Update demo box and value
-            if (cursorDemoBox) {
-                cursorDemoBox.style.cursor = cursorType;
-                cursorDemoBox.innerHTML = `
-                    <div>Hover to see</div>
-                    <div style="font-weight: 700; font-size: 1.1em; margin: 5px 0;">"${cursorType}"</div>
-                    <div>cursor</div>
-                `;
-            }
-            if (cursorValue) {
-                cursorValue.textContent = cursorType + ';';
-            }
+    let selectedCursor = 'pointer';
+    const select = cursor => {
+        selectedCursor = cursor;
+        cursorValue.textContent = cursor + ';';
+        demo.style.cursor = cursor;
+        demo.querySelector('strong').textContent = cursor;
+        cursorGrid.querySelectorAll('button').forEach(box => {
+            const selected = box.dataset.cursor === cursor;
+            box.classList.toggle('selected', selected);
+            box.setAttribute('aria-pressed', String(selected));
         });
-
-        return box;
-    }
-
-    // Create all cursor boxes
-    if (cursorGrid) {
-        cursorTypes.forEach(cursorType => {
-            const box = createCursorBox(cursorType);
-            cursorGrid.appendChild(box);
-
-            // Select 'pointer' by default
-            if (cursorType === 'pointer') {
-                box.style.background = '#e3f2fd';
-                box.style.borderColor = '#2196F3';
-                selectedBox = box;
-                // Initialize demo box with pointer
-                if (cursorDemoBox) {
-                    cursorDemoBox.style.cursor = 'pointer';
-                    cursorDemoBox.innerHTML = `
-                        <div>Hover to see</div>
-                        <div style="font-weight: 700; font-size: 1.1em; margin: 5px 0;">"pointer"</div>
-                        <div>cursor</div>
-                    `;
-                }
-                if (cursorValue) {
-                    cursorValue.textContent = 'pointer;';
-                }
-            }
-        });
-    }
+        if (workspaceReady) updateWorkspaceCode();
+    };
+    cursorTypes.forEach(cursor => {
+        const box = document.createElement('button');
+        box.type = 'button';
+        box.className = 'cursor-tile';
+        box.dataset.cursor = cursor;
+        box.style.cursor = cursor;
+        box.innerHTML = `<img class="cursor-type-icon" src="images/icons/cursor-${cursor}.svg" alt="" aria-hidden="true"><span>${cursor}</span>`;
+        box.querySelector('img').draggable = false;
+        box.addEventListener('click', () => select(cursor));
+        cursorGrid.append(box);
+    });
+    record.getSource = () => ({
+        html: '<div class="exemple">Passa el ratolí per aquesta àrea.</div>',
+        css: `.exemple {\n  cursor: ${selectedCursor};\n  padding: 24px;\n  border: 1px solid #bfc6ce;\n  background-color: white;\n  color: #17263c;\n}`
+    });
+    record.reset = () => select('pointer');
+    select('pointer');
 }
 
 // Typography controls handlers
@@ -3328,6 +3111,8 @@ function setupTypographyControls() {
 
     let isFontSizeInitial = true;
     let isTextColorInitial = false;
+    addColorTransparency(textColorPicker, 'Color del text');
+    textColorValue.textContent = colorPickerValue(textColorPicker) + ';';
 
     // Font Family
     if (fontFamilySelect) {
@@ -3411,8 +3196,10 @@ function setupTypographyControls() {
     // Text Color
     if (textColorPicker) {
         textColorPicker.addEventListener('input', () => {
-            if (!isTextColorInitial && typographyDemo) {
-                const value = textColorPicker.value;
+            isTextColorInitial = false;
+            textColorInitialBtn.classList.remove('selected');
+            if (typographyDemo) {
+                const value = colorPickerValue(textColorPicker);
                 typographyDemo.style.color = value;
                 if (textColorValue) {
                     textColorValue.textContent = value + ';';
@@ -3428,7 +3215,7 @@ function setupTypographyControls() {
 
             if (isTextColorInitial) {
                 textColorInitialBtn.classList.add('selected');
-                textColorPicker.disabled = true;
+                textColorPicker.disabled = false;
                 if (typographyDemo) {
                     typographyDemo.style.color = '';
                 }
@@ -3438,7 +3225,7 @@ function setupTypographyControls() {
             } else {
                 textColorInitialBtn.classList.remove('selected');
                 textColorPicker.disabled = false;
-                const value = textColorPicker.value;
+                const value = colorPickerValue(textColorPicker);
                 if (typographyDemo) {
                     typographyDemo.style.color = value;
                 }
@@ -3634,13 +3421,13 @@ function oldShowMarginExample() {
         const uniqueValues = [...new Set(values)];
 
         if (uniqueValues.length === 1 && uniqueValues[0] !== '0') {
-            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Shorthand: margin: ${uniqueValues[0]}</div>`;
+            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Forma abreujada: margin: ${uniqueValues[0]}</div>`;
         } else if (finalTop === finalBottom && finalRight === finalLeft && finalTop !== '0') {
-            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Shorthand: margin: ${finalTop} ${finalRight}</div>`;
+            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Forma abreujada: margin: ${finalTop} ${finalRight}</div>`;
         } else if (finalRight === finalLeft && (finalTop !== '0' || finalRight !== '0' || finalBottom !== '0')) {
-            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Shorthand: margin: ${finalTop} ${finalRight} ${finalBottom}</div>`;
+            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Forma abreujada: margin: ${finalTop} ${finalRight} ${finalBottom}</div>`;
         } else if (finalTop !== '0' || finalRight !== '0' || finalBottom !== '0' || finalLeft !== '0') {
-            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Shorthand: margin: ${finalTop} ${finalRight} ${finalBottom} ${finalLeft} (top right bottom left)</div>`;
+            shorthandHint = `<div style="font-size: 0.65em; color: #999; margin-top: 2px;">Forma abreujada: margin: ${finalTop} ${finalRight} ${finalBottom} ${finalLeft} (superior, dret, inferior, esquerre)</div>`;
         }
     }
 
@@ -3650,13 +3437,13 @@ function oldShowMarginExample() {
 
     let marginLegend = '';
     if (hasAutoLeftRight && hasAutoTopBottom) {
-        marginLegend = '(orange = fixed, green = auto left/right, purple = auto top/bottom → 0)';
+        marginLegend = '(taronja: marge fix; verd: auto horitzontal; lila: auto vertical → 0)';
     } else if (hasAutoLeftRight) {
-        marginLegend = '(orange = fixed margin, green = auto margin)';
+        marginLegend = '(taronja: marge fix; verd: marge auto)';
     } else if (hasAutoTopBottom) {
-        marginLegend = '(orange = fixed margin, purple = auto → computes to 0)';
+        marginLegend = '(taronja: marge fix; lila: auto es calcula com a 0)';
     } else {
-        marginLegend = '(orange area shows margin)';
+        marginLegend = '(la zona taronja representa el marge)';
     }
 
     container.innerHTML = `
@@ -4376,17 +4163,19 @@ function setupParagraphColumnsControls() {
     const columnRuleColorValue = document.getElementById('column-rule-color-value');
     const columnRuleColorInitialBtn = document.getElementById('column-rule-color-initial-btn');
     let isColumnRuleColorInitial = true;
+    columnRuleColorPicker.disabled = false;
+    addColorTransparency(columnRuleColorPicker, 'Color de la línia entre columnes');
 
     if (columnRuleColorPicker) {
         columnRuleColorPicker.addEventListener('input', () => {
-            if (!isColumnRuleColorInitial) {
-                const value = columnRuleColorPicker.value;
-                if (columnsDemo) {
-                    columnsDemo.style.columnRuleColor = value;
-                }
-                if (columnRuleColorValue) {
-                    columnRuleColorValue.textContent = value + ';';
-                }
+            isColumnRuleColorInitial = false;
+            columnRuleColorInitialBtn.classList.remove('selected');
+            const value = colorPickerValue(columnRuleColorPicker);
+            if (columnsDemo) {
+                columnsDemo.style.columnRuleColor = value;
+            }
+            if (columnRuleColorValue) {
+                columnRuleColorValue.textContent = value + ';';
             }
         });
     }
@@ -4398,7 +4187,7 @@ function setupParagraphColumnsControls() {
             if (isColumnRuleColorInitial) {
                 columnRuleColorInitialBtn.classList.add('selected');
                 if (columnRuleColorPicker) {
-                    columnRuleColorPicker.disabled = true;
+                    columnRuleColorPicker.disabled = false;
                 }
                 if (columnsDemo) columnsDemo.style.columnRuleColor = '';
                 if (columnRuleColorValue) columnRuleColorValue.textContent = 'initial;';
@@ -4406,7 +4195,7 @@ function setupParagraphColumnsControls() {
                 columnRuleColorInitialBtn.classList.remove('selected');
                 if (columnRuleColorPicker) {
                     columnRuleColorPicker.disabled = false;
-                    const value = columnRuleColorPicker.value;
+                    const value = colorPickerValue(columnRuleColorPicker);
                     if (columnsDemo) columnsDemo.style.columnRuleColor = value;
                     if (columnRuleColorValue) columnRuleColorValue.textContent = value + ';';
                 }
