@@ -5,7 +5,7 @@
 }
 
 /* més marge a mòbil */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .autocenter {
     padding: 0 25px;
   }

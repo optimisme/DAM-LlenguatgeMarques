@@ -11,7 +11,7 @@
 }
 
 /* Estils que només s'apliquen a "Mòbil" */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     background: #a2ff17ff;
   }
