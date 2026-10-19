@@ -3,7 +3,7 @@
 
 ## Grups
 
-Cal desenvolupar el treball en grups de dues persones, però diferent als grups de Pixelmator.
+Cal desenvolupar el treball en grups de dues persones, però diferent als grups de Strata.
 
 La temàtica de la web ha de ser un joc de taula, assegura't que no el fa ningú més del teu grup (DAM, DAW, MIX).
 
@@ -70,7 +70,7 @@ Totes les pàgines:
 - Veure's bé en mòbil i ordinador
 - Han de fer servir almenys una tipografia de Google Fonts
 - Estar maquetades amb Flexbox o Grid 
-- Tenir estètica professional (recordeu Pixelmator)
+- Tenir estètica professional (recordeu Strata)
 - La pàgina HTML no pot contenir CSS incrustat
 - Els arxius CSS han d’estar organitzats amb criteri de reutilització
 - La web s'ha de lliurar en una sola carpeta que contingui tot el necessari per a poder executar-se (rutes relatives)
