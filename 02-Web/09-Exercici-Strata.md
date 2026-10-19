@@ -1,5 +1,7 @@
 # Exercici004: Strata
 
+Exercici en **grups de dues persones**.
+
 Reprodueix la pàgina principal de **[Strata](https://www.strata.ai/#)** amb **HTML i CSS**, i fes que s'adapti a ordinador i mòbil.
 
 L'objectiu és practicar la maquetació responsive: estructura, tipografia, colors, degradats, espais, alineacions i distribució dels continguts.
@@ -208,6 +210,8 @@ Els logotips, les imatges, els textos i el disseny de referència provenen de [S
 
 ## Entrega
 
-Entrega l'exercici com un nou repositori a GitHub anomenat **DAM1M04-Exercici004**.
+Entregueu l'exercici com un nou repositori a GitHub anomenat **DAM1M04-Exercici004**, d'un dels dos alumnes.
+
+Al repositori del GitHub hi ha d'haver aportacions dels dos alumnes, és a dir que qui tingui el repositori l'ha de compartir amb el seu company.
 
 Copia l'enllaç del repositori a l'espai d'entrega del Moodle de l'assignatura.
