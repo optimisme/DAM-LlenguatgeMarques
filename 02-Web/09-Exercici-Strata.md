@@ -217,3 +217,10 @@ Al repositori del GitHub hi ha d'haver aportacions dels dos alumnes, és a dir q
 Copia l'enllaç del repositori a l'espai d'entrega del Moodle de l'assignatura.
 
 La visualització pràctica s'ha de fer a través del Proxmox de l'institut, igualment s'ha de penjar la web al proxmos d'un dels dos alumnes del grup.
+
+Per tant:
+
+- Entrega la URL del GitHub i la URL del Proxmox al Moodle
+- Aportacions dels dos alumnes al GitHub del l'exercici
+- Visualizació de la web al Proxmox de l'institut
+- Cada alumne del grup ha d'entregar les mateixes dues URLs al seu Moodle personal
