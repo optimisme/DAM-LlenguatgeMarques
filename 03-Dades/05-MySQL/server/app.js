@@ -14,11 +14,11 @@ const isProxmox = !!process.env.PM2_HOME;
 const db = new MySQL();
 if (!isProxmox) {
   db.init({
-    host: '127.0.0.1',
+    host: '127.0.0.1', // Es lo mismo que localhost
     port: 3306,
-    user: 'root',
-    password: 'root',
-    database: 'escola'
+    user: 'root',      // Usuario de tu Workbench
+    password: '',      // Pon la contraseña que uses en Workbench (si no tienes, déjalo vacío '')
+    database: 'sakila' // Cambia 'escola' por 'sakila'
   });
 } else {
   db.init({
