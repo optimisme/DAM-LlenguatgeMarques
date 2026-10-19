@@ -215,3 +215,5 @@ Entregueu l'exercici com un nou repositori a GitHub anomenat **DAM1M04-Exercici0
 Al repositori del GitHub hi ha d'haver aportacions dels dos alumnes, és a dir que qui tingui el repositori l'ha de compartir amb el seu company.
 
 Copia l'enllaç del repositori a l'espai d'entrega del Moodle de l'assignatura.
+
+La visualització pràctica s'ha de fer a través del Proxmox de l'institut, igualment s'ha de penjar la web al proxmos d'un dels dos alumnes del grup.
