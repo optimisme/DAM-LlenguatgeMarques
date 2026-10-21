@@ -28,7 +28,7 @@ sudo apt install git zip unzip dos2unix net-tools
 
 Heu de configurar *Visual Studio Code*, o el vostre editor per fer els salts de linia amb format UNIX i UTF-8.
 
-Si no ho feu, quan editeu els arxius des de Windows, els haureu d'arreglar perquè funcionin amb WSL, feu-ho amb:
+Si no ho feu, quan editeu els arxius des de Windows, els haureu d'arreglar perquè funcionin amb WSL, feu-ho aneu a la carpeta "proxmox" i:
 ```bash
 chmod +x *.sh && chmod +x ../*.sh
 dos2unix * && dos2unix ../*
