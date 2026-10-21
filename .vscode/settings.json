@@ -7,5 +7,5 @@
         "*.md": "vscode.markdown.preview.editor",
     },
     "java.configuration.updateBuildConfiguration": "interactive",
-    "livePreview.defaultPreviewPath": "/02-Web/11-CSSAvancat/exemple-01/index.html"
+    "livePreview.defaultPreviewPath": "/02-Web/10-Animacions/exemple-00/index.html"
 }

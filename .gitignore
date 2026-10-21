@@ -1,6 +1,7 @@
 # .env Settings
 *.env
 !*.env.example
+vids
 
 # General
 .DS_Store
