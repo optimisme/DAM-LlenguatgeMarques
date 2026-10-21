@@ -30,6 +30,6 @@ Heu de configurar *Visual Studio Code*, o el vostre editor per fer els salts de 
 
 Si no ho feu, quan editeu els arxius des de Windows, els haureu d'arreglar perquè funcionin amb WSL, feu-ho aneu a la carpeta "proxmox" i:
 ```bash
-chmod +x *.sh && chmod +x ../*.sh
-dos2unix * && dos2unix ../*
+chmod +x *.sh
+dos2unix *
 ```
