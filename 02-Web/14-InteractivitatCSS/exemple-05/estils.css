@@ -200,4 +200,29 @@ body:has(#pauseOrbit:checked) .indicator::after {
   transform: translateX(calc(var(--w) - var(--knob) - var(--pad)*2));
 }
 
+/* Para Tablets (menos de 800px de ancho) */
+@media (max-width: 800px) {
+    .planeta {
+        width: 400px;  /* Reducimos de 600 a 400 */
+        height: 400px;
+    }
+    .rocket {
+        width: 70px;   /* Reducimos de 100 a 70 */
+    }
+    /* La órbita se ajusta sola porque usa 750% de la escena */
+}
 
+/* Para Móviles (menos de 500px de ancho) */
+@media (max-width: 500px) {
+    .planeta {
+        width: 280px;
+        height: 280px;
+    }
+    .rocket {
+        width: 50px;
+    }
+    .animation {
+        bottom: 20px;
+        transform: translateX(-50%) scale(0.8); /* Encogemos el botón */
+    }
+}
