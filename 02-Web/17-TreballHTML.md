@@ -43,7 +43,6 @@ Es valorarà especialment la qualitat estètica, la coherència visual, les anim
 - Utilitzar rutes relatives per als recursos locals.
 - Separar completament el codi HTML del CSS.
 - Organitzar els CSS amb criteris de reutilització.
-- Fer servir etiquetes HTML5 semàntiques.
 - NO es pot fer servir Grid.
 - NO es pot fer servir l'atribut "style"
 
