@@ -212,3 +212,20 @@ Aquestes condicions són obligatòries per a tot el projecte:
 - Es poden utilitzar biblioteques de CSS, però no poden substituir la implementació pròpia dels requisits d'interactivitat.
 
 **El resultat final ha de tenir l'aparença d'una web musical professional.** No es tracta únicament de completar els requisits, sinó d'aconseguir una experiència visual atractiva, coherent i ben acabada.
+
+## Entrega
+
+Entregueu l'exercici com un nou repositori a GitHub anomenat **DAM1M04-ExerciciHTML**, d'un dels dos alumnes.
+
+Al repositori del GitHub hi ha d'haver aportacions dels dos alumnes, és a dir que qui tingui el repositori l'ha de compartir amb el seu company.
+
+Copia l'enllaç del repositori a l'espai d'entrega del Moodle de l'assignatura.
+
+La visualització pràctica s'ha de fer a través del Proxmox de l'institut, igualment s'ha de penjar la web al proxmos d'un dels dos alumnes del grup.
+
+Per tant:
+
+- Entrega la URL del GitHub i la URL del Proxmox al Moodle
+- Aportacions dels dos alumnes al GitHub del l'exercici
+- Visualizació de la web al Proxmox de l'institut
+- Cada alumne del grup ha d'entregar les mateixes dues URLs al seu Moodle personal
