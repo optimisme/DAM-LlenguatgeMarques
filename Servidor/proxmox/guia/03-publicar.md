@@ -8,7 +8,7 @@ Totes les comandes s'executen **des de la consola local**, a la carpeta **"proxm
 
 ## Enviar la pàgina web al Proxmox
 
-Aquest script empaqueta la pàgina web, l'envia al Proxmox i hi reinicia el servidor NodeJS:
+Aquest script envia la pàgina web al Proxmox amb **rsync** (només els arxius que han canviat) i hi reinicia el servidor NodeJS:
 
 ```bash
 ./proxmoxDeploy.sh

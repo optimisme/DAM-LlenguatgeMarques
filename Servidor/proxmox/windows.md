@@ -21,7 +21,7 @@ DEFAULT_RSA_PATH="/root/.ssh/id_rsa"
 A la carpeta del projecte caldrà instal·lar:
 ```bash
 sudo apt update
-sudo apt install git zip unzip dos2unix net-tools
+sudo apt install git rsync dos2unix net-tools
 ```
 
 ## Format d'arxius

@@ -41,7 +41,7 @@ Un cop connectats, des de la consola remota:
 
 ```bash
 sudo apt update
-sudo apt install npm zip unzip rsync iproute2 iptables-persistent
+sudo apt install npm rsync iproute2 iptables-persistent
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest

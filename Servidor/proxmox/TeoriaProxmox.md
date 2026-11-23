@@ -48,5 +48,5 @@ Tots els scripts s'executen **des del vostre ordinador**, dins la carpeta **"pro
 | `proxmoxTunelStart.sh` | Obre el túnel cap al MySQL remot | [02](./guia/02-tunel-mysql.md) |
 | `proxmoxTunelStatus.sh` | Diu si el túnel està obert | [02](./guia/02-tunel-mysql.md) |
 | `proxmoxTunelStop.sh` | Atura el túnel | [02](./guia/02-tunel-mysql.md) |
-| `proxmoxDeploy.sh` | Empaqueta i publica la pàgina web | [03](./guia/03-publicar.md) |
+| `proxmoxDeploy.sh` | Envia i publica la pàgina web | [03](./guia/03-publicar.md) |
 | `proxmoxSendFile.sh` | Envia un arxiu al servidor remot | [03](./guia/03-publicar.md) |

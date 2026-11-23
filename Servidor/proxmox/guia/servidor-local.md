@@ -14,7 +14,7 @@ A Linux:
 
 ```bash
 sudo apt update
-sudo apt install npm zip unzip iptables-persistent rsync iproute2
+sudo apt install npm rsync iptables-persistent iproute2
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
