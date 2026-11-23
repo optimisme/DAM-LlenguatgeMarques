@@ -54,7 +54,7 @@ quit;
 Segueix les instruccions per instal·lar el servidor de 'MySQL' al *Proxmox* que hi ha a:
 
 ```text
-Servidor/nodejs_server/proxmox/TeoriaProxmox.md
+03-Dades/05-MySQL/proxmox/TeoriaProxmox.md
 ```
 
 Un cop tinguis el servidor 'MySQL' funcionant al proxmox, assegura't d'obrir el *Túnel* des del teu ordinador:

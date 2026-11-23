@@ -33,7 +33,7 @@ sudo npm install -g pm2
 
 ## Estructura del projecte
 
-Les comandes d'aquest document s'executen des de la carpeta **"Servidor"**, la que conté l'arxiu `package.json`:
+Les comandes d'aquest document s'executen des de la carpeta del projecte, la que conté l'arxiu `package.json`:
 
 | Carpeta o arxiu | Contingut |
 |---|---|
