@@ -18,6 +18,20 @@ La pàgina queda publicada a (canvieu *usuari* pel vostre usuari):
 
 [https://usuari.ieti.site](https://usuari.ieti.site)
 
+## Què es conserva al servidor remot en cada publicació
+
+L'script deixa la carpeta `~/nodejs_server` del servidor remot **igual que el vostre projecte local**: copia el que ha canviat i **esborra del servidor el que ja no teniu en local**. Hi ha unes excepcions, que no s'envien ni s'esborren mai:
+
+| Al servidor remot | Què passa en publicar |
+|---|---|
+| Carpeta `data/` (a l'arrel del projecte) | **Es conserva** |
+| Arxiu `settings.env` (a l'arrel del projecte) | **Es conserva** |
+| Carpeta `node_modules/` | **Es conserva**, i s'actualitza amb `npm install` |
+| Bases de dades MySQL | **No es toquen**, no formen part de la carpeta del projecte |
+| La resta (`server/`, `public/`...) | Es **substitueix** per la vostra versió local |
+
+**Important:** si el vostre servidor guarda arxius mentre funciona (pujades d'usuaris, una base de dades SQLite, arxius JSON...), els ha de guardar dins la carpeta **`data/`** de l'arrel del projecte. Qualsevol arxiu creat al servidor remot en un altre lloc, per exemple dins de `server/` o `public/`, **es perd** a la següent publicació.
+
 ## Comprovar el servidor NodeJS remot
 
 Si la pàgina no respon, connecteu-vos al servidor remot:
